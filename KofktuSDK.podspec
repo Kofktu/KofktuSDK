@@ -78,7 +78,7 @@ Pod::Spec.new do |s|
   #  Supports git, hg, bzr, svn and HTTP.
   #
 
-  s.source       = { :git => "https://github.com/Kofktu/KofktuSDK.git", :commit => "db1163bdbc45a932e06ea84296976af7d9fc13b8" }
+  s.source       = { :git => "https://github.com/Kofktu/KofktuSDK.git", :commit => "319c1660e36f490a3bc1f81ac33ad9e455a7272f" }
 
 
   # ――― Source Code ―――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――― #
@@ -89,7 +89,7 @@ Pod::Spec.new do |s|
   #  Not including the public_header_files will make all headers public.
   #
 
-  s.source_files  = "Classes/**/*.{swift}"
+  s.source_files  = "Classes/*.{swift}"
   # s.exclude_files = "Classes/Exclude"
 
   # s.public_header_files = "Classes/**/*.h"
