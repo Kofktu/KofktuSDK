@@ -10,6 +10,7 @@
 		C3D508CC1D2D49DC005F2B55 /* KofktuSDK.h in Headers */ = {isa = PBXBuildFile; fileRef = C3D508CB1D2D49DC005F2B55 /* KofktuSDK.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		C3D508D31D2D49DC005F2B55 /* KofktuSDK.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C3D508C81D2D49DC005F2B55 /* KofktuSDK.framework */; };
 		C3D508D81D2D49DC005F2B55 /* KofktuSDKTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3D508D71D2D49DC005F2B55 /* KofktuSDKTests.swift */; };
+		C3D508E41D2D4AEF005F2B55 /* UIExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3D508E31D2D4AEF005F2B55 /* UIExtensions.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -29,6 +30,7 @@
 		C3D508D21D2D49DC005F2B55 /* KofktuSDKTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = KofktuSDKTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		C3D508D71D2D49DC005F2B55 /* KofktuSDKTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KofktuSDKTests.swift; sourceTree = "<group>"; };
 		C3D508D91D2D49DC005F2B55 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		C3D508E31D2D4AEF005F2B55 /* UIExtensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UIExtensions.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -71,6 +73,7 @@
 		C3D508CA1D2D49DC005F2B55 /* KofktuSDK */ = {
 			isa = PBXGroup;
 			children = (
+				C3D508E21D2D4AC4005F2B55 /* Classes */,
 				C3D508CB1D2D49DC005F2B55 /* KofktuSDK.h */,
 				C3D508CD1D2D49DC005F2B55 /* Info.plist */,
 			);
@@ -84,6 +87,14 @@
 				C3D508D91D2D49DC005F2B55 /* Info.plist */,
 			);
 			path = KofktuSDKTests;
+			sourceTree = "<group>";
+		};
+		C3D508E21D2D4AC4005F2B55 /* Classes */ = {
+			isa = PBXGroup;
+			children = (
+				C3D508E31D2D4AEF005F2B55 /* UIExtensions.swift */,
+			);
+			path = Classes;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -194,6 +205,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				C3D508E41D2D4AEF005F2B55 /* UIExtensions.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -310,6 +322,7 @@
 		C3D508DD1D2D49DC005F2B55 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				CLANG_ENABLE_MODULES = YES;
 				DEFINES_MODULE = YES;
 				DYLIB_COMPATIBILITY_VERSION = 1;
 				DYLIB_CURRENT_VERSION = 1;
@@ -320,12 +333,14 @@
 				PRODUCT_BUNDLE_IDENTIFIER = kr.homefactory.KofktuSDK;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SKIP_INSTALL = YES;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 			};
 			name = Debug;
 		};
 		C3D508DE1D2D49DC005F2B55 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				CLANG_ENABLE_MODULES = YES;
 				DEFINES_MODULE = YES;
 				DYLIB_COMPATIBILITY_VERSION = 1;
 				DYLIB_CURRENT_VERSION = 1;
@@ -378,6 +393,7 @@
 				C3D508DE1D2D49DC005F2B55 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		C3D508DF1D2D49DC005F2B55 /* Build configuration list for PBXNativeTarget "KofktuSDKTests" */ = {
 			isa = XCConfigurationList;
@@ -386,6 +402,7 @@
 				C3D508E11D2D49DC005F2B55 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
