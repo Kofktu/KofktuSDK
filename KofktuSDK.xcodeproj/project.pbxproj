@@ -7,10 +7,11 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		C3D4FDB91D2D553600F3FF01 /* Logger.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3D4FDB81D2D553600F3FF01 /* Logger.swift */; };
+		C3D4FDBC1D2D554E00F3FF01 /* UIExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3D4FDBB1D2D554E00F3FF01 /* UIExtensions.swift */; };
 		C3D508CC1D2D49DC005F2B55 /* KofktuSDK.h in Headers */ = {isa = PBXBuildFile; fileRef = C3D508CB1D2D49DC005F2B55 /* KofktuSDK.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		C3D508D31D2D49DC005F2B55 /* KofktuSDK.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C3D508C81D2D49DC005F2B55 /* KofktuSDK.framework */; };
 		C3D508D81D2D49DC005F2B55 /* KofktuSDKTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3D508D71D2D49DC005F2B55 /* KofktuSDKTests.swift */; };
-		C3D508E41D2D4AEF005F2B55 /* UIExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3D508E31D2D4AEF005F2B55 /* UIExtensions.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -24,13 +25,14 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		C3D4FDB81D2D553600F3FF01 /* Logger.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Logger.swift; sourceTree = "<group>"; };
+		C3D4FDBB1D2D554E00F3FF01 /* UIExtensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UIExtensions.swift; sourceTree = "<group>"; };
 		C3D508C81D2D49DC005F2B55 /* KofktuSDK.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = KofktuSDK.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		C3D508CB1D2D49DC005F2B55 /* KofktuSDK.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = KofktuSDK.h; sourceTree = "<group>"; };
 		C3D508CD1D2D49DC005F2B55 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		C3D508D21D2D49DC005F2B55 /* KofktuSDKTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = KofktuSDKTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		C3D508D71D2D49DC005F2B55 /* KofktuSDKTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KofktuSDKTests.swift; sourceTree = "<group>"; };
 		C3D508D91D2D49DC005F2B55 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		C3D508E31D2D4AEF005F2B55 /* UIExtensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UIExtensions.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -52,6 +54,22 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		C3D4FDB71D2D552A00F3FF01 /* Logger */ = {
+			isa = PBXGroup;
+			children = (
+				C3D4FDB81D2D553600F3FF01 /* Logger.swift */,
+			);
+			path = Logger;
+			sourceTree = "<group>";
+		};
+		C3D4FDBA1D2D554100F3FF01 /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				C3D4FDBB1D2D554E00F3FF01 /* UIExtensions.swift */,
+			);
+			path = Extensions;
+			sourceTree = "<group>";
+		};
 		C3D508BE1D2D49DC005F2B55 = {
 			isa = PBXGroup;
 			children = (
@@ -92,7 +110,8 @@
 		C3D508E21D2D4AC4005F2B55 /* Classes */ = {
 			isa = PBXGroup;
 			children = (
-				C3D508E31D2D4AEF005F2B55 /* UIExtensions.swift */,
+				C3D4FDBA1D2D554100F3FF01 /* Extensions */,
+				C3D4FDB71D2D552A00F3FF01 /* Logger */,
 			);
 			path = Classes;
 			sourceTree = "<group>";
@@ -205,7 +224,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				C3D508E41D2D4AEF005F2B55 /* UIExtensions.swift in Sources */,
+				C3D4FDBC1D2D554E00F3FF01 /* UIExtensions.swift in Sources */,
+				C3D4FDB91D2D553600F3FF01 /* Logger.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
