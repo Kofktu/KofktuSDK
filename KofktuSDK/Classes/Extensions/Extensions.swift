@@ -8,7 +8,7 @@
 
 import Foundation
 
-public extension Array {
+extension Array {
     
     mutating public func suffle() {
         guard count > 1 else { return }
@@ -22,7 +22,7 @@ public extension Array {
     
 }
 
-public extension Dictionary {
+extension Dictionary {
     
     mutating public func merge(dict: [Key: Value]){
         for (key, value) in dict {
@@ -32,7 +32,7 @@ public extension Dictionary {
     
 }
 
-public extension String {
+extension String {
     
     public var urlEncoded: String? {
         let characterSet = NSCharacterSet(charactersInString: "\n ;:\\@&=+$,/?%#[]|\"<>").invertedSet
