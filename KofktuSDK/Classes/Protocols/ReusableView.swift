@@ -13,11 +13,11 @@ public protocol NibLoadableView: class {
 }
 
 extension NibLoadableView where Self: UIView {
-    static var nibName: String {
+    static public var nibName: String {
         return NSStringFromClass(self).componentsSeparatedByString(".").last!
     }
     
-    static func instanceFromNib() -> NibLoadableView? {
+    static public func instanceFromNib() -> NibLoadableView? {
         let bundle = NSBundle(forClass: self)
         let views = bundle.loadNibNamed(nibName, owner: nil, options: nil)
         for view in views {
@@ -34,7 +34,7 @@ public protocol ReusableView: class {
 }
 
 extension ReusableView where Self: UIView {
-    static var reusableIdentifier: String {
+    static public var reusableIdentifier: String {
         return NSStringFromClass(self).componentsSeparatedByString(".").last!
     }
 }

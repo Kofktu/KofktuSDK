@@ -10,7 +10,7 @@ import Foundation
 
 extension Array {
     
-    mutating func suffle() {
+    mutating public func suffle() {
         guard count > 1 else { return }
         
         for i in 0 ..< (count - 1) {
@@ -24,7 +24,7 @@ extension Array {
 
 extension Dictionary {
     
-    mutating func merge(dict: [Key: Value]){
+    mutating public func merge(dict: [Key: Value]){
         for (key, value) in dict {
             updateValue(value, forKey: key)
         }
@@ -34,30 +34,30 @@ extension Dictionary {
 
 extension String {
     
-    var urlEncoded: String? {
+    public var urlEncoded: String? {
         let characterSet = NSCharacterSet(charactersInString: "\n ;:\\@&=+$,/?%#[]|\"<>").invertedSet
         return stringByAddingPercentEncodingWithAllowedCharacters(characterSet)
     }
     
-    var urlDecoded: String? {
+    public var urlDecoded: String? {
         return stringByRemovingPercentEncoding
     }
     
-    var localized: String {
+    public var localized: String {
         return NSLocalizedString(self, comment: "")
     }
     
-    func localized(args: CVarArgType...) -> String {
+    public func localized(args: CVarArgType...) -> String {
         let format = NSLocalizedString(self, comment: "")
         return NSString(format: format, arguments: getVaList(args)) as String
     }
     
-    func indexOf(string: String) -> Int? {
+    public func indexOf(string: String) -> Int? {
         guard let range = rangeOfString(string) else { return nil }
         return startIndex.distanceTo(range.startIndex)
     }
     
-    subscript (range: Range<Int>) -> String? {
+    public subscript (range: Range<Int>) -> String? {
         let count = characters.count as Int
         
         //Check for out of boundary condition
@@ -69,7 +69,7 @@ extension String {
         return self[start..<end]
     }
     
-    func trim() -> String {
+    public func trim() -> String {
         return stringByTrimmingCharactersInSet(NSCharacterSet.whitespaceCharacterSet())
     }
     
