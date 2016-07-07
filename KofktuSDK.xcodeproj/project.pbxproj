@@ -7,7 +7,10 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		93FE1C94805C23FA9A2C1CF2 /* Pods_KofktuSDK.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 778378763DE317A88352CB43 /* Pods_KofktuSDK.framework */; };
+		A6307D900A99015E7BFA1313 /* Pods_KofktuSDKTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 727F041333A55A68BA794E19 /* Pods_KofktuSDKTests.framework */; };
 		C3367A0B1D2E7FA3004B5112 /* KofktuSDK.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3367A0A1D2E7FA3004B5112 /* KofktuSDK.swift */; };
+		C38F0D6C1D2E9F9100797C21 /* ApiManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = C38F0D6B1D2E9F9100797C21 /* ApiManager.swift */; };
 		C3D4FDB91D2D553600F3FF01 /* Logger.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3D4FDB81D2D553600F3FF01 /* Logger.swift */; };
 		C3D4FDBC1D2D554E00F3FF01 /* UIExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3D4FDBB1D2D554E00F3FF01 /* UIExtensions.swift */; };
 		C3D508CC1D2D49DC005F2B55 /* KofktuSDK.h in Headers */ = {isa = PBXBuildFile; fileRef = C3D508CB1D2D49DC005F2B55 /* KofktuSDK.h */; settings = {ATTRIBUTES = (Public, ); }; };
@@ -30,7 +33,13 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		34B1B3B386BCD89C8F9505D3 /* Pods-KofktuSDK.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-KofktuSDK.debug.xcconfig"; path = "Pods/Target Support Files/Pods-KofktuSDK/Pods-KofktuSDK.debug.xcconfig"; sourceTree = "<group>"; };
+		3A3950F93A2192696F789583 /* Pods-KofktuSDK.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-KofktuSDK.release.xcconfig"; path = "Pods/Target Support Files/Pods-KofktuSDK/Pods-KofktuSDK.release.xcconfig"; sourceTree = "<group>"; };
+		67C68986823C9BF68C5EA96B /* Pods-KofktuSDKTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-KofktuSDKTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-KofktuSDKTests/Pods-KofktuSDKTests.release.xcconfig"; sourceTree = "<group>"; };
+		727F041333A55A68BA794E19 /* Pods_KofktuSDKTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_KofktuSDKTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		778378763DE317A88352CB43 /* Pods_KofktuSDK.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_KofktuSDK.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		C3367A0A1D2E7FA3004B5112 /* KofktuSDK.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = KofktuSDK.swift; sourceTree = "<group>"; };
+		C38F0D6B1D2E9F9100797C21 /* ApiManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ApiManager.swift; sourceTree = "<group>"; };
 		C3D4FDB81D2D553600F3FF01 /* Logger.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Logger.swift; sourceTree = "<group>"; };
 		C3D4FDBB1D2D554E00F3FF01 /* UIExtensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UIExtensions.swift; sourceTree = "<group>"; };
 		C3D508C81D2D49DC005F2B55 /* KofktuSDK.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = KofktuSDK.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -43,6 +52,7 @@
 		C3D7E97F1D2E232000E570F7 /* ReusableView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ReusableView.swift; sourceTree = "<group>"; };
 		C3D7E9811D2E243900E570F7 /* KUILineView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = KUILineView.swift; sourceTree = "<group>"; };
 		C3D7E9831D2E27D100E570F7 /* KUIViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = KUIViewController.swift; sourceTree = "<group>"; };
+		F31229EDCD46B33FF9761055 /* Pods-KofktuSDKTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-KofktuSDKTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-KofktuSDKTests/Pods-KofktuSDKTests.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -50,6 +60,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				93FE1C94805C23FA9A2C1CF2 /* Pods_KofktuSDK.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -58,12 +69,41 @@
 			buildActionMask = 2147483647;
 			files = (
 				C3D508D31D2D49DC005F2B55 /* KofktuSDK.framework in Frameworks */,
+				A6307D900A99015E7BFA1313 /* Pods_KofktuSDKTests.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		380C787ED35C6491221AE14C /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				778378763DE317A88352CB43 /* Pods_KofktuSDK.framework */,
+				727F041333A55A68BA794E19 /* Pods_KofktuSDKTests.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		8862EF8F2CDDAEE0457ADAF2 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				34B1B3B386BCD89C8F9505D3 /* Pods-KofktuSDK.debug.xcconfig */,
+				3A3950F93A2192696F789583 /* Pods-KofktuSDK.release.xcconfig */,
+				F31229EDCD46B33FF9761055 /* Pods-KofktuSDKTests.debug.xcconfig */,
+				67C68986823C9BF68C5EA96B /* Pods-KofktuSDKTests.release.xcconfig */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
+		C38F0D6A1D2E9F7300797C21 /* Network */ = {
+			isa = PBXGroup;
+			children = (
+				C38F0D6B1D2E9F9100797C21 /* ApiManager.swift */,
+			);
+			path = Network;
+			sourceTree = "<group>";
+		};
 		C3D4FDB71D2D552A00F3FF01 /* Logger */ = {
 			isa = PBXGroup;
 			children = (
@@ -87,6 +127,8 @@
 				C3D508CA1D2D49DC005F2B55 /* KofktuSDK */,
 				C3D508D61D2D49DC005F2B55 /* KofktuSDKTests */,
 				C3D508C91D2D49DC005F2B55 /* Products */,
+				8862EF8F2CDDAEE0457ADAF2 /* Pods */,
+				380C787ED35C6491221AE14C /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -121,10 +163,11 @@
 		C3D508E21D2D4AC4005F2B55 /* Classes */ = {
 			isa = PBXGroup;
 			children = (
-				C3D7E97E1D2E231500E570F7 /* Protocols */,
 				C3D7E97D1D2E230800E570F7 /* Components */,
 				C3D4FDBA1D2D554100F3FF01 /* Extensions */,
 				C3D4FDB71D2D552A00F3FF01 /* Logger */,
+				C38F0D6A1D2E9F7300797C21 /* Network */,
+				C3D7E97E1D2E231500E570F7 /* Protocols */,
 				C3367A0A1D2E7FA3004B5112 /* KofktuSDK.swift */,
 			);
 			path = Classes;
@@ -165,10 +208,12 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = C3D508DC1D2D49DC005F2B55 /* Build configuration list for PBXNativeTarget "KofktuSDK" */;
 			buildPhases = (
+				91A7DA49B948F00CFD29F282 /* [CP] Check Pods Manifest.lock */,
 				C3D508C31D2D49DC005F2B55 /* Sources */,
 				C3D508C41D2D49DC005F2B55 /* Frameworks */,
 				C3D508C51D2D49DC005F2B55 /* Headers */,
 				C3D508C61D2D49DC005F2B55 /* Resources */,
+				ACDFBF35BF5D93C2F37CAAAE /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -183,9 +228,12 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = C3D508DF1D2D49DC005F2B55 /* Build configuration list for PBXNativeTarget "KofktuSDKTests" */;
 			buildPhases = (
+				DB3056A46E0C88AE2A31C38B /* [CP] Check Pods Manifest.lock */,
 				C3D508CE1D2D49DC005F2B55 /* Sources */,
 				C3D508CF1D2D49DC005F2B55 /* Frameworks */,
 				C3D508D01D2D49DC005F2B55 /* Resources */,
+				A066599E938E7466A3C0D438 /* [CP] Embed Pods Frameworks */,
+				43ACC7AA1C3AC98366B458EB /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -250,11 +298,90 @@
 		};
 /* End PBXResourcesBuildPhase section */
 
+/* Begin PBXShellScriptBuildPhase section */
+		43ACC7AA1C3AC98366B458EB /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-KofktuSDKTests/Pods-KofktuSDKTests-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		91A7DA49B948F00CFD29F282 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
+		A066599E938E7466A3C0D438 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-KofktuSDKTests/Pods-KofktuSDKTests-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		ACDFBF35BF5D93C2F37CAAAE /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-KofktuSDK/Pods-KofktuSDK-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		DB3056A46E0C88AE2A31C38B /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
 /* Begin PBXSourcesBuildPhase section */
 		C3D508C31D2D49DC005F2B55 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				C38F0D6C1D2E9F9100797C21 /* ApiManager.swift in Sources */,
 				C3D4FDBC1D2D554E00F3FF01 /* UIExtensions.swift in Sources */,
 				C3D7E97C1D2E1FCB00E570F7 /* Extensions.swift in Sources */,
 				C3D4FDB91D2D553600F3FF01 /* Logger.swift in Sources */,
@@ -377,6 +504,7 @@
 		};
 		C3D508DD1D2D49DC005F2B55 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 34B1B3B386BCD89C8F9505D3 /* Pods-KofktuSDK.debug.xcconfig */;
 			buildSettings = {
 				CLANG_ENABLE_MODULES = YES;
 				DEFINES_MODULE = YES;
@@ -396,6 +524,7 @@
 		};
 		C3D508DE1D2D49DC005F2B55 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 3A3950F93A2192696F789583 /* Pods-KofktuSDK.release.xcconfig */;
 			buildSettings = {
 				CLANG_ENABLE_MODULES = YES;
 				DEFINES_MODULE = YES;
@@ -414,6 +543,7 @@
 		};
 		C3D508E01D2D49DC005F2B55 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = F31229EDCD46B33FF9761055 /* Pods-KofktuSDKTests.debug.xcconfig */;
 			buildSettings = {
 				INFOPLIST_FILE = KofktuSDKTests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
@@ -424,6 +554,7 @@
 		};
 		C3D508E11D2D49DC005F2B55 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 67C68986823C9BF68C5EA96B /* Pods-KofktuSDKTests.release.xcconfig */;
 			buildSettings = {
 				INFOPLIST_FILE = KofktuSDKTests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
