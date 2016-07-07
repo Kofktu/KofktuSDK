@@ -163,7 +163,7 @@ public extension UIButton {
     
 }
 
-public extension UITableViewCell: ReusableView {}
+extension UITableViewCell: ReusableView {}
 public extension UITableView {
     
     public func register<T: UITableViewCell where T: ReusableView>(_: T.Type) {
@@ -186,7 +186,7 @@ public extension UITableView {
     
 }
 
-public extension UICollectionViewCell: ReusableView {}
+extension UICollectionViewCell: ReusableView {}
 public extension UICollectionView {
     
     public func register<T: UICollectionViewCell where T: ReusableView>(_: T.Type) {

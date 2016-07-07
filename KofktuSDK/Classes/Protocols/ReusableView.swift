@@ -34,7 +34,7 @@ public protocol ReusableView: class {
 }
 
 extension ReusableView where Self: UIView {
-    static var reusableIdentifier: String {
+    public static var reusableIdentifier: String {
         return NSStringFromClass(self).componentsSeparatedByString(".").last!
     }
 }
