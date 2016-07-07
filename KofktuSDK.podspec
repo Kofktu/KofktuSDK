@@ -16,7 +16,7 @@ Pod::Spec.new do |s|
   #
 
   s.name         = "KofktuSDK"
-  s.version      = "0.0.5"
+  s.version      = "0.0.9"
   s.summary      = "KofktuSDK"
 
   # This description is used to generate tags and improve search results.
@@ -131,6 +131,10 @@ Pod::Spec.new do |s|
   s.requires_arc = true
 
   # s.xcconfig = { "HEADER_SEARCH_PATHS" => "$(SDKROOT)/usr/include/libxml2" }
-  # s.dependency "JSONKit", "~> 1.4"
+  s.dependency 'Alamofire', '~> 3.0'
+  s.dependency 'ObjectMapper', '~> 1.2'
+  s.dependency 'AlamofireObjectMapper', '~> 3.0'
+  s.dependency 'Timberjack'
+  s.dependency 'SDWebImage', '~>3.7'
 
 end

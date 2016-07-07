@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		C3367A0B1D2E7FA3004B5112 /* KofktuSDK.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3367A0A1D2E7FA3004B5112 /* KofktuSDK.swift */; };
 		C3D4FDB91D2D553600F3FF01 /* Logger.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3D4FDB81D2D553600F3FF01 /* Logger.swift */; };
 		C3D4FDBC1D2D554E00F3FF01 /* UIExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3D4FDBB1D2D554E00F3FF01 /* UIExtensions.swift */; };
 		C3D508CC1D2D49DC005F2B55 /* KofktuSDK.h in Headers */ = {isa = PBXBuildFile; fileRef = C3D508CB1D2D49DC005F2B55 /* KofktuSDK.h */; settings = {ATTRIBUTES = (Public, ); }; };
@@ -29,6 +30,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		C3367A0A1D2E7FA3004B5112 /* KofktuSDK.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = KofktuSDK.swift; sourceTree = "<group>"; };
 		C3D4FDB81D2D553600F3FF01 /* Logger.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Logger.swift; sourceTree = "<group>"; };
 		C3D4FDBB1D2D554E00F3FF01 /* UIExtensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UIExtensions.swift; sourceTree = "<group>"; };
 		C3D508C81D2D49DC005F2B55 /* KofktuSDK.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = KofktuSDK.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -123,6 +125,7 @@
 				C3D7E97D1D2E230800E570F7 /* Components */,
 				C3D4FDBA1D2D554100F3FF01 /* Extensions */,
 				C3D4FDB71D2D552A00F3FF01 /* Logger */,
+				C3367A0A1D2E7FA3004B5112 /* KofktuSDK.swift */,
 			);
 			path = Classes;
 			sourceTree = "<group>";
@@ -256,6 +259,7 @@
 				C3D7E97C1D2E1FCB00E570F7 /* Extensions.swift in Sources */,
 				C3D4FDB91D2D553600F3FF01 /* Logger.swift in Sources */,
 				C3D7E9801D2E232000E570F7 /* ReusableView.swift in Sources */,
+				C3367A0B1D2E7FA3004B5112 /* KofktuSDK.swift in Sources */,
 				C3D7E9841D2E27D100E570F7 /* KUIViewController.swift in Sources */,
 				C3D7E9821D2E243900E570F7 /* KUILineView.swift in Sources */,
 			);
@@ -381,6 +385,7 @@
 				DYLIB_INSTALL_NAME_BASE = "@rpath";
 				INFOPLIST_FILE = KofktuSDK/Info.plist;
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = kr.homefactory.KofktuSDK;
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -399,6 +404,7 @@
 				DYLIB_INSTALL_NAME_BASE = "@rpath";
 				INFOPLIST_FILE = KofktuSDK/Info.plist;
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = kr.homefactory.KofktuSDK;
 				PRODUCT_NAME = "$(TARGET_NAME)";
