@@ -12,6 +12,10 @@
 		C3D508CC1D2D49DC005F2B55 /* KofktuSDK.h in Headers */ = {isa = PBXBuildFile; fileRef = C3D508CB1D2D49DC005F2B55 /* KofktuSDK.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		C3D508D31D2D49DC005F2B55 /* KofktuSDK.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C3D508C81D2D49DC005F2B55 /* KofktuSDK.framework */; };
 		C3D508D81D2D49DC005F2B55 /* KofktuSDKTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3D508D71D2D49DC005F2B55 /* KofktuSDKTests.swift */; };
+		C3D7E97C1D2E1FCB00E570F7 /* Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3D7E97B1D2E1FCB00E570F7 /* Extensions.swift */; };
+		C3D7E9801D2E232000E570F7 /* ReusableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3D7E97F1D2E232000E570F7 /* ReusableView.swift */; };
+		C3D7E9821D2E243900E570F7 /* KUILineView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3D7E9811D2E243900E570F7 /* KUILineView.swift */; };
+		C3D7E9841D2E27D100E570F7 /* KUIViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3D7E9831D2E27D100E570F7 /* KUIViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -33,6 +37,10 @@
 		C3D508D21D2D49DC005F2B55 /* KofktuSDKTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = KofktuSDKTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		C3D508D71D2D49DC005F2B55 /* KofktuSDKTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KofktuSDKTests.swift; sourceTree = "<group>"; };
 		C3D508D91D2D49DC005F2B55 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		C3D7E97B1D2E1FCB00E570F7 /* Extensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Extensions.swift; sourceTree = "<group>"; };
+		C3D7E97F1D2E232000E570F7 /* ReusableView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ReusableView.swift; sourceTree = "<group>"; };
+		C3D7E9811D2E243900E570F7 /* KUILineView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = KUILineView.swift; sourceTree = "<group>"; };
+		C3D7E9831D2E27D100E570F7 /* KUIViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = KUIViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -65,6 +73,7 @@
 		C3D4FDBA1D2D554100F3FF01 /* Extensions */ = {
 			isa = PBXGroup;
 			children = (
+				C3D7E97B1D2E1FCB00E570F7 /* Extensions.swift */,
 				C3D4FDBB1D2D554E00F3FF01 /* UIExtensions.swift */,
 			);
 			path = Extensions;
@@ -110,10 +119,29 @@
 		C3D508E21D2D4AC4005F2B55 /* Classes */ = {
 			isa = PBXGroup;
 			children = (
+				C3D7E97E1D2E231500E570F7 /* Protocols */,
+				C3D7E97D1D2E230800E570F7 /* Components */,
 				C3D4FDBA1D2D554100F3FF01 /* Extensions */,
 				C3D4FDB71D2D552A00F3FF01 /* Logger */,
 			);
 			path = Classes;
+			sourceTree = "<group>";
+		};
+		C3D7E97D1D2E230800E570F7 /* Components */ = {
+			isa = PBXGroup;
+			children = (
+				C3D7E9811D2E243900E570F7 /* KUILineView.swift */,
+				C3D7E9831D2E27D100E570F7 /* KUIViewController.swift */,
+			);
+			path = Components;
+			sourceTree = "<group>";
+		};
+		C3D7E97E1D2E231500E570F7 /* Protocols */ = {
+			isa = PBXGroup;
+			children = (
+				C3D7E97F1D2E232000E570F7 /* ReusableView.swift */,
+			);
+			path = Protocols;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -225,7 +253,11 @@
 			buildActionMask = 2147483647;
 			files = (
 				C3D4FDBC1D2D554E00F3FF01 /* UIExtensions.swift in Sources */,
+				C3D7E97C1D2E1FCB00E570F7 /* Extensions.swift in Sources */,
 				C3D4FDB91D2D553600F3FF01 /* Logger.swift in Sources */,
+				C3D7E9801D2E232000E570F7 /* ReusableView.swift in Sources */,
+				C3D7E9841D2E27D100E570F7 /* KUIViewController.swift in Sources */,
+				C3D7E9821D2E243900E570F7 /* KUILineView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

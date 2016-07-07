@@ -120,3 +120,166 @@ extension UIView {
     }
     
 }
+
+enum UIButtonAlignment {
+    case Left
+    case Right
+}
+
+extension UIButton {
+    
+    func strechBackgroundImage() {
+        let states: [UIControlState] = [ .Normal, .Highlighted, .Selected ]
+        
+        for state in states {
+            guard let image = backgroundImageForState(state) else { continue }
+            let size = image.size
+            setBackgroundImage(image.stretchableImageWithLeftCapWidth(Int(size.width / 2.0), topCapHeight: Int(size.height / 2.0)), forState: state)
+        }
+    }
+    
+    func centerVerticallyWithPadding(padding: CGFloat = 6.0) {
+        let imageSize = self.imageView?.size
+        let titleSize = self.titleLabel?.size
+        let totalHeight = (imageSize?.height ?? 0.0) + (titleSize?.height ?? 0.0) + padding
+        
+        imageEdgeInsets = UIEdgeInsetsMake(-(totalHeight - (imageSize?.height ?? 0)), 0.0, 0.0, -(titleSize?.width ?? 0.0))
+        titleEdgeInsets = UIEdgeInsetsMake(0.0, -(imageSize?.width ?? 0), -(totalHeight - (titleSize?.height ?? 0)), 0.0)
+    }
+    
+    func imageAlignment(alignment: UIButtonAlignment) {
+        guard let imageBounds = imageView?.bounds  else { return }
+        guard let titleBounds = titleLabel?.bounds else { return }
+        
+        switch alignment {
+        case .Left:
+            titleEdgeInsets = UIEdgeInsetsZero
+            imageEdgeInsets = UIEdgeInsetsZero
+        case .Right:
+            titleEdgeInsets = UIEdgeInsetsMake(titleEdgeInsets.top + 0, titleEdgeInsets.left - CGRectGetWidth(imageBounds), titleEdgeInsets.bottom, titleEdgeInsets.right + CGRectGetWidth(imageBounds))
+            imageEdgeInsets = UIEdgeInsetsMake(imageEdgeInsets.top + 0, imageEdgeInsets.left + CGRectGetWidth(titleBounds), imageEdgeInsets.bottom, imageEdgeInsets.right - CGRectGetWidth(titleBounds))
+        }
+    }
+    
+}
+
+extension UITableViewCell: ReusableView {}
+extension UITableView {
+    
+    func register<T: UITableViewCell where T: ReusableView>(_: T.Type) {
+        registerClass(T.self, forCellReuseIdentifier: T.reusableIdentifier)
+    }
+    
+    func register<T: UITableViewCell where T: ReusableView, T: NibLoadableView>(_: T.Type) {
+        let bundle = NSBundle(forClass: T.self)
+        let nib = UINib(nibName: T.nibName, bundle: bundle)
+        registerNib(nib, forCellReuseIdentifier: T.reusableIdentifier)
+    }
+    
+    func dequeueReusableCell<T: UITableViewCell where T: ReusableView>(forIndexPath indexPath: NSIndexPath) -> T {
+        let reuseIdentifier = T.reusableIdentifier
+        guard let cell = dequeueReusableCellWithIdentifier(reuseIdentifier, forIndexPath: indexPath) as? T else {
+            fatalError("Could not dequeue cell with identifier: \(T.reusableIdentifier)")
+        }
+        return cell
+    }
+    
+}
+
+extension UICollectionViewCell: ReusableView {}
+extension UICollectionView {
+    
+    func register<T: UICollectionViewCell where T: ReusableView>(_: T.Type) {
+        registerClass(T.self, forCellWithReuseIdentifier: T.reusableIdentifier)
+    }
+    
+    func register<T: UICollectionViewCell where T: ReusableView, T: NibLoadableView>(_: T.Type) {
+        let bundle = NSBundle(forClass: T.self)
+        let nib = UINib(nibName: T.nibName, bundle: bundle)
+        registerNib(nib, forCellWithReuseIdentifier: T.reusableIdentifier)
+    }
+    
+    func dequeueReusableCell<T: UICollectionViewCell where T: ReusableView>(forIndexPath indexPath: NSIndexPath) -> T {
+        let reuseIdentifier = T.reusableIdentifier
+        guard let cell = dequeueReusableCellWithReuseIdentifier(reuseIdentifier, forIndexPath: indexPath) as? T else {
+            fatalError("Could not dequeue cell with identifier: \(T.reusableIdentifier)")
+        }
+        return cell
+    }
+    
+}
+
+extension UIViewController {
+    
+    var topMostViewController: UIViewController {
+        return topViewControllerWithRootViewController(self)
+    }
+    
+    var modalTopViewController: UIViewController {
+        if let viewController = presentedViewController {
+            return viewController.modalTopViewController
+        }
+        return self
+    }
+    
+    var modalTopMostViewController: UIViewController {
+        if let viewController = presentedViewController {
+            return viewController.modalTopViewController
+        }
+        return topMostViewController
+    }
+    
+    private func topViewControllerWithRootViewController(rootViewController: UIViewController) -> UIViewController {
+        if let tabBarController = rootViewController as? UITabBarController {
+            return self.topViewControllerWithRootViewController(tabBarController.selectedViewController!)
+        } else if let naviController = rootViewController as? UINavigationController {
+            return self.topViewControllerWithRootViewController(naviController.viewControllers.last!)
+        } else if let viewController = rootViewController.presentedViewController {
+            return self.topViewControllerWithRootViewController(viewController)
+        }
+        
+        return rootViewController
+    }
+    
+    func dismissAllModalViewController() {
+        if let viewController = presentedViewController {
+            viewController.dismissViewControllerAnimated(false, completion: { () -> Void in
+                self.dismissAllModalViewController()
+            })
+        } else {
+            dismissViewControllerAnimated(false, completion: nil)
+        }
+    }
+    
+}
+
+extension UINavigationController {
+    
+    override public func preferredStatusBarStyle() -> UIStatusBarStyle {
+        return self.viewControllers.last?.preferredStatusBarStyle() ?? .Default
+    }
+    
+    override public func prefersStatusBarHidden() -> Bool {
+        return self.viewControllers.last?.prefersStatusBarHidden() ?? false
+    }
+    
+    override public func preferredStatusBarUpdateAnimation() -> UIStatusBarAnimation {
+        return self.viewControllers.last?.preferredStatusBarUpdateAnimation() ?? .Fade
+    }
+    
+    override public func shouldAutorotate() -> Bool {
+        return self.viewControllers.last?.shouldAutorotate() ?? true
+    }
+    
+    override public func supportedInterfaceOrientations() -> UIInterfaceOrientationMask {
+        return self.viewControllers.last?.supportedInterfaceOrientations() ?? .All
+    }
+}
+
+extension UIApplication {
+    
+    var enabledRemoteNotification: Bool {
+        return UIApplication.sharedApplication().currentUserNotificationSettings()?.types.contains(.Alert) ?? false
+    }
+
+}
