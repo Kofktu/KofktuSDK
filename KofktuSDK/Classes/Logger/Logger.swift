@@ -16,7 +16,7 @@ let Log: Logger? = {
     #endif
 }()
 
-class Logger {
+struct Logger {
     
     func d<T>(value: T, file: NSString = #file, function: String = #function, line: Int = #line) {
         print("\(file.lastPathComponent).\(function)[\(line)] : \(value)", terminator: "\n")
