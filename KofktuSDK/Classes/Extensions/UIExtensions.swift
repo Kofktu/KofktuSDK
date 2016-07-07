@@ -10,9 +10,9 @@ import CoreGraphics
 import UIKit
 import QuartzCore
 
-public extension UIView {
+extension UIView {
     
-    public var origin: CGPoint {
+    var origin: CGPoint {
         get {
             return frame.origin
         }
@@ -23,7 +23,7 @@ public extension UIView {
         }
     }
     
-    public var x: CGFloat {
+    var x: CGFloat {
         get {
             return CGRectGetMinX(frame)
         }
@@ -34,7 +34,7 @@ public extension UIView {
         }
     }
     
-    public var y: CGFloat {
+    var y: CGFloat {
         get {
             return CGRectGetMinY(frame)
         }
@@ -45,15 +45,15 @@ public extension UIView {
         }
     }
     
-    public var right: CGFloat {
+    var right: CGFloat {
         return CGRectGetMaxX(frame)
     }
     
-    public var bottom: CGFloat {
+    var bottom: CGFloat {
         return CGRectGetMaxY(frame)
     }
     
-    public var size: CGSize {
+    var size: CGSize {
         get {
             return frame.size
         }
@@ -64,7 +64,7 @@ public extension UIView {
         }
     }
     
-    public var width: CGFloat {
+    var width: CGFloat {
         get {
             return CGRectGetWidth(frame)
         }
@@ -75,7 +75,7 @@ public extension UIView {
         }
     }
     
-    public var height: CGFloat {
+    var height: CGFloat {
         get {
             return CGRectGetHeight(frame)
         }
@@ -86,17 +86,17 @@ public extension UIView {
         }
     }
     
-    public func circlize() {
+    func circlize() {
         clipsToBounds = true
         layer.cornerRadius = width / 2.0
     }
     
-    public func drawBorder(color: UIColor = UIColor.redColor(), width: CGFloat = 1.0 / UIScreen.mainScreen().scale) {
+    func drawBorder(color: UIColor = UIColor.redColor(), width: CGFloat = 1.0 / UIScreen.mainScreen().scale) {
         layer.borderColor = color.CGColor
         layer.borderWidth = width
     }
     
-    public func showGuideLines(width: CGFloat = 1.0 / UIScreen.mainScreen().scale, recursive: Bool = true) {
+    func showGuideLines(width: CGFloat = 1.0 / UIScreen.mainScreen().scale, recursive: Bool = true) {
         drawBorder(UIColor(
                             red: CGFloat(arc4random_uniform(255) + 1) / 255.0,
                             green: CGFloat(arc4random_uniform(255) + 1) / 255.0,
@@ -112,7 +112,7 @@ public extension UIView {
         }
     }
     
-    public func addSubviewAtFit(view: UIView, edge: UIEdgeInsets = UIEdgeInsetsZero) {
+    func addSubviewAtFit(view: UIView, edge: UIEdgeInsets = UIEdgeInsetsZero) {
         view.translatesAutoresizingMaskIntoConstraints = false
         self.addSubview(view)
         self.addConstraints(NSLayoutConstraint.constraintsWithVisualFormat("H:|-\(edge.left)-[view]-\(edge.right)-|", options: NSLayoutFormatOptions(rawValue: 0), metrics: nil, views: ["view": view]))
@@ -121,14 +121,14 @@ public extension UIView {
     
 }
 
-public enum UIButtonAlignment {
+enum UIButtonAlignment {
     case Left
     case Right
 }
 
-public extension UIButton {
+extension UIButton {
     
-    public func strechBackgroundImage() {
+    func strechBackgroundImage() {
         let states: [UIControlState] = [ .Normal, .Highlighted, .Selected ]
         
         for state in states {
@@ -138,7 +138,7 @@ public extension UIButton {
         }
     }
     
-    public func centerVerticallyWithPadding(padding: CGFloat = 6.0) {
+    func centerVerticallyWithPadding(padding: CGFloat = 6.0) {
         let imageSize = self.imageView?.size
         let titleSize = self.titleLabel?.size
         let totalHeight = (imageSize?.height ?? 0.0) + (titleSize?.height ?? 0.0) + padding
@@ -147,7 +147,7 @@ public extension UIButton {
         titleEdgeInsets = UIEdgeInsetsMake(0.0, -(imageSize?.width ?? 0), -(totalHeight - (titleSize?.height ?? 0)), 0.0)
     }
     
-    public func imageAlignment(alignment: UIButtonAlignment) {
+    func imageAlignment(alignment: UIButtonAlignment) {
         guard let imageBounds = imageView?.bounds  else { return }
         guard let titleBounds = titleLabel?.bounds else { return }
         
@@ -163,20 +163,20 @@ public extension UIButton {
     
 }
 
-public extension UITableViewCell: ReusableView {}
-public extension UITableView {
+extension UITableViewCell: ReusableView {}
+extension UITableView {
     
-    public func register<T: UITableViewCell where T: ReusableView>(_: T.Type) {
+    func register<T: UITableViewCell where T: ReusableView>(_: T.Type) {
         registerClass(T.self, forCellReuseIdentifier: T.reusableIdentifier)
     }
     
-    public func register<T: UITableViewCell where T: ReusableView, T: NibLoadableView>(_: T.Type) {
+    func register<T: UITableViewCell where T: ReusableView, T: NibLoadableView>(_: T.Type) {
         let bundle = NSBundle(forClass: T.self)
         let nib = UINib(nibName: T.nibName, bundle: bundle)
         registerNib(nib, forCellReuseIdentifier: T.reusableIdentifier)
     }
     
-    public func dequeueReusableCell<T: UITableViewCell where T: ReusableView>(forIndexPath indexPath: NSIndexPath) -> T {
+    func dequeueReusableCell<T: UITableViewCell where T: ReusableView>(forIndexPath indexPath: NSIndexPath) -> T {
         let reuseIdentifier = T.reusableIdentifier
         guard let cell = dequeueReusableCellWithIdentifier(reuseIdentifier, forIndexPath: indexPath) as? T else {
             fatalError("Could not dequeue cell with identifier: \(T.reusableIdentifier)")
@@ -186,20 +186,20 @@ public extension UITableView {
     
 }
 
-public extension UICollectionViewCell: ReusableView {}
-public extension UICollectionView {
+extension UICollectionViewCell: ReusableView {}
+extension UICollectionView {
     
-    public func register<T: UICollectionViewCell where T: ReusableView>(_: T.Type) {
+    func register<T: UICollectionViewCell where T: ReusableView>(_: T.Type) {
         registerClass(T.self, forCellWithReuseIdentifier: T.reusableIdentifier)
     }
     
-    public func register<T: UICollectionViewCell where T: ReusableView, T: NibLoadableView>(_: T.Type) {
+    func register<T: UICollectionViewCell where T: ReusableView, T: NibLoadableView>(_: T.Type) {
         let bundle = NSBundle(forClass: T.self)
         let nib = UINib(nibName: T.nibName, bundle: bundle)
         registerNib(nib, forCellWithReuseIdentifier: T.reusableIdentifier)
     }
     
-    public func dequeueReusableCell<T: UICollectionViewCell where T: ReusableView>(forIndexPath indexPath: NSIndexPath) -> T {
+    func dequeueReusableCell<T: UICollectionViewCell where T: ReusableView>(forIndexPath indexPath: NSIndexPath) -> T {
         let reuseIdentifier = T.reusableIdentifier
         guard let cell = dequeueReusableCellWithReuseIdentifier(reuseIdentifier, forIndexPath: indexPath) as? T else {
             fatalError("Could not dequeue cell with identifier: \(T.reusableIdentifier)")
@@ -209,20 +209,20 @@ public extension UICollectionView {
     
 }
 
-public extension UIViewController {
+extension UIViewController {
     
-    public var topMostViewController: UIViewController {
+    var topMostViewController: UIViewController {
         return topViewControllerWithRootViewController(self)
     }
     
-    public var modalTopViewController: UIViewController {
+    var modalTopViewController: UIViewController {
         if let viewController = presentedViewController {
             return viewController.modalTopViewController
         }
         return self
     }
     
-    public var modalTopMostViewController: UIViewController {
+    var modalTopMostViewController: UIViewController {
         if let viewController = presentedViewController {
             return viewController.modalTopViewController
         }
@@ -241,7 +241,7 @@ public extension UIViewController {
         return rootViewController
     }
     
-    public func dismissAllModalViewController() {
+    func dismissAllModalViewController() {
         if let viewController = presentedViewController {
             viewController.dismissViewControllerAnimated(false, completion: { () -> Void in
                 self.dismissAllModalViewController()
@@ -253,32 +253,32 @@ public extension UIViewController {
     
 }
 
-public extension UINavigationController {
+extension UINavigationController {
     
-    override public func preferredStatusBarStyle() -> UIStatusBarStyle {
+    override func preferredStatusBarStyle() -> UIStatusBarStyle {
         return self.viewControllers.last?.preferredStatusBarStyle() ?? .Default
     }
     
-    override public func prefersStatusBarHidden() -> Bool {
+    override func prefersStatusBarHidden() -> Bool {
         return self.viewControllers.last?.prefersStatusBarHidden() ?? false
     }
     
-    override public func preferredStatusBarUpdateAnimation() -> UIStatusBarAnimation {
+    override func preferredStatusBarUpdateAnimation() -> UIStatusBarAnimation {
         return self.viewControllers.last?.preferredStatusBarUpdateAnimation() ?? .Fade
     }
     
-    override public func shouldAutorotate() -> Bool {
+    override func shouldAutorotate() -> Bool {
         return self.viewControllers.last?.shouldAutorotate() ?? true
     }
     
-    override public func supportedInterfaceOrientations() -> UIInterfaceOrientationMask {
+    override func supportedInterfaceOrientations() -> UIInterfaceOrientationMask {
         return self.viewControllers.last?.supportedInterfaceOrientations() ?? .All
     }
 }
 
-public extension UIApplication {
+extension UIApplication {
     
-    public var enabledRemoteNotification: Bool {
+    var enabledRemoteNotification: Bool {
         return UIApplication.sharedApplication().currentUserNotificationSettings()?.types.contains(.Alert) ?? false
     }
 

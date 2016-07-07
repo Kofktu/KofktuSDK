@@ -8,9 +8,9 @@
 
 import Foundation
 
-public extension Array {
+extension Array {
     
-    mutating public func suffle() {
+    mutating func suffle() {
         guard count > 1 else { return }
         
         for i in 0 ..< (count - 1) {
@@ -22,9 +22,9 @@ public extension Array {
     
 }
 
-public extension Dictionary {
+extension Dictionary {
     
-    mutating public func merge(dict: [Key: Value]){
+    mutating func merge(dict: [Key: Value]){
         for (key, value) in dict {
             updateValue(value, forKey: key)
         }
@@ -32,32 +32,32 @@ public extension Dictionary {
     
 }
 
-public extension String {
+extension String {
     
-    public var urlEncoded: String? {
+    var urlEncoded: String? {
         let characterSet = NSCharacterSet(charactersInString: "\n ;:\\@&=+$,/?%#[]|\"<>").invertedSet
         return stringByAddingPercentEncodingWithAllowedCharacters(characterSet)
     }
     
-    public var urlDecoded: String? {
+    var urlDecoded: String? {
         return stringByRemovingPercentEncoding
     }
     
-    public var localized: String {
+    var localized: String {
         return NSLocalizedString(self, comment: "")
     }
     
-    public func localized(args: CVarArgType...) -> String {
+    func localized(args: CVarArgType...) -> String {
         let format = NSLocalizedString(self, comment: "")
         return NSString(format: format, arguments: getVaList(args)) as String
     }
     
-    public func indexOf(string: String) -> Int? {
+    func indexOf(string: String) -> Int? {
         guard let range = rangeOfString(string) else { return nil }
         return startIndex.distanceTo(range.startIndex)
     }
     
-    public subscript (range: Range<Int>) -> String? {
+    subscript (range: Range<Int>) -> String? {
         let count = characters.count as Int
         
         //Check for out of boundary condition
@@ -69,7 +69,7 @@ public extension String {
         return self[start..<end]
     }
     
-    public func trim() -> String {
+    func trim() -> String {
         return stringByTrimmingCharactersInSet(NSCharacterSet.whitespaceCharacterSet())
     }
     
