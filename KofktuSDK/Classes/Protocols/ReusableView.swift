@@ -8,7 +8,7 @@
 
 import UIKit
 
-protocol NibLoadableView: class {
+public protocol NibLoadableView: class {
     static var nibName: String { get }
 }
 
@@ -29,7 +29,7 @@ extension NibLoadableView where Self: UIView {
     }
 }
 
-protocol ReusableView: class {
+public protocol ReusableView: class {
     static var reusableIdentifier: String { get }
 }
 

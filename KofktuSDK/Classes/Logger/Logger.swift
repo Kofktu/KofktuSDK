@@ -8,7 +8,7 @@
 
 import Foundation
 
-let Log: Logger? = {
+public let Log: Logger? = {
     #if DEBUG
         return Logger()
     #else
@@ -16,7 +16,7 @@ let Log: Logger? = {
     #endif
 }()
 
-struct Logger {
+public struct Logger {
     
     func d<T>(value: T, file: NSString = #file, function: String = #function, line: Int = #line) {
         print("\(file.lastPathComponent).\(function)[\(line)] : \(value)", terminator: "\n")

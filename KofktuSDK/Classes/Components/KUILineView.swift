@@ -9,35 +9,35 @@
 import UIKit
 
 @IBDesignable
-class KUILineView: UIView {
+public class KUILineView: UIView {
 
-    @IBInspectable var showTopLine: Bool = false {
+    @IBInspectable public var showTopLine: Bool = false {
         didSet {
             setNeedsDisplay()
         }
     }
-    @IBInspectable var showBottomLine: Bool = false {
+    @IBInspectable public var showBottomLine: Bool = false {
         didSet {
             setNeedsDisplay()
         }
     }
-    @IBInspectable var lineHeight: CGFloat = 1.0 / UIScreen.mainScreen().scale {
+    @IBInspectable public var lineHeight: CGFloat = 1.0 / UIScreen.mainScreen().scale {
         didSet {
             setNeedsDisplay()
         }
     }
-    @IBInspectable var lineColor: UIColor = UIColor.lightGrayColor() {
+    @IBInspectable public var lineColor: UIColor = UIColor.lightGrayColor() {
         didSet {
             setNeedsDisplay()
         }
     }
-    var topInsets: UIEdgeInsets = UIEdgeInsetsZero {
+    public var topInsets: UIEdgeInsets = UIEdgeInsetsZero {
         didSet {
             setNeedsDisplay()
         }
     }
     
-    var bottomInsets: UIEdgeInsets = UIEdgeInsetsZero {
+    public var bottomInsets: UIEdgeInsets = UIEdgeInsetsZero {
         didSet {
             setNeedsDisplay()
         }
@@ -45,7 +45,7 @@ class KUILineView: UIView {
     
     // Only override drawRect: if you perform custom drawing.
     // An empty implementation adversely affects performance during animation.
-    override func drawRect(rect: CGRect) {
+    override public func drawRect(rect: CGRect) {
         // Drawing code
         let contextRef = UIGraphicsGetCurrentContext()
         
