@@ -16,7 +16,7 @@ public struct ApiManagerConfig {
 
 public class ApiManager: Alamofire.Manager {
     
-    static let sharedManager: ApiManager = {
+    static public let sharedManager: ApiManager = {
         Timberjack.register()
         Timberjack.logStyle = ApiManagerConfig.logStyle
         let configuration = Timberjack.defaultSessionConfiguration()
