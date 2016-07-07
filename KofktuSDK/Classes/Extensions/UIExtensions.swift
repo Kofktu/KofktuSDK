@@ -9,6 +9,145 @@
 import CoreGraphics
 import UIKit
 import QuartzCore
+import SDWebImage
+
+/**
+ UnableToScanHexValue:      "Scan hex error"
+ MismatchedHexStringLength: "Invalid RGB string, number of characters after '#' should be either 3, 4, 6 or 8"
+ */
+public enum UIColorInputError : ErrorType {
+    case UnableToScanHexValue,
+    MismatchedHexStringLength
+}
+
+extension UIColor {
+    class func colorWith255(red red: CGFloat, green: CGFloat, blue: CGFloat, alpha: CGFloat = 1.0) -> UIColor {
+        return UIColor(red: red / 255.0, green: green / 255.0, blue: blue / 255.0, alpha: alpha)
+    }
+    
+    /**
+     The shorthand three-digit hexadecimal representation of color.
+     #RGB defines to the color #RRGGBB.
+     
+     - parameter hex3: Three-digit hexadecimal value.
+     - parameter alpha: 0.0 - 1.0. The default is 1.0.
+     */
+    public convenience init(hex3: UInt16, alpha: CGFloat = 1) {
+        let divisor = CGFloat(15)
+        let red     = CGFloat((hex3 & 0xF00) >> 8) / divisor
+        let green   = CGFloat((hex3 & 0x0F0) >> 4) / divisor
+        let blue    = CGFloat( hex3 & 0x00F      ) / divisor
+        self.init(red: red, green: green, blue: blue, alpha: alpha)
+    }
+    
+    /**
+     The shorthand four-digit hexadecimal representation of color with alpha.
+     #RGBA defines to the color #RRGGBBAA.
+     
+     - parameter hex4: Four-digit hexadecimal value.
+     */
+    public convenience init(hex4: UInt16) {
+        let divisor = CGFloat(15)
+        let red     = CGFloat((hex4 & 0xF000) >> 12) / divisor
+        let green   = CGFloat((hex4 & 0x0F00) >>  8) / divisor
+        let blue    = CGFloat((hex4 & 0x00F0) >>  4) / divisor
+        let alpha   = CGFloat( hex4 & 0x000F       ) / divisor
+        self.init(red: red, green: green, blue: blue, alpha: alpha)
+    }
+    
+    /**
+     The six-digit hexadecimal representation of color of the form #RRGGBB.
+     
+     - parameter hex6: Six-digit hexadecimal value.
+     */
+    public convenience init(hex6: UInt32, alpha: CGFloat = 1) {
+        let divisor = CGFloat(255)
+        let red     = CGFloat((hex6 & 0xFF0000) >> 16) / divisor
+        let green   = CGFloat((hex6 & 0x00FF00) >>  8) / divisor
+        let blue    = CGFloat( hex6 & 0x0000FF       ) / divisor
+        self.init(red: red, green: green, blue: blue, alpha: alpha)
+    }
+    
+    /**
+     The six-digit hexadecimal representation of color with alpha of the form #RRGGBBAA.
+     
+     - parameter hex8: Eight-digit hexadecimal value.
+     */
+    public convenience init(hex8: UInt32) {
+        let divisor = CGFloat(255)
+        let red     = CGFloat((hex8 & 0xFF000000) >> 24) / divisor
+        let green   = CGFloat((hex8 & 0x00FF0000) >> 16) / divisor
+        let blue    = CGFloat((hex8 & 0x0000FF00) >>  8) / divisor
+        let alpha   = CGFloat( hex8 & 0x000000FF       ) / divisor
+        self.init(red: red, green: green, blue: blue, alpha: alpha)
+    }
+    
+    /**
+     The rgba string representation of color with alpha of the form #RRGGBBAA/#RRGGBB, throws error.
+     
+     - parameter rgba: String value.
+     */
+    public convenience init(hexString: String) throws {
+        guard let hexString: String = hexString.substringFromIndex(hexString.startIndex.advancedBy(hexString.hasPrefix("#") ? 1 : 0)),
+            var   hexValue:  UInt32 = 0
+            where NSScanner(string: hexString).scanHexInt(&hexValue) else {
+                throw UIColorInputError.UnableToScanHexValue
+        }
+        
+        switch (hexString.characters.count) {
+        case 3:
+            self.init(hex3: UInt16(hexValue))
+        case 4:
+            self.init(hex4: UInt16(hexValue))
+        case 6:
+            self.init(hex6: hexValue)
+        case 8:
+            self.init(hex8: hexValue)
+        default:
+            throw UIColorInputError.MismatchedHexStringLength
+        }
+    }
+    
+    /**
+     The rgba string representation of color with alpha of the form #RRGGBBAA/#RRGGBB, fails to default color.
+     
+     - parameter rgba: String value.
+     */
+    public convenience init(rgba: String, defaultColor: UIColor = UIColor.clearColor()) {
+        guard let color = try? UIColor(hexString: rgba) else {
+            self.init(CGColor: defaultColor.CGColor)
+            return
+        }
+        self.init(CGColor: color.CGColor)
+    }
+    
+    /**
+     Hex string of a UIColor instance.
+     
+     - parameter rgba: Whether the alpha should be included.
+     */
+    public func hexString(includeAlpha: Bool) -> String {
+        var r: CGFloat = 0
+        var g: CGFloat = 0
+        var b: CGFloat = 0
+        var a: CGFloat = 0
+        self.getRed(&r, green: &g, blue: &b, alpha: &a)
+        
+        if (includeAlpha) {
+            return String(format: "#%02X%02X%02X%02X", Int(r * 255), Int(g * 255), Int(b * 255), Int(a * 255))
+        } else {
+            return String(format: "#%02X%02X%02X", Int(r * 255), Int(g * 255), Int(b * 255))
+        }
+    }
+    
+    public override var description: String {
+        return self.hexString(true)
+    }
+    
+    public override var debugDescription: String {
+        return self.hexString(true)
+    }
+}
 
 public extension UIView {
     
@@ -128,6 +267,26 @@ public enum UIButtonAlignment {
 
 public extension UIButton {
     
+    public func clearImage() {
+        sd_cancelImageLoadForState(.Normal)
+        setImage(nil, forState: .Normal)
+        setBackgroundImage(nil, forState: .Normal)
+    }
+    
+    func setBackgroundImageWithUrlString(urlString: String?, forState state: UIControlState, placeholder: UIImage? = nil, completion: ((image: UIImage?, error: NSError?) -> Void)? = nil) {
+        sd_cancelImageLoadForState(state)
+        setBackgroundImage(placeholder, forState: .Normal)
+        
+        if let urlString = urlString {
+            sd_setBackgroundImageWithURL(NSURL(string: urlString), forState: state, placeholderImage: placeholder, completed: { [weak self] (image, error, type, url) -> Void in
+                self?.setBackgroundImage(image ?? placeholder, forState: .Normal)
+                completion?(image: image, error: error)
+            })
+        } else {
+            completion?(image: nil, error: NSError(domain: "UIImageView.Extension", code: -1, userInfo: [NSLocalizedDescriptionKey: "urlString is null"]))
+        }
+    }
+    
     public func strechBackgroundImage() {
         let states: [UIControlState] = [ .Normal, .Highlighted, .Selected ]
         
@@ -158,6 +317,29 @@ public extension UIButton {
         case .Right:
             titleEdgeInsets = UIEdgeInsetsMake(titleEdgeInsets.top + 0, titleEdgeInsets.left - CGRectGetWidth(imageBounds), titleEdgeInsets.bottom, titleEdgeInsets.right + CGRectGetWidth(imageBounds))
             imageEdgeInsets = UIEdgeInsetsMake(imageEdgeInsets.top + 0, imageEdgeInsets.left + CGRectGetWidth(titleBounds), imageEdgeInsets.bottom, imageEdgeInsets.right - CGRectGetWidth(titleBounds))
+        }
+    }
+    
+}
+
+extension UIImageView {
+    
+    func clearImage() {
+        sd_cancelCurrentImageLoad()
+        image = nil
+    }
+    
+    func setImageWithUrlString(urlString: String?, placeholder: UIImage? = nil, completion: ((image: UIImage?, error: NSError?) -> Void)? = nil) {
+        sd_cancelCurrentImageLoad()
+        image = placeholder
+        
+        if let urlString = urlString {
+            sd_setImageWithURL(NSURL(string: urlString), placeholderImage: placeholder, completed: { [weak self] (image, error, type, url) -> Void in
+                self?.image = image ?? placeholder
+                completion?(image: image, error: error)
+            })
+        } else {
+            completion?(image: nil, error: NSError(domain: "UIImageView.Extension", code: -1, userInfo: [NSLocalizedDescriptionKey: "urlString is null"]))
         }
     }
     
