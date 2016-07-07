@@ -9,12 +9,12 @@
 import Alamofire
 import Timberjack
 
-struct ApiManagerConfig {
+public struct ApiManagerConfig {
     static let logStyle: Style = .Light
     static let timeoutIntervalForRequest: NSTimeInterval = 15.0
 }
 
-class ApiManager: Alamofire.Manager {
+public class ApiManager: Alamofire.Manager {
     
     static let sharedManager: ApiManager = {
         Timberjack.register()
