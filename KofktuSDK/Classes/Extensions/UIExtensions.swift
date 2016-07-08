@@ -322,7 +322,7 @@ public extension UIButton {
     
 }
 
-extension UIImageView {
+public extension UIImageView {
     
     public func clearImage() {
         sd_cancelCurrentImageLoad()
