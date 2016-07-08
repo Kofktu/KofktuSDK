@@ -324,12 +324,12 @@ extension UIButton {
 
 extension UIImageView {
     
-    func clearImage() {
+    public func clearImage() {
         sd_cancelCurrentImageLoad()
         image = nil
     }
     
-    func setImageWithUrlString(urlString: String?, placeholder: UIImage? = nil, completion: ((image: UIImage?, error: NSError?) -> Void)? = nil) {
+    public func setImageWithUrlString(urlString: String?, placeholder: UIImage? = nil, completion: ((image: UIImage?, error: NSError?) -> Void)? = nil) {
         sd_cancelCurrentImageLoad()
         image = placeholder
         
