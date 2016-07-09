@@ -10,8 +10,8 @@ import Alamofire
 import Timberjack
 
 public struct ApiManagerConfig {
-    public static let logStyle: Style = .Light
-    public static let timeoutIntervalForRequest: NSTimeInterval = 15.0
+    public static var logStyle: Style = .Light
+    public static var timeoutIntervalForRequest: NSTimeInterval = 15.0
 }
 
 public class ApiManager: Alamofire.Manager {
