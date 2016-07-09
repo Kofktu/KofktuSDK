@@ -18,6 +18,9 @@ public let Log: Logger? = {
 
 public struct Logger {
     
+    public init() {
+    }
+    
     public func d<T>(value: T, file: NSString = #file, function: String = #function, line: Int = #line) {
         print("\(file.lastPathComponent).\(function)[\(line)] : \(value)", terminator: "\n")
     }
