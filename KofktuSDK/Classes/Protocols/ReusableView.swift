@@ -13,11 +13,11 @@ public protocol NibLoadableView: class {
 }
 
 extension NibLoadableView where Self: UIView {
-    static var nibName: String {
+    public static var nibName: String {
         return NSStringFromClass(self).componentsSeparatedByString(".").last!
     }
     
-    static func instanceFromNib() -> NibLoadableView? {
+    public static func instanceFromNib() -> NibLoadableView? {
         let bundle = NSBundle(forClass: self)
         let views = bundle.loadNibNamed(nibName, owner: nil, options: nil)
         for view in views {

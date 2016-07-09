@@ -12,7 +12,7 @@ public class KUIViewController: UIViewController {
 
     internal var isFirstViewAppeared: Bool = true
 
-    override public func viewWillDisappear(animated: Bool) {
+    public override func viewWillDisappear(animated: Bool) {
         super.viewWillDisappear(animated)
         isFirstViewAppeared = false
     }

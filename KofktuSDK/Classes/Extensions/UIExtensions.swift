@@ -273,7 +273,7 @@ public extension UIButton {
         setBackgroundImage(nil, forState: .Normal)
     }
     
-    func setBackgroundImageWithUrlString(urlString: String?, forState state: UIControlState, placeholder: UIImage? = nil, completion: ((image: UIImage?, error: NSError?) -> Void)? = nil) {
+    public func setBackgroundImageWithUrlString(urlString: String?, forState state: UIControlState, placeholder: UIImage? = nil, completion: ((image: UIImage?, error: NSError?) -> Void)? = nil) {
         sd_cancelImageLoadForState(state)
         setBackgroundImage(placeholder, forState: .Normal)
         
@@ -437,23 +437,23 @@ public extension UIViewController {
 
 public extension UINavigationController {
     
-    override public func preferredStatusBarStyle() -> UIStatusBarStyle {
+    public override func preferredStatusBarStyle() -> UIStatusBarStyle {
         return self.viewControllers.last?.preferredStatusBarStyle() ?? .Default
     }
     
-    override public func prefersStatusBarHidden() -> Bool {
+    public override func prefersStatusBarHidden() -> Bool {
         return self.viewControllers.last?.prefersStatusBarHidden() ?? false
     }
     
-    override public func preferredStatusBarUpdateAnimation() -> UIStatusBarAnimation {
+    public override func preferredStatusBarUpdateAnimation() -> UIStatusBarAnimation {
         return self.viewControllers.last?.preferredStatusBarUpdateAnimation() ?? .Fade
     }
     
-    override public func shouldAutorotate() -> Bool {
+    public override func shouldAutorotate() -> Bool {
         return self.viewControllers.last?.shouldAutorotate() ?? true
     }
     
-    override public func supportedInterfaceOrientations() -> UIInterfaceOrientationMask {
+    public override func supportedInterfaceOrientations() -> UIInterfaceOrientationMask {
         return self.viewControllers.last?.supportedInterfaceOrientations() ?? .All
     }
 }
