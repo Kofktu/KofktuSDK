@@ -7,14 +7,18 @@
 //
 
 import Foundation
+import Timberjack
 
 public let Log: Logger? = {
-    #if DEBUG
+    if LoggerConfig.logStyle == .Verbose {
         return Logger()
-    #else
-        return nil
-    #endif
+    }
+    return nil
 }()
+
+public struct LoggerConfig {
+    public static var logStyle: Style = .Light
+}
 
 public struct Logger {
     
