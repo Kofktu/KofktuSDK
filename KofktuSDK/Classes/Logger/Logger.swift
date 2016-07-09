@@ -9,13 +9,6 @@
 import Foundation
 import Timberjack
 
-public let Log: Logger? = {
-    if LoggerConfig.logStyle == .Verbose {
-        return Logger()
-    }
-    return nil
-}()
-
 public struct LoggerConfig {
     public static var logStyle: Style = .Light
 }
@@ -38,3 +31,11 @@ public struct Logger {
         }
     }
 }
+
+
+public let Log: Logger? = {
+    if LoggerConfig.logStyle == .Verbose {
+        return Logger()
+    }
+    return nil
+}()
