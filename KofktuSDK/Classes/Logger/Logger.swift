@@ -9,11 +9,9 @@
 import Foundation
 import Timberjack
 
-public struct LoggerConfig {
-    public static var logStyle: Style = .Light
-}
-
 public struct Logger {
+    
+    public static var style: Style = .Light
     
     public init() {
     }
@@ -32,9 +30,8 @@ public struct Logger {
     }
 }
 
-
 public let Log: Logger? = {
-    if LoggerConfig.logStyle == .Verbose {
+    if Logger.style == .Verbose {
         return Logger()
     }
     return nil
