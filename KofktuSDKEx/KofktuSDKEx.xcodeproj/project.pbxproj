@@ -1,0 +1,619 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		C38F17581D4E3A190041A522 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C38F17571D4E3A190041A522 /* AppDelegate.swift */; };
+		C38F175A1D4E3A190041A522 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C38F17591D4E3A190041A522 /* ViewController.swift */; };
+		C38F175D1D4E3A190041A522 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C38F175B1D4E3A190041A522 /* Main.storyboard */; };
+		C38F175F1D4E3A190041A522 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = C38F175E1D4E3A190041A522 /* Assets.xcassets */; };
+		C38F17621D4E3A190041A522 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C38F17601D4E3A190041A522 /* LaunchScreen.storyboard */; };
+		C38F176D1D4E3A190041A522 /* KofktuSDKExTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = C38F176C1D4E3A190041A522 /* KofktuSDKExTests.swift */; };
+		C38F17BB1D4E3B1F0041A522 /* KofktuSDK.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C38F17881D4E3AEB0041A522 /* KofktuSDK.framework */; };
+		C38F17BC1D4E3B1F0041A522 /* KofktuSDK.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = C38F17881D4E3AEB0041A522 /* KofktuSDK.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		C38F17C01D4E3B270041A522 /* Pods_KofktuSDK.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C38F17B41D4E3AFC0041A522 /* Pods_KofktuSDK.framework */; };
+		C38F17C11D4E3B270041A522 /* Pods_KofktuSDK.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = C38F17B41D4E3AFC0041A522 /* Pods_KofktuSDK.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		C38F17691D4E3A190041A522 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = C38F174C1D4E3A190041A522 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = C38F17531D4E3A190041A522;
+			remoteInfo = KofktuSDKEx;
+		};
+		C38F17871D4E3AEB0041A522 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = C38F17821D4E3AEA0041A522 /* KofktuSDK.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = C3D508C81D2D49DC005F2B55;
+			remoteInfo = KofktuSDK;
+		};
+		C38F17891D4E3AEB0041A522 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = C38F17821D4E3AEA0041A522 /* KofktuSDK.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = C3D508D21D2D49DC005F2B55;
+			remoteInfo = KofktuSDKTests;
+		};
+		C38F17AD1D4E3AFC0041A522 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = C38F17A31D4E3AFC0041A522 /* Pods.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = 5BEBAC3C9EC3E2E4827C8BFEBE36556D;
+			remoteInfo = Alamofire;
+		};
+		C38F17AF1D4E3AFC0041A522 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = C38F17A31D4E3AFC0041A522 /* Pods.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = A9357D7A8A020BAEFBD7D22A6F3A4F85;
+			remoteInfo = AlamofireObjectMapper;
+		};
+		C38F17B11D4E3AFC0041A522 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = C38F17A31D4E3AFC0041A522 /* Pods.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = A6903C4D0142491C73BD887BE6B1FDF1;
+			remoteInfo = ObjectMapper;
+		};
+		C38F17B31D4E3AFC0041A522 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = C38F17A31D4E3AFC0041A522 /* Pods.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = 9EFCBA0C1ABEFD2524EE589CDBB9667E;
+			remoteInfo = "Pods-KofktuSDK";
+		};
+		C38F17B51D4E3AFC0041A522 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = C38F17A31D4E3AFC0041A522 /* Pods.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = 3940CC58C35C1C18199BA392D367F3C2;
+			remoteInfo = "Pods-KofktuSDKTests";
+		};
+		C38F17B71D4E3AFC0041A522 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = C38F17A31D4E3AFC0041A522 /* Pods.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = 1C923E15127F4CC567EDB6CFC518D59E;
+			remoteInfo = SDWebImage;
+		};
+		C38F17B91D4E3AFC0041A522 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = C38F17A31D4E3AFC0041A522 /* Pods.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = A21C23F8B756DA7E369AB76E0DC396BA;
+			remoteInfo = Timberjack;
+		};
+		C38F17BD1D4E3B1F0041A522 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = C38F17821D4E3AEA0041A522 /* KofktuSDK.xcodeproj */;
+			proxyType = 1;
+			remoteGlobalIDString = C3D508C71D2D49DC005F2B55;
+			remoteInfo = KofktuSDK;
+		};
+		C38F17C21D4E3B270041A522 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = C38F17A31D4E3AFC0041A522 /* Pods.xcodeproj */;
+			proxyType = 1;
+			remoteGlobalIDString = 6D472B835B8CB1F911C8CF09D560E41B;
+			remoteInfo = "Pods-KofktuSDK";
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXCopyFilesBuildPhase section */
+		C38F17BF1D4E3B1F0041A522 /* Embed Frameworks */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 10;
+			files = (
+				C38F17BC1D4E3B1F0041A522 /* KofktuSDK.framework in Embed Frameworks */,
+				C38F17C11D4E3B270041A522 /* Pods_KofktuSDK.framework in Embed Frameworks */,
+			);
+			name = "Embed Frameworks";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
+
+/* Begin PBXFileReference section */
+		C38F17541D4E3A190041A522 /* KofktuSDKEx.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = KofktuSDKEx.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		C38F17571D4E3A190041A522 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		C38F17591D4E3A190041A522 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		C38F175C1D4E3A190041A522 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		C38F175E1D4E3A190041A522 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		C38F17611D4E3A190041A522 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
+		C38F17631D4E3A190041A522 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		C38F17681D4E3A190041A522 /* KofktuSDKExTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = KofktuSDKExTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		C38F176C1D4E3A190041A522 /* KofktuSDKExTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KofktuSDKExTests.swift; sourceTree = "<group>"; };
+		C38F176E1D4E3A190041A522 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		C38F17821D4E3AEA0041A522 /* KofktuSDK.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = KofktuSDK.xcodeproj; path = ../../KofktuSDK.xcodeproj; sourceTree = "<group>"; };
+		C38F17A31D4E3AFC0041A522 /* Pods.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = Pods.xcodeproj; path = ../../Pods/Pods.xcodeproj; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		C38F17511D4E3A190041A522 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				C38F17BB1D4E3B1F0041A522 /* KofktuSDK.framework in Frameworks */,
+				C38F17C01D4E3B270041A522 /* Pods_KofktuSDK.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		C38F17651D4E3A190041A522 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		C38F174B1D4E3A190041A522 = {
+			isa = PBXGroup;
+			children = (
+				C38F17561D4E3A190041A522 /* KofktuSDKEx */,
+				C38F176B1D4E3A190041A522 /* KofktuSDKExTests */,
+				C38F17551D4E3A190041A522 /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		C38F17551D4E3A190041A522 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				C38F17541D4E3A190041A522 /* KofktuSDKEx.app */,
+				C38F17681D4E3A190041A522 /* KofktuSDKExTests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		C38F17561D4E3A190041A522 /* KofktuSDKEx */ = {
+			isa = PBXGroup;
+			children = (
+				C38F17A31D4E3AFC0041A522 /* Pods.xcodeproj */,
+				C38F17821D4E3AEA0041A522 /* KofktuSDK.xcodeproj */,
+				C38F17571D4E3A190041A522 /* AppDelegate.swift */,
+				C38F17591D4E3A190041A522 /* ViewController.swift */,
+				C38F175B1D4E3A190041A522 /* Main.storyboard */,
+				C38F175E1D4E3A190041A522 /* Assets.xcassets */,
+				C38F17601D4E3A190041A522 /* LaunchScreen.storyboard */,
+				C38F17631D4E3A190041A522 /* Info.plist */,
+			);
+			path = KofktuSDKEx;
+			sourceTree = "<group>";
+		};
+		C38F176B1D4E3A190041A522 /* KofktuSDKExTests */ = {
+			isa = PBXGroup;
+			children = (
+				C38F176C1D4E3A190041A522 /* KofktuSDKExTests.swift */,
+				C38F176E1D4E3A190041A522 /* Info.plist */,
+			);
+			path = KofktuSDKExTests;
+			sourceTree = "<group>";
+		};
+		C38F17831D4E3AEA0041A522 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				C38F17881D4E3AEB0041A522 /* KofktuSDK.framework */,
+				C38F178A1D4E3AEB0041A522 /* KofktuSDKTests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		C38F17A41D4E3AFC0041A522 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				C38F17AE1D4E3AFC0041A522 /* Alamofire.framework */,
+				C38F17B01D4E3AFC0041A522 /* AlamofireObjectMapper.framework */,
+				C38F17B21D4E3AFC0041A522 /* ObjectMapper.framework */,
+				C38F17B41D4E3AFC0041A522 /* Pods_KofktuSDK.framework */,
+				C38F17B61D4E3AFC0041A522 /* Pods_KofktuSDKTests.framework */,
+				C38F17B81D4E3AFC0041A522 /* SDWebImage.framework */,
+				C38F17BA1D4E3AFC0041A522 /* Timberjack.framework */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		C38F17531D4E3A190041A522 /* KofktuSDKEx */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = C38F17711D4E3A190041A522 /* Build configuration list for PBXNativeTarget "KofktuSDKEx" */;
+			buildPhases = (
+				C38F17501D4E3A190041A522 /* Sources */,
+				C38F17511D4E3A190041A522 /* Frameworks */,
+				C38F17521D4E3A190041A522 /* Resources */,
+				C38F17BF1D4E3B1F0041A522 /* Embed Frameworks */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				C38F17BE1D4E3B1F0041A522 /* PBXTargetDependency */,
+				C38F17C31D4E3B270041A522 /* PBXTargetDependency */,
+			);
+			name = KofktuSDKEx;
+			productName = KofktuSDKEx;
+			productReference = C38F17541D4E3A190041A522 /* KofktuSDKEx.app */;
+			productType = "com.apple.product-type.application";
+		};
+		C38F17671D4E3A190041A522 /* KofktuSDKExTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = C38F17741D4E3A190041A522 /* Build configuration list for PBXNativeTarget "KofktuSDKExTests" */;
+			buildPhases = (
+				C38F17641D4E3A190041A522 /* Sources */,
+				C38F17651D4E3A190041A522 /* Frameworks */,
+				C38F17661D4E3A190041A522 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				C38F176A1D4E3A190041A522 /* PBXTargetDependency */,
+			);
+			name = KofktuSDKExTests;
+			productName = KofktuSDKExTests;
+			productReference = C38F17681D4E3A190041A522 /* KofktuSDKExTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		C38F174C1D4E3A190041A522 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastSwiftUpdateCheck = 0730;
+				LastUpgradeCheck = 0730;
+				ORGANIZATIONNAME = Kofktu;
+				TargetAttributes = {
+					C38F17531D4E3A190041A522 = {
+						CreatedOnToolsVersion = 7.3.1;
+					};
+					C38F17671D4E3A190041A522 = {
+						CreatedOnToolsVersion = 7.3.1;
+						TestTargetID = C38F17531D4E3A190041A522;
+					};
+				};
+			};
+			buildConfigurationList = C38F174F1D4E3A190041A522 /* Build configuration list for PBXProject "KofktuSDKEx" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = C38F174B1D4E3A190041A522;
+			productRefGroup = C38F17551D4E3A190041A522 /* Products */;
+			projectDirPath = "";
+			projectReferences = (
+				{
+					ProductGroup = C38F17831D4E3AEA0041A522 /* Products */;
+					ProjectRef = C38F17821D4E3AEA0041A522 /* KofktuSDK.xcodeproj */;
+				},
+				{
+					ProductGroup = C38F17A41D4E3AFC0041A522 /* Products */;
+					ProjectRef = C38F17A31D4E3AFC0041A522 /* Pods.xcodeproj */;
+				},
+			);
+			projectRoot = "";
+			targets = (
+				C38F17531D4E3A190041A522 /* KofktuSDKEx */,
+				C38F17671D4E3A190041A522 /* KofktuSDKExTests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXReferenceProxy section */
+		C38F17881D4E3AEB0041A522 /* KofktuSDK.framework */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.framework;
+			path = KofktuSDK.framework;
+			remoteRef = C38F17871D4E3AEB0041A522 /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		C38F178A1D4E3AEB0041A522 /* KofktuSDKTests.xctest */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.cfbundle;
+			path = KofktuSDKTests.xctest;
+			remoteRef = C38F17891D4E3AEB0041A522 /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		C38F17AE1D4E3AFC0041A522 /* Alamofire.framework */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.framework;
+			path = Alamofire.framework;
+			remoteRef = C38F17AD1D4E3AFC0041A522 /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		C38F17B01D4E3AFC0041A522 /* AlamofireObjectMapper.framework */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.framework;
+			path = AlamofireObjectMapper.framework;
+			remoteRef = C38F17AF1D4E3AFC0041A522 /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		C38F17B21D4E3AFC0041A522 /* ObjectMapper.framework */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.framework;
+			path = ObjectMapper.framework;
+			remoteRef = C38F17B11D4E3AFC0041A522 /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		C38F17B41D4E3AFC0041A522 /* Pods_KofktuSDK.framework */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.framework;
+			path = Pods_KofktuSDK.framework;
+			remoteRef = C38F17B31D4E3AFC0041A522 /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		C38F17B61D4E3AFC0041A522 /* Pods_KofktuSDKTests.framework */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.framework;
+			path = Pods_KofktuSDKTests.framework;
+			remoteRef = C38F17B51D4E3AFC0041A522 /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		C38F17B81D4E3AFC0041A522 /* SDWebImage.framework */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.framework;
+			path = SDWebImage.framework;
+			remoteRef = C38F17B71D4E3AFC0041A522 /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		C38F17BA1D4E3AFC0041A522 /* Timberjack.framework */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.framework;
+			path = Timberjack.framework;
+			remoteRef = C38F17B91D4E3AFC0041A522 /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+/* End PBXReferenceProxy section */
+
+/* Begin PBXResourcesBuildPhase section */
+		C38F17521D4E3A190041A522 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				C38F17621D4E3A190041A522 /* LaunchScreen.storyboard in Resources */,
+				C38F175F1D4E3A190041A522 /* Assets.xcassets in Resources */,
+				C38F175D1D4E3A190041A522 /* Main.storyboard in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		C38F17661D4E3A190041A522 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		C38F17501D4E3A190041A522 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				C38F175A1D4E3A190041A522 /* ViewController.swift in Sources */,
+				C38F17581D4E3A190041A522 /* AppDelegate.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		C38F17641D4E3A190041A522 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				C38F176D1D4E3A190041A522 /* KofktuSDKExTests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		C38F176A1D4E3A190041A522 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = C38F17531D4E3A190041A522 /* KofktuSDKEx */;
+			targetProxy = C38F17691D4E3A190041A522 /* PBXContainerItemProxy */;
+		};
+		C38F17BE1D4E3B1F0041A522 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			name = KofktuSDK;
+			targetProxy = C38F17BD1D4E3B1F0041A522 /* PBXContainerItemProxy */;
+		};
+		C38F17C31D4E3B270041A522 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			name = "Pods-KofktuSDK";
+			targetProxy = C38F17C21D4E3B270041A522 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin PBXVariantGroup section */
+		C38F175B1D4E3A190041A522 /* Main.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				C38F175C1D4E3A190041A522 /* Base */,
+			);
+			name = Main.storyboard;
+			sourceTree = "<group>";
+		};
+		C38F17601D4E3A190041A522 /* LaunchScreen.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				C38F17611D4E3A190041A522 /* Base */,
+			);
+			name = LaunchScreen.storyboard;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		C38F176F1D4E3A190041A522 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.3;
+				MTL_ENABLE_DEBUG_INFO = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+			};
+			name = Debug;
+		};
+		C38F17701D4E3A190041A522 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.3;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				SDKROOT = iphoneos;
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		C38F17721D4E3A190041A522 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				EMBEDDED_CONTENT_CONTAINS_SWIFT = YES;
+				INFOPLIST_FILE = KofktuSDKEx/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = kr.homefactory.KofktuSDKEx;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Debug;
+		};
+		C38F17731D4E3A190041A522 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				EMBEDDED_CONTENT_CONTAINS_SWIFT = YES;
+				INFOPLIST_FILE = KofktuSDKEx/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = kr.homefactory.KofktuSDKEx;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Release;
+		};
+		C38F17751D4E3A190041A522 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				INFOPLIST_FILE = KofktuSDKExTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = kr.homefactory.KofktuSDKExTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/KofktuSDKEx.app/KofktuSDKEx";
+			};
+			name = Debug;
+		};
+		C38F17761D4E3A190041A522 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				INFOPLIST_FILE = KofktuSDKExTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = kr.homefactory.KofktuSDKExTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/KofktuSDKEx.app/KofktuSDKEx";
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		C38F174F1D4E3A190041A522 /* Build configuration list for PBXProject "KofktuSDKEx" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				C38F176F1D4E3A190041A522 /* Debug */,
+				C38F17701D4E3A190041A522 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		C38F17711D4E3A190041A522 /* Build configuration list for PBXNativeTarget "KofktuSDKEx" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				C38F17721D4E3A190041A522 /* Debug */,
+				C38F17731D4E3A190041A522 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
+		C38F17741D4E3A190041A522 /* Build configuration list for PBXNativeTarget "KofktuSDKExTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				C38F17751D4E3A190041A522 /* Debug */,
+				C38F17761D4E3A190041A522 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = C38F174C1D4E3A190041A522 /* Project object */;
+}
