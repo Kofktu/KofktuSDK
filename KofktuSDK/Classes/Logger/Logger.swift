@@ -11,6 +11,9 @@ import Timberjack
 
 public struct Logger {
     
+    public static let sharedInstance: Logger = {
+        return Logger()
+    }()
     public static var style: Style = .Light
     
     public init() {
@@ -32,7 +35,7 @@ public struct Logger {
 
 public let Log: Logger? = {
     if Logger.style == .Verbose {
-        return Logger()
+        return Logger.sharedInstance
     }
     return nil
 }()

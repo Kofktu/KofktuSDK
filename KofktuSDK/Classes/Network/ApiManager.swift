@@ -17,12 +17,16 @@ public struct ApiManagerConfig {
 public class ApiManager: Alamofire.Manager {
     
     public static let sharedManager: ApiManager = {
-        Timberjack.register()
-        Timberjack.logStyle = ApiManagerConfig.logStyle
-        let configuration = Timberjack.defaultSessionConfiguration()
-        configuration.timeoutIntervalForRequest = ApiManagerConfig.timeoutIntervalForRequest
-        let manager = ApiManager(configuration: configuration)
-        return manager
+        if ApiManagerConfig.logStyle == .Light {
+            let configuration = NSURLSessionConfiguration.defaultSessionConfiguration()
+            configuration.timeoutIntervalForRequest = ApiManagerConfig.timeoutIntervalForRequest
+            return ApiManager(configuration: configuration)
+        } else {
+            Timberjack.logStyle = ApiManagerConfig.logStyle
+            let configuration = Timberjack.defaultSessionConfiguration()
+            configuration.timeoutIntervalForRequest = ApiManagerConfig.timeoutIntervalForRequest
+            return ApiManager(configuration: configuration)
+        }
     }()
     
 }
