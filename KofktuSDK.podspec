@@ -136,5 +136,6 @@ Pod::Spec.new do |s|
   s.dependency 'AlamofireObjectMapper', '~> 3.0'
   s.dependency 'Timberjack'
   s.dependency 'SDWebImage', '~>3.7'
-
+  s.dependency 'AsyncSwift'
+  
 end
