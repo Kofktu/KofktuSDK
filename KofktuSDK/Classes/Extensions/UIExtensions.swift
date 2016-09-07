@@ -225,6 +225,16 @@ public extension UIView {
         }
     }
     
+    public var cornerRadius: CGFloat {
+        get {
+            return layer.cornerRadius
+        }
+        set {
+            clipsToBounds = true
+            layer.cornerRadius = newValue
+        }
+    }
+    
     public func circlize() {
         clipsToBounds = true
         layer.cornerRadius = width / 2.0
@@ -237,11 +247,10 @@ public extension UIView {
     
     public func showGuideLines(width: CGFloat = 1.0 / UIScreen.mainScreen().scale, recursive: Bool = true) {
         drawBorder(UIColor(
-                            red: CGFloat(arc4random_uniform(255) + 1) / 255.0,
-                            green: CGFloat(arc4random_uniform(255) + 1) / 255.0,
-                            blue: CGFloat(arc4random_uniform(255) + 1) / 255.0,
-                            alpha: 1.0
-                            ),
+            red: CGFloat(arc4random_uniform(255) + 1) / 255.0,
+            green: CGFloat(arc4random_uniform(255) + 1) / 255.0,
+            blue: CGFloat(arc4random_uniform(255) + 1) / 255.0,
+            alpha: 1.0),
                    width: width)
         
         if recursive {
@@ -253,9 +262,17 @@ public extension UIView {
     
     public func addSubviewAtFit(view: UIView, edge: UIEdgeInsets = UIEdgeInsetsZero) {
         view.translatesAutoresizingMaskIntoConstraints = false
-        self.addSubview(view)
-        self.addConstraints(NSLayoutConstraint.constraintsWithVisualFormat("H:|-\(edge.left)-[view]-\(edge.right)-|", options: NSLayoutFormatOptions(rawValue: 0), metrics: nil, views: ["view": view]))
-        self.addConstraints(NSLayoutConstraint.constraintsWithVisualFormat("V:|-\(edge.top)-[view]-\(edge.bottom)-|", options: NSLayoutFormatOptions(rawValue: 0), metrics: nil, views: ["view": view]))
+        addSubview(view)
+        addConstraints(NSLayoutConstraint.constraintsWithVisualFormat("H:|-\(edge.left)-[view]-\(edge.right)-|", views: ["view": view]))
+        addConstraints(NSLayoutConstraint.constraintsWithVisualFormat("V:|-\(edge.top)-[view]-\(edge.bottom)-|", views: ["view": view]))
+    }
+    
+}
+
+public extension NSLayoutConstraint {
+    
+    public class func constraintsWithVisualFormat(format: String, views: [String : AnyObject]) -> [NSLayoutConstraint] {
+        return NSLayoutConstraint.constraintsWithVisualFormat(format, options: NSLayoutFormatOptions(rawValue: 0), metrics: nil, views: views)
     }
     
 }

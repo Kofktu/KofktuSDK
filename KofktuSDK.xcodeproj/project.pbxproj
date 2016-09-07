@@ -9,6 +9,8 @@
 /* Begin PBXBuildFile section */
 		93FE1C94805C23FA9A2C1CF2 /* Pods_KofktuSDK.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 778378763DE317A88352CB43 /* Pods_KofktuSDK.framework */; };
 		A6307D900A99015E7BFA1313 /* Pods_KofktuSDKTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 727F041333A55A68BA794E19 /* Pods_KofktuSDKTests.framework */; };
+		C311407F1D8058CD00ECF7DA /* KUIAlertController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C311407E1D8058CD00ECF7DA /* KUIAlertController.swift */; };
+		C31140811D80607500ECF7DA /* KUIViewControllerPager.swift in Sources */ = {isa = PBXBuildFile; fileRef = C31140801D80607500ECF7DA /* KUIViewControllerPager.swift */; };
 		C3367A0B1D2E7FA3004B5112 /* KofktuSDK.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3367A0A1D2E7FA3004B5112 /* KofktuSDK.swift */; };
 		C38F0D6C1D2E9F9100797C21 /* ApiManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = C38F0D6B1D2E9F9100797C21 /* ApiManager.swift */; };
 		C3D4FDB91D2D553600F3FF01 /* Logger.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3D4FDB81D2D553600F3FF01 /* Logger.swift */; };
@@ -38,6 +40,8 @@
 		67C68986823C9BF68C5EA96B /* Pods-KofktuSDKTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-KofktuSDKTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-KofktuSDKTests/Pods-KofktuSDKTests.release.xcconfig"; sourceTree = "<group>"; };
 		727F041333A55A68BA794E19 /* Pods_KofktuSDKTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_KofktuSDKTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		778378763DE317A88352CB43 /* Pods_KofktuSDK.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_KofktuSDK.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		C311407E1D8058CD00ECF7DA /* KUIAlertController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = KUIAlertController.swift; sourceTree = "<group>"; };
+		C31140801D80607500ECF7DA /* KUIViewControllerPager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = KUIViewControllerPager.swift; sourceTree = "<group>"; };
 		C3367A0A1D2E7FA3004B5112 /* KofktuSDK.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = KofktuSDK.swift; sourceTree = "<group>"; };
 		C38F0D6B1D2E9F9100797C21 /* ApiManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ApiManager.swift; sourceTree = "<group>"; };
 		C3D4FDB81D2D553600F3FF01 /* Logger.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Logger.swift; sourceTree = "<group>"; };
@@ -94,6 +98,14 @@
 				67C68986823C9BF68C5EA96B /* Pods-KofktuSDKTests.release.xcconfig */,
 			);
 			name = Pods;
+			sourceTree = "<group>";
+		};
+		C311407D1D8058A800ECF7DA /* Manager */ = {
+			isa = PBXGroup;
+			children = (
+				C311407E1D8058CD00ECF7DA /* KUIAlertController.swift */,
+			);
+			path = Manager;
 			sourceTree = "<group>";
 		};
 		C38F0D6A1D2E9F7300797C21 /* Network */ = {
@@ -166,6 +178,7 @@
 				C3D7E97D1D2E230800E570F7 /* Components */,
 				C3D4FDBA1D2D554100F3FF01 /* Extensions */,
 				C3D4FDB71D2D552A00F3FF01 /* Logger */,
+				C311407D1D8058A800ECF7DA /* Manager */,
 				C38F0D6A1D2E9F7300797C21 /* Network */,
 				C3D7E97E1D2E231500E570F7 /* Protocols */,
 				C3367A0A1D2E7FA3004B5112 /* KofktuSDK.swift */,
@@ -178,6 +191,7 @@
 			children = (
 				C3D7E9811D2E243900E570F7 /* KUILineView.swift */,
 				C3D7E9831D2E27D100E570F7 /* KUIViewController.swift */,
+				C31140801D80607500ECF7DA /* KUIViewControllerPager.swift */,
 			);
 			path = Components;
 			sourceTree = "<group>";
@@ -385,9 +399,11 @@
 				C3D4FDBC1D2D554E00F3FF01 /* UIExtensions.swift in Sources */,
 				C3D7E97C1D2E1FCB00E570F7 /* Extensions.swift in Sources */,
 				C3D4FDB91D2D553600F3FF01 /* Logger.swift in Sources */,
+				C311407F1D8058CD00ECF7DA /* KUIAlertController.swift in Sources */,
 				C3D7E9801D2E232000E570F7 /* ReusableView.swift in Sources */,
 				C3367A0B1D2E7FA3004B5112 /* KofktuSDK.swift in Sources */,
 				C3D7E9841D2E27D100E570F7 /* KUIViewController.swift in Sources */,
+				C31140811D80607500ECF7DA /* KUIViewControllerPager.swift in Sources */,
 				C3D7E9821D2E243900E570F7 /* KUILineView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
