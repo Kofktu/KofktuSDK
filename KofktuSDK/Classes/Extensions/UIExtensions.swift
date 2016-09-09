@@ -439,6 +439,7 @@ public extension UICollectionView {
     
 }
 
+extension UIViewController: NibLoadableView {}
 public extension UIViewController {
     
     public var topMostViewController: UIViewController {

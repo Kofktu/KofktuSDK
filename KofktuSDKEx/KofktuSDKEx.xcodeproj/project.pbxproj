@@ -604,6 +604,7 @@
 				C38F17731D4E3A190041A522 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		C38F17741D4E3A190041A522 /* Build configuration list for PBXNativeTarget "KofktuSDKExTests" */ = {
 			isa = XCConfigurationList;
@@ -612,6 +613,7 @@
 				C38F17761D4E3A190041A522 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};

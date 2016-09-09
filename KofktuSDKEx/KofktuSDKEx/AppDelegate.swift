@@ -19,7 +19,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         // Override point for customization after application launch.
         
         Logger.style = .Verbose
-        ApiManagerConfig.logStyle = .Verbose
+        ApiManager.style = .Verbose
         
         return true
     }

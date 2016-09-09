@@ -17,7 +17,7 @@ extension NibLoadableView where Self: UIView {
         return NSStringFromClass(self).componentsSeparatedByString(".").last!
     }
     
-    public static func instanceFromNib() -> NibLoadableView? {
+    public static func instanceFromNib() -> Self? {
         let bundle = NSBundle(forClass: self)
         let views = bundle.loadNibNamed(nibName, owner: nil, options: nil)
         for view in views {
@@ -26,6 +26,24 @@ extension NibLoadableView where Self: UIView {
             }
         }
         return nil
+    }
+}
+
+extension NibLoadableView where Self: UIViewController {
+    public static var nibName: String {
+        return NSStringFromClass(self).componentsSeparatedByString(".").last!
+    }
+    
+    public static func instance(nibName: String? = nil) -> Self? {
+        let bundle = NSBundle(forClass: self)
+        return UIViewController(nibName: nibName ?? self.nibName, bundle: bundle) as? Self
+    }
+    
+    public static func instance(storyboard: String, initial: Bool = false) -> Self? {
+        let bundle = NSBundle(forClass: self)
+        let storyboard = UIStoryboard(name: storyboard, bundle: bundle)
+        if initial { return storyboard.instantiateInitialViewController() as? Self }
+        return storyboard.instantiateViewControllerWithIdentifier("KMSplashViewController") as? Self
     }
 }
 
