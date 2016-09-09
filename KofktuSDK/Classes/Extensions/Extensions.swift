@@ -10,7 +10,7 @@ import Foundation
 
 extension Array {
     
-    mutating public func suffle() {
+    public mutating func suffle() {
         guard count > 1 else { return }
         
         for i in 0 ..< (count - 1) {
@@ -20,11 +20,21 @@ extension Array {
         }
     }
     
+    public func joinWithSeparator(separator: String, toString: (Element) -> String?) -> String {
+        var stringArray = Array<String>()
+        for element in self {
+            if let string = toString(element) {
+                stringArray.append(string)
+            }
+        }
+        return stringArray.joinWithSeparator(separator)
+    }
+    
 }
 
 extension Dictionary {
     
-    mutating public func merge(dict: [Key: Value]){
+    public mutating func merge(dict: [Key: Value]){
         for (key, value) in dict {
             updateValue(value, forKey: key)
         }
@@ -41,6 +51,20 @@ extension String {
     
     public var urlDecoded: String? {
         return stringByRemovingPercentEncoding
+    }
+    
+    public var base64Encoded: String? {
+        let data = self.dataUsingEncoding(NSUTF8StringEncoding, allowLossyConversion: true)
+        return data?.base64EncodedStringWithOptions([])
+    }
+    
+    public var base64Decoded: String? {
+        if let data = NSData(base64EncodedString: self, options: []) {
+            if let decoded = NSString(data: data, encoding: NSUTF8StringEncoding) {
+                return decoded as String
+            }
+        }
+        return nil
     }
     
     public var localized: String {
@@ -73,4 +97,21 @@ extension String {
         return stringByTrimmingCharactersInSet(NSCharacterSet.whitespaceCharacterSet())
     }
     
+    public func queryTokenizing() -> [String: String] {
+        var result:[String:String] = [:]
+        let tokens = self.characters.split("&").map(String.init)
+        for token in tokens {
+            if let index = token.characters.indexOf("=") {
+                result[token.substringToIndex(index)] = token.substringFromIndex(index.advancedBy(1))
+            }
+        }
+        return result
+    }
+}
+
+extension NSUserDefaults {
+    
+    public class func disableLayoutConstraintLog() {
+        NSUserDefaults.standardUserDefaults().setValue(false, forKey: "_UIConstraintBasedLayoutLogUnsatisfiable")
+    }
 }

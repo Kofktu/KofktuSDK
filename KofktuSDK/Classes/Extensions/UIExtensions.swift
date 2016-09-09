@@ -21,6 +21,18 @@ public enum UIColorInputError : ErrorType {
 }
 
 extension UIColor {
+    
+    public var image: UIImage? {
+        let rect = CGRectMake(0.0, 0.0, 1.0, 1.0)
+        UIGraphicsBeginImageContext(rect.size)
+        let contextRef = UIGraphicsGetCurrentContext()
+        CGContextSetFillColorWithColor(contextRef, CGColor)
+        CGContextFillRect(contextRef, rect)
+        let result = UIGraphicsGetImageFromCurrentImageContext()
+        UIGraphicsEndImageContext()
+        return result
+    }
+    
     class func colorWith255(red red: CGFloat, green: CGFloat, blue: CGFloat, alpha: CGFloat = 1.0) -> UIColor {
         return UIColor(red: red / 255.0, green: green / 255.0, blue: blue / 255.0, alpha: alpha)
     }
@@ -238,6 +250,25 @@ public extension UIView {
     public func circlize() {
         clipsToBounds = true
         layer.cornerRadius = width / 2.0
+    }
+    
+    public func capture(scale: CGFloat = UIScreen.mainScreen().scale) -> UIImage? {
+        let alpha = self.alpha
+        let hidden = self.hidden
+        
+        defer {
+            self.alpha = alpha
+            self.hidden = hidden
+            UIGraphicsEndImageContext()
+        }
+        
+        self.alpha = 1.0
+        self.hidden = false
+        
+        UIGraphicsBeginImageContextWithOptions(bounds.size, false, scale)
+        guard let contextRef = UIGraphicsGetCurrentContext() else { return nil }
+        layer.renderInContext(contextRef)
+        return UIGraphicsGetImageFromCurrentImageContext()
     }
     
     public func drawBorder(color: UIColor = UIColor.redColor(), width: CGFloat = 1.0 / UIScreen.mainScreen().scale) {
