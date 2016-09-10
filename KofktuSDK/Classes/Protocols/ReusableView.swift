@@ -34,16 +34,16 @@ extension NibLoadableView where Self: UIViewController {
         return NSStringFromClass(self).componentsSeparatedByString(".").last!
     }
     
-    public static func instance(nibName: String? = nil) -> Self? {
+    public static func instance(nibName nibName: String? = nil) -> Self? {
         let bundle = NSBundle(forClass: self)
         return UIViewController(nibName: nibName ?? self.nibName, bundle: bundle) as? Self
     }
     
-    public static func instance(storyboard: String, initial: Bool = false) -> Self? {
+    public static func instance(storyboard storyboard: String, initial: Bool = false) -> Self? {
         let bundle = NSBundle(forClass: self)
         let storyboard = UIStoryboard(name: storyboard, bundle: bundle)
         if initial { return storyboard.instantiateInitialViewController() as? Self }
-        return storyboard.instantiateViewControllerWithIdentifier("KMSplashViewController") as? Self
+        return storyboard.instantiateViewControllerWithIdentifier(nibName) as? Self
     }
 }
 
