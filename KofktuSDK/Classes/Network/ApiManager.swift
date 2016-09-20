@@ -99,9 +99,9 @@ public class ApiManager {
         
         switch apiRequest.method {
         case .GET, .HEAD:
-            return manager(apiRequest).request(apiRequest.method, urlString, parameters: parameters as? Dictionary<String, AnyObject>, headers: headers).validate()
+            return manager(apiRequest).request(apiRequest.method, urlString!, parameters: parameters as? Dictionary<String, AnyObject>, headers: headers).validate()
         default:
-            return manager(apiRequest).request(apiRequest.method, urlString, parameters: [:], encoding: .Custom({ (convertible, params) -> (NSMutableURLRequest, NSError?) in
+            return manager(apiRequest).request(apiRequest.method, urlString!, parameters: [:], encoding: .Custom({ (convertible, params) -> (NSMutableURLRequest, NSError?) in
                 let mutableRequest: NSMutableURLRequest = convertible.URLRequest.copy() as! NSMutableURLRequest
                 if let parameters = parameters {
                     do {
@@ -115,6 +115,6 @@ public class ApiManager {
     
     public func upload(apiRequest: ApiRequestProtocol, data: NSData) -> Request {
         let urlString = NSURL(string: apiRequest.resourcePath, relativeToURL: apiRequest.baseURL)!.absoluteString
-        return manager(apiRequest).upload(apiRequest.method, urlString, headers: headers, data: data).validate()
+        return manager(apiRequest).upload(apiRequest.method, urlString!, headers: headers, data: data).validate()
     }
 }

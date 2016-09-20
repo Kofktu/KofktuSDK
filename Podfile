@@ -6,11 +6,12 @@ target 'KofktuSDK' do
   use_frameworks!
 
   # Pods for KofktuSDK
-  pod 'Alamofire', '~> 3.0'
-  pod 'ObjectMapper', '~> 1.2'
-  pod 'AlamofireObjectMapper', '~> 3.0'
+  pod 'Alamofire', '3.5.0'
+  pod 'ObjectMapper', '1.4.0'
+  pod 'AlamofireObjectMapper', '3.0.2'
   pod 'Timberjack'
   pod 'SDWebImage', '~>3.7'
+  pod 'AsyncSwift', '1.7.4'
 
   target 'KofktuSDKTests' do
     inherit! :search_paths

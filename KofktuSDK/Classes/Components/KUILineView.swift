@@ -49,20 +49,20 @@ public class KUILineView: UIView {
         // Drawing code
         let contextRef = UIGraphicsGetCurrentContext()
         
-        CGContextClearRect(contextRef, rect)
-        CGContextSetFillColorWithColor(contextRef, backgroundColor?.CGColor)
-        CGContextFillRect(contextRef, rect)
+        CGContextClearRect(contextRef!, rect)
+        CGContextSetFillColorWithColor(contextRef!, (backgroundColor?.CGColor)!)
+        CGContextFillRect(contextRef!, rect)
         
-        CGContextSetFillColorWithColor(contextRef, lineColor.CGColor)
+        CGContextSetFillColorWithColor(contextRef!, lineColor.CGColor)
         
         if showTopLine {
             let width = self.width - (topInsets.left + topInsets.right)
-            CGContextFillRect(contextRef, CGRectMake(topInsets.left, 0.0, width, lineHeight))
+            CGContextFillRect(contextRef!, CGRectMake(topInsets.left, 0.0, width, lineHeight))
         }
         
         if showBottomLine {
             let width = self.width - (bottomInsets.left + bottomInsets.right)
-            CGContextFillRect(contextRef, CGRectMake(bottomInsets.left, self.height - lineHeight, width, lineHeight))
+            CGContextFillRect(contextRef!, CGRectMake(bottomInsets.left, self.height - lineHeight, width, lineHeight))
         }
     }
 

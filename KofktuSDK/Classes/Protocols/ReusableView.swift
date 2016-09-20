@@ -20,7 +20,7 @@ extension NibLoadableView where Self: UIView {
     public static func instanceFromNib() -> Self? {
         let bundle = NSBundle(forClass: self)
         let views = bundle.loadNibNamed(nibName, owner: nil, options: nil)
-        for view in views {
+        for view in views! {
             if let view = view as? Self {
                 return view
             }
