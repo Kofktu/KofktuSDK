@@ -323,11 +323,11 @@ public extension UIButton {
     
     public func setBackgroundImageWithUrlString(urlString: String?, forState state: UIControlState, placeholder: UIImage? = nil, completion: ((image: UIImage?, error: NSError?) -> Void)? = nil) {
         sd_cancelImageLoadForState(state)
-        setBackgroundImage(placeholder, forState: .Normal)
+        setBackgroundImage(placeholder, forState: state)
         
         if let urlString = urlString {
             sd_setBackgroundImageWithURL(NSURL(string: urlString), forState: state, placeholderImage: placeholder, completed: { [weak self] (image, error, type, url) -> Void in
-                self?.setBackgroundImage(image ?? placeholder, forState: .Normal)
+                self?.setBackgroundImage(image ?? placeholder, forState: state)
                 completion?(image: image, error: error)
             })
         } else {
@@ -335,8 +335,22 @@ public extension UIButton {
         }
     }
     
+    public func setImageWithUrlString(urlString: String?, forState state: UIControlState, placeholder: UIImage? = nil, completion: ((image: UIImage?, error: NSError?) -> Void)? = nil) {
+        sd_cancelImageLoadForState(state)
+        setImage(placeholder, forState: state)
+        
+        if let urlString = urlString {
+            sd_setBackgroundImageWithURL(NSURL(string: urlString), forState: state, placeholderImage: placeholder, completed: { [weak self] (image, error, type, url) -> Void in
+                self?.setImage(image ?? placeholder, forState: state)
+                completion?(image: image, error: error)
+                })
+        } else {
+            completion?(image: nil, error: NSError(domain: "UIImageView.Extension", code: -1, userInfo: [NSLocalizedDescriptionKey: "urlString is null"]))
+        }
+    }
+    
     public func strechBackgroundImage() {
-        let states: [UIControlState] = [ .Normal, .Highlighted, .Selected ]
+        let states: [UIControlState] = [ .Normal, .Highlighted, .Selected, .Disabled ]
         
         for state in states {
             guard let image = backgroundImageForState(state) else { continue }
