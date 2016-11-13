@@ -340,10 +340,10 @@ public extension UIButton {
         setImage(placeholder, forState: state)
         
         if let urlString = urlString {
-            sd_setBackgroundImageWithURL(NSURL(string: urlString), forState: state, placeholderImage: placeholder, completed: { [weak self] (image, error, type, url) -> Void in
+            sd_setImageWithURL(NSURL(string: urlString), forState: state, placeholderImage: placeholder, completed: { [weak self] (image, error, type, url) in
                 self?.setImage(image ?? placeholder, forState: state)
                 completion?(image: image, error: error)
-                })
+            })
         } else {
             completion?(image: nil, error: NSError(domain: "UIImageView.Extension", code: -1, userInfo: [NSLocalizedDescriptionKey: "urlString is null"]))
         }
