@@ -1,1331 +1,625 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
-<plist version="1.0">
-<dict>
-	<key>archiveVersion</key>
-	<string>1</string>
-	<key>classes</key>
-	<dict/>
-	<key>objectVersion</key>
-	<string>46</string>
-	<key>objects</key>
-	<dict>
-		<key>34B1B3B386BCD89C8F9505D3</key>
-		<dict>
-			<key>includeInIndex</key>
-			<string>1</string>
-			<key>isa</key>
-			<string>PBXFileReference</string>
-			<key>lastKnownFileType</key>
-			<string>text.xcconfig</string>
-			<key>name</key>
-			<string>Pods-KofktuSDK.debug.xcconfig</string>
-			<key>path</key>
-			<string>Pods/Target Support Files/Pods-KofktuSDK/Pods-KofktuSDK.debug.xcconfig</string>
-			<key>sourceTree</key>
-			<string>&lt;group&gt;</string>
-		</dict>
-		<key>380C787ED35C6491221AE14C</key>
-		<dict>
-			<key>children</key>
-			<array>
-				<string>778378763DE317A88352CB43</string>
-				<string>727F041333A55A68BA794E19</string>
-			</array>
-			<key>isa</key>
-			<string>PBXGroup</string>
-			<key>name</key>
-			<string>Frameworks</string>
-			<key>sourceTree</key>
-			<string>&lt;group&gt;</string>
-		</dict>
-		<key>3A3950F93A2192696F789583</key>
-		<dict>
-			<key>includeInIndex</key>
-			<string>1</string>
-			<key>isa</key>
-			<string>PBXFileReference</string>
-			<key>lastKnownFileType</key>
-			<string>text.xcconfig</string>
-			<key>name</key>
-			<string>Pods-KofktuSDK.release.xcconfig</string>
-			<key>path</key>
-			<string>Pods/Target Support Files/Pods-KofktuSDK/Pods-KofktuSDK.release.xcconfig</string>
-			<key>sourceTree</key>
-			<string>&lt;group&gt;</string>
-		</dict>
-		<key>43ACC7AA1C3AC98366B458EB</key>
-		<dict>
-			<key>buildActionMask</key>
-			<string>2147483647</string>
-			<key>files</key>
-			<array/>
-			<key>inputPaths</key>
-			<array/>
-			<key>isa</key>
-			<string>PBXShellScriptBuildPhase</string>
-			<key>name</key>
-			<string>[CP] Copy Pods Resources</string>
-			<key>outputPaths</key>
-			<array/>
-			<key>runOnlyForDeploymentPostprocessing</key>
-			<string>0</string>
-			<key>shellPath</key>
-			<string>/bin/sh</string>
-			<key>shellScript</key>
-			<string>"${SRCROOT}/Pods/Target Support Files/Pods-KofktuSDKTests/Pods-KofktuSDKTests-resources.sh"
-</string>
-			<key>showEnvVarsInLog</key>
-			<string>0</string>
-		</dict>
-		<key>67C68986823C9BF68C5EA96B</key>
-		<dict>
-			<key>includeInIndex</key>
-			<string>1</string>
-			<key>isa</key>
-			<string>PBXFileReference</string>
-			<key>lastKnownFileType</key>
-			<string>text.xcconfig</string>
-			<key>name</key>
-			<string>Pods-KofktuSDKTests.release.xcconfig</string>
-			<key>path</key>
-			<string>Pods/Target Support Files/Pods-KofktuSDKTests/Pods-KofktuSDKTests.release.xcconfig</string>
-			<key>sourceTree</key>
-			<string>&lt;group&gt;</string>
-		</dict>
-		<key>727F041333A55A68BA794E19</key>
-		<dict>
-			<key>explicitFileType</key>
-			<string>wrapper.framework</string>
-			<key>includeInIndex</key>
-			<string>0</string>
-			<key>isa</key>
-			<string>PBXFileReference</string>
-			<key>path</key>
-			<string>Pods_KofktuSDKTests.framework</string>
-			<key>sourceTree</key>
-			<string>BUILT_PRODUCTS_DIR</string>
-		</dict>
-		<key>778378763DE317A88352CB43</key>
-		<dict>
-			<key>explicitFileType</key>
-			<string>wrapper.framework</string>
-			<key>includeInIndex</key>
-			<string>0</string>
-			<key>isa</key>
-			<string>PBXFileReference</string>
-			<key>path</key>
-			<string>Pods_KofktuSDK.framework</string>
-			<key>sourceTree</key>
-			<string>BUILT_PRODUCTS_DIR</string>
-		</dict>
-		<key>8862EF8F2CDDAEE0457ADAF2</key>
-		<dict>
-			<key>children</key>
-			<array>
-				<string>34B1B3B386BCD89C8F9505D3</string>
-				<string>3A3950F93A2192696F789583</string>
-				<string>F31229EDCD46B33FF9761055</string>
-				<string>67C68986823C9BF68C5EA96B</string>
-			</array>
-			<key>isa</key>
-			<string>PBXGroup</string>
-			<key>name</key>
-			<string>Pods</string>
-			<key>sourceTree</key>
-			<string>&lt;group&gt;</string>
-		</dict>
-		<key>91A7DA49B948F00CFD29F282</key>
-		<dict>
-			<key>buildActionMask</key>
-			<string>2147483647</string>
-			<key>files</key>
-			<array/>
-			<key>inputPaths</key>
-			<array/>
-			<key>isa</key>
-			<string>PBXShellScriptBuildPhase</string>
-			<key>name</key>
-			<string>[CP] Check Pods Manifest.lock</string>
-			<key>outputPaths</key>
-			<array/>
-			<key>runOnlyForDeploymentPostprocessing</key>
-			<string>0</string>
-			<key>shellPath</key>
-			<string>/bin/sh</string>
-			<key>shellScript</key>
-			<string>diff "${PODS_ROOT}/../Podfile.lock" "${PODS_ROOT}/Manifest.lock" &gt; /dev/null
-if [[ $? != 0 ]] ; then
-    cat &lt;&lt; EOM
-error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.
-EOM
-    exit 1
-fi
-</string>
-			<key>showEnvVarsInLog</key>
-			<string>0</string>
-		</dict>
-		<key>93FE1C94805C23FA9A2C1CF2</key>
-		<dict>
-			<key>fileRef</key>
-			<string>778378763DE317A88352CB43</string>
-			<key>isa</key>
-			<string>PBXBuildFile</string>
-		</dict>
-		<key>A066599E938E7466A3C0D438</key>
-		<dict>
-			<key>buildActionMask</key>
-			<string>2147483647</string>
-			<key>files</key>
-			<array/>
-			<key>inputPaths</key>
-			<array/>
-			<key>isa</key>
-			<string>PBXShellScriptBuildPhase</string>
-			<key>name</key>
-			<string>[CP] Embed Pods Frameworks</string>
-			<key>outputPaths</key>
-			<array/>
-			<key>runOnlyForDeploymentPostprocessing</key>
-			<string>0</string>
-			<key>shellPath</key>
-			<string>/bin/sh</string>
-			<key>shellScript</key>
-			<string>"${SRCROOT}/Pods/Target Support Files/Pods-KofktuSDKTests/Pods-KofktuSDKTests-frameworks.sh"
-</string>
-			<key>showEnvVarsInLog</key>
-			<string>0</string>
-		</dict>
-		<key>A6307D900A99015E7BFA1313</key>
-		<dict>
-			<key>fileRef</key>
-			<string>727F041333A55A68BA794E19</string>
-			<key>isa</key>
-			<string>PBXBuildFile</string>
-		</dict>
-		<key>ACDFBF35BF5D93C2F37CAAAE</key>
-		<dict>
-			<key>buildActionMask</key>
-			<string>2147483647</string>
-			<key>files</key>
-			<array/>
-			<key>inputPaths</key>
-			<array/>
-			<key>isa</key>
-			<string>PBXShellScriptBuildPhase</string>
-			<key>name</key>
-			<string>[CP] Copy Pods Resources</string>
-			<key>outputPaths</key>
-			<array/>
-			<key>runOnlyForDeploymentPostprocessing</key>
-			<string>0</string>
-			<key>shellPath</key>
-			<string>/bin/sh</string>
-			<key>shellScript</key>
-			<string>"${SRCROOT}/Pods/Target Support Files/Pods-KofktuSDK/Pods-KofktuSDK-resources.sh"
-</string>
-			<key>showEnvVarsInLog</key>
-			<string>0</string>
-		</dict>
-		<key>C311407D1D8058A800ECF7DA</key>
-		<dict>
-			<key>children</key>
-			<array>
-				<string>C311407E1D8058CD00ECF7DA</string>
-			</array>
-			<key>isa</key>
-			<string>PBXGroup</string>
-			<key>path</key>
-			<string>Manager</string>
-			<key>sourceTree</key>
-			<string>&lt;group&gt;</string>
-		</dict>
-		<key>C311407E1D8058CD00ECF7DA</key>
-		<dict>
-			<key>fileEncoding</key>
-			<string>4</string>
-			<key>isa</key>
-			<string>PBXFileReference</string>
-			<key>lastKnownFileType</key>
-			<string>sourcecode.swift</string>
-			<key>path</key>
-			<string>KUIAlertController.swift</string>
-			<key>sourceTree</key>
-			<string>&lt;group&gt;</string>
-		</dict>
-		<key>C311407F1D8058CD00ECF7DA</key>
-		<dict>
-			<key>fileRef</key>
-			<string>C311407E1D8058CD00ECF7DA</string>
-			<key>isa</key>
-			<string>PBXBuildFile</string>
-		</dict>
-		<key>C31140801D80607500ECF7DA</key>
-		<dict>
-			<key>fileEncoding</key>
-			<string>4</string>
-			<key>isa</key>
-			<string>PBXFileReference</string>
-			<key>lastKnownFileType</key>
-			<string>sourcecode.swift</string>
-			<key>path</key>
-			<string>KUIViewControllerPager.swift</string>
-			<key>sourceTree</key>
-			<string>&lt;group&gt;</string>
-		</dict>
-		<key>C31140811D80607500ECF7DA</key>
-		<dict>
-			<key>fileRef</key>
-			<string>C31140801D80607500ECF7DA</string>
-			<key>isa</key>
-			<string>PBXBuildFile</string>
-		</dict>
-		<key>C3367A0A1D2E7FA3004B5112</key>
-		<dict>
-			<key>fileEncoding</key>
-			<string>4</string>
-			<key>isa</key>
-			<string>PBXFileReference</string>
-			<key>lastKnownFileType</key>
-			<string>sourcecode.swift</string>
-			<key>path</key>
-			<string>KofktuSDK.swift</string>
-			<key>sourceTree</key>
-			<string>&lt;group&gt;</string>
-		</dict>
-		<key>C3367A0B1D2E7FA3004B5112</key>
-		<dict>
-			<key>fileRef</key>
-			<string>C3367A0A1D2E7FA3004B5112</string>
-			<key>isa</key>
-			<string>PBXBuildFile</string>
-		</dict>
-		<key>C361D59D1D82FE00003C8FFE</key>
-		<dict>
-			<key>fileEncoding</key>
-			<string>4</string>
-			<key>isa</key>
-			<string>PBXFileReference</string>
-			<key>lastKnownFileType</key>
-			<string>sourcecode.swift</string>
-			<key>path</key>
-			<string>KUIImageViewController.swift</string>
-			<key>sourceTree</key>
-			<string>&lt;group&gt;</string>
-		</dict>
-		<key>C361D59E1D82FE00003C8FFE</key>
-		<dict>
-			<key>fileRef</key>
-			<string>C361D59D1D82FE00003C8FFE</string>
-			<key>isa</key>
-			<string>PBXBuildFile</string>
-		</dict>
-		<key>C38F0D6A1D2E9F7300797C21</key>
-		<dict>
-			<key>children</key>
-			<array>
-				<string>C38F0D6B1D2E9F9100797C21</string>
-			</array>
-			<key>isa</key>
-			<string>PBXGroup</string>
-			<key>path</key>
-			<string>Network</string>
-			<key>sourceTree</key>
-			<string>&lt;group&gt;</string>
-		</dict>
-		<key>C38F0D6B1D2E9F9100797C21</key>
-		<dict>
-			<key>fileEncoding</key>
-			<string>4</string>
-			<key>isa</key>
-			<string>PBXFileReference</string>
-			<key>lastKnownFileType</key>
-			<string>sourcecode.swift</string>
-			<key>path</key>
-			<string>ApiManager.swift</string>
-			<key>sourceTree</key>
-			<string>&lt;group&gt;</string>
-		</dict>
-		<key>C38F0D6C1D2E9F9100797C21</key>
-		<dict>
-			<key>fileRef</key>
-			<string>C38F0D6B1D2E9F9100797C21</string>
-			<key>isa</key>
-			<string>PBXBuildFile</string>
-		</dict>
-		<key>C3D4FDB71D2D552A00F3FF01</key>
-		<dict>
-			<key>children</key>
-			<array>
-				<string>C3D4FDB81D2D553600F3FF01</string>
-			</array>
-			<key>isa</key>
-			<string>PBXGroup</string>
-			<key>path</key>
-			<string>Logger</string>
-			<key>sourceTree</key>
-			<string>&lt;group&gt;</string>
-		</dict>
-		<key>C3D4FDB81D2D553600F3FF01</key>
-		<dict>
-			<key>fileEncoding</key>
-			<string>4</string>
-			<key>isa</key>
-			<string>PBXFileReference</string>
-			<key>lastKnownFileType</key>
-			<string>sourcecode.swift</string>
-			<key>path</key>
-			<string>Logger.swift</string>
-			<key>sourceTree</key>
-			<string>&lt;group&gt;</string>
-		</dict>
-		<key>C3D4FDB91D2D553600F3FF01</key>
-		<dict>
-			<key>fileRef</key>
-			<string>C3D4FDB81D2D553600F3FF01</string>
-			<key>isa</key>
-			<string>PBXBuildFile</string>
-		</dict>
-		<key>C3D4FDBA1D2D554100F3FF01</key>
-		<dict>
-			<key>children</key>
-			<array>
-				<string>C3D7E97B1D2E1FCB00E570F7</string>
-				<string>C3D4FDBB1D2D554E00F3FF01</string>
-			</array>
-			<key>isa</key>
-			<string>PBXGroup</string>
-			<key>path</key>
-			<string>Extensions</string>
-			<key>sourceTree</key>
-			<string>&lt;group&gt;</string>
-		</dict>
-		<key>C3D4FDBB1D2D554E00F3FF01</key>
-		<dict>
-			<key>fileEncoding</key>
-			<string>4</string>
-			<key>isa</key>
-			<string>PBXFileReference</string>
-			<key>lastKnownFileType</key>
-			<string>sourcecode.swift</string>
-			<key>path</key>
-			<string>UIExtensions.swift</string>
-			<key>sourceTree</key>
-			<string>&lt;group&gt;</string>
-		</dict>
-		<key>C3D4FDBC1D2D554E00F3FF01</key>
-		<dict>
-			<key>fileRef</key>
-			<string>C3D4FDBB1D2D554E00F3FF01</string>
-			<key>isa</key>
-			<string>PBXBuildFile</string>
-		</dict>
-		<key>C3D508BE1D2D49DC005F2B55</key>
-		<dict>
-			<key>children</key>
-			<array>
-				<string>C3D508CA1D2D49DC005F2B55</string>
-				<string>C3D508D61D2D49DC005F2B55</string>
-				<string>C3D508C91D2D49DC005F2B55</string>
-				<string>8862EF8F2CDDAEE0457ADAF2</string>
-				<string>380C787ED35C6491221AE14C</string>
-			</array>
-			<key>isa</key>
-			<string>PBXGroup</string>
-			<key>sourceTree</key>
-			<string>&lt;group&gt;</string>
-		</dict>
-		<key>C3D508BF1D2D49DC005F2B55</key>
-		<dict>
-			<key>attributes</key>
-			<dict>
-				<key>LastSwiftUpdateCheck</key>
-				<string>0730</string>
-				<key>LastUpgradeCheck</key>
-				<string>0730</string>
-				<key>ORGANIZATIONNAME</key>
-				<string>Kofktu</string>
-				<key>TargetAttributes</key>
-				<dict>
-					<key>C3D508C71D2D49DC005F2B55</key>
-					<dict>
-						<key>CreatedOnToolsVersion</key>
-						<string>7.3.1</string>
-						<key>LastSwiftMigration</key>
-						<string>0800</string>
-					</dict>
-					<key>C3D508D11D2D49DC005F2B55</key>
-					<dict>
-						<key>CreatedOnToolsVersion</key>
-						<string>7.3.1</string>
-						<key>LastSwiftMigration</key>
-						<string>0800</string>
-					</dict>
-				</dict>
-			</dict>
-			<key>buildConfigurationList</key>
-			<string>C3D508C21D2D49DC005F2B55</string>
-			<key>compatibilityVersion</key>
-			<string>Xcode 3.2</string>
-			<key>developmentRegion</key>
-			<string>English</string>
-			<key>hasScannedForEncodings</key>
-			<string>0</string>
-			<key>isa</key>
-			<string>PBXProject</string>
-			<key>knownRegions</key>
-			<array>
-				<string>en</string>
-			</array>
-			<key>mainGroup</key>
-			<string>C3D508BE1D2D49DC005F2B55</string>
-			<key>productRefGroup</key>
-			<string>C3D508C91D2D49DC005F2B55</string>
-			<key>projectDirPath</key>
-			<string></string>
-			<key>projectReferences</key>
-			<array/>
-			<key>projectRoot</key>
-			<string></string>
-			<key>targets</key>
-			<array>
-				<string>C3D508C71D2D49DC005F2B55</string>
-				<string>C3D508D11D2D49DC005F2B55</string>
-			</array>
-		</dict>
-		<key>C3D508C21D2D49DC005F2B55</key>
-		<dict>
-			<key>buildConfigurations</key>
-			<array>
-				<string>C3D508DA1D2D49DC005F2B55</string>
-				<string>C3D508DB1D2D49DC005F2B55</string>
-			</array>
-			<key>defaultConfigurationIsVisible</key>
-			<string>0</string>
-			<key>defaultConfigurationName</key>
-			<string>Release</string>
-			<key>isa</key>
-			<string>XCConfigurationList</string>
-		</dict>
-		<key>C3D508C31D2D49DC005F2B55</key>
-		<dict>
-			<key>buildActionMask</key>
-			<string>2147483647</string>
-			<key>files</key>
-			<array>
-				<string>C38F0D6C1D2E9F9100797C21</string>
-				<string>C3D4FDBC1D2D554E00F3FF01</string>
-				<string>C361D59E1D82FE00003C8FFE</string>
-				<string>C3D7E97C1D2E1FCB00E570F7</string>
-				<string>C3D4FDB91D2D553600F3FF01</string>
-				<string>C311407F1D8058CD00ECF7DA</string>
-				<string>C3D7E9801D2E232000E570F7</string>
-				<string>C3367A0B1D2E7FA3004B5112</string>
-				<string>C3D7E9841D2E27D100E570F7</string>
-				<string>C31140811D80607500ECF7DA</string>
-				<string>C3D7E9821D2E243900E570F7</string>
-			</array>
-			<key>isa</key>
-			<string>PBXSourcesBuildPhase</string>
-			<key>runOnlyForDeploymentPostprocessing</key>
-			<string>0</string>
-		</dict>
-		<key>C3D508C41D2D49DC005F2B55</key>
-		<dict>
-			<key>buildActionMask</key>
-			<string>2147483647</string>
-			<key>files</key>
-			<array>
-				<string>93FE1C94805C23FA9A2C1CF2</string>
-			</array>
-			<key>isa</key>
-			<string>PBXFrameworksBuildPhase</string>
-			<key>runOnlyForDeploymentPostprocessing</key>
-			<string>0</string>
-		</dict>
-		<key>C3D508C51D2D49DC005F2B55</key>
-		<dict>
-			<key>buildActionMask</key>
-			<string>2147483647</string>
-			<key>files</key>
-			<array>
-				<string>C3D508CC1D2D49DC005F2B55</string>
-			</array>
-			<key>isa</key>
-			<string>PBXHeadersBuildPhase</string>
-			<key>runOnlyForDeploymentPostprocessing</key>
-			<string>0</string>
-		</dict>
-		<key>C3D508C61D2D49DC005F2B55</key>
-		<dict>
-			<key>buildActionMask</key>
-			<string>2147483647</string>
-			<key>files</key>
-			<array/>
-			<key>isa</key>
-			<string>PBXResourcesBuildPhase</string>
-			<key>runOnlyForDeploymentPostprocessing</key>
-			<string>0</string>
-		</dict>
-		<key>C3D508C71D2D49DC005F2B55</key>
-		<dict>
-			<key>buildConfigurationList</key>
-			<string>C3D508DC1D2D49DC005F2B55</string>
-			<key>buildPhases</key>
-			<array>
-				<string>91A7DA49B948F00CFD29F282</string>
-				<string>C3D508C31D2D49DC005F2B55</string>
-				<string>C3D508C41D2D49DC005F2B55</string>
-				<string>C3D508C51D2D49DC005F2B55</string>
-				<string>C3D508C61D2D49DC005F2B55</string>
-				<string>ACDFBF35BF5D93C2F37CAAAE</string>
-			</array>
-			<key>buildRules</key>
-			<array/>
-			<key>dependencies</key>
-			<array/>
-			<key>isa</key>
-			<string>PBXNativeTarget</string>
-			<key>name</key>
-			<string>KofktuSDK</string>
-			<key>productName</key>
-			<string>KofktuSDK</string>
-			<key>productReference</key>
-			<string>C3D508C81D2D49DC005F2B55</string>
-			<key>productType</key>
-			<string>com.apple.product-type.framework</string>
-		</dict>
-		<key>C3D508C81D2D49DC005F2B55</key>
-		<dict>
-			<key>explicitFileType</key>
-			<string>wrapper.framework</string>
-			<key>includeInIndex</key>
-			<string>0</string>
-			<key>isa</key>
-			<string>PBXFileReference</string>
-			<key>path</key>
-			<string>KofktuSDK.framework</string>
-			<key>sourceTree</key>
-			<string>BUILT_PRODUCTS_DIR</string>
-		</dict>
-		<key>C3D508C91D2D49DC005F2B55</key>
-		<dict>
-			<key>children</key>
-			<array>
-				<string>C3D508C81D2D49DC005F2B55</string>
-				<string>C3D508D21D2D49DC005F2B55</string>
-			</array>
-			<key>isa</key>
-			<string>PBXGroup</string>
-			<key>name</key>
-			<string>Products</string>
-			<key>sourceTree</key>
-			<string>&lt;group&gt;</string>
-		</dict>
-		<key>C3D508CA1D2D49DC005F2B55</key>
-		<dict>
-			<key>children</key>
-			<array>
-				<string>C3D508E21D2D4AC4005F2B55</string>
-				<string>C3D508CB1D2D49DC005F2B55</string>
-				<string>C3D508CD1D2D49DC005F2B55</string>
-			</array>
-			<key>isa</key>
-			<string>PBXGroup</string>
-			<key>path</key>
-			<string>KofktuSDK</string>
-			<key>sourceTree</key>
-			<string>&lt;group&gt;</string>
-		</dict>
-		<key>C3D508CB1D2D49DC005F2B55</key>
-		<dict>
-			<key>isa</key>
-			<string>PBXFileReference</string>
-			<key>lastKnownFileType</key>
-			<string>sourcecode.c.h</string>
-			<key>path</key>
-			<string>KofktuSDK.h</string>
-			<key>sourceTree</key>
-			<string>&lt;group&gt;</string>
-		</dict>
-		<key>C3D508CC1D2D49DC005F2B55</key>
-		<dict>
-			<key>fileRef</key>
-			<string>C3D508CB1D2D49DC005F2B55</string>
-			<key>isa</key>
-			<string>PBXBuildFile</string>
-			<key>settings</key>
-			<dict>
-				<key>ATTRIBUTES</key>
-				<array>
-					<string>Public</string>
-				</array>
-			</dict>
-		</dict>
-		<key>C3D508CD1D2D49DC005F2B55</key>
-		<dict>
-			<key>isa</key>
-			<string>PBXFileReference</string>
-			<key>lastKnownFileType</key>
-			<string>text.plist.xml</string>
-			<key>path</key>
-			<string>Info.plist</string>
-			<key>sourceTree</key>
-			<string>&lt;group&gt;</string>
-		</dict>
-		<key>C3D508CE1D2D49DC005F2B55</key>
-		<dict>
-			<key>buildActionMask</key>
-			<string>2147483647</string>
-			<key>files</key>
-			<array>
-				<string>C3D508D81D2D49DC005F2B55</string>
-			</array>
-			<key>isa</key>
-			<string>PBXSourcesBuildPhase</string>
-			<key>runOnlyForDeploymentPostprocessing</key>
-			<string>0</string>
-		</dict>
-		<key>C3D508CF1D2D49DC005F2B55</key>
-		<dict>
-			<key>buildActionMask</key>
-			<string>2147483647</string>
-			<key>files</key>
-			<array>
-				<string>C3D508D31D2D49DC005F2B55</string>
-				<string>A6307D900A99015E7BFA1313</string>
-			</array>
-			<key>isa</key>
-			<string>PBXFrameworksBuildPhase</string>
-			<key>runOnlyForDeploymentPostprocessing</key>
-			<string>0</string>
-		</dict>
-		<key>C3D508D01D2D49DC005F2B55</key>
-		<dict>
-			<key>buildActionMask</key>
-			<string>2147483647</string>
-			<key>files</key>
-			<array/>
-			<key>isa</key>
-			<string>PBXResourcesBuildPhase</string>
-			<key>runOnlyForDeploymentPostprocessing</key>
-			<string>0</string>
-		</dict>
-		<key>C3D508D11D2D49DC005F2B55</key>
-		<dict>
-			<key>buildConfigurationList</key>
-			<string>C3D508DF1D2D49DC005F2B55</string>
-			<key>buildPhases</key>
-			<array>
-				<string>DB3056A46E0C88AE2A31C38B</string>
-				<string>C3D508CE1D2D49DC005F2B55</string>
-				<string>C3D508CF1D2D49DC005F2B55</string>
-				<string>C3D508D01D2D49DC005F2B55</string>
-				<string>A066599E938E7466A3C0D438</string>
-				<string>43ACC7AA1C3AC98366B458EB</string>
-			</array>
-			<key>buildRules</key>
-			<array/>
-			<key>dependencies</key>
-			<array>
-				<string>C3D508D51D2D49DC005F2B55</string>
-			</array>
-			<key>isa</key>
-			<string>PBXNativeTarget</string>
-			<key>name</key>
-			<string>KofktuSDKTests</string>
-			<key>productName</key>
-			<string>KofktuSDKTests</string>
-			<key>productReference</key>
-			<string>C3D508D21D2D49DC005F2B55</string>
-			<key>productType</key>
-			<string>com.apple.product-type.bundle.unit-test</string>
-		</dict>
-		<key>C3D508D21D2D49DC005F2B55</key>
-		<dict>
-			<key>explicitFileType</key>
-			<string>wrapper.cfbundle</string>
-			<key>includeInIndex</key>
-			<string>0</string>
-			<key>isa</key>
-			<string>PBXFileReference</string>
-			<key>path</key>
-			<string>KofktuSDKTests.xctest</string>
-			<key>sourceTree</key>
-			<string>BUILT_PRODUCTS_DIR</string>
-		</dict>
-		<key>C3D508D31D2D49DC005F2B55</key>
-		<dict>
-			<key>fileRef</key>
-			<string>C3D508C81D2D49DC005F2B55</string>
-			<key>isa</key>
-			<string>PBXBuildFile</string>
-		</dict>
-		<key>C3D508D41D2D49DC005F2B55</key>
-		<dict>
-			<key>containerPortal</key>
-			<string>C3D508BF1D2D49DC005F2B55</string>
-			<key>isa</key>
-			<string>PBXContainerItemProxy</string>
-			<key>proxyType</key>
-			<string>1</string>
-			<key>remoteGlobalIDString</key>
-			<string>C3D508C71D2D49DC005F2B55</string>
-			<key>remoteInfo</key>
-			<string>KofktuSDK</string>
-		</dict>
-		<key>C3D508D51D2D49DC005F2B55</key>
-		<dict>
-			<key>isa</key>
-			<string>PBXTargetDependency</string>
-			<key>target</key>
-			<string>C3D508C71D2D49DC005F2B55</string>
-			<key>targetProxy</key>
-			<string>C3D508D41D2D49DC005F2B55</string>
-		</dict>
-		<key>C3D508D61D2D49DC005F2B55</key>
-		<dict>
-			<key>children</key>
-			<array>
-				<string>C3D508D71D2D49DC005F2B55</string>
-				<string>C3D508D91D2D49DC005F2B55</string>
-			</array>
-			<key>isa</key>
-			<string>PBXGroup</string>
-			<key>path</key>
-			<string>KofktuSDKTests</string>
-			<key>sourceTree</key>
-			<string>&lt;group&gt;</string>
-		</dict>
-		<key>C3D508D71D2D49DC005F2B55</key>
-		<dict>
-			<key>isa</key>
-			<string>PBXFileReference</string>
-			<key>lastKnownFileType</key>
-			<string>sourcecode.swift</string>
-			<key>path</key>
-			<string>KofktuSDKTests.swift</string>
-			<key>sourceTree</key>
-			<string>&lt;group&gt;</string>
-		</dict>
-		<key>C3D508D81D2D49DC005F2B55</key>
-		<dict>
-			<key>fileRef</key>
-			<string>C3D508D71D2D49DC005F2B55</string>
-			<key>isa</key>
-			<string>PBXBuildFile</string>
-		</dict>
-		<key>C3D508D91D2D49DC005F2B55</key>
-		<dict>
-			<key>isa</key>
-			<string>PBXFileReference</string>
-			<key>lastKnownFileType</key>
-			<string>text.plist.xml</string>
-			<key>path</key>
-			<string>Info.plist</string>
-			<key>sourceTree</key>
-			<string>&lt;group&gt;</string>
-		</dict>
-		<key>C3D508DA1D2D49DC005F2B55</key>
-		<dict>
-			<key>buildSettings</key>
-			<dict>
-				<key>ALWAYS_SEARCH_USER_PATHS</key>
-				<string>NO</string>
-				<key>CLANG_ANALYZER_NONNULL</key>
-				<string>YES</string>
-				<key>CLANG_CXX_LANGUAGE_STANDARD</key>
-				<string>gnu++0x</string>
-				<key>CLANG_CXX_LIBRARY</key>
-				<string>libc++</string>
-				<key>CLANG_ENABLE_MODULES</key>
-				<string>YES</string>
-				<key>CLANG_ENABLE_OBJC_ARC</key>
-				<string>YES</string>
-				<key>CLANG_WARN_BOOL_CONVERSION</key>
-				<string>YES</string>
-				<key>CLANG_WARN_CONSTANT_CONVERSION</key>
-				<string>YES</string>
-				<key>CLANG_WARN_DIRECT_OBJC_ISA_USAGE</key>
-				<string>YES_ERROR</string>
-				<key>CLANG_WARN_EMPTY_BODY</key>
-				<string>YES</string>
-				<key>CLANG_WARN_ENUM_CONVERSION</key>
-				<string>YES</string>
-				<key>CLANG_WARN_INT_CONVERSION</key>
-				<string>YES</string>
-				<key>CLANG_WARN_OBJC_ROOT_CLASS</key>
-				<string>YES_ERROR</string>
-				<key>CLANG_WARN_UNREACHABLE_CODE</key>
-				<string>YES</string>
-				<key>CLANG_WARN__DUPLICATE_METHOD_MATCH</key>
-				<string>YES</string>
-				<key>CODE_SIGN_IDENTITY[sdk=iphoneos*]</key>
-				<string>iPhone Developer</string>
-				<key>COPY_PHASE_STRIP</key>
-				<string>NO</string>
-				<key>CURRENT_PROJECT_VERSION</key>
-				<string>1</string>
-				<key>DEBUG_INFORMATION_FORMAT</key>
-				<string>dwarf</string>
-				<key>ENABLE_STRICT_OBJC_MSGSEND</key>
-				<string>YES</string>
-				<key>ENABLE_TESTABILITY</key>
-				<string>YES</string>
-				<key>GCC_C_LANGUAGE_STANDARD</key>
-				<string>gnu99</string>
-				<key>GCC_DYNAMIC_NO_PIC</key>
-				<string>NO</string>
-				<key>GCC_NO_COMMON_BLOCKS</key>
-				<string>YES</string>
-				<key>GCC_OPTIMIZATION_LEVEL</key>
-				<string>0</string>
-				<key>GCC_PREPROCESSOR_DEFINITIONS</key>
-				<array>
-					<string>DEBUG=1</string>
-					<string>$(inherited)</string>
-				</array>
-				<key>GCC_WARN_64_TO_32_BIT_CONVERSION</key>
-				<string>YES</string>
-				<key>GCC_WARN_ABOUT_RETURN_TYPE</key>
-				<string>YES_ERROR</string>
-				<key>GCC_WARN_UNDECLARED_SELECTOR</key>
-				<string>YES</string>
-				<key>GCC_WARN_UNINITIALIZED_AUTOS</key>
-				<string>YES_AGGRESSIVE</string>
-				<key>GCC_WARN_UNUSED_FUNCTION</key>
-				<string>YES</string>
-				<key>GCC_WARN_UNUSED_VARIABLE</key>
-				<string>YES</string>
-				<key>IPHONEOS_DEPLOYMENT_TARGET</key>
-				<string>8.0</string>
-				<key>MTL_ENABLE_DEBUG_INFO</key>
-				<string>YES</string>
-				<key>ONLY_ACTIVE_ARCH</key>
-				<string>YES</string>
-				<key>SDKROOT</key>
-				<string>iphoneos</string>
-				<key>SWIFT_OPTIMIZATION_LEVEL</key>
-				<string>-Onone</string>
-				<key>TARGETED_DEVICE_FAMILY</key>
-				<string>1,2</string>
-				<key>VERSIONING_SYSTEM</key>
-				<string>apple-generic</string>
-				<key>VERSION_INFO_PREFIX</key>
-				<string></string>
-			</dict>
-			<key>isa</key>
-			<string>XCBuildConfiguration</string>
-			<key>name</key>
-			<string>Debug</string>
-		</dict>
-		<key>C3D508DB1D2D49DC005F2B55</key>
-		<dict>
-			<key>buildSettings</key>
-			<dict>
-				<key>ALWAYS_SEARCH_USER_PATHS</key>
-				<string>NO</string>
-				<key>CLANG_ANALYZER_NONNULL</key>
-				<string>YES</string>
-				<key>CLANG_CXX_LANGUAGE_STANDARD</key>
-				<string>gnu++0x</string>
-				<key>CLANG_CXX_LIBRARY</key>
-				<string>libc++</string>
-				<key>CLANG_ENABLE_MODULES</key>
-				<string>YES</string>
-				<key>CLANG_ENABLE_OBJC_ARC</key>
-				<string>YES</string>
-				<key>CLANG_WARN_BOOL_CONVERSION</key>
-				<string>YES</string>
-				<key>CLANG_WARN_CONSTANT_CONVERSION</key>
-				<string>YES</string>
-				<key>CLANG_WARN_DIRECT_OBJC_ISA_USAGE</key>
-				<string>YES_ERROR</string>
-				<key>CLANG_WARN_EMPTY_BODY</key>
-				<string>YES</string>
-				<key>CLANG_WARN_ENUM_CONVERSION</key>
-				<string>YES</string>
-				<key>CLANG_WARN_INT_CONVERSION</key>
-				<string>YES</string>
-				<key>CLANG_WARN_OBJC_ROOT_CLASS</key>
-				<string>YES_ERROR</string>
-				<key>CLANG_WARN_UNREACHABLE_CODE</key>
-				<string>YES</string>
-				<key>CLANG_WARN__DUPLICATE_METHOD_MATCH</key>
-				<string>YES</string>
-				<key>CODE_SIGN_IDENTITY[sdk=iphoneos*]</key>
-				<string>iPhone Developer</string>
-				<key>COPY_PHASE_STRIP</key>
-				<string>NO</string>
-				<key>CURRENT_PROJECT_VERSION</key>
-				<string>1</string>
-				<key>DEBUG_INFORMATION_FORMAT</key>
-				<string>dwarf-with-dsym</string>
-				<key>ENABLE_NS_ASSERTIONS</key>
-				<string>NO</string>
-				<key>ENABLE_STRICT_OBJC_MSGSEND</key>
-				<string>YES</string>
-				<key>GCC_C_LANGUAGE_STANDARD</key>
-				<string>gnu99</string>
-				<key>GCC_NO_COMMON_BLOCKS</key>
-				<string>YES</string>
-				<key>GCC_WARN_64_TO_32_BIT_CONVERSION</key>
-				<string>YES</string>
-				<key>GCC_WARN_ABOUT_RETURN_TYPE</key>
-				<string>YES_ERROR</string>
-				<key>GCC_WARN_UNDECLARED_SELECTOR</key>
-				<string>YES</string>
-				<key>GCC_WARN_UNINITIALIZED_AUTOS</key>
-				<string>YES_AGGRESSIVE</string>
-				<key>GCC_WARN_UNUSED_FUNCTION</key>
-				<string>YES</string>
-				<key>GCC_WARN_UNUSED_VARIABLE</key>
-				<string>YES</string>
-				<key>IPHONEOS_DEPLOYMENT_TARGET</key>
-				<string>8.0</string>
-				<key>MTL_ENABLE_DEBUG_INFO</key>
-				<string>NO</string>
-				<key>SDKROOT</key>
-				<string>iphoneos</string>
-				<key>TARGETED_DEVICE_FAMILY</key>
-				<string>1,2</string>
-				<key>VALIDATE_PRODUCT</key>
-				<string>YES</string>
-				<key>VERSIONING_SYSTEM</key>
-				<string>apple-generic</string>
-				<key>VERSION_INFO_PREFIX</key>
-				<string></string>
-			</dict>
-			<key>isa</key>
-			<string>XCBuildConfiguration</string>
-			<key>name</key>
-			<string>Release</string>
-		</dict>
-		<key>C3D508DC1D2D49DC005F2B55</key>
-		<dict>
-			<key>buildConfigurations</key>
-			<array>
-				<string>C3D508DD1D2D49DC005F2B55</string>
-				<string>C3D508DE1D2D49DC005F2B55</string>
-			</array>
-			<key>defaultConfigurationIsVisible</key>
-			<string>0</string>
-			<key>defaultConfigurationName</key>
-			<string>Release</string>
-			<key>isa</key>
-			<string>XCConfigurationList</string>
-		</dict>
-		<key>C3D508DD1D2D49DC005F2B55</key>
-		<dict>
-			<key>baseConfigurationReference</key>
-			<string>34B1B3B386BCD89C8F9505D3</string>
-			<key>buildSettings</key>
-			<dict>
-				<key>CLANG_ENABLE_MODULES</key>
-				<string>YES</string>
-				<key>DEFINES_MODULE</key>
-				<string>YES</string>
-				<key>DYLIB_COMPATIBILITY_VERSION</key>
-				<string>1</string>
-				<key>DYLIB_CURRENT_VERSION</key>
-				<string>1</string>
-				<key>DYLIB_INSTALL_NAME_BASE</key>
-				<string>@rpath</string>
-				<key>INFOPLIST_FILE</key>
-				<string>KofktuSDK/Info.plist</string>
-				<key>INSTALL_PATH</key>
-				<string>$(LOCAL_LIBRARY_DIR)/Frameworks</string>
-				<key>IPHONEOS_DEPLOYMENT_TARGET</key>
-				<string>8.0</string>
-				<key>LD_RUNPATH_SEARCH_PATHS</key>
-				<string>$(inherited) @executable_path/Frameworks @loader_path/Frameworks</string>
-				<key>PRODUCT_BUNDLE_IDENTIFIER</key>
-				<string>kr.homefactory.KofktuSDK</string>
-				<key>PRODUCT_NAME</key>
-				<string>$(TARGET_NAME)</string>
-				<key>SKIP_INSTALL</key>
-				<string>YES</string>
-				<key>SWIFT_OPTIMIZATION_LEVEL</key>
-				<string>-Onone</string>
-				<key>SWIFT_VERSION</key>
-				<string>2.3</string>
-			</dict>
-			<key>isa</key>
-			<string>XCBuildConfiguration</string>
-			<key>name</key>
-			<string>Debug</string>
-		</dict>
-		<key>C3D508DE1D2D49DC005F2B55</key>
-		<dict>
-			<key>baseConfigurationReference</key>
-			<string>3A3950F93A2192696F789583</string>
-			<key>buildSettings</key>
-			<dict>
-				<key>CLANG_ENABLE_MODULES</key>
-				<string>YES</string>
-				<key>DEFINES_MODULE</key>
-				<string>YES</string>
-				<key>DYLIB_COMPATIBILITY_VERSION</key>
-				<string>1</string>
-				<key>DYLIB_CURRENT_VERSION</key>
-				<string>1</string>
-				<key>DYLIB_INSTALL_NAME_BASE</key>
-				<string>@rpath</string>
-				<key>INFOPLIST_FILE</key>
-				<string>KofktuSDK/Info.plist</string>
-				<key>INSTALL_PATH</key>
-				<string>$(LOCAL_LIBRARY_DIR)/Frameworks</string>
-				<key>IPHONEOS_DEPLOYMENT_TARGET</key>
-				<string>8.0</string>
-				<key>LD_RUNPATH_SEARCH_PATHS</key>
-				<string>$(inherited) @executable_path/Frameworks @loader_path/Frameworks</string>
-				<key>PRODUCT_BUNDLE_IDENTIFIER</key>
-				<string>kr.homefactory.KofktuSDK</string>
-				<key>PRODUCT_NAME</key>
-				<string>$(TARGET_NAME)</string>
-				<key>SKIP_INSTALL</key>
-				<string>YES</string>
-				<key>SWIFT_VERSION</key>
-				<string>2.3</string>
-			</dict>
-			<key>isa</key>
-			<string>XCBuildConfiguration</string>
-			<key>name</key>
-			<string>Release</string>
-		</dict>
-		<key>C3D508DF1D2D49DC005F2B55</key>
-		<dict>
-			<key>buildConfigurations</key>
-			<array>
-				<string>C3D508E01D2D49DC005F2B55</string>
-				<string>C3D508E11D2D49DC005F2B55</string>
-			</array>
-			<key>defaultConfigurationIsVisible</key>
-			<string>0</string>
-			<key>defaultConfigurationName</key>
-			<string>Release</string>
-			<key>isa</key>
-			<string>XCConfigurationList</string>
-		</dict>
-		<key>C3D508E01D2D49DC005F2B55</key>
-		<dict>
-			<key>baseConfigurationReference</key>
-			<string>F31229EDCD46B33FF9761055</string>
-			<key>buildSettings</key>
-			<dict>
-				<key>INFOPLIST_FILE</key>
-				<string>KofktuSDKTests/Info.plist</string>
-				<key>LD_RUNPATH_SEARCH_PATHS</key>
-				<string>$(inherited) @executable_path/Frameworks @loader_path/Frameworks</string>
-				<key>PRODUCT_BUNDLE_IDENTIFIER</key>
-				<string>kr.homefactory.KofktuSDKTests</string>
-				<key>PRODUCT_NAME</key>
-				<string>$(TARGET_NAME)</string>
-				<key>SWIFT_VERSION</key>
-				<string>2.3</string>
-			</dict>
-			<key>isa</key>
-			<string>XCBuildConfiguration</string>
-			<key>name</key>
-			<string>Debug</string>
-		</dict>
-		<key>C3D508E11D2D49DC005F2B55</key>
-		<dict>
-			<key>baseConfigurationReference</key>
-			<string>67C68986823C9BF68C5EA96B</string>
-			<key>buildSettings</key>
-			<dict>
-				<key>INFOPLIST_FILE</key>
-				<string>KofktuSDKTests/Info.plist</string>
-				<key>LD_RUNPATH_SEARCH_PATHS</key>
-				<string>$(inherited) @executable_path/Frameworks @loader_path/Frameworks</string>
-				<key>PRODUCT_BUNDLE_IDENTIFIER</key>
-				<string>kr.homefactory.KofktuSDKTests</string>
-				<key>PRODUCT_NAME</key>
-				<string>$(TARGET_NAME)</string>
-				<key>SWIFT_VERSION</key>
-				<string>2.3</string>
-			</dict>
-			<key>isa</key>
-			<string>XCBuildConfiguration</string>
-			<key>name</key>
-			<string>Release</string>
-		</dict>
-		<key>C3D508E21D2D4AC4005F2B55</key>
-		<dict>
-			<key>children</key>
-			<array>
-				<string>C3D7E97D1D2E230800E570F7</string>
-				<string>C3D4FDBA1D2D554100F3FF01</string>
-				<string>C3D4FDB71D2D552A00F3FF01</string>
-				<string>C311407D1D8058A800ECF7DA</string>
-				<string>C38F0D6A1D2E9F7300797C21</string>
-				<string>C3D7E97E1D2E231500E570F7</string>
-				<string>C3367A0A1D2E7FA3004B5112</string>
-			</array>
-			<key>isa</key>
-			<string>PBXGroup</string>
-			<key>path</key>
-			<string>Classes</string>
-			<key>sourceTree</key>
-			<string>&lt;group&gt;</string>
-		</dict>
-		<key>C3D7E97B1D2E1FCB00E570F7</key>
-		<dict>
-			<key>fileEncoding</key>
-			<string>4</string>
-			<key>isa</key>
-			<string>PBXFileReference</string>
-			<key>lastKnownFileType</key>
-			<string>sourcecode.swift</string>
-			<key>path</key>
-			<string>Extensions.swift</string>
-			<key>sourceTree</key>
-			<string>&lt;group&gt;</string>
-		</dict>
-		<key>C3D7E97C1D2E1FCB00E570F7</key>
-		<dict>
-			<key>fileRef</key>
-			<string>C3D7E97B1D2E1FCB00E570F7</string>
-			<key>isa</key>
-			<string>PBXBuildFile</string>
-		</dict>
-		<key>C3D7E97D1D2E230800E570F7</key>
-		<dict>
-			<key>children</key>
-			<array>
-				<string>C3D7E9811D2E243900E570F7</string>
-				<string>C3D7E9831D2E27D100E570F7</string>
-				<string>C31140801D80607500ECF7DA</string>
-				<string>C361D59D1D82FE00003C8FFE</string>
-			</array>
-			<key>isa</key>
-			<string>PBXGroup</string>
-			<key>path</key>
-			<string>Components</string>
-			<key>sourceTree</key>
-			<string>&lt;group&gt;</string>
-		</dict>
-		<key>C3D7E97E1D2E231500E570F7</key>
-		<dict>
-			<key>children</key>
-			<array>
-				<string>C3D7E97F1D2E232000E570F7</string>
-			</array>
-			<key>isa</key>
-			<string>PBXGroup</string>
-			<key>path</key>
-			<string>Protocols</string>
-			<key>sourceTree</key>
-			<string>&lt;group&gt;</string>
-		</dict>
-		<key>C3D7E97F1D2E232000E570F7</key>
-		<dict>
-			<key>fileEncoding</key>
-			<string>4</string>
-			<key>isa</key>
-			<string>PBXFileReference</string>
-			<key>lastKnownFileType</key>
-			<string>sourcecode.swift</string>
-			<key>path</key>
-			<string>ReusableView.swift</string>
-			<key>sourceTree</key>
-			<string>&lt;group&gt;</string>
-		</dict>
-		<key>C3D7E9801D2E232000E570F7</key>
-		<dict>
-			<key>fileRef</key>
-			<string>C3D7E97F1D2E232000E570F7</string>
-			<key>isa</key>
-			<string>PBXBuildFile</string>
-		</dict>
-		<key>C3D7E9811D2E243900E570F7</key>
-		<dict>
-			<key>fileEncoding</key>
-			<string>4</string>
-			<key>isa</key>
-			<string>PBXFileReference</string>
-			<key>lastKnownFileType</key>
-			<string>sourcecode.swift</string>
-			<key>path</key>
-			<string>KUILineView.swift</string>
-			<key>sourceTree</key>
-			<string>&lt;group&gt;</string>
-		</dict>
-		<key>C3D7E9821D2E243900E570F7</key>
-		<dict>
-			<key>fileRef</key>
-			<string>C3D7E9811D2E243900E570F7</string>
-			<key>isa</key>
-			<string>PBXBuildFile</string>
-		</dict>
-		<key>C3D7E9831D2E27D100E570F7</key>
-		<dict>
-			<key>fileEncoding</key>
-			<string>4</string>
-			<key>isa</key>
-			<string>PBXFileReference</string>
-			<key>lastKnownFileType</key>
-			<string>sourcecode.swift</string>
-			<key>path</key>
-			<string>KUIViewController.swift</string>
-			<key>sourceTree</key>
-			<string>&lt;group&gt;</string>
-		</dict>
-		<key>C3D7E9841D2E27D100E570F7</key>
-		<dict>
-			<key>fileRef</key>
-			<string>C3D7E9831D2E27D100E570F7</string>
-			<key>isa</key>
-			<string>PBXBuildFile</string>
-		</dict>
-		<key>DB3056A46E0C88AE2A31C38B</key>
-		<dict>
-			<key>buildActionMask</key>
-			<string>2147483647</string>
-			<key>files</key>
-			<array/>
-			<key>inputPaths</key>
-			<array/>
-			<key>isa</key>
-			<string>PBXShellScriptBuildPhase</string>
-			<key>name</key>
-			<string>[CP] Check Pods Manifest.lock</string>
-			<key>outputPaths</key>
-			<array/>
-			<key>runOnlyForDeploymentPostprocessing</key>
-			<string>0</string>
-			<key>shellPath</key>
-			<string>/bin/sh</string>
-			<key>shellScript</key>
-			<string>diff "${PODS_ROOT}/../Podfile.lock" "${PODS_ROOT}/Manifest.lock" &gt; /dev/null
-if [[ $? != 0 ]] ; then
-    cat &lt;&lt; EOM
-error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.
-EOM
-    exit 1
-fi
-</string>
-			<key>showEnvVarsInLog</key>
-			<string>0</string>
-		</dict>
-		<key>F31229EDCD46B33FF9761055</key>
-		<dict>
-			<key>includeInIndex</key>
-			<string>1</string>
-			<key>isa</key>
-			<string>PBXFileReference</string>
-			<key>lastKnownFileType</key>
-			<string>text.xcconfig</string>
-			<key>name</key>
-			<string>Pods-KofktuSDKTests.debug.xcconfig</string>
-			<key>path</key>
-			<string>Pods/Target Support Files/Pods-KofktuSDKTests/Pods-KofktuSDKTests.debug.xcconfig</string>
-			<key>sourceTree</key>
-			<string>&lt;group&gt;</string>
-		</dict>
-	</dict>
-	<key>rootObject</key>
-	<string>C3D508BF1D2D49DC005F2B55</string>
-</dict>
-</plist>
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		93FE1C94805C23FA9A2C1CF2 /* Pods_KofktuSDK.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 778378763DE317A88352CB43 /* Pods_KofktuSDK.framework */; };
+		A6307D900A99015E7BFA1313 /* Pods_KofktuSDKTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 727F041333A55A68BA794E19 /* Pods_KofktuSDKTests.framework */; };
+		C311407F1D8058CD00ECF7DA /* KUIAlertController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C311407E1D8058CD00ECF7DA /* KUIAlertController.swift */; };
+		C31140811D80607500ECF7DA /* KUIViewControllerPager.swift in Sources */ = {isa = PBXBuildFile; fileRef = C31140801D80607500ECF7DA /* KUIViewControllerPager.swift */; };
+		C3367A0B1D2E7FA3004B5112 /* KofktuSDK.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3367A0A1D2E7FA3004B5112 /* KofktuSDK.swift */; };
+		C361D59E1D82FE00003C8FFE /* KUIImageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C361D59D1D82FE00003C8FFE /* KUIImageViewController.swift */; };
+		C38F0D6C1D2E9F9100797C21 /* ApiManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = C38F0D6B1D2E9F9100797C21 /* ApiManager.swift */; };
+		C3D4FDB91D2D553600F3FF01 /* Logger.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3D4FDB81D2D553600F3FF01 /* Logger.swift */; };
+		C3D4FDBC1D2D554E00F3FF01 /* UIExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3D4FDBB1D2D554E00F3FF01 /* UIExtensions.swift */; };
+		C3D508CC1D2D49DC005F2B55 /* KofktuSDK.h in Headers */ = {isa = PBXBuildFile; fileRef = C3D508CB1D2D49DC005F2B55 /* KofktuSDK.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		C3D508D31D2D49DC005F2B55 /* KofktuSDK.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C3D508C81D2D49DC005F2B55 /* KofktuSDK.framework */; };
+		C3D508D81D2D49DC005F2B55 /* KofktuSDKTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3D508D71D2D49DC005F2B55 /* KofktuSDKTests.swift */; };
+		C3D7E97C1D2E1FCB00E570F7 /* Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3D7E97B1D2E1FCB00E570F7 /* Extensions.swift */; };
+		C3D7E9801D2E232000E570F7 /* ReusableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3D7E97F1D2E232000E570F7 /* ReusableView.swift */; };
+		C3D7E9821D2E243900E570F7 /* KUILineView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3D7E9811D2E243900E570F7 /* KUILineView.swift */; };
+		C3D7E9841D2E27D100E570F7 /* KUIViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3D7E9831D2E27D100E570F7 /* KUIViewController.swift */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		C3D508D41D2D49DC005F2B55 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = C3D508BF1D2D49DC005F2B55 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = C3D508C71D2D49DC005F2B55;
+			remoteInfo = KofktuSDK;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		34B1B3B386BCD89C8F9505D3 /* Pods-KofktuSDK.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-KofktuSDK.debug.xcconfig"; path = "Pods/Target Support Files/Pods-KofktuSDK/Pods-KofktuSDK.debug.xcconfig"; sourceTree = "<group>"; };
+		3A3950F93A2192696F789583 /* Pods-KofktuSDK.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-KofktuSDK.release.xcconfig"; path = "Pods/Target Support Files/Pods-KofktuSDK/Pods-KofktuSDK.release.xcconfig"; sourceTree = "<group>"; };
+		67C68986823C9BF68C5EA96B /* Pods-KofktuSDKTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-KofktuSDKTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-KofktuSDKTests/Pods-KofktuSDKTests.release.xcconfig"; sourceTree = "<group>"; };
+		727F041333A55A68BA794E19 /* Pods_KofktuSDKTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_KofktuSDKTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		778378763DE317A88352CB43 /* Pods_KofktuSDK.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_KofktuSDK.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		C311407E1D8058CD00ECF7DA /* KUIAlertController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = KUIAlertController.swift; sourceTree = "<group>"; };
+		C31140801D80607500ECF7DA /* KUIViewControllerPager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = KUIViewControllerPager.swift; sourceTree = "<group>"; };
+		C3367A0A1D2E7FA3004B5112 /* KofktuSDK.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = KofktuSDK.swift; sourceTree = "<group>"; };
+		C361D59D1D82FE00003C8FFE /* KUIImageViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = KUIImageViewController.swift; sourceTree = "<group>"; };
+		C38F0D6B1D2E9F9100797C21 /* ApiManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ApiManager.swift; sourceTree = "<group>"; };
+		C3D4FDB81D2D553600F3FF01 /* Logger.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Logger.swift; sourceTree = "<group>"; };
+		C3D4FDBB1D2D554E00F3FF01 /* UIExtensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UIExtensions.swift; sourceTree = "<group>"; };
+		C3D508C81D2D49DC005F2B55 /* KofktuSDK.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = KofktuSDK.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		C3D508CB1D2D49DC005F2B55 /* KofktuSDK.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = KofktuSDK.h; sourceTree = "<group>"; };
+		C3D508CD1D2D49DC005F2B55 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		C3D508D21D2D49DC005F2B55 /* KofktuSDKTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = KofktuSDKTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		C3D508D71D2D49DC005F2B55 /* KofktuSDKTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KofktuSDKTests.swift; sourceTree = "<group>"; };
+		C3D508D91D2D49DC005F2B55 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		C3D7E97B1D2E1FCB00E570F7 /* Extensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Extensions.swift; sourceTree = "<group>"; };
+		C3D7E97F1D2E232000E570F7 /* ReusableView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ReusableView.swift; sourceTree = "<group>"; };
+		C3D7E9811D2E243900E570F7 /* KUILineView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = KUILineView.swift; sourceTree = "<group>"; };
+		C3D7E9831D2E27D100E570F7 /* KUIViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = KUIViewController.swift; sourceTree = "<group>"; };
+		F31229EDCD46B33FF9761055 /* Pods-KofktuSDKTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-KofktuSDKTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-KofktuSDKTests/Pods-KofktuSDKTests.debug.xcconfig"; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		C3D508C41D2D49DC005F2B55 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				93FE1C94805C23FA9A2C1CF2 /* Pods_KofktuSDK.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		C3D508CF1D2D49DC005F2B55 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				C3D508D31D2D49DC005F2B55 /* KofktuSDK.framework in Frameworks */,
+				A6307D900A99015E7BFA1313 /* Pods_KofktuSDKTests.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		380C787ED35C6491221AE14C /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				778378763DE317A88352CB43 /* Pods_KofktuSDK.framework */,
+				727F041333A55A68BA794E19 /* Pods_KofktuSDKTests.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		8862EF8F2CDDAEE0457ADAF2 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				34B1B3B386BCD89C8F9505D3 /* Pods-KofktuSDK.debug.xcconfig */,
+				3A3950F93A2192696F789583 /* Pods-KofktuSDK.release.xcconfig */,
+				F31229EDCD46B33FF9761055 /* Pods-KofktuSDKTests.debug.xcconfig */,
+				67C68986823C9BF68C5EA96B /* Pods-KofktuSDKTests.release.xcconfig */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
+		C311407D1D8058A800ECF7DA /* Manager */ = {
+			isa = PBXGroup;
+			children = (
+				C311407E1D8058CD00ECF7DA /* KUIAlertController.swift */,
+			);
+			path = Manager;
+			sourceTree = "<group>";
+		};
+		C38F0D6A1D2E9F7300797C21 /* Network */ = {
+			isa = PBXGroup;
+			children = (
+				C38F0D6B1D2E9F9100797C21 /* ApiManager.swift */,
+			);
+			path = Network;
+			sourceTree = "<group>";
+		};
+		C3D4FDB71D2D552A00F3FF01 /* Logger */ = {
+			isa = PBXGroup;
+			children = (
+				C3D4FDB81D2D553600F3FF01 /* Logger.swift */,
+			);
+			path = Logger;
+			sourceTree = "<group>";
+		};
+		C3D4FDBA1D2D554100F3FF01 /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				C3D7E97B1D2E1FCB00E570F7 /* Extensions.swift */,
+				C3D4FDBB1D2D554E00F3FF01 /* UIExtensions.swift */,
+			);
+			path = Extensions;
+			sourceTree = "<group>";
+		};
+		C3D508BE1D2D49DC005F2B55 = {
+			isa = PBXGroup;
+			children = (
+				C3D508CA1D2D49DC005F2B55 /* KofktuSDK */,
+				C3D508D61D2D49DC005F2B55 /* KofktuSDKTests */,
+				C3D508C91D2D49DC005F2B55 /* Products */,
+				8862EF8F2CDDAEE0457ADAF2 /* Pods */,
+				380C787ED35C6491221AE14C /* Frameworks */,
+			);
+			sourceTree = "<group>";
+		};
+		C3D508C91D2D49DC005F2B55 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				C3D508C81D2D49DC005F2B55 /* KofktuSDK.framework */,
+				C3D508D21D2D49DC005F2B55 /* KofktuSDKTests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		C3D508CA1D2D49DC005F2B55 /* KofktuSDK */ = {
+			isa = PBXGroup;
+			children = (
+				C3D508E21D2D4AC4005F2B55 /* Classes */,
+				C3D508CB1D2D49DC005F2B55 /* KofktuSDK.h */,
+				C3D508CD1D2D49DC005F2B55 /* Info.plist */,
+			);
+			path = KofktuSDK;
+			sourceTree = "<group>";
+		};
+		C3D508D61D2D49DC005F2B55 /* KofktuSDKTests */ = {
+			isa = PBXGroup;
+			children = (
+				C3D508D71D2D49DC005F2B55 /* KofktuSDKTests.swift */,
+				C3D508D91D2D49DC005F2B55 /* Info.plist */,
+			);
+			path = KofktuSDKTests;
+			sourceTree = "<group>";
+		};
+		C3D508E21D2D4AC4005F2B55 /* Classes */ = {
+			isa = PBXGroup;
+			children = (
+				C3D7E97D1D2E230800E570F7 /* Components */,
+				C3D4FDBA1D2D554100F3FF01 /* Extensions */,
+				C3D4FDB71D2D552A00F3FF01 /* Logger */,
+				C311407D1D8058A800ECF7DA /* Manager */,
+				C38F0D6A1D2E9F7300797C21 /* Network */,
+				C3D7E97E1D2E231500E570F7 /* Protocols */,
+				C3367A0A1D2E7FA3004B5112 /* KofktuSDK.swift */,
+			);
+			path = Classes;
+			sourceTree = "<group>";
+		};
+		C3D7E97D1D2E230800E570F7 /* Components */ = {
+			isa = PBXGroup;
+			children = (
+				C3D7E9811D2E243900E570F7 /* KUILineView.swift */,
+				C3D7E9831D2E27D100E570F7 /* KUIViewController.swift */,
+				C31140801D80607500ECF7DA /* KUIViewControllerPager.swift */,
+				C361D59D1D82FE00003C8FFE /* KUIImageViewController.swift */,
+			);
+			path = Components;
+			sourceTree = "<group>";
+		};
+		C3D7E97E1D2E231500E570F7 /* Protocols */ = {
+			isa = PBXGroup;
+			children = (
+				C3D7E97F1D2E232000E570F7 /* ReusableView.swift */,
+			);
+			path = Protocols;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXHeadersBuildPhase section */
+		C3D508C51D2D49DC005F2B55 /* Headers */ = {
+			isa = PBXHeadersBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				C3D508CC1D2D49DC005F2B55 /* KofktuSDK.h in Headers */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXHeadersBuildPhase section */
+
+/* Begin PBXNativeTarget section */
+		C3D508C71D2D49DC005F2B55 /* KofktuSDK */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = C3D508DC1D2D49DC005F2B55 /* Build configuration list for PBXNativeTarget "KofktuSDK" */;
+			buildPhases = (
+				91A7DA49B948F00CFD29F282 /* [CP] Check Pods Manifest.lock */,
+				C3D508C31D2D49DC005F2B55 /* Sources */,
+				C3D508C41D2D49DC005F2B55 /* Frameworks */,
+				C3D508C51D2D49DC005F2B55 /* Headers */,
+				C3D508C61D2D49DC005F2B55 /* Resources */,
+				ACDFBF35BF5D93C2F37CAAAE /* [CP] Copy Pods Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = KofktuSDK;
+			productName = KofktuSDK;
+			productReference = C3D508C81D2D49DC005F2B55 /* KofktuSDK.framework */;
+			productType = "com.apple.product-type.framework";
+		};
+		C3D508D11D2D49DC005F2B55 /* KofktuSDKTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = C3D508DF1D2D49DC005F2B55 /* Build configuration list for PBXNativeTarget "KofktuSDKTests" */;
+			buildPhases = (
+				DB3056A46E0C88AE2A31C38B /* [CP] Check Pods Manifest.lock */,
+				C3D508CE1D2D49DC005F2B55 /* Sources */,
+				C3D508CF1D2D49DC005F2B55 /* Frameworks */,
+				C3D508D01D2D49DC005F2B55 /* Resources */,
+				A066599E938E7466A3C0D438 /* [CP] Embed Pods Frameworks */,
+				43ACC7AA1C3AC98366B458EB /* [CP] Copy Pods Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				C3D508D51D2D49DC005F2B55 /* PBXTargetDependency */,
+			);
+			name = KofktuSDKTests;
+			productName = KofktuSDKTests;
+			productReference = C3D508D21D2D49DC005F2B55 /* KofktuSDKTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		C3D508BF1D2D49DC005F2B55 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastSwiftUpdateCheck = 0730;
+				LastUpgradeCheck = 0730;
+				ORGANIZATIONNAME = Kofktu;
+				TargetAttributes = {
+					C3D508C71D2D49DC005F2B55 = {
+						CreatedOnToolsVersion = 7.3.1;
+						LastSwiftMigration = 0800;
+					};
+					C3D508D11D2D49DC005F2B55 = {
+						CreatedOnToolsVersion = 7.3.1;
+						LastSwiftMigration = 0800;
+					};
+				};
+			};
+			buildConfigurationList = C3D508C21D2D49DC005F2B55 /* Build configuration list for PBXProject "KofktuSDK" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+			);
+			mainGroup = C3D508BE1D2D49DC005F2B55;
+			productRefGroup = C3D508C91D2D49DC005F2B55 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				C3D508C71D2D49DC005F2B55 /* KofktuSDK */,
+				C3D508D11D2D49DC005F2B55 /* KofktuSDKTests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		C3D508C61D2D49DC005F2B55 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		C3D508D01D2D49DC005F2B55 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		43ACC7AA1C3AC98366B458EB /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-KofktuSDKTests/Pods-KofktuSDKTests-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		91A7DA49B948F00CFD29F282 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
+		A066599E938E7466A3C0D438 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-KofktuSDKTests/Pods-KofktuSDKTests-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		ACDFBF35BF5D93C2F37CAAAE /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-KofktuSDK/Pods-KofktuSDK-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		DB3056A46E0C88AE2A31C38B /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		C3D508C31D2D49DC005F2B55 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				C38F0D6C1D2E9F9100797C21 /* ApiManager.swift in Sources */,
+				C3D4FDBC1D2D554E00F3FF01 /* UIExtensions.swift in Sources */,
+				C361D59E1D82FE00003C8FFE /* KUIImageViewController.swift in Sources */,
+				C3D7E97C1D2E1FCB00E570F7 /* Extensions.swift in Sources */,
+				C3D4FDB91D2D553600F3FF01 /* Logger.swift in Sources */,
+				C311407F1D8058CD00ECF7DA /* KUIAlertController.swift in Sources */,
+				C3D7E9801D2E232000E570F7 /* ReusableView.swift in Sources */,
+				C3367A0B1D2E7FA3004B5112 /* KofktuSDK.swift in Sources */,
+				C3D7E9841D2E27D100E570F7 /* KUIViewController.swift in Sources */,
+				C31140811D80607500ECF7DA /* KUIViewControllerPager.swift in Sources */,
+				C3D7E9821D2E243900E570F7 /* KUILineView.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		C3D508CE1D2D49DC005F2B55 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				C3D508D81D2D49DC005F2B55 /* KofktuSDKTests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		C3D508D51D2D49DC005F2B55 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = C3D508C71D2D49DC005F2B55 /* KofktuSDK */;
+			targetProxy = C3D508D41D2D49DC005F2B55 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin XCBuildConfiguration section */
+		C3D508DA1D2D49DC005F2B55 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				CURRENT_PROJECT_VERSION = 1;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				MTL_ENABLE_DEBUG_INFO = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Debug;
+		};
+		C3D508DB1D2D49DC005F2B55 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				CURRENT_PROJECT_VERSION = 1;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				SDKROOT = iphoneos;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VALIDATE_PRODUCT = YES;
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Release;
+		};
+		C3D508DD1D2D49DC005F2B55 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 34B1B3B386BCD89C8F9505D3 /* Pods-KofktuSDK.debug.xcconfig */;
+			buildSettings = {
+				CLANG_ENABLE_MODULES = YES;
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				INFOPLIST_FILE = KofktuSDK/Info.plist;
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = kr.homefactory.KofktuSDK;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SKIP_INSTALL = YES;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				SWIFT_VERSION = 2.3;
+			};
+			name = Debug;
+		};
+		C3D508DE1D2D49DC005F2B55 /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 3A3950F93A2192696F789583 /* Pods-KofktuSDK.release.xcconfig */;
+			buildSettings = {
+				CLANG_ENABLE_MODULES = YES;
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				INFOPLIST_FILE = KofktuSDK/Info.plist;
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = kr.homefactory.KofktuSDK;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SKIP_INSTALL = YES;
+				SWIFT_VERSION = 2.3;
+			};
+			name = Release;
+		};
+		C3D508E01D2D49DC005F2B55 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = F31229EDCD46B33FF9761055 /* Pods-KofktuSDKTests.debug.xcconfig */;
+			buildSettings = {
+				INFOPLIST_FILE = KofktuSDKTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = kr.homefactory.KofktuSDKTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 2.3;
+			};
+			name = Debug;
+		};
+		C3D508E11D2D49DC005F2B55 /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 67C68986823C9BF68C5EA96B /* Pods-KofktuSDKTests.release.xcconfig */;
+			buildSettings = {
+				INFOPLIST_FILE = KofktuSDKTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = kr.homefactory.KofktuSDKTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 2.3;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		C3D508C21D2D49DC005F2B55 /* Build configuration list for PBXProject "KofktuSDK" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				C3D508DA1D2D49DC005F2B55 /* Debug */,
+				C3D508DB1D2D49DC005F2B55 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		C3D508DC1D2D49DC005F2B55 /* Build configuration list for PBXNativeTarget "KofktuSDK" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				C3D508DD1D2D49DC005F2B55 /* Debug */,
+				C3D508DE1D2D49DC005F2B55 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		C3D508DF1D2D49DC005F2B55 /* Build configuration list for PBXNativeTarget "KofktuSDKTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				C3D508E01D2D49DC005F2B55 /* Debug */,
+				C3D508E11D2D49DC005F2B55 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = C3D508BF1D2D49DC005F2B55 /* Project object */;
+}
