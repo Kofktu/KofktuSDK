@@ -103,10 +103,8 @@ public class ApiManager {
         default:
             return manager(apiRequest).request(apiRequest.method, urlString!, parameters: [:], encoding: .Custom({ (convertible, params) -> (NSMutableURLRequest, NSError?) in
                 let mutableRequest: NSMutableURLRequest = convertible.URLRequest.copy() as! NSMutableURLRequest
-                if let parameters = parameters {
-                    do {
-                        mutableRequest.HTTPBody = try NSJSONSerialization.dataWithJSONObject(parameters, options: NSJSONWritingOptions(rawValue: 0))
-                    } catch {
+                if let parameters = parameters where !parameters.isEmpty {
+                    let parameterToBody: () -> Void = { () in
                         var params = [String]()
                         for (key, value) in parameters {
                             if let string = value as? String {
@@ -116,6 +114,14 @@ public class ApiManager {
                             }
                         }
                         mutableRequest.HTTPBody = params.joinWithSeparator("&").dataUsingEncoding(NSUTF8StringEncoding)
+                    }
+                    
+                    do {
+                        mutableRequest.HTTPBody = try NSJSONSerialization.dataWithJSONObject(parameters, options: NSJSONWritingOptions(rawValue: 0))
+                    } catch {}
+                    
+                    if mutableRequest.HTTPBody == nil {
+                        parameterToBody()
                     }
                 }
                 return (mutableRequest, nil)
