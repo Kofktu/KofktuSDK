@@ -118,8 +118,8 @@ public class ApiManager {
                     default:
                         var params = [String]()
                         for (key, value) in parameters {
-                            if let string = value as? String {
-                                params.append("\(key)=\(string.urlEncoded)")
+                            if let string = value as? String, let encodedString = string.urlEncoded {
+                                params.append("\(key)=\(encodedString)")
                             } else {
                                 params.append("\(key)=\(value)")
                             }
