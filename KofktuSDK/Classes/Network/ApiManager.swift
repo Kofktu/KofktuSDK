@@ -94,19 +94,29 @@ public class ApiManager {
         }
     }
     
-    public func request(apiRequest: ApiRequestProtocol, parameters: AnyObject? = nil) -> Request {
+    public func request(apiRequest: ApiRequestProtocol, parameters: [String: AnyObject]? = nil) -> Request {
         let urlString = NSURL(string: apiRequest.resourcePath, relativeToURL: apiRequest.baseURL)!.absoluteString
         
         switch apiRequest.method {
         case .GET, .HEAD:
-            return manager(apiRequest).request(apiRequest.method, urlString!, parameters: parameters as? Dictionary<String, AnyObject>, headers: headers).validate()
+            return manager(apiRequest).request(apiRequest.method, urlString!, parameters: parameters, headers: headers).validate()
         default:
             return manager(apiRequest).request(apiRequest.method, urlString!, parameters: [:], encoding: .Custom({ (convertible, params) -> (NSMutableURLRequest, NSError?) in
                 let mutableRequest: NSMutableURLRequest = convertible.URLRequest.copy() as! NSMutableURLRequest
                 if let parameters = parameters {
                     do {
                         mutableRequest.HTTPBody = try NSJSONSerialization.dataWithJSONObject(parameters, options: NSJSONWritingOptions(rawValue: 0))
-                    } catch {}
+                    } catch {
+                        var params = [String]()
+                        for (key, value) in parameters {
+                            if let string = value as? String {
+                                params.append("\(key)=\(string.urlEncoded)")
+                            } else {
+                                params.append("\(key)=\(value)")
+                            }
+                        }
+                        mutableRequest.HTTPBody = params.joinWithSeparator("&").dataUsingEncoding(NSUTF8StringEncoding)
+                    }
                 }
                 return (mutableRequest, nil)
             }), headers: headers).validate()
