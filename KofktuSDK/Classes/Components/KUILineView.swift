@@ -9,35 +9,35 @@
 import UIKit
 
 @IBDesignable
-public class KUILineView: UIView {
+open class KUILineView: UIView {
 
-    @IBInspectable public var showTopLine: Bool = false {
+    @IBInspectable open var showTopLine: Bool = false {
         didSet {
             setNeedsDisplay()
         }
     }
-    @IBInspectable public var showBottomLine: Bool = false {
+    @IBInspectable open var showBottomLine: Bool = false {
         didSet {
             setNeedsDisplay()
         }
     }
-    @IBInspectable public var lineHeight: CGFloat = 1.0 / UIScreen.mainScreen().scale {
+    @IBInspectable open var lineHeight: CGFloat = 1.0 / UIScreen.main.scale {
         didSet {
             setNeedsDisplay()
         }
     }
-    @IBInspectable public var lineColor: UIColor = UIColor.lightGrayColor() {
+    @IBInspectable open var lineColor: UIColor = UIColor.lightGray {
         didSet {
             setNeedsDisplay()
         }
     }
-    public var topInsets: UIEdgeInsets = UIEdgeInsetsZero {
+    open var topInsets: UIEdgeInsets = UIEdgeInsets.zero {
         didSet {
             setNeedsDisplay()
         }
     }
     
-    public var bottomInsets: UIEdgeInsets = UIEdgeInsetsZero {
+    open var bottomInsets: UIEdgeInsets = UIEdgeInsets.zero {
         didSet {
             setNeedsDisplay()
         }
@@ -45,24 +45,30 @@ public class KUILineView: UIView {
     
     // Only override drawRect: if you perform custom drawing.
     // An empty implementation adversely affects performance during animation.
-    public override func drawRect(rect: CGRect) {
+    open override func draw(_ rect: CGRect) {
         // Drawing code
-        let contextRef = UIGraphicsGetCurrentContext()
+        guard let contextRef = UIGraphicsGetCurrentContext() else {
+            super.draw(rect)
+            return
+        }
         
-        CGContextClearRect(contextRef!, rect)
-        CGContextSetFillColorWithColor(contextRef!, (backgroundColor?.CGColor)!)
-        CGContextFillRect(contextRef!, rect)
+        contextRef.clear(rect)
         
-        CGContextSetFillColorWithColor(contextRef!, lineColor.CGColor)
+        if let backgroundColor = backgroundColor {
+            contextRef.setFillColor(backgroundColor.cgColor)
+            contextRef.fill(rect)
+        }
+        
+        contextRef.setFillColor(lineColor.cgColor)
         
         if showTopLine {
             let width = self.width - (topInsets.left + topInsets.right)
-            CGContextFillRect(contextRef!, CGRectMake(topInsets.left, 0.0, width, lineHeight))
+            contextRef.fill(CGRect(origin: CGPoint(x: topInsets.left, y: 0.0), size: CGSize(width: width, height: lineHeight)))
         }
         
         if showBottomLine {
             let width = self.width - (bottomInsets.left + bottomInsets.right)
-            CGContextFillRect(contextRef!, CGRectMake(bottomInsets.left, self.height - lineHeight, width, lineHeight))
+            contextRef.fill(CGRect(origin: CGPoint(x: bottomInsets.left, y: self.height - lineHeight), size: CGSize(width: width, height: lineHeight)))
         }
     }
 

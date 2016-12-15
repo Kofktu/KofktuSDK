@@ -6,12 +6,12 @@ target 'KofktuSDK' do
   use_frameworks!
 
   # Pods for KofktuSDK
-  pod 'Alamofire', '3.5.0'
-  pod 'ObjectMapper', '1.4.0'
-  pod 'AlamofireObjectMapper', '3.0.2'
-  pod 'Timberjack'
-  pod 'SDWebImage', '~>3.7'
-  pod 'AsyncSwift', '1.7.4'
+  pod 'Alamofire', '~> 4.0'
+  pod 'ObjectMapper', '~> 2.0'
+  pod 'AlamofireObjectMapper', '~> 4.0.1'
+  pod 'Timberjack', :git => 'git@github.com:Kofktu/Timberjack.git', :tag => 'swift_3_0'
+  pod 'SDWebImage', '~> 3.8.0'
+  pod 'AsyncSwift', '~> 2.0'
 
   target 'KofktuSDKTests' do
     inherit! :search_paths
@@ -24,7 +24,7 @@ end
 post_install do |installer|
   installer.pods_project.targets.each do |target|
     target.build_configurations.each do |config|
-      config.build_settings['SWIFT_VERSION'] = '2.3'
+      config.build_settings['SWIFT_VERSION'] = '3.0'
     end
   end
 end

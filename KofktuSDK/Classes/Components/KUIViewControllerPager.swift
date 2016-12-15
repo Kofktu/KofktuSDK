@@ -15,59 +15,59 @@ public protocol KMViewControllerPagerChildViewControllerProtocol {
 }
 
 @objc public protocol KUIViewControllerPagerDelegate {
-    optional func pagerInitialized(pager: KUIViewControllerPager)
-    optional func pagerWillChangeIndex(pager: KUIViewControllerPager, viewController: UIViewController, atIndex index: Int)
-    optional func pagerDidChangeIndex(pager: KUIViewControllerPager, viewController: UIViewController, atIndex index: Int)
+    @objc optional func pagerInitialized(_ pager: KUIViewControllerPager)
+    @objc optional func pagerWillChangeIndex(_ pager: KUIViewControllerPager, viewController: UIViewController, atIndex index: Int)
+    @objc optional func pagerDidChangeIndex(_ pager: KUIViewControllerPager, viewController: UIViewController, atIndex index: Int)
 }
 
-private class ReusableViewControllerCollectionViewCell: UICollectionViewCell {}
+fileprivate class ReusableViewControllerCollectionViewCell: UICollectionViewCell {}
 
-public class KUIViewControllerPager : NSObject, UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout {
+open class KUIViewControllerPager : NSObject, UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout {
     
-    private weak var parentViewController: UIViewController!
-    private weak var targetView: UIView!
+    fileprivate weak var parentViewController: UIViewController!
+    fileprivate weak var targetView: UIView!
     
-    private lazy var collectionView: UICollectionView = {
+    fileprivate lazy var collectionView: UICollectionView = {
         let layout = UICollectionViewFlowLayout()
-        layout.scrollDirection = .Horizontal
+        layout.scrollDirection = .horizontal
         layout.minimumLineSpacing = 0.0
         layout.minimumInteritemSpacing = 0.0
-        layout.sectionInset = UIEdgeInsetsZero
+        layout.sectionInset = UIEdgeInsets.zero
         
         let collectionView = UICollectionView(frame: self.targetView.bounds, collectionViewLayout: layout)
-        collectionView.backgroundColor = UIColor.clearColor()
+        collectionView.backgroundColor = UIColor.clear
         collectionView.delegate = self
         collectionView.dataSource = self
         collectionView.bounces = false
         collectionView.clipsToBounds = true
         collectionView.scrollsToTop = false
-        collectionView.pagingEnabled = true
+        collectionView.isPagingEnabled = true
         collectionView.showsVerticalScrollIndicator = false
         collectionView.showsHorizontalScrollIndicator = false
         collectionView.translatesAutoresizingMaskIntoConstraints = false
-        collectionView.addObserver(self, forKeyPath: "contentSize", options: [.New], context: nil)
-        collectionView.registerClass(ReusableViewControllerCollectionViewCell.self, forCellWithReuseIdentifier: ReusableViewControllerCollectionViewCell.reusableIdentifier)
+        collectionView.addObserver(self, forKeyPath: "contentSize", options: [.new], context: nil)
+        collectionView.register(ReusableViewControllerCollectionViewCell.self, forCellWithReuseIdentifier: ReusableViewControllerCollectionViewCell.reusableIdentifier)
         return collectionView
     }()
     
-    public weak var delegate: KUIViewControllerPagerDelegate?
-    public var viewControllers: [UIViewController]? {
+    open weak var delegate: KUIViewControllerPagerDelegate?
+    open var viewControllers: [UIViewController]? {
         didSet {
             collectionView.reloadData()
         }
     }
-    public var visibleViewController: UIViewController? {
-        if let viewControllers = viewControllers where currentIndex < viewControllers.count {
+    open var visibleViewController: UIViewController? {
+        if let viewControllers = viewControllers, currentIndex < viewControllers.count {
             return viewControllers[currentIndex]
         }
         return nil
     }
     
-    public var currentIndex: Int = 0
-    private var willMoveIndex: Int = 0
-    private var contentSizeObserving = true
-    private var scrollObserving = true
-    private var latestOffset = CGPointZero
+    open var currentIndex: Int = 0
+    fileprivate var willMoveIndex: Int = 0
+    fileprivate var contentSizeObserving = true
+    fileprivate var scrollObserving = true
+    fileprivate var latestOffset = CGPoint.zero
     
     deinit {
         if contentSizeObserving {
@@ -75,10 +75,10 @@ public class KUIViewControllerPager : NSObject, UICollectionViewDelegate, UIColl
         }
     }
     
-    override public func observeValueForKeyPath(keyPath: String?, ofObject object: AnyObject?, change: [String : AnyObject]?, context: UnsafeMutablePointer<Void>) {
-        guard let keyPath = keyPath where keyPath == "contentSize" else { return }
+    open override func observeValue(forKeyPath keyPath: String?, of object: Any?, change: [NSKeyValueChangeKey : Any]?, context: UnsafeMutableRawPointer?) {
+        guard let keyPath = keyPath, keyPath == "contentSize" else { return }
         
-        if contentSizeObserving && !CGSizeEqualToSize(collectionView.contentSize, CGSizeZero)  {
+        if contentSizeObserving && !collectionView.contentSize.equalTo(CGSize.zero) {
             contentSizeObserving = false
             moveToIndex(currentIndex, animated: false)
             collectionView.removeObserver(self, forKeyPath: "contentSize")
@@ -96,62 +96,62 @@ public class KUIViewControllerPager : NSObject, UICollectionViewDelegate, UIColl
         targetView.addSubviewAtFit(collectionView)
     }
     
-    public func moveToIndex(index: Int, animated: Bool = true) {
-        if CGSizeEqualToSize(collectionView.contentSize, CGSizeZero) { return }
+    open func moveToIndex(_ index: Int, animated: Bool = true) {
+        if collectionView.contentSize.equalTo(CGSize.zero) { return }
         
         let moveIndex = max(0, min(index, viewControllers?.count ?? 0))
         
         if animated {
             scrollObserving = false
-            UIView.animateWithDuration(0.25, animations: { () -> Void in
-                self.collectionView.contentOffset = CGPointMake(CGFloat(moveIndex) * self.collectionView.width, 0.0)
-                }, completion: { (finished) -> Void in
-                    self.scrollObserving = true
-                    self.scrollViewDidEndDecelerating(self.collectionView)
+            UIView.animate(withDuration: 0.25, animations: { 
+                self.collectionView.contentOffset = CGPoint(x: CGFloat(moveIndex) * self.collectionView.width, y: 0.0)
+            }, completion: { (finished) in
+                self.scrollObserving = true
+                self.scrollViewDidEndDecelerating(self.collectionView)
             })
         } else {
             UIView.setAnimationsEnabled(false)
-            if let cell = collectionView.cellForItemAtIndexPath(NSIndexPath(forItem: index, inSection: 0)) {
+            if let cell = collectionView.cellForItem(at: IndexPath(item: index, section: 0)) {
                 addViewControllerIfNeeded(cell, at: index)
             }
             
-            collectionView.scrollToItemAtIndexPath(NSIndexPath(forItem: index, inSection: 0), atScrollPosition: .CenteredHorizontally, animated: animated)
-            scrollViewDidEndDecelerating(self.collectionView)
+            collectionView.scrollToItem(at: IndexPath(item: index, section: 0), at: .centeredHorizontally, animated: animated)
+            scrollViewDidEndDecelerating(collectionView)
             UIView.setAnimationsEnabled(true)
         }
     }
     
-    private func updateViewControllersScrollToTop() {
+    fileprivate func updateViewControllersScrollToTop() {
         guard let viewControllers = viewControllers else { return }
         
-        for (index, viewController) in viewControllers.enumerate() {
+        for (index, viewController) in viewControllers.enumerated() {
             (viewController as? KMViewControllerPagerChildViewControllerProtocol)?.pagerScrollView?.scrollsToTop = (index == currentIndex)
         }
     }
     
-    private func addViewControllerIfNeeded(cell: UICollectionViewCell, at index: Int) {
-        guard let viewController = viewControllers?[index] where viewController.parentViewController == nil else { return }
+    fileprivate func addViewControllerIfNeeded(_ cell: UICollectionViewCell, at index: Int) {
+        guard let viewController = viewControllers?[index], viewController.parent == nil else { return }
         
         parentViewController.addChildViewController(viewController)
         cell.contentView.addSubviewAtFit(viewController.view)
-        viewController.didMoveToParentViewController(parentViewController)
+        viewController.didMove(toParentViewController: parentViewController)
     }
     
-    private func removeViewController(index: Int) {
+    fileprivate func removeViewController(_ index: Int) {
         guard let viewController = viewControllers?[index] else { return }
         
-        viewController.willMoveToParentViewController(nil)
+        viewController.willMove(toParentViewController: nil)
         viewController.view.removeFromSuperview()
         viewController.removeFromParentViewController()
     }
     
     // MARK: UIScrollViewDelegate
-    public func scrollViewDidEndDragging(scrollView: UIScrollView, willDecelerate decelerate: Bool) {
+    open func scrollViewDidEndDragging(_ scrollView: UIScrollView, willDecelerate decelerate: Bool) {
         guard !decelerate else { return }
         self.scrollViewDidEndDecelerating(scrollView)
     }
     
-    public func scrollViewDidEndDecelerating(scrollView: UIScrollView) {
+    open func scrollViewDidEndDecelerating(_ scrollView: UIScrollView) {
         guard let viewControllers = viewControllers else { return }
         
         let contentOffset = scrollView.contentOffset
@@ -164,15 +164,15 @@ public class KUIViewControllerPager : NSObject, UICollectionViewDelegate, UIColl
     }
     
     // MARK: - UICollectionViewProtocol
-    public func collectionView(collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
+    open func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         return viewControllers?.count ?? 0
     }
     
-    public func collectionView(collectionView: UICollectionView, cellForItemAtIndexPath indexPath: NSIndexPath) -> UICollectionViewCell {
-        return collectionView.dequeueReusableCellWithReuseIdentifier(ReusableViewControllerCollectionViewCell.reusableIdentifier, forIndexPath: indexPath) as! ReusableViewControllerCollectionViewCell
+    open func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
+        return collectionView.dequeueReusableCell(withReuseIdentifier: ReusableViewControllerCollectionViewCell.reusableIdentifier, for: indexPath) as! ReusableViewControllerCollectionViewCell
     }
     
-    public func collectionView(collectionView: UICollectionView, willDisplayCell cell: UICollectionViewCell, forItemAtIndexPath indexPath: NSIndexPath) {
+    open func collectionView(_ collectionView: UICollectionView, willDisplay cell: UICollectionViewCell, forItemAt indexPath: IndexPath) {
         guard let viewControllers = viewControllers else { return }
         
         willMoveIndex = indexPath.item
@@ -180,11 +180,11 @@ public class KUIViewControllerPager : NSObject, UICollectionViewDelegate, UIColl
         delegate?.pagerWillChangeIndex?(self, viewController: viewControllers[willMoveIndex], atIndex: willMoveIndex)
     }
     
-    public func collectionView(collectionView: UICollectionView, didEndDisplayingCell cell: UICollectionViewCell, forItemAtIndexPath indexPath: NSIndexPath) {
+    open func collectionView(_ collectionView: UICollectionView, didEndDisplaying cell: UICollectionViewCell, forItemAt indexPath: IndexPath) {
         removeViewController(indexPath.item)
     }
     
-    public func collectionView(collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAtIndexPath indexPath: NSIndexPath) -> CGSize {
+    open func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
         return collectionView.size
     }
 }

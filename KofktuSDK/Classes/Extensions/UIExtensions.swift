@@ -15,7 +15,7 @@ import SDWebImage
  UnableToScanHexValue:      "Scan hex error"
  MismatchedHexStringLength: "Invalid RGB string, number of characters after '#' should be either 3, 4, 6 or 8"
  */
-public enum UIColorInputError : ErrorType {
+public enum UIColorInputError : Error {
     case UnableToScanHexValue,
     MismatchedHexStringLength
 }
@@ -23,17 +23,17 @@ public enum UIColorInputError : ErrorType {
 extension UIColor {
     
     public var image: UIImage? {
-        let rect = CGRectMake(0.0, 0.0, 1.0, 1.0)
+        let rect = CGRect(origin: CGPoint.zero, size: CGSize(width: 1.0, height: 1.0))
         UIGraphicsBeginImageContext(rect.size)
         let contextRef = UIGraphicsGetCurrentContext()
-        CGContextSetFillColorWithColor(contextRef!, CGColor)
-        CGContextFillRect(contextRef!, rect)
+        contextRef?.setFillColor(cgColor)
+        contextRef?.fill(rect)
         let result = UIGraphicsGetImageFromCurrentImageContext()
         UIGraphicsEndImageContext()
         return result
     }
     
-    class func colorWith255(red red: CGFloat, green: CGFloat, blue: CGFloat, alpha: CGFloat = 1.0) -> UIColor {
+    class func colorWith255(red: CGFloat, green: CGFloat, blue: CGFloat, alpha: CGFloat = 1.0) -> UIColor {
         return UIColor(red: red / 255.0, green: green / 255.0, blue: blue / 255.0, alpha: alpha)
     }
     
@@ -100,10 +100,11 @@ extension UIColor {
      - parameter rgba: String value.
      */
     public convenience init(hexString: String) throws {
-        guard let hexString: String = hexString.substringFromIndex(hexString.startIndex.advancedBy(hexString.hasPrefix("#") ? 1 : 0)),
-            var   hexValue:  UInt32 = 0
-            where NSScanner(string: hexString).scanHexInt(&hexValue) else {
-                throw UIColorInputError.UnableToScanHexValue
+        let hexString = hexString.substring(from: hexString.index(hexString.startIndex, offsetBy: hexString.hasPrefix("#") ? 1 : 0))
+        var hexValue:  UInt32 = 0
+        
+        guard Scanner(string: hexString).scanHexInt32(&hexValue) else {
+            throw UIColorInputError.UnableToScanHexValue
         }
         
         switch (hexString.characters.count) {
@@ -125,12 +126,12 @@ extension UIColor {
      
      - parameter rgba: String value.
      */
-    public convenience init(rgba: String, defaultColor: UIColor = UIColor.clearColor()) {
+    public convenience init(rgba: String, defaultColor: UIColor = UIColor.clear) {
         guard let color = try? UIColor(hexString: rgba) else {
-            self.init(CGColor: defaultColor.CGColor)
+            self.init(cgColor: defaultColor.cgColor)
             return
         }
-        self.init(CGColor: color.CGColor)
+        self.init(cgColor: color.cgColor)
     }
     
     /**
@@ -138,7 +139,7 @@ extension UIColor {
      
      - parameter rgba: Whether the alpha should be included.
      */
-    public func hexString(includeAlpha: Bool) -> String {
+    public func hexString(_ includeAlpha: Bool) -> String {
         var r: CGFloat = 0
         var g: CGFloat = 0
         var b: CGFloat = 0
@@ -152,15 +153,16 @@ extension UIColor {
         }
     }
     
-    public override var description: String {
+    open override var description: String {
         return self.hexString(true)
     }
     
-    public override var debugDescription: String {
+    open override var debugDescription: String {
         return self.hexString(true)
     }
 }
 
+extension UIView: NibLoadableView {}
 public extension UIView {
     
     public var origin: CGPoint {
@@ -176,7 +178,7 @@ public extension UIView {
     
     public var x: CGFloat {
         get {
-            return CGRectGetMinX(frame)
+            return frame.minX
         }
         set {
             var rect = frame
@@ -187,7 +189,7 @@ public extension UIView {
     
     public var y: CGFloat {
         get {
-            return CGRectGetMinY(frame)
+            return frame.minY
         }
         set {
             var rect = frame
@@ -197,11 +199,11 @@ public extension UIView {
     }
     
     public var right: CGFloat {
-        return CGRectGetMaxX(frame)
+        return frame.maxX
     }
     
     public var bottom: CGFloat {
-        return CGRectGetMaxY(frame)
+        return frame.maxY
     }
     
     public var size: CGSize {
@@ -217,7 +219,7 @@ public extension UIView {
     
     public var width: CGFloat {
         get {
-            return CGRectGetWidth(frame)
+            return frame.width
         }
         set {
             var rect = frame
@@ -228,7 +230,7 @@ public extension UIView {
     
     public var height: CGFloat {
         get {
-            return CGRectGetHeight(frame)
+            return frame.height
         }
         set {
             var rect = frame
@@ -252,31 +254,31 @@ public extension UIView {
         layer.cornerRadius = width / 2.0
     }
     
-    public func capture(scale: CGFloat = UIScreen.mainScreen().scale) -> UIImage? {
+    public func capture(_ scale: CGFloat = UIScreen.main.scale) -> UIImage? {
         let alpha = self.alpha
-        let hidden = self.hidden
+        let isHidden = self.isHidden
         
         defer {
             self.alpha = alpha
-            self.hidden = hidden
+            self.isHidden = isHidden
             UIGraphicsEndImageContext()
         }
         
         self.alpha = 1.0
-        self.hidden = false
+        self.isHidden = false
         
         UIGraphicsBeginImageContextWithOptions(bounds.size, false, scale)
         guard let contextRef = UIGraphicsGetCurrentContext() else { return nil }
-        layer.renderInContext(contextRef)
+        layer.render(in: contextRef)
         return UIGraphicsGetImageFromCurrentImageContext()
     }
     
-    public func drawBorder(color: UIColor = UIColor.redColor(), width: CGFloat = 1.0 / UIScreen.mainScreen().scale) {
-        layer.borderColor = color.CGColor
+    public func drawBorder(_ color: UIColor = UIColor.red, width: CGFloat = 1.0 / UIScreen.main.scale) {
+        layer.borderColor = color.cgColor
         layer.borderWidth = width
     }
     
-    public func showGuideLines(width: CGFloat = 1.0 / UIScreen.mainScreen().scale, recursive: Bool = true) {
+    public func showGuideLines(_ width: CGFloat = 1.0 / UIScreen.main.scale, recursive: Bool = true) {
         drawBorder(UIColor(
             red: CGFloat(arc4random_uniform(255) + 1) / 255.0,
             green: CGFloat(arc4random_uniform(255) + 1) / 255.0,
@@ -291,71 +293,71 @@ public extension UIView {
         }
     }
     
-    public func addSubviewAtFit(view: UIView, edge: UIEdgeInsets = UIEdgeInsetsZero) {
+    public func addSubviewAtFit(_ view: UIView, edge: UIEdgeInsets = UIEdgeInsets.zero) {
         view.translatesAutoresizingMaskIntoConstraints = false
         addSubview(view)
-        addConstraints(NSLayoutConstraint.constraintsWithVisualFormat("H:|-\(edge.left)-[view]-\(edge.right)-|", views: ["view": view]))
-        addConstraints(NSLayoutConstraint.constraintsWithVisualFormat("V:|-\(edge.top)-[view]-\(edge.bottom)-|", views: ["view": view]))
+        addConstraints(NSLayoutConstraint.constraints(withVisualFormat: "H:|-\(edge.left)-[view]-\(edge.right)-|", views: ["view": view]))
+        addConstraints(NSLayoutConstraint.constraints(withVisualFormat: "V:|-\(edge.top)-[view]-\(edge.bottom)-|", views: ["view": view]))
     }
     
 }
 
 public extension NSLayoutConstraint {
     
-    public class func constraintsWithVisualFormat(format: String, views: [String : AnyObject]) -> [NSLayoutConstraint] {
-        return NSLayoutConstraint.constraintsWithVisualFormat(format, options: NSLayoutFormatOptions(rawValue: 0), metrics: nil, views: views)
+    public class func constraints(withVisualFormat format: String, views: [String : AnyObject]) -> [NSLayoutConstraint] {
+        return NSLayoutConstraint.constraints(withVisualFormat: format, options: NSLayoutFormatOptions(rawValue: 0), metrics: nil, views: views)
     }
     
 }
 
 public enum UIButtonAlignment {
-    case Left
-    case Right
+    case left
+    case right
 }
 
 public extension UIButton {
     
     public func clearImage() {
-        sd_cancelImageLoadForState(.Normal)
-        setImage(nil, forState: .Normal)
-        setBackgroundImage(nil, forState: .Normal)
+        sd_cancelImageLoad(for: [])
+        setImage(nil, for: [])
+        setBackgroundImage(nil, for: [])
     }
     
-    public func setBackgroundImageWithUrlString(urlString: String?, forState state: UIControlState, placeholder: UIImage? = nil, completion: ((image: UIImage?, error: NSError?) -> Void)? = nil) {
-        sd_cancelImageLoadForState(state)
-        setBackgroundImage(placeholder, forState: state)
+    public func setBackgroundImage(with urlString: String?, for state: UIControlState, placeholder: UIImage? = nil, completion: ((UIImage?, NSError?) -> Void)? = nil) {
+        clearImage()
+        setBackgroundImage(placeholder, for: [])
         
-        if let urlString = urlString {
-            sd_setBackgroundImageWithURL(NSURL(string: urlString), forState: state, placeholderImage: placeholder, completed: { [weak self] (image, error, type, url) -> Void in
-                self?.setBackgroundImage(image ?? placeholder, forState: state)
-                completion?(image: image, error: error)
+        if let urlString = urlString, let url = URL(string: urlString) {
+            sd_setBackgroundImage(with: url, for: state, completed: { [weak self] (image, error, type, url) in
+                self?.setBackgroundImage(image ?? placeholder, for: state)
+                completion?(image, error as? NSError)
             })
         } else {
-            completion?(image: nil, error: NSError(domain: "UIImageView.Extension", code: -1, userInfo: [NSLocalizedDescriptionKey: "urlString is null"]))
+            completion?(nil, NSError(domain: "UIImageView.Extension", code: -1, userInfo: [NSLocalizedDescriptionKey: "urlString is null"]))
         }
     }
     
-    public func setImageWithUrlString(urlString: String?, forState state: UIControlState, placeholder: UIImage? = nil, completion: ((image: UIImage?, error: NSError?) -> Void)? = nil) {
-        sd_cancelImageLoadForState(state)
-        setImage(placeholder, forState: state)
+    public func setImage(with urlString: String?, for state: UIControlState, placeholder: UIImage? = nil, completion: ((UIImage?, NSError?) -> Void)? = nil) {
+        clearImage()
+        setImage(placeholder, for: [])
         
-        if let urlString = urlString {
-            sd_setImageWithURL(NSURL(string: urlString), forState: state, placeholderImage: placeholder, completed: { [weak self] (image, error, type, url) in
-                self?.setImage(image ?? placeholder, forState: state)
-                completion?(image: image, error: error)
+        if let urlString = urlString, let url = URL(string: urlString) {
+            sd_setImage(with: url, for: state, completed: { [weak self] (image, error, type, url) in
+                self?.setImage(image ?? placeholder, for: state)
+                completion?(image, error as? NSError)
             })
         } else {
-            completion?(image: nil, error: NSError(domain: "UIImageView.Extension", code: -1, userInfo: [NSLocalizedDescriptionKey: "urlString is null"]))
+            completion?(nil, NSError(domain: "UIImageView.Extension", code: -1, userInfo: [NSLocalizedDescriptionKey: "urlString is null"]))
         }
     }
     
     public func strechBackgroundImage() {
-        let states: [UIControlState] = [ .Normal, .Highlighted, .Selected, .Disabled ]
+        let states: [UIControlState] = [ .normal, .highlighted, .selected, .disabled ]
         
         for state in states {
-            guard let image = backgroundImageForState(state) else { continue }
+            guard let image = backgroundImage(for: state) else { continue }
             let size = image.size
-            setBackgroundImage(image.stretchableImageWithLeftCapWidth(Int(size.width / 2.0), topCapHeight: Int(size.height / 2.0)), forState: state)
+            setBackgroundImage(image.stretchableImage(withLeftCapWidth: Int(size.width / 2.0), topCapHeight: Int(size.height / 2.0)), for: state)
         }
     }
     
@@ -373,12 +375,12 @@ public extension UIButton {
         guard let titleBounds = titleLabel?.bounds else { return }
         
         switch alignment {
-        case .Left:
-            titleEdgeInsets = UIEdgeInsetsZero
-            imageEdgeInsets = UIEdgeInsetsZero
-        case .Right:
-            titleEdgeInsets = UIEdgeInsetsMake(titleEdgeInsets.top + 0, titleEdgeInsets.left - CGRectGetWidth(imageBounds), titleEdgeInsets.bottom, titleEdgeInsets.right + CGRectGetWidth(imageBounds))
-            imageEdgeInsets = UIEdgeInsetsMake(imageEdgeInsets.top + 0, imageEdgeInsets.left + CGRectGetWidth(titleBounds), imageEdgeInsets.bottom, imageEdgeInsets.right - CGRectGetWidth(titleBounds))
+        case .left:
+            titleEdgeInsets = UIEdgeInsets.zero
+            imageEdgeInsets = UIEdgeInsets.zero
+        case .right:
+            titleEdgeInsets = UIEdgeInsetsMake(titleEdgeInsets.top + 0, titleEdgeInsets.left - imageBounds.width, titleEdgeInsets.bottom, titleEdgeInsets.right + imageBounds.width)
+            imageEdgeInsets = UIEdgeInsetsMake(imageEdgeInsets.top + 0, imageEdgeInsets.left + titleBounds.width, imageEdgeInsets.bottom, imageEdgeInsets.right - titleBounds.width)
         }
     }
     
@@ -391,17 +393,17 @@ public extension UIImageView {
         image = nil
     }
     
-    public func setImageWithUrlString(urlString: String?, placeholder: UIImage? = nil, completion: ((image: UIImage?, error: NSError?) -> Void)? = nil) {
+    public func setImage(with urlString: String?, placeholder: UIImage? = nil, completion: ((UIImage?, NSError?) -> Void)? = nil) {
         sd_cancelCurrentImageLoad()
         image = placeholder
         
-        if let urlString = urlString {
-            sd_setImageWithURL(NSURL(string: urlString), placeholderImage: placeholder, completed: { [weak self] (image, error, type, url) -> Void in
+        if let urlString = urlString, let url = URL(string: urlString) {
+            sd_setImage(with: url, completed: { [weak self] (image, error, type, url) in
                 self?.image = image ?? placeholder
-                completion?(image: image, error: error)
+                completion?(image, error as? NSError)
             })
         } else {
-            completion?(image: nil, error: NSError(domain: "UIImageView.Extension", code: -1, userInfo: [NSLocalizedDescriptionKey: "urlString is null"]))
+            completion?(nil, NSError(domain: "UIImageView.Extension", code: -1, userInfo: [NSLocalizedDescriptionKey: "urlString is null"]))
         }
     }
     
@@ -410,19 +412,19 @@ public extension UIImageView {
 extension UITableViewCell: ReusableView {}
 public extension UITableView {
     
-    public func register<T: UITableViewCell where T: ReusableView>(_: T.Type) {
-        registerClass(T.self, forCellReuseIdentifier: T.reusableIdentifier)
+    public func register<T: UITableViewCell>(withReuseIdentifier: T.Type) where T: ReusableView {
+        register(T.self, forCellReuseIdentifier: T.reusableIdentifier)
     }
     
-    public func register<T: UITableViewCell where T: ReusableView, T: NibLoadableView>(_: T.Type) {
-        let bundle = NSBundle(forClass: T.self)
+    public func register<T: UITableViewCell>(_: T.Type) where T: ReusableView, T: NibLoadableView {
+        let bundle = Bundle(for: T.self)
         let nib = UINib(nibName: T.nibName, bundle: bundle)
-        registerNib(nib, forCellReuseIdentifier: T.reusableIdentifier)
+        register(nib, forCellReuseIdentifier: T.reusableIdentifier)
     }
     
-    public func dequeueReusableCell<T: UITableViewCell where T: ReusableView>(forIndexPath indexPath: NSIndexPath) -> T {
+    public func dequeueReusableCell<T: UITableViewCell>(forIndexPath indexPath: IndexPath) -> T where T: ReusableView {
         let reuseIdentifier = T.reusableIdentifier
-        guard let cell = dequeueReusableCellWithIdentifier(reuseIdentifier, forIndexPath: indexPath) as? T else {
+        guard let cell = dequeueReusableCell(withIdentifier: reuseIdentifier, for: indexPath) as? T else {
             fatalError("Could not dequeue cell with identifier: \(T.reusableIdentifier)")
         }
         return cell
@@ -433,19 +435,19 @@ public extension UITableView {
 extension UICollectionViewCell: ReusableView {}
 public extension UICollectionView {
     
-    public func register<T: UICollectionViewCell where T: ReusableView>(_: T.Type) {
-        registerClass(T.self, forCellWithReuseIdentifier: T.reusableIdentifier)
+    public func register<T: UICollectionViewCell>(withReuseIdentifier: T.Type) where T: ReusableView {
+        register(T.self, forCellWithReuseIdentifier: T.reusableIdentifier)
     }
     
-    public func register<T: UICollectionViewCell where T: ReusableView, T: NibLoadableView>(_: T.Type) {
-        let bundle = NSBundle(forClass: T.self)
+    public func register<T: UICollectionViewCell>(_: T.Type) where T: ReusableView, T: NibLoadableView {
+        let bundle = Bundle(for: T.self)
         let nib = UINib(nibName: T.nibName, bundle: bundle)
-        registerNib(nib, forCellWithReuseIdentifier: T.reusableIdentifier)
+        register(nib, forCellWithReuseIdentifier: T.reusableIdentifier)
     }
     
-    public func dequeueReusableCell<T: UICollectionViewCell where T: ReusableView>(forIndexPath indexPath: NSIndexPath) -> T {
+    public func dequeueReusableCell<T: UICollectionViewCell>(forIndexPath indexPath: IndexPath) -> T where T: ReusableView {
         let reuseIdentifier = T.reusableIdentifier
-        guard let cell = dequeueReusableCellWithReuseIdentifier(reuseIdentifier, forIndexPath: indexPath) as? T else {
+        guard let cell = dequeueReusableCell(withReuseIdentifier: reuseIdentifier, for: indexPath) as? T else {
             fatalError("Could not dequeue cell with identifier: \(T.reusableIdentifier)")
         }
         return cell
@@ -474,13 +476,13 @@ public extension UIViewController {
         return topMostViewController
     }
     
-    private func topViewControllerWithRootViewController(rootViewController: UIViewController) -> UIViewController {
+    private func topViewControllerWithRootViewController(_ rootViewController: UIViewController) -> UIViewController {
         if let tabBarController = rootViewController as? UITabBarController {
-            return self.topViewControllerWithRootViewController(tabBarController.selectedViewController!)
+            return topViewControllerWithRootViewController(tabBarController.selectedViewController!)
         } else if let naviController = rootViewController as? UINavigationController {
-            return self.topViewControllerWithRootViewController(naviController.viewControllers.last!)
+            return topViewControllerWithRootViewController(naviController.viewControllers.last!)
         } else if let viewController = rootViewController.presentedViewController {
-            return self.topViewControllerWithRootViewController(viewController)
+            return topViewControllerWithRootViewController(viewController)
         }
         
         return rootViewController
@@ -488,43 +490,20 @@ public extension UIViewController {
     
     public func dismissAllModalViewController() {
         if let viewController = presentedViewController {
-            viewController.dismissViewControllerAnimated(false, completion: { () -> Void in
+            viewController.dismiss(animated: false, completion: { 
                 self.dismissAllModalViewController()
             })
         } else {
-            dismissViewControllerAnimated(false, completion: nil)
+            dismiss(animated: false, completion: nil)
         }
     }
     
 }
 
-public extension UINavigationController {
-    
-    public override func preferredStatusBarStyle() -> UIStatusBarStyle {
-        return self.viewControllers.last?.preferredStatusBarStyle() ?? .Default
-    }
-    
-    public override func prefersStatusBarHidden() -> Bool {
-        return self.viewControllers.last?.prefersStatusBarHidden() ?? false
-    }
-    
-    public override func preferredStatusBarUpdateAnimation() -> UIStatusBarAnimation {
-        return self.viewControllers.last?.preferredStatusBarUpdateAnimation() ?? .Fade
-    }
-    
-    public override func shouldAutorotate() -> Bool {
-        return self.viewControllers.last?.shouldAutorotate() ?? true
-    }
-    
-    public override func supportedInterfaceOrientations() -> UIInterfaceOrientationMask {
-        return self.viewControllers.last?.supportedInterfaceOrientations() ?? .All
-    }
-}
-
 public extension UIApplication {
     
     public var enabledRemoteNotification: Bool {
-        return UIApplication.sharedApplication().currentUserNotificationSettings()?.types.contains(.Alert) ?? false
+        return UIApplication.shared.currentUserNotificationSettings?.types.contains([.alert]) ?? false
     }
 
 }

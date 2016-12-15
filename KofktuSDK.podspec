@@ -16,7 +16,7 @@ Pod::Spec.new do |s|
   #
 
   s.name         = "KofktuSDK"
-  s.version      = "1.0.2"
+  s.version      = "1.5.0"
   s.summary      = "KofktuSDK"
 
   # This description is used to generate tags and improve search results.
@@ -131,12 +131,12 @@ Pod::Spec.new do |s|
   s.requires_arc = true
 
   # s.xcconfig = { "HEADER_SEARCH_PATHS" => "$(SDKROOT)/usr/include/libxml2" }
-  # for Swift 2.3
-  s.dependency 'Alamofire', '3.5.0'
-  s.dependency 'ObjectMapper', '1.4.0'
-  s.dependency 'AlamofireObjectMapper', '3.0.2'
-  s.dependency 'Timberjack'
-  s.dependency 'SDWebImage', '~>3.7'
-  s.dependency 'AsyncSwift',  '1.7.4'
+  # for Swift 3.0
+  s.dependency 'Alamofire', '~> 4.0'
+  s.dependency 'ObjectMapper', '~> 2.0'
+  s.dependency 'AlamofireObjectMapper', '~> 4.0.1'
+  s.dependency 'Timberjack',  :git => 'git@github.com:Kofktu/Timberjack.git', :tag => 'swift_3_0'
+  s.dependency 'SDWebImage', '~> 3.8.0'
+  s.dependency 'AsyncSwift', '~> 2.0'
 
 end

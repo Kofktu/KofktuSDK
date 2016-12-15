@@ -8,11 +8,11 @@
 
 import UIKit
 
-public class KUIViewController: UIViewController {
+open class KUIViewController: UIViewController {
 
-    internal var isFirstViewAppeared: Bool = true
+    open var isFirstViewAppeared: Bool = true
 
-    public override func viewWillDisappear(animated: Bool) {
+    open override func viewWillDisappear(_ animated: Bool) {
         super.viewWillDisappear(animated)
         isFirstViewAppeared = false
     }
