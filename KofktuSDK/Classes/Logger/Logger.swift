@@ -11,10 +11,10 @@ import Timberjack
 
 public struct Logger {
     
-    public static let sharedInstance: Logger = {
+    public static let shared: Logger = {
         return Logger()
     }()
-    public static var style: Style = .Light
+    public static var style: Style = .light
 
     public func d<T>(value: T, file: NSString = #file, function: String = #function, line: Int = #line) {
         print("\(file.lastPathComponent).\(function)[\(line)] : \(value)", terminator: "\n")
@@ -31,8 +31,8 @@ public struct Logger {
 }
 
 public let Log: Logger? = {
-    if Logger.style == .Verbose {
-        return Logger.sharedInstance
+    if Logger.style == .verbose {
+        return Logger.shared
     }
     return nil
 }()

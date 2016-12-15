@@ -9,7 +9,6 @@
 import Foundation
 
 extension Array {
-    
     public mutating func suffle() {
         guard count > 1 else { return }
         
@@ -27,91 +26,80 @@ extension Array {
                 stringArray.append(string)
             }
         }
-        return stringArray.joinWithSeparator(separator)
+        return stringArray.joined(separator: separator)
     }
-    
 }
 
 extension Dictionary {
-    
     public mutating func merge(dict: [Key: Value]){
         for (key, value) in dict {
             updateValue(value, forKey: key)
         }
     }
-    
 }
 
 extension String {
-    
     public var urlEncoded: String? {
-        let characterSet = NSCharacterSet(charactersInString: "\n ;:\\@&=+$,/?%#[]|\"<>").invertedSet
-        return stringByAddingPercentEncodingWithAllowedCharacters(characterSet)
+        let characterSet = NSCharacterSet(charactersIn: "\n ;:\\@&=+$,/?%#[]|\"<>").inverted
+        return addingPercentEncoding(withAllowedCharacters: characterSet)
     }
     
     public var urlDecoded: String? {
-        return stringByRemovingPercentEncoding
+        return removingPercentEncoding
     }
     
     public var base64Encoded: String? {
-        let data = self.dataUsingEncoding(NSUTF8StringEncoding, allowLossyConversion: true)
-        return data?.base64EncodedStringWithOptions([])
+        return data(using: String.Encoding.utf8, allowLossyConversion: true)?.base64EncodedString(options: [])
     }
     
     public var base64Decoded: String? {
-        if let data = NSData(base64EncodedString: self, options: []) {
-            if let decoded = NSString(data: data, encoding: NSUTF8StringEncoding) {
-                return decoded as String
-            }
-        }
-        return nil
+        guard let data = Data(base64Encoded: self, options: []) else { return nil }
+        return String(data: data, encoding: String.Encoding.utf8)
     }
     
     public var localized: String {
         return NSLocalizedString(self, comment: "")
     }
     
-    public func localized(args: CVarArgType...) -> String {
+    public func localized(args: CVarArg...) -> String {
         let format = NSLocalizedString(self, comment: "")
         return NSString(format: format, arguments: getVaList(args)) as String
     }
     
     public func indexOf(string: String) -> Int? {
-        guard let range = rangeOfString(string) else { return nil }
-        return startIndex.distanceTo(range.startIndex)
+        guard let range = range(of: string) else { return nil }
+        return characters.distance(from: startIndex, to: range.lowerBound)
     }
     
     public subscript (range: Range<Int>) -> String? {
         let count = characters.count as Int
         
         //Check for out of boundary condition
-        if count < range.endIndex || count < range.startIndex { return nil }
+        if count < range.upperBound || count < range.lowerBound { return nil }
         
-        let start = startIndex.advancedBy(range.startIndex)
-        let end   = startIndex.advancedBy(range.endIndex)
-        
+        let start = index(startIndex, offsetBy: range.lowerBound)
+        let end = index(startIndex, offsetBy: range.upperBound)
         return self[start..<end]
     }
     
     public func trim() -> String {
-        return stringByTrimmingCharactersInSet(NSCharacterSet.whitespaceCharacterSet())
+        return trimmingCharacters(in: CharacterSet.whitespaces)
     }
     
     public func queryTokenizing() -> [String: String] {
         var result:[String:String] = [:]
-        let tokens = self.characters.split("&").map(String.init)
+        let tokens = self.characters.split(separator: "&").map(String.init)
         for token in tokens {
-            if let index = token.characters.indexOf("=") {
-                result[token.substringToIndex(index)] = token.substringFromIndex(index.advancedBy(1))
+            if let index = token.characters.index(of: "=") {
+                result[token.substring(to: index)] = token.substring(from: token.index(index, offsetBy: 1))
             }
         }
         return result
     }
 }
 
-extension NSUserDefaults {
-    
+extension UserDefaults {
     public class func disableLayoutConstraintLog() {
-        NSUserDefaults.standardUserDefaults().setValue(false, forKey: "_UIConstraintBasedLayoutLogUnsatisfiable")
+        UserDefaults.standard.setValue(false, forKey: "_UIConstraintBasedLayoutLogUnsatisfiable")
     }
 }

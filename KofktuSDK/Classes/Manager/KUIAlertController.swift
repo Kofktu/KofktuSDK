@@ -28,21 +28,21 @@ public class KUIAlertController {
     public static var defaultValue = KUIAlertControllerDefault()
     
     public class func showAlert(title: String?, message: String?, okTitle: String? = nil, onOk: (() -> Void)? = nil) {
-        let alertController = UIAlertController(title: title ?? "", message: message, preferredStyle: .Alert)
-        alertController.addAction(UIAlertAction(title: okTitle ?? defaultValue.okTitle, style: .Default, handler: { (action) in
+        let alertController = UIAlertController(title: title ?? "", message: message, preferredStyle: .alert)
+        alertController.addAction(UIAlertAction(title: okTitle ?? defaultValue.okTitle, style: .`default`, handler: { (action) in
             onOk?()
         }))
-        UIApplication.sharedApplication().delegate?.window!?.rootViewController?.topMostViewController.presentViewController(alertController, animated: true, completion: nil)
+        UIApplication.shared.delegate?.window!?.rootViewController?.topMostViewController.present(alertController, animated: true, completion: nil)
     }
     
     public class func showOkCancelAlert(title: String?, message: String?, okTitle: String? = nil, onOk: (() -> Void)? = nil, cancelTitle: String? = nil, onCancel: (() -> Void)? = nil) {
-        let alertController = UIAlertController(title: title ?? "", message: message, preferredStyle: .Alert)
-        alertController.addAction(UIAlertAction(title: okTitle ?? defaultValue.okTitle, style: .Default, handler: { (action) in
+        let alertController = UIAlertController(title: title ?? "", message: message, preferredStyle: .alert)
+        alertController.addAction(UIAlertAction(title: okTitle ?? defaultValue.okTitle, style: .`default`, handler: { (action) in
             onOk?()
         }))
-        alertController.addAction(UIAlertAction(title: cancelTitle ?? defaultValue.cancelTitle, style: .Cancel, handler: { (action) in
+        alertController.addAction(UIAlertAction(title: cancelTitle ?? defaultValue.cancelTitle, style: .cancel, handler: { (action) in
             onCancel?()
         }))
-        UIApplication.sharedApplication().delegate?.window!?.rootViewController?.topMostViewController.presentViewController(alertController, animated: true, completion: nil)
+        UIApplication.shared.delegate?.window!?.rootViewController?.topMostViewController.present(alertController, animated: true, completion: nil)
     }
 }
