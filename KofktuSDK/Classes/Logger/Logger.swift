@@ -21,12 +21,12 @@ open class Logger: URLProtocol {
     open static var style: Style = .light
     
     // MARK: - Log
-    open func d<T>(value: T, file: NSString = #file, function: String = #function, line: Int = #line) {
+    open func d<T>(_ value: T, file: NSString = #file, function: String = #function, line: Int = #line) {
         guard Logger.style == .verbose else { return }
         print("\(file.lastPathComponent).\(function)[\(line)] : \(value)", terminator: "\n")
     }
     
-    open func e(error: NSError?, file: NSString = #file, function: String = #function, line: Int = #line) {
+    open func e(_ error: NSError?, file: NSString = #file, function: String = #function, line: Int = #line) {
         guard Logger.style != .none else { return }
         if let error = error {
             print("\(file.lastPathComponent).\(function)[\(line)] : ===========[ERROR]============", terminator: "\n")
@@ -75,7 +75,7 @@ extension Logger: NSURLConnectionDataDelegate {
     
     // MARK: - Private
     fileprivate func logError(_ error: NSError) {
-        Log?.e(error: error)
+        Log?.e(error)
     }
     
     fileprivate func logDivider() {
