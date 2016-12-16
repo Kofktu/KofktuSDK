@@ -9,7 +9,6 @@ target 'KofktuSDK' do
   pod 'Alamofire', '~> 4.0'
   pod 'ObjectMapper', '~> 2.0'
   pod 'AlamofireObjectMapper', '~> 4.0.1'
-  pod 'Timberjack', :git => 'git@github.com:Kofktu/Timberjack.git', :tag => 'swift_3_0'
   pod 'SDWebImage', '~> 3.8.0'
   pod 'AsyncSwift', '~> 2.0'
 

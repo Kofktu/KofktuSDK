@@ -7,7 +7,6 @@
 //
 
 import Alamofire
-import Timberjack
 
 public enum ApiRequestBodyFormat {
     case Json
@@ -67,8 +66,6 @@ public class ApiManager {
     
     public static let sharedManager = ApiManager()
     
-    public static var style: Style = .light
-    
     private var headers = [String: String]()
     private var managerInfo = Dictionary<TimeInterval, Alamofire.SessionManager>()
     
@@ -94,13 +91,10 @@ public class ApiManager {
             return manager
         }
         
-        if ApiManager.style == .light {
-            let configuration = URLSessionConfiguration.`default`
-            return create(configuration)
+        if Logger.style == .none {
+            return create(URLSessionConfiguration.`default`)
         } else {
-            Timberjack.logStyle = ApiManager.style
-            let configuration = Timberjack.defaultSessionConfiguration()
-            return create(configuration)
+            return create(Logger.defaultSession)
         }
     }
     
