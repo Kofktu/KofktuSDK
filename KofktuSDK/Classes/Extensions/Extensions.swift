@@ -9,6 +9,16 @@
 import Foundation
 
 extension Array {
+    public mutating func remove<T: Equatable>(object: T) -> Bool {
+        for (index, obj) in enumerated() {
+            if let to = obj as? T, to == object {
+                remove(at: index)
+                return true
+            }
+        }
+        return false
+    }
+    
     public mutating func suffle() {
         guard count > 1 else { return }
         

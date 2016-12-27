@@ -15,7 +15,7 @@ class ViewController: UIViewController {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
         
-        
+//        testToastController()
     }
 
     override func didReceiveMemoryWarning() {
@@ -24,5 +24,13 @@ class ViewController: UIViewController {
     }
 
 
+    private func testToastController() {
+        KUIToastController.shared.show(message: "테스트")
+        KUIToastController.shared.show(message: "테스트")
+        KUIToastController.shared.show(message: "테스트")
+        KUIToastController.shared.show(message: "테스트")
+        KUIToastController.shared.show(message: "테스트1")
+        KUIToastController.shared.show(message: "테스트2")
+    }
 }
 
