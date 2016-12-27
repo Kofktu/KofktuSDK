@@ -20,6 +20,20 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
+		C32DEA411E12C201001C6785 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = C38F17A31D4E3AFC0041A522 /* Pods.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = 1FC1F7C962B5509F208F66942CA135A1;
+			remoteInfo = AsyncSwift;
+		};
+		C32DEA431E12C201001C6785 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = C38F17A31D4E3AFC0041A522 /* Pods.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = 64B7586BD2AB91CD02FC25858E42909A;
+			remoteInfo = Toaster;
+		};
 		C38F17691D4E3A190041A522 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = C38F174C1D4E3A190041A522 /* Project object */;
@@ -83,13 +97,6 @@
 			remoteGlobalIDString = 1C923E15127F4CC567EDB6CFC518D59E;
 			remoteInfo = SDWebImage;
 		};
-		C38F17B91D4E3AFC0041A522 /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = C38F17A31D4E3AFC0041A522 /* Pods.xcodeproj */;
-			proxyType = 2;
-			remoteGlobalIDString = A21C23F8B756DA7E369AB76E0DC396BA;
-			remoteInfo = Timberjack;
-		};
 		C38F17BD1D4E3B1F0041A522 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = C38F17821D4E3AEA0041A522 /* KofktuSDK.xcodeproj */;
@@ -101,7 +108,7 @@
 			isa = PBXContainerItemProxy;
 			containerPortal = C38F17A31D4E3AFC0041A522 /* Pods.xcodeproj */;
 			proxyType = 1;
-			remoteGlobalIDString = 6D472B835B8CB1F911C8CF09D560E41B;
+			remoteGlobalIDString = 472640A287BAEADBC243B6740AD1ADEC;
 			remoteInfo = "Pods-KofktuSDK";
 		};
 /* End PBXContainerItemProxy section */
@@ -212,11 +219,12 @@
 			children = (
 				C38F17AE1D4E3AFC0041A522 /* Alamofire.framework */,
 				C38F17B01D4E3AFC0041A522 /* AlamofireObjectMapper.framework */,
+				C32DEA421E12C201001C6785 /* Async.framework */,
 				C38F17B21D4E3AFC0041A522 /* ObjectMapper.framework */,
 				C38F17B41D4E3AFC0041A522 /* Pods_KofktuSDK.framework */,
 				C38F17B61D4E3AFC0041A522 /* Pods_KofktuSDKTests.framework */,
 				C38F17B81D4E3AFC0041A522 /* SDWebImage.framework */,
-				C38F17BA1D4E3AFC0041A522 /* Timberjack.framework */,
+				C32DEA441E12C201001C6785 /* Toaster.framework */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -311,6 +319,20 @@
 /* End PBXProject section */
 
 /* Begin PBXReferenceProxy section */
+		C32DEA421E12C201001C6785 /* Async.framework */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.framework;
+			path = Async.framework;
+			remoteRef = C32DEA411E12C201001C6785 /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		C32DEA441E12C201001C6785 /* Toaster.framework */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.framework;
+			path = Toaster.framework;
+			remoteRef = C32DEA431E12C201001C6785 /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
 		C38F17881D4E3AEB0041A522 /* KofktuSDK.framework */ = {
 			isa = PBXReferenceProxy;
 			fileType = wrapper.framework;
@@ -365,13 +387,6 @@
 			fileType = wrapper.framework;
 			path = SDWebImage.framework;
 			remoteRef = C38F17B71D4E3AFC0041A522 /* PBXContainerItemProxy */;
-			sourceTree = BUILT_PRODUCTS_DIR;
-		};
-		C38F17BA1D4E3AFC0041A522 /* Timberjack.framework */ = {
-			isa = PBXReferenceProxy;
-			fileType = wrapper.framework;
-			path = Timberjack.framework;
-			remoteRef = C38F17B91D4E3AFC0041A522 /* PBXContainerItemProxy */;
 			sourceTree = BUILT_PRODUCTS_DIR;
 		};
 /* End PBXReferenceProxy section */
@@ -546,6 +561,7 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = kr.homefactory.KofktuSDKEx;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 3.0;
 			};
 			name = Debug;
 		};
@@ -558,6 +574,7 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = kr.homefactory.KofktuSDKEx;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 3.0;
 			};
 			name = Release;
 		};
@@ -569,6 +586,7 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = kr.homefactory.KofktuSDKExTests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 3.0;
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/KofktuSDKEx.app/KofktuSDKEx";
 			};
 			name = Debug;
@@ -581,6 +599,7 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = kr.homefactory.KofktuSDKExTests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 3.0;
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/KofktuSDKEx.app/KofktuSDKEx";
 			};
 			name = Release;
