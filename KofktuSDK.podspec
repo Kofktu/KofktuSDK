@@ -16,7 +16,7 @@ Pod::Spec.new do |s|
   #
 
   s.name         = "KofktuSDK"
-  s.version      = "1.5.1"
+  s.version      = "1.5.2"
   s.summary      = "KofktuSDK"
 
   # This description is used to generate tags and improve search results.
