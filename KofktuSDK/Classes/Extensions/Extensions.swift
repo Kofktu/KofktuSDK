@@ -29,7 +29,7 @@ extension Array {
         }
     }
     
-    public func joinWithSeparator(separator: String, toString: (Element) -> String?) -> String {
+    public func join(with separator: String, toString: (Element) -> String?) -> String {
         var stringArray = Array<String>()
         for element in self {
             if let string = toString(element) {
@@ -41,7 +41,7 @@ extension Array {
 }
 
 extension Dictionary {
-    public mutating func merge(dict: [Key: Value]){
+    public mutating func merge(dict: [Key: Value]) {
         for (key, value) in dict {
             updateValue(value, forKey: key)
         }
@@ -59,12 +59,12 @@ extension String {
     }
     
     public var base64Encoded: String? {
-        return data(using: String.Encoding.utf8, allowLossyConversion: true)?.base64EncodedString(options: [])
+        return data(using: .utf8, allowLossyConversion: true)?.base64EncodedString(options: [])
     }
     
     public var base64Decoded: String? {
         guard let data = Data(base64Encoded: self, options: []) else { return nil }
-        return String(data: data, encoding: String.Encoding.utf8)
+        return String(data: data, encoding: .utf8)
     }
     
     public var localized: String {
@@ -82,7 +82,7 @@ extension String {
     }
     
     public subscript (range: Range<Int>) -> String? {
-        let count = characters.count as Int
+        let count = characters.count
         
         //Check for out of boundary condition
         if count < range.upperBound || count < range.lowerBound { return nil }
@@ -97,8 +97,8 @@ extension String {
     }
     
     public func queryTokenizing() -> [String: String] {
-        var result:[String:String] = [:]
-        let tokens = self.characters.split(separator: "&").map(String.init)
+        var result: [String:String] = [:]
+        let tokens = characters.split(separator: "&").map(String.init)
         for token in tokens {
             if let index = token.characters.index(of: "=") {
                 result[token.substring(to: index)] = token.substring(from: token.index(index, offsetBy: 1))
