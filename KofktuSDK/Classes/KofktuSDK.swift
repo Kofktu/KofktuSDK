@@ -6,3 +6,26 @@
 //  Copyright © 2016년 Kofktu. All rights reserved.
 //
 
+public func dispatch_main_sync_safe(closure: @escaping () -> Void) {
+    if Thread.isMainThread {
+        closure()
+    } else {
+        DispatchQueue.main.sync {
+            closure()
+        }
+    }
+}
+
+public func dispatch_main_async_safe(closure: @escaping () -> Void) {
+    if Thread.isMainThread {
+        closure()
+    } else {
+        DispatchQueue.main.async {
+            closure()
+        }
+    }
+}
+
+public func dispatch_after(delay: Double, closure: @escaping () -> Void) {
+    DispatchQueue.main.asyncAfter(deadline: .now() + delay, execute: closure)
+}
