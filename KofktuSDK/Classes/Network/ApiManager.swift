@@ -8,11 +8,6 @@
 
 import Alamofire
 
-public enum ApiRequestBodyFormat {
-    case Json
-    case Form
-}
-
 public protocol ApiRequestProtocol {
     var baseURL: URL { get }
     var method: Alamofire.HTTPMethod { get }
@@ -21,8 +16,9 @@ public protocol ApiRequestProtocol {
     /**
      * JSONEncoding.default
      * URLEncoding.default
+     * ArrayEncoding.default
      */
-    var bodyFormat: Alamofire.ParameterEncoding { get }
+    var encoding: Alamofire.ParameterEncoding { get }
 }
 
 ///////////////////////////////////////
@@ -30,7 +26,7 @@ public protocol ApiRequestProtocol {
 ///////////////////////////////////////
 //struct ApiRequest: ApiRequestProtocol {
 //    var api: Api
-//    var method: Alamofire.Method
+//    var method: Alamofire.HTTPMethod
 //    var argument1: String?
 //    var argument2: String?
 //    var query: [String: String]?
@@ -60,13 +56,18 @@ public protocol ApiRequestProtocol {
 //    var timeoutIntervalForRequest: NSTimeInterval {
 //        return api.timeoutIntervalForRequest()
 //    }
+//
+//    var encoding: Alamofire.ParameterEncoding {
+//        return URLEncoding.default
+//    }
+//
 //}
 
 public class ApiManager {
     
     public static let sharedManager = ApiManager()
     
-    private var headers = [String: String]()
+    private var headers = HTTPHeaders()
     private var managerInfo = Dictionary<TimeInterval, Alamofire.SessionManager>()
     
     public func error(code: Int = NSURLErrorUnknown, description: String) -> NSError {
@@ -98,18 +99,60 @@ public class ApiManager {
         }
     }
     
-    public func request(apiRequest: ApiRequestProtocol, parameters: [String: AnyObject]? = nil) -> Request {
+    public func request(apiRequest: ApiRequestProtocol, parameters: Parameters? = nil) -> Request {
         let urlString = URL(string: apiRequest.resourcePath, relativeTo: apiRequest.baseURL)!.absoluteString
         switch apiRequest.method {
         case .get, .head:
             return manager(apiRequest).request(urlString, method: apiRequest.method, parameters: parameters, headers: headers).validate()
         default:
-            return manager(apiRequest).request(urlString, method: apiRequest.method, parameters: parameters, encoding: apiRequest.bodyFormat, headers: headers).validate()
+            return manager(apiRequest).request(urlString, method: apiRequest.method, parameters: parameters, encoding: apiRequest.encoding, headers: headers).validate()
         }
     }
     
     public func upload(apiRequest: ApiRequestProtocol, data: Data) -> Request {
         let urlString = URL(string: apiRequest.resourcePath, relativeTo: apiRequest.baseURL)!.absoluteString
-        return manager(apiRequest).upload(data, to: urlString, method: apiRequest.method, headers: headers as HTTPHeaders).validate()
+        return manager(apiRequest).upload(data, to: urlString, method: apiRequest.method, headers: headers).validate()
+    }
+}
+
+/**
+ * ParameterEncoding for Array
+ * http://stackoverflow.com/questions/27026916/sending-json-array-via-alamofire
+ */
+private let parameterEncodingForArrayKey = "parameterEncodingForArrayKey"
+
+extension Array {
+    func asParameters() -> Parameters {
+        return [parameterEncodingForArrayKey: self]
+    }
+}
+
+public struct ArrayEncoding: ParameterEncoding {
+    public let options: JSONSerialization.WritingOptions
+    
+    public init(options: JSONSerialization.WritingOptions = []) {
+        self.options = options
+    }
+    
+    public func encode(_ urlRequest: URLRequestConvertible, with parameters: Parameters?) throws -> URLRequest {
+        var urlRequest = try urlRequest.asURLRequest()
+        
+        guard let parameters = parameters, let array = parameters[parameterEncodingForArrayKey] else {
+            return urlRequest
+        }
+        
+        do {
+            let data = try JSONSerialization.data(withJSONObject: array, options: options)
+            
+            if urlRequest.value(forHTTPHeaderField: "Content-Type") == nil {
+                urlRequest.setValue("application/json", forHTTPHeaderField: "Content-Type")
+            }
+            
+            urlRequest.httpBody = data
+        } catch {
+            throw AFError.parameterEncodingFailed(reason: .jsonEncodingFailed(error: error))
+        }
+        
+        return urlRequest
     }
 }

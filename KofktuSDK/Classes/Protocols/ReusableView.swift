@@ -17,11 +17,12 @@ extension NibLoadableView where Self: UIView {
         return NSStringFromClass(self).components(separatedBy: ".").last!
     }
     
-    public static func instanceFromNib() -> Self? {
+    public static func instanceFromNib(_ isUseAutoLayout: Bool = true) -> Self? {
         let bundle = Bundle(for: self)
         guard let views = bundle.loadNibNamed(nibName, owner: nil, options: nil) else { return nil }
         for view in views {
             if let view = view as? Self {
+                view.translatesAutoresizingMaskIntoConstraints = !isUseAutoLayout
                 return view
             }
         }
@@ -34,21 +35,21 @@ extension NibLoadableView where Self: UIViewController {
         return NSStringFromClass(self).components(separatedBy: ".").last!
     }
     
-    public static func instance(nibName: String? = nil) -> Self? {
+    public static func instance(nibName: String? = nil) -> Self {
         let bundle = Bundle(for: self)
-        return UIViewController(nibName: nibName ?? self.nibName, bundle: bundle) as? Self
+        return UIViewController(nibName: nibName ?? self.nibName, bundle: bundle) as! Self
     }
     
-    public static func instance(storyboard: String) -> Self? {
+    public static func instance(storyboard: String) -> Self {
         let bundle = Bundle(for: self)
         let storyboard = UIStoryboard(name: storyboard, bundle: bundle)
-        return storyboard.instantiateViewController(withIdentifier: nibName) as? Self
+        return storyboard.instantiateViewController(withIdentifier: nibName) as! Self
     }
     
-    public static func instanceInitial(storyboard: String) -> Self? {
+    public static func instanceInitial(storyboard: String) -> Self {
         let bundle = Bundle(for: self)
         let storyboard = UIStoryboard(name: storyboard, bundle: bundle)
-        return storyboard.instantiateInitialViewController() as? Self
+        return storyboard.instantiateInitialViewController() as! Self
     }
 }
 
