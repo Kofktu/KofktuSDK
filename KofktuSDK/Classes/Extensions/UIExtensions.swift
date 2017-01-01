@@ -303,11 +303,9 @@ public extension UIView {
 }
 
 public extension NSLayoutConstraint {
-    
     public class func constraints(withVisualFormat format: String, views: [String : AnyObject]) -> [NSLayoutConstraint] {
         return NSLayoutConstraint.constraints(withVisualFormat: format, options: NSLayoutFormatOptions(rawValue: 0), metrics: nil, views: views)
     }
-    
 }
 
 public enum UIButtonAlignment {
@@ -316,7 +314,6 @@ public enum UIButtonAlignment {
 }
 
 public extension UIButton {
-    
     public func clearImage() {
         sd_cancelImageLoad(for: [])
         setImage(nil, for: [])
@@ -362,12 +359,17 @@ public extension UIButton {
     }
     
     public func centerVerticallyWithPadding(padding: CGFloat = 6.0) {
-        let imageSize = self.imageView?.size
-        let titleSize = self.titleLabel?.size
-        let totalHeight = (imageSize?.height ?? 0.0) + (titleSize?.height ?? 0.0) + padding
+        guard let imageSize = self.imageView?.size, let titleSize = self.titleLabel?.size else { return }
         
-        imageEdgeInsets = UIEdgeInsetsMake(-(totalHeight - (imageSize?.height ?? 0)), 0.0, 0.0, -(titleSize?.width ?? 0.0))
-        titleEdgeInsets = UIEdgeInsetsMake(0.0, -(imageSize?.width ?? 0), -(totalHeight - (titleSize?.height ?? 0)), 0.0)
+        let iw = imageSize.width
+        let ih = imageSize.height
+        let tw = titleSize.width
+        let th = titleSize.height
+        
+        let totalHeight = ih + th + padding
+        
+        imageEdgeInsets = UIEdgeInsetsMake(-(totalHeight - ih), 0.0, 0.0, -tw)
+        titleEdgeInsets = UIEdgeInsetsMake(0.0, -iw, -(totalHeight - th), 0.0)
     }
     
     public func imageAlignment(alignment: UIButtonAlignment) {
@@ -501,9 +503,7 @@ public extension UIViewController {
 }
 
 public extension UIApplication {
-    
     public var enabledRemoteNotification: Bool {
         return UIApplication.shared.currentUserNotificationSettings?.types.contains([.alert]) ?? false
     }
-
 }

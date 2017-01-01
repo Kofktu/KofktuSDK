@@ -74,11 +74,11 @@ public class ApiManager {
         return NSError(domain: Bundle.main.bundleIdentifier!, code: code, userInfo: [NSLocalizedDescriptionKey: description])
     }
     
-    public func addHTTPHeader(value: String, field: String) {
+    public func add(header value: String, field: String) {
         headers[field] = value
     }
     
-    public func removeHTTPHeader(field: String) {
+    public func remove(header field: String) {
         headers[field] = nil
     }
     

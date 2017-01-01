@@ -16,7 +16,7 @@ Pod::Spec.new do |s|
   #
 
   s.name         = "KofktuSDK"
-  s.version      = "1.5.4"
+  s.version      = "1.5.5"
   s.summary      = "KofktuSDK"
 
   # This description is used to generate tags and improve search results.
@@ -134,9 +134,10 @@ Pod::Spec.new do |s|
   # for Swift 3.0
   s.dependency 'Alamofire', '~> 4.0'
   s.dependency 'ObjectMapper', '~> 2.0'
-  s.dependency 'AlamofireObjectMapper', '~> 4.0.1'
+  s.dependency 'AlamofireObjectMapper', '~> 4.0'
   s.dependency 'SDWebImage', '~> 3.8.0'
   s.dependency 'AsyncSwift', '~> 2.0'
   s.dependency 'Toaster', '~> 2.0'
+  s.dependency 'KeychainAccess', '~> 3.0'
 
 end
