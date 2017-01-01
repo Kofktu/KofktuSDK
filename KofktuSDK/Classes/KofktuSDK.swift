@@ -6,7 +6,7 @@
 //  Copyright © 2016년 Kofktu. All rights reserved.
 //
 
-public func dispatch_main_sync_safe(closure: @escaping () -> Void) {
+public func dispatch_main_safe(sync closure: @escaping () -> Void) {
     if Thread.isMainThread {
         closure()
     } else {
@@ -16,7 +16,7 @@ public func dispatch_main_sync_safe(closure: @escaping () -> Void) {
     }
 }
 
-public func dispatch_main_async_safe(closure: @escaping () -> Void) {
+public func dispatch_main_safe(async closure: @escaping () -> Void) {
     if Thread.isMainThread {
         closure()
     } else {
