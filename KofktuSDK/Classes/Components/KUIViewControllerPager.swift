@@ -121,6 +121,18 @@ open class KUIViewControllerPager : NSObject, UICollectionViewDelegate, UICollec
         }
     }
     
+    open func refreshLayout(_ animated: Bool = true) {
+        if animated {
+            collectionView.performBatchUpdates({ 
+                self.collectionView.collectionViewLayout.invalidateLayout()
+                self.collectionView.setCollectionViewLayout(self.collectionView.collectionViewLayout, animated: false)
+            }, completion: nil)
+        } else {
+            collectionView.collectionViewLayout.invalidateLayout()
+            collectionView.setCollectionViewLayout(collectionView.collectionViewLayout, animated: false)
+        }
+    }
+    
     fileprivate func updateViewControllersScrollToTop() {
         guard let viewControllers = viewControllers else { return }
         
