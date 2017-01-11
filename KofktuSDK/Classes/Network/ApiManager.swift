@@ -99,7 +99,7 @@ public class ApiManager {
         }
     }
     
-    public func request(apiRequest: ApiRequestProtocol, parameters: Parameters? = nil) -> Request {
+    public func request(apiRequest: ApiRequestProtocol, parameters: Parameters? = nil) -> DataRequest {
         let urlString = URL(string: apiRequest.resourcePath, relativeTo: apiRequest.baseURL)!.absoluteString
         switch apiRequest.method {
         case .get, .head:
@@ -109,7 +109,7 @@ public class ApiManager {
         }
     }
     
-    public func upload(apiRequest: ApiRequestProtocol, data: Data) -> Request {
+    public func upload(apiRequest: ApiRequestProtocol, data: Data) -> DataRequest {
         let urlString = URL(string: apiRequest.resourcePath, relativeTo: apiRequest.baseURL)!.absoluteString
         return manager(apiRequest).upload(data, to: urlString, method: apiRequest.method, headers: headers).validate()
     }
