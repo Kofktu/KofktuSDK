@@ -31,7 +31,7 @@ public protocol ApiRequestProtocol {
 //    var argument2: String?
 //    var query: [String: String]?
 //    
-//    init(api: Api, method: Alamofire.Method, query: [String: String]? = nil, argument1: String? = nil, argument2: String? = nil) {
+//    init(api: Api, method: Alamofire.HTTPMethod, query: [String: String]? = nil, argument1: String? = nil, argument2: String? = nil) {
 //        self.api = api
 //        self.method = method
 //        self.query = query
@@ -53,8 +53,8 @@ public protocol ApiRequestProtocol {
 //        return resourcePath
 //    }
 //    
-//    var timeoutIntervalForRequest: NSTimeInterval {
-//        return api.timeoutIntervalForRequest()
+//    var timeoutIntervalForRequest: TimeInterval {
+//        return api.timeoutIntervalForRequest
 //    }
 //
 //    var encoding: Alamofire.ParameterEncoding {

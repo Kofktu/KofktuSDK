@@ -10,7 +10,7 @@ import UIKit
 import KeychainAccess
 
 public class KeychainManager {
-    static let shared = KeychainManager()
+    static public let shared = KeychainManager()
     
     public var isSynchronizeWithICloud: Bool {
         get {
