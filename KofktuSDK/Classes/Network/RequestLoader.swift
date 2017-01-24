@@ -18,7 +18,7 @@ public struct RequestLoader {
         return !loading && hasMore
     }
     
-    init(countPerPage: Int = 20) {
+    public init(countPerPage: Int = 20) {
         loading = false
         hasMore = true
         reloaded = false
