@@ -18,6 +18,14 @@ public struct RequestLoader {
         return !loading && hasMore
     }
     
+    init(countPerPage: Int = 20) {
+        loading = false
+        hasMore = true
+        reloaded = false
+        page = 0
+        self.countPerPage = countPerPage
+    }
+    
     mutating public func reload() {
         page = 0
         reloaded = true
