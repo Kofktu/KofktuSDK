@@ -23,11 +23,10 @@ public protocol KMViewControllerPagerChildViewControllerProtocol {
 fileprivate class ReusableViewControllerCollectionViewCell: UICollectionViewCell {}
 
 open class KUIViewControllerPager : NSObject, UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout {
-    
     fileprivate weak var parentViewController: UIViewController!
     fileprivate weak var targetView: UIView!
     
-    fileprivate lazy var collectionView: UICollectionView = {
+    public fileprivate(set) lazy var collectionView: UICollectionView = {
         let layout = UICollectionViewFlowLayout()
         layout.scrollDirection = .horizontal
         layout.minimumLineSpacing = 0.0
@@ -64,6 +63,14 @@ open class KUIViewControllerPager : NSObject, UICollectionViewDelegate, UICollec
     }
     
     open var currentIndex: Int = 0
+    public var isScrollEnabled: Bool {
+        get {
+            return collectionView.isScrollEnabled
+        }
+        set {
+            collectionView.isScrollEnabled = newValue
+        }
+    }
     fileprivate var willMoveIndex: Int = 0
     fileprivate var contentSizeObserving = true
     fileprivate var scrollObserving = true
