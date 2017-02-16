@@ -13,6 +13,7 @@ target 'KofktuSDK' do
   pod 'AsyncSwift', '~> 2.0'
   pod 'Toaster', '~> 2.0'
   pod 'KeychainAccess', '~> 3.0'
+  pod 'Sniffer'
 
   target 'KofktuSDKTests' do
     inherit! :search_paths
