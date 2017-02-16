@@ -7,6 +7,7 @@
 //
 
 import Alamofire
+import Sniffer
 
 public protocol ApiRequestProtocol {
     var baseURL: URL { get }
@@ -47,7 +48,7 @@ public protocol ApiRequestProtocol {
 //            for value in query {
 //                queries.append("\(value.0)=\(value.1)")
 //            }
-//            resourcePath += "?\(queries.joinWithSeparator("&"))"
+//            resourcePath += "?\(queries.joined(separator: "&"))"
 //        }
 //        
 //        return resourcePath
@@ -92,11 +93,13 @@ public class ApiManager {
             return manager
         }
         
-        if Logger.style == .none {
-            return create(URLSessionConfiguration.`default`)
-        } else {
-            return create(Logger.defaultSession)
+        let configuration = URLSessionConfiguration.`default`
+        
+        if Logger.style != .none {
+            Sniffer.enable(in: configuration)
         }
+        
+        return create(configuration)
     }
     
     public func request(apiRequest: ApiRequestProtocol, parameters: Parameters? = nil) -> DataRequest {

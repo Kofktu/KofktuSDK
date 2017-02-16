@@ -139,5 +139,6 @@ Pod::Spec.new do |s|
   s.dependency 'AsyncSwift', '~> 2.0'
   s.dependency 'Toaster', '~> 2.0'
   s.dependency 'KeychainAccess', '~> 3.0'
+  s.dependency 'Sniffer'
 
 end
