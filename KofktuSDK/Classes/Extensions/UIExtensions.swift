@@ -303,7 +303,7 @@ public extension UIView {
 }
 
 public extension NSLayoutConstraint {
-    public class func constraints(withVisualFormat format: String, views: [String : AnyObject]) -> [NSLayoutConstraint] {
+    public class func constraints(withVisualFormat format: String, views: [String : Any]) -> [NSLayoutConstraint] {
         return NSLayoutConstraint.constraints(withVisualFormat: format, options: NSLayoutFormatOptions(rawValue: 0), metrics: nil, views: views)
     }
 }
@@ -314,15 +314,15 @@ public enum UIButtonAlignment {
 }
 
 public extension UIButton {
-    public func clearImage() {
-        sd_cancelImageLoad(for: [])
-        setImage(nil, for: [])
-        setBackgroundImage(nil, for: [])
+    public func clearImage(state: UIControlState) {
+        sd_cancelImageLoad(for: state)
+        setImage(nil, for: state)
+        setBackgroundImage(nil, for: state)
     }
     
     public func setBackgroundImage(with urlString: String?, for state: UIControlState, placeholder: UIImage? = nil, completion: ((UIImage?, NSError?) -> Void)? = nil) {
-        clearImage()
-        setBackgroundImage(placeholder, for: [])
+        clearImage(state: state)
+        setBackgroundImage(placeholder, for: state)
         
         if let urlString = urlString, let url = URL(string: urlString) {
             sd_setBackgroundImage(with: url, for: state, completed: { [weak self] (image, error, type, url) in
@@ -335,8 +335,8 @@ public extension UIButton {
     }
     
     public func setImage(with urlString: String?, for state: UIControlState, placeholder: UIImage? = nil, completion: ((UIImage?, NSError?) -> Void)? = nil) {
-        clearImage()
-        setImage(placeholder, for: [])
+        clearImage(state: state)
+        setImage(placeholder, for: state)
         
         if let urlString = urlString, let url = URL(string: urlString) {
             sd_setImage(with: url, for: state, completed: { [weak self] (image, error, type, url) in
