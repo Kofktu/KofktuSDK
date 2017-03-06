@@ -27,24 +27,21 @@ open class Logger: URLProtocol {
     }
     
     open func e(_ error: NSError?, file: NSString = #file, function: String = #function, line: Int = #line) {
-        guard Logger.style != .none else { return }
-        if let error = error {
-            print("\(file.lastPathComponent).\(function)[\(line)] : ===========[ERROR]============", terminator: "\n")
-            print("Code : \(error.code)", terminator: "\n")
-            print("Description : \(error.localizedDescription)", terminator: "\n")
-            
-            if Logger.style == .verbose {
-                if let reason = error.localizedFailureReason {
-                    print("Reason : \(reason)", terminator: "\n")
-                }
-                if let suggestion = error.localizedRecoverySuggestion {
-                    print("Suggestion : \(suggestion)", terminator: "\n")
-                }
+        guard let error = error, Logger.style != .none else { return }
+        
+        print("\(file.lastPathComponent).\(function)[\(line)] : ===========[ERROR]============", terminator: "\n")
+        print("Code : \(error.code)", terminator: "\n")
+        print("Description : \(error.localizedDescription)", terminator: "\n")
+        
+        if Logger.style == .verbose {
+            if let reason = error.localizedFailureReason {
+                print("Reason : \(reason)", terminator: "\n")
             }
-            print("==============================================================================", terminator: "\n")
-        } else {
-            print("\(file.lastPathComponent).\(function)[\(line)] : [ERROR] error is null", terminator: "\n")
+            if let suggestion = error.localizedRecoverySuggestion {
+                print("Suggestion : \(suggestion)", terminator: "\n")
+            }
         }
+        print("==============================================================================", terminator: "\n")
     }
 }
 
