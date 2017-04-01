@@ -327,7 +327,7 @@ public extension UIButton {
         if let urlString = urlString, let url = URL(string: urlString) {
             sd_setBackgroundImage(with: url, for: state, completed: { [weak self] (image, error, type, url) in
                 self?.setBackgroundImage(image ?? placeholder, for: state)
-                completion?(image, error as? NSError)
+                completion?(image, error as NSError?)
             })
         } else {
             completion?(nil, NSError(domain: "UIImageView.Extension", code: -1, userInfo: [NSLocalizedDescriptionKey: "urlString is null"]))
@@ -341,7 +341,7 @@ public extension UIButton {
         if let urlString = urlString, let url = URL(string: urlString) {
             sd_setImage(with: url, for: state, completed: { [weak self] (image, error, type, url) in
                 self?.setImage(image ?? placeholder, for: state)
-                completion?(image, error as? NSError)
+                completion?(image, error as NSError?)
             })
         } else {
             completion?(nil, NSError(domain: "UIImageView.Extension", code: -1, userInfo: [NSLocalizedDescriptionKey: "urlString is null"]))
@@ -402,7 +402,7 @@ public extension UIImageView {
         if let urlString = urlString, let url = URL(string: urlString) {
             sd_setImage(with: url, completed: { [weak self] (image, error, type, url) in
                 self?.image = image ?? placeholder
-                completion?(image, error as? NSError)
+                completion?(image, error as NSError?)
             })
         } else {
             completion?(nil, NSError(domain: "UIImageView.Extension", code: -1, userInfo: [NSLocalizedDescriptionKey: "urlString is null"]))
