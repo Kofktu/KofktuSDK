@@ -34,7 +34,7 @@ public class KUIToastController: NSObject {
             let _ = messageQueue.remove(object: message)
         }
         
-        toast.removeObserver(self, forKeyPath: #keyPath(Toast.isFinished))
+        toast.removeObserver(self, forKeyPath: "isFinished")
     }
     
     public func show(message: String?, duration: TimeInterval? = nil) {
@@ -53,7 +53,7 @@ public class KUIToastController: NSObject {
         messageQueue.append(message)
         
         let toast = Toast(text: message, delay: 0.0, duration: duration)
-        toast.addObserver(self, forKeyPath: #keyPath(Toast.isFinished), options: .new, context: nil)
+        toast.addObserver(self, forKeyPath: "isFinished", options: .new, context: nil)
         toast.show()
     }
 }
