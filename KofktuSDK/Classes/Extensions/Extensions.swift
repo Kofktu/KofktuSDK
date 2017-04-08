@@ -81,6 +81,22 @@ extension String {
         return characters.distance(from: startIndex, to: range.lowerBound)
     }
     
+    public subscript (i: Int) -> Character {
+        return self[self.index(self.startIndex, offsetBy: i)]
+    }
+    
+    // for convenience we should include String return
+    public subscript (i: Int) -> String {
+        return String(self[i] as Character)
+    }
+    
+    public subscript (r: Range<Int>) -> String {
+        let start = self.index(self.startIndex, offsetBy: r.lowerBound)
+        let end = self.index(self.startIndex, offsetBy: r.upperBound)
+        
+        return self[start...end]
+    }
+    
     public subscript (range: Range<Int>) -> String? {
         let count = characters.count
         
