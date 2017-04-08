@@ -560,7 +560,9 @@ open class KUIMultiImageViewerViewController: KUIImageViewController, KUIImageVi
         if closeButton == nil {
             let dismissSelector = #selector(((KUIMultiImageViewerViewController.dismiss) as (KUIMultiImageViewerViewController) -> () -> Void))
             let button = UIButton(type: .custom)
-            button.setImage(UIImage(named: "close"), for: [])
+            button.titleLabel?.font = font
+            button.setTitle("X", for: [])
+            button.setTitleColor(.white, for: [])
             button.addTarget(self, action: dismissSelector, for: .touchUpInside)
             button.translatesAutoresizingMaskIntoConstraints = false
             view.addSubview(button)
