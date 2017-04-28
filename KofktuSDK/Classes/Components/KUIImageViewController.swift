@@ -241,7 +241,7 @@ open class KUIImageViewController: UIViewController, UICollectionViewDataSource,
     }
     
     open func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        let cell = collectionView.dequeueReusableCell(forIndexPath: indexPath) as KUIImageViewerContentCollectionViewCell
+        let cell = collectionView.dequeueReusableCell(for: indexPath) as KUIImageViewerContentCollectionViewCell
         cell.delegate = self
         cell.imageUrl = (dataSource?.imageUrlString(at: indexPath.item, controller: self), dataSource?.placeholderImage?(at: indexPath.item, controller: self))
         return cell
