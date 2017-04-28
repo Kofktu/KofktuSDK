@@ -12,6 +12,7 @@
 		C31140811D80607500ECF7DA /* KUIViewControllerPager.swift in Sources */ = {isa = PBXBuildFile; fileRef = C31140801D80607500ECF7DA /* KUIViewControllerPager.swift */; };
 		C3367A0B1D2E7FA3004B5112 /* KofktuSDK.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3367A0A1D2E7FA3004B5112 /* KofktuSDK.swift */; };
 		C361D59E1D82FE00003C8FFE /* KUIImageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C361D59D1D82FE00003C8FFE /* KUIImageViewController.swift */; };
+		C375F5A41EB371A600230114 /* Snap.swift in Sources */ = {isa = PBXBuildFile; fileRef = C375F5A31EB371A600230114 /* Snap.swift */; };
 		C38F0D6C1D2E9F9100797C21 /* ApiManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = C38F0D6B1D2E9F9100797C21 /* ApiManager.swift */; };
 		C3C17A611E1929AA00D2DDC3 /* KUIAlertController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3C17A5F1E1929AA00D2DDC3 /* KUIAlertController.swift */; };
 		C3C17A621E1929AA00D2DDC3 /* KUIToastController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3C17A601E1929AA00D2DDC3 /* KUIToastController.swift */; };
@@ -48,6 +49,7 @@
 		C31140801D80607500ECF7DA /* KUIViewControllerPager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = KUIViewControllerPager.swift; sourceTree = "<group>"; };
 		C3367A0A1D2E7FA3004B5112 /* KofktuSDK.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = KofktuSDK.swift; sourceTree = "<group>"; };
 		C361D59D1D82FE00003C8FFE /* KUIImageViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = KUIImageViewController.swift; sourceTree = "<group>"; };
+		C375F5A31EB371A600230114 /* Snap.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Snap.swift; sourceTree = "<group>"; };
 		C38F0D6B1D2E9F9100797C21 /* ApiManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ApiManager.swift; sourceTree = "<group>"; };
 		C3C17A5F1E1929AA00D2DDC3 /* KUIAlertController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = KUIAlertController.swift; sourceTree = "<group>"; };
 		C3C17A601E1929AA00D2DDC3 /* KUIToastController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = KUIToastController.swift; sourceTree = "<group>"; };
@@ -140,6 +142,7 @@
 			children = (
 				C3D7E97B1D2E1FCB00E570F7 /* Extensions.swift */,
 				C3D4FDBB1D2D554E00F3FF01 /* UIExtensions.swift */,
+				C375F5A31EB371A600230114 /* Snap.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -427,6 +430,7 @@
 				C361D59E1D82FE00003C8FFE /* KUIImageViewController.swift in Sources */,
 				C3F17C811E36D7F8009743DD /* LaunchOptions.swift in Sources */,
 				C3D7E97C1D2E1FCB00E570F7 /* Extensions.swift in Sources */,
+				C375F5A41EB371A600230114 /* Snap.swift in Sources */,
 				C3D4FDB91D2D553600F3FF01 /* Logger.swift in Sources */,
 				C3C17A611E1929AA00D2DDC3 /* KUIAlertController.swift in Sources */,
 				C3D7E9801D2E232000E570F7 /* ReusableView.swift in Sources */,

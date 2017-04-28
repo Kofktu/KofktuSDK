@@ -411,6 +411,20 @@ public extension UIImageView {
     
 }
 
+public extension UIScrollView {
+    
+    public func scrollToTop(animated: Bool = true) {
+        let offset = CGPoint(x: 0.0, y: -contentInset.top)
+        setContentOffset(offset, animated: animated)
+    }
+    
+    public func scrollToBottom(animated: Bool = true) {
+        let y = max(-contentInset.top, contentSize.height - height + contentInset.bottom)
+        let offset = CGPoint(x: 0.0, y: y)
+        setContentOffset(offset, animated: animated)
+    }
+}
+
 extension UITableViewCell: ReusableView {}
 public extension UITableView {
     
@@ -424,12 +438,24 @@ public extension UITableView {
         register(nib, forCellReuseIdentifier: T.reusableIdentifier)
     }
     
-    public func dequeueReusableCell<T: UITableViewCell>(forIndexPath indexPath: IndexPath) -> T where T: ReusableView {
+    public func dequeueReusableCell<T: UITableViewCell>(`for` indexPath: IndexPath) -> T where T: ReusableView {
         let reuseIdentifier = T.reusableIdentifier
         guard let cell = dequeueReusableCell(withIdentifier: reuseIdentifier, for: indexPath) as? T else {
             fatalError("Could not dequeue cell with identifier: \(T.reusableIdentifier)")
         }
         return cell
+    }
+    
+    public func selectedAll(`in` section: Int) {
+        for row in 0 ..< numberOfRows(inSection: section) {
+            selectRow(at: IndexPath(row: row, section: section), animated: false, scrollPosition: .none)
+        }
+    }
+    
+    public func deselectedAll(`in` section: Int) {
+        for row in 0 ..< numberOfRows(inSection: section) {
+            deselectRow(at: IndexPath(row: row, section: section), animated: false)
+        }
     }
     
 }
@@ -447,7 +473,7 @@ public extension UICollectionView {
         register(nib, forCellWithReuseIdentifier: T.reusableIdentifier)
     }
     
-    public func dequeueReusableCell<T: UICollectionViewCell>(forIndexPath indexPath: IndexPath) -> T where T: ReusableView {
+    public func dequeueReusableCell<T: UICollectionViewCell>(`for` indexPath: IndexPath) -> T where T: ReusableView {
         let reuseIdentifier = T.reusableIdentifier
         guard let cell = dequeueReusableCell(withReuseIdentifier: reuseIdentifier, for: indexPath) as? T else {
             fatalError("Could not dequeue cell with identifier: \(T.reusableIdentifier)")

@@ -8,7 +8,25 @@
 
 import Foundation
 
-extension Array {
+public extension IntegerLiteralType {
+    
+    public var f: CGFloat {
+        return CGFloat(self)
+    }
+    
+}
+
+public extension FloatLiteralType {
+    
+    public var f: CGFloat {
+        return CGFloat(self)
+    }
+    
+}
+
+public extension Array {
+    
+    @discardableResult
     public mutating func remove<T: Equatable>(object: T) -> Bool {
         for (index, obj) in enumerated() {
             if let to = obj as? T, to == object {
@@ -38,17 +56,31 @@ extension Array {
         }
         return stringArray.joined(separator: separator)
     }
+    
 }
 
-extension Dictionary {
+public extension Dictionary {
+    
     public mutating func merge(dict: [Key: Value]) {
         for (key, value) in dict {
             updateValue(value, forKey: key)
         }
     }
+    
 }
 
-extension String {
+public extension Int {
+    
+    public var formatted: String {
+        let numberFormatter = NumberFormatter()
+        numberFormatter.numberStyle = .decimal
+        return numberFormatter.string(for: self) ?? String(self)
+    }
+    
+}
+
+public extension String {
+    
     public var urlEncoded: String? {
         let characterSet = NSCharacterSet(charactersIn: "\n ;:\\@&=+$,/?%#[]|\"<>").inverted
         return addingPercentEncoding(withAllowedCharacters: characterSet)
@@ -97,6 +129,18 @@ extension String {
         return self[start...end]
     }
     
+    public func substring(from: Int) -> String {
+        let start = characters.index(startIndex, offsetBy: from)
+        let end = endIndex
+        return substring(with: start ..< end)
+    }
+    
+    public func substring(to: Int) -> String {
+        let start = startIndex
+        let end = characters.index(startIndex, offsetBy: to)
+        return substring(with: start ..< end)
+    }
+    
     public subscript (range: Range<Int>) -> String? {
         let count = characters.count
         
@@ -106,6 +150,10 @@ extension String {
         let start = index(startIndex, offsetBy: range.lowerBound)
         let end = index(startIndex, offsetBy: range.upperBound)
         return self[start..<end]
+    }
+    
+    public func nsRangeOf(string: String) -> NSRange {
+        return (self as NSString).range(of: string)
     }
     
     public func trim() -> String {
@@ -122,10 +170,73 @@ extension String {
         }
         return result
     }
+    
 }
 
-extension UserDefaults {
-    public class func disableLayoutConstraintLog() {
+public extension Data {
+    
+    public var hexString: String {
+        let bytes = UnsafeBufferPointer<UInt8>(start: (self as NSData).bytes.bindMemory(to: UInt8.self, capacity: count), count:count)
+        return bytes
+            .map { String(format: "%02hhx", $0) }
+            .reduce("", { $0 + $1 })
+    }
+    
+}
+
+public extension Date {
+    
+    public static func date(kr_formatted string: String?, dateFormat: String = "yyyy-MM-dd HH:mm:ss") -> Date? {
+        guard let string = string else {
+            return nil
+        }
+        
+        let dateFormatter = DateFormatter.kr_dateFormatter
+        dateFormatter.dateFormat = dateFormat
+        return dateFormatter.date(from: string)
+    }
+    
+}
+
+public extension DateFormatter {
+    
+    public static var kr_dateFormatter: DateFormatter {
+        let dateFormatter = DateFormatter()
+        dateFormatter.locale = Locale(identifier: "ko_KR")
+        dateFormatter.timeZone = TimeZone(secondsFromGMT: 60 * 60 * 9)
+        return dateFormatter
+    }
+    
+}
+
+public extension Calendar {
+    
+    public static var kr_calendar: Calendar {
+        var calendar = Calendar.current
+        let dateFormatter = DateFormatter.kr_dateFormatter
+        calendar.locale = dateFormatter.locale
+        calendar.timeZone = dateFormatter.timeZone
+        return calendar
+    }
+    
+}
+
+public extension UserDefaults {
+    
+    public static func disableLayoutConstraintLog() {
         UserDefaults.standard.setValue(false, forKey: "_UIConstraintBasedLayoutLogUnsatisfiable")
     }
+    
+}
+
+public extension Bundle {
+    
+    public static var appVersion: String? {
+        return Bundle.main.object(forInfoDictionaryKey: "CFBundleShortVersionString") as? String
+    }
+    
+    public static var buildVersion: String? {
+        return Bundle.main.object(forInfoDictionaryKey: kCFBundleVersionKey as String) as? String
+    }
+    
 }
