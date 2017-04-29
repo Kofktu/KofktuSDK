@@ -8,45 +8,80 @@
 
 import Foundation
 
-public enum Style {
-    case none
-    case light
-    case verbose
-}
-
-open class Logger: URLProtocol {
-    open static let shared: Logger = {
-        return Logger()
-    }()
-    open static var style: Style = .light
+public struct LoggerStyle: OptionSet, Hashable {
+    public var rawValue: UInt
+    public var hashValue: Int
     
-    // MARK: - Log
-    open func d<T>(_ value: T, file: NSString = #file, function: String = #function, line: Int = #line) {
-        guard Logger.style == .verbose else { return }
-        print("\(file.lastPathComponent).\(function)[\(line)] : \(value)", terminator: "\n")
+    public init(rawValue: UInt) {
+        self.rawValue = rawValue
+        self.hashValue = Int(rawValue)
     }
     
-    open func e(_ error: NSError?, file: NSString = #file, function: String = #function, line: Int = #line) {
-        guard let error = error, Logger.style != .none else { return }
+    static let debug    = LoggerStyle(rawValue: 1 << 0)
+    static let info     = LoggerStyle(rawValue: 1 << 1)
+    static let warning  = LoggerStyle(rawValue: 1 << 2)
+    static let error    = LoggerStyle(rawValue: 1 << 3)
+}
+
+public let Log: Logger = {
+    return Logger.shared
+}()
+
+public class Logger {
+    fileprivate static let shared: Logger = {
+        return Logger()
+    }()
+    
+    #if DEBUG
+        public static var isEnabled = true
+    #else
+        public static var isEnabled = false
+    #endif
+    
+    public var style: LoggerStyle = []
+    
+    // MARK: - Log
+    public func d<T>(_ value: T, file: NSString = #file, function: String = #function, line: Int = #line) {
+        guard style.contains(.debug), Logger.isEnabled else {
+            return
+        }
+        
+        print("[DEBUG] \(file.lastPathComponent).\(function)[\(line)] : \(value)", terminator: "\n")
+    }
+    
+    public func i<T>(_ value: T, file: NSString = #file, function: String = #function, line: Int = #line) {
+        guard style.contains(.info), Logger.isEnabled else {
+            return
+        }
+        
+        print("[INFO] \(file.lastPathComponent).\(function)[\(line)] : \(value)", terminator: "\n")
+    }
+    
+    public func w<T>(_ value: T, file: NSString = #file, function: String = #function, line: Int = #line) {
+        guard style.contains(.warning), Logger.isEnabled else {
+            return
+        }
+        
+        print("[WARNING] \(file.lastPathComponent).\(function)[\(line)] : \(value)", terminator: "\n")
+    }
+    
+    public func e(_ error: NSError?, file: NSString = #file, function: String = #function, line: Int = #line) {
+        guard let error = error, style.contains(.error) && Logger.isEnabled else {
+            return
+        }
         
         print("\(file.lastPathComponent).\(function)[\(line)] : ===========[ERROR]============", terminator: "\n")
         print("Code : \(error.code)", terminator: "\n")
         print("Description : \(error.localizedDescription)", terminator: "\n")
         
-        if Logger.style == .verbose {
+        if style.contains(.debug) {
             if let reason = error.localizedFailureReason {
-                print("Reason : \(reason)", terminator: "\n")
+                print("[DEBUG] Reason : \(reason)", terminator: "\n")
             }
             if let suggestion = error.localizedRecoverySuggestion {
-                print("Suggestion : \(suggestion)", terminator: "\n")
+                print("[DEBUG] Suggestion : \(suggestion)", terminator: "\n")
             }
         }
         print("==============================================================================", terminator: "\n")
     }
 }
-
-public let Log: Logger? = {
-    guard Logger.style != .none else { return nil }
-    return Logger.shared
-}()
-

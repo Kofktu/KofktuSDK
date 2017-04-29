@@ -95,7 +95,7 @@ public class ApiManager {
         
         let configuration = URLSessionConfiguration.`default`
         
-        if Logger.style != .none {
+        if Logger.isEnabled {
             Sniffer.enable(in: configuration)
         }
         
