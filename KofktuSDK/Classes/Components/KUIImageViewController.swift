@@ -345,7 +345,7 @@ open class KUIPhotoView: UIScrollView, UIScrollViewDelegate {
     
     open var imageUrl: (String?, UIImage?) {
         didSet {
-            imageView.setShowActivityIndicator(imageUrl.1 == nil)
+            imageView.sd_setShowActivityIndicatorView(imageUrl.1 == nil)
             imageView.setImage(with: imageUrl.0, placeholder: imageUrl.1)
         }
     }
@@ -354,7 +354,7 @@ open class KUIPhotoView: UIScrollView, UIScrollViewDelegate {
         let imageView = UIImageView(frame: self.bounds)
         imageView.backgroundColor = UIColor.clear
         imageView.contentMode = .scaleAspectFit
-        imageView.setIndicatorStyle(.white)
+        imageView.sd_setIndicatorStyle(.white)
         return imageView
     }()
     
