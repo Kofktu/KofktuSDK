@@ -23,8 +23,8 @@ public struct LoggerStyle: OptionSet, Hashable {
     static public let error     = LoggerStyle(rawValue: 1 << 3)
 }
 
-public let Log: Logger = {
-    return Logger.shared
+public let Log: Logger? = {
+    return Logger.isEnabled ? Logger.shared : nil
 }()
 
 public class Logger {
@@ -65,8 +65,8 @@ public class Logger {
         print("[WARNING] \(file.lastPathComponent).\(function)[\(line)] : \(value)", terminator: "\n")
     }
     
-    public func e(_ error: NSError?, file: NSString = #file, function: String = #function, line: Int = #line) {
-        guard let error = error, Logger.style.contains(.error) && Logger.isEnabled else {
+    public func e(_ nsError: NSError?, file: NSString = #file, function: String = #function, line: Int = #line) {
+        guard let error = nsError, Logger.style.contains(.error) && Logger.isEnabled else {
             return
         }
         
@@ -82,6 +82,16 @@ public class Logger {
                 print("[DEBUG] Suggestion : \(suggestion)", terminator: "\n")
             }
         }
+        print("==============================================================================", terminator: "\n")
+    }
+    
+    public func e(_ error: Error?, file: NSString = #file, function: String = #function, line: Int = #line) {
+        guard let error = error, Logger.style.contains(.error) && Logger.isEnabled else {
+            return
+        }
+        
+        print("\(file.lastPathComponent).\(function)[\(line)] : ===========[ERROR]============", terminator: "\n")
+        print("Description : \(error.localizedDescription)", terminator: "\n")
         print("==============================================================================", terminator: "\n")
     }
 }
