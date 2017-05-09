@@ -10,10 +10,10 @@ target 'KofktuSDK' do
   pod 'ObjectMapper', '~> 2.0'
   pod 'AlamofireObjectMapper', '~> 4.0'
   pod 'SDWebImage', '~> 4.0'
-  pod 'AsyncSwift', '~> 2.0'
   pod 'Toaster', '~> 2.0'
   pod 'KeychainAccess', '~> 3.0'
   pod 'Sniffer'
+  pod 'Then'
 
   target 'KofktuSDKTests' do
     inherit! :search_paths
