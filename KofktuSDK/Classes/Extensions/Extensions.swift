@@ -171,6 +171,30 @@ public extension String {
         return result
     }
     
+    public func numberOfLines(size: CGSize, font: UIFont) -> Int {
+        let storage = NSTextStorage(string: self, attributes: [NSFontAttributeName: font])
+        let container = NSTextContainer(size: size)
+        container.lineBreakMode = .byWordWrapping
+        container.maximumNumberOfLines = 0
+        container.lineFragmentPadding = 0
+        
+        let manager = NSLayoutManager()
+        manager.textStorage = storage
+        manager.addTextContainer(container)
+        
+        var numberOfLines = 0
+        var index = 0
+        var lineRange = NSRange(location: 0, length: 0)
+        
+        while index < manager.numberOfGlyphs {
+            manager.lineFragmentRect(forGlyphAt: index, effectiveRange: &lineRange)
+            index = NSMaxRange(lineRange)
+            numberOfLines += 1
+        }
+        
+        return numberOfLines
+    }
+    
 }
 
 public extension Data {
