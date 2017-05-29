@@ -23,8 +23,8 @@ public struct LoggerStyle: OptionSet, Hashable {
     static public let error     = LoggerStyle(rawValue: 1 << 3)
 }
 
-public let Log: Logger? = {
-    return Logger.isEnabled ? Logger.shared : nil
+public let Log: Logger = {
+    return Logger.shared
 }()
 
 public class Logger {
