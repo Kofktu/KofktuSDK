@@ -136,7 +136,6 @@ Pod::Spec.new do |s|
   s.dependency 'ObjectMapper', '~> 2.0'
   s.dependency 'AlamofireObjectMapper', '~> 4.0'
   s.dependency 'SDWebImage', '~> 4.0'
-  s.dependency 'AsyncSwift', '~> 2.0'
   s.dependency 'Toaster', '~> 2.0'
   s.dependency 'KeychainAccess', '~> 3.0'
   s.dependency 'Sniffer'
