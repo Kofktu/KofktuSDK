@@ -533,3 +533,10 @@ public extension UIApplication {
         return UIApplication.shared.currentUserNotificationSettings?.types.contains([.alert]) ?? false
     }
 }
+
+extension UIDevice {
+    func set(orientation value: UIInterfaceOrientation) {
+        UIDevice.current.setValue(value.rawValue, forKey: "orientation")
+    }
+}
+
