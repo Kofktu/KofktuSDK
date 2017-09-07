@@ -152,6 +152,10 @@ public extension String {
         return self[start..<end]
     }
     
+    public func substring(nsRange range: NSRange) -> String {
+        return (self as NSString).substring(with: range)
+    }
+    
     public func nsRangeOf(string: String) -> NSRange {
         return (self as NSString).range(of: string)
     }
