@@ -22,6 +22,18 @@ public enum UIColorInputError : Error {
 
 extension UIColor {
     
+    public var isDarkColor: Bool {
+        guard let rgb = self.cgColor.components else {
+            return false
+        }
+        
+        let rValue = 0.2126 * rgb[0]
+        let gValue = 0.7152 * rgb[1]
+        let bValue = 0.0722 * rgb[2]
+        
+        return (rValue + gValue + bValue) < 0.5
+    }
+    
     public var image: UIImage? {
         let rect = CGRect(origin: CGPoint.zero, size: CGSize(width: 1.0, height: 1.0))
         UIGraphicsBeginImageContext(rect.size)
@@ -160,6 +172,43 @@ extension UIColor {
     open override var debugDescription: String {
         return self.hexString(true)
     }
+}
+
+extension UIImage {
+    public var original: UIImage {
+        return withRenderingMode(.alwaysOriginal)
+    }
+    
+    public var template: UIImage {
+        return withRenderingMode(.alwaysTemplate)
+    }
+    
+    public func averageColor() -> UIColor? {
+        guard #available(iOS 9, *) else {
+            Log.w("available iOS 9.x")
+            return nil
+        }
+        
+        var bitmap = [UInt8](repeating: 0, count: 4)
+        
+        let context = CIContext(options: nil)
+        let cgImg = context.createCGImage(CoreImage.CIImage(cgImage: self.cgImage!), from: CoreImage.CIImage(cgImage: self.cgImage!).extent)
+        
+        let inputImage = CIImage(cgImage: cgImg!)
+        let extent = inputImage.extent
+        let inputExtent = CIVector(x: extent.origin.x, y: extent.origin.y, z: extent.size.width, w: extent.size.height)
+        let filter = CIFilter(name: "CIAreaAverage", withInputParameters: [kCIInputImageKey: inputImage, kCIInputExtentKey: inputExtent])!
+        let outputImage = filter.outputImage!
+        let outputExtent = outputImage.extent
+        assert(outputExtent.size.width == 1 && outputExtent.size.height == 1)
+        
+        // Render to bitmap.
+        context.render(outputImage, toBitmap: &bitmap, rowBytes: 4, bounds: CGRect(x: 0, y: 0, width: 1, height: 1), format: kCIFormatRGBA8, colorSpace: CGColorSpaceCreateDeviceRGB())
+        
+        // Compute result.
+        return UIColor(red: CGFloat(bitmap[0]) / 255.0, green: CGFloat(bitmap[1]) / 255.0, blue: CGFloat(bitmap[2]) / 255.0, alpha: CGFloat(bitmap[3]) / 255.0)
+    }
+    
 }
 
 extension UIView: NibLoadableView {}
@@ -359,7 +408,11 @@ public extension UIButton {
     }
     
     public func centerVerticallyWithPadding(padding: CGFloat = 6.0) {
-        guard let imageSize = self.imageView?.size, let titleSize = self.titleLabel?.size else { return }
+        sizeToFit()
+        
+        guard let imageSize = imageView?.size, let titleSize = titleLabel?.size else {
+            return
+        }
         
         let iw = imageSize.width
         let ih = imageSize.height
@@ -373,6 +426,8 @@ public extension UIButton {
     }
     
     public func imageAlignment(alignment: UIButtonAlignment) {
+        sizeToFit()
+        
         guard let imageBounds = imageView?.bounds  else { return }
         guard let titleBounds = titleLabel?.bounds else { return }
         
@@ -410,6 +465,17 @@ public extension UIImageView {
     }
     
 }
+
+extension UIRefreshControl {
+    
+    func moveTo(offsetY: CGFloat) {
+        bounds = CGRect(origin: CGPoint(x: bounds.origin.x, y: offsetY), size: bounds.size)
+        beginRefreshing()
+        endRefreshing()
+    }
+    
+}
+
 
 public extension UIScrollView {
     
@@ -533,3 +599,10 @@ public extension UIApplication {
         return UIApplication.shared.currentUserNotificationSettings?.types.contains([.alert]) ?? false
     }
 }
+
+extension UIDevice {
+    func set(orientation value: UIInterfaceOrientation) {
+        UIDevice.current.setValue(value.rawValue, forKey: "orientation")
+    }
+}
+
