@@ -8,7 +8,6 @@
 
 import UIKit
 
-@IBDesignable
 open class KUILineView: UIView {
 
     @IBInspectable open var showTopLine: Bool = false {

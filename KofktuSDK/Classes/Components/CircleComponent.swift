@@ -9,13 +9,20 @@
 import Foundation
 import UIKit
 
-@IBDesignable
 open class CornerRadiusButton: TouchExpandButton {
+    
+    public override init(frame: CGRect) {
+        super.init(frame: frame)
+        commonInit()
+    }
+    
+    public required init?(coder aDecoder: NSCoder) {
+        super.init(coder: aDecoder)
+    }
     
     open override func awakeFromNib() {
         super.awakeFromNib()
-        clipsToBounds = true
-        layer.masksToBounds = true
+        commonInit()
     }
     
     open override func layoutSubviews() {
@@ -23,30 +30,27 @@ open class CornerRadiusButton: TouchExpandButton {
         layer.cornerRadius = cornerRadius
     }
     
+    // MARK: - Private
+    private func commonInit() {
+        clipsToBounds = true
+        layer.masksToBounds = true
+    }
 }
 
-@IBDesignable
 open class CircleButton: TouchExpandButton {
 
-    open override func awakeFromNib() {
-        super.awakeFromNib()
-        clipsToBounds = true
-        layer.masksToBounds = true
+    public override init(frame: CGRect) {
+        super.init(frame: frame)
+        commonInit()
     }
     
-    open override func layoutSubviews() {
-        super.layoutSubviews()
-          layer.cornerRadius = bounds.height / 2.0
+    public required init?(coder aDecoder: NSCoder) {
+        super.init(coder: aDecoder)
     }
-}
-
-@IBDesignable
-open class CircleImageView: UIImageView {
     
     open override func awakeFromNib() {
         super.awakeFromNib()
-        clipsToBounds = true
-        layer.masksToBounds = true
+        commonInit()
     }
     
     open override func layoutSubviews() {
@@ -54,4 +58,37 @@ open class CircleImageView: UIImageView {
         layer.cornerRadius = bounds.height / 2.0
     }
     
+    // MARK: - Private
+    private func commonInit() {
+        clipsToBounds = true
+        layer.masksToBounds = true
+    }
+}
+
+open class CircleImageView: UIImageView {
+    
+    public override init(frame: CGRect) {
+        super.init(frame: frame)
+        commonInit()
+    }
+    
+    public required init?(coder aDecoder: NSCoder) {
+        super.init(coder: aDecoder)
+    }
+    
+    open override func awakeFromNib() {
+        super.awakeFromNib()
+        commonInit()
+    }
+    
+    open override func layoutSubviews() {
+        super.layoutSubviews()
+        layer.cornerRadius = bounds.height / 2.0
+    }
+    
+    // MARK: - Private
+    private func commonInit() {
+        clipsToBounds = true
+        layer.masksToBounds = true
+    }
 }
