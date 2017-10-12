@@ -183,6 +183,14 @@ extension UIImage {
         return withRenderingMode(.alwaysTemplate)
     }
     
+    public func resize(_ newSize: CGSize, scale: CGFloat = 0.0) -> UIImage {
+        UIGraphicsBeginImageContextWithOptions(newSize, false, scale)
+        self.draw(in: CGRect(x: 0, y: 0, width: newSize.width, height: newSize.height))
+        let result = UIGraphicsGetImageFromCurrentImageContext()
+        UIGraphicsEndImageContext()
+        return result!
+    }
+    
     public func averageColor() -> UIColor? {
         guard #available(iOS 9, *) else {
             Log.w("available iOS 9.x")
@@ -468,7 +476,7 @@ public extension UIImageView {
 
 extension UIRefreshControl {
     
-    func moveTo(offsetY: CGFloat) {
+    public func moveTo(offsetY: CGFloat) {
         bounds = CGRect(origin: CGPoint(x: bounds.origin.x, y: offsetY), size: bounds.size)
         beginRefreshing()
         endRefreshing()
