@@ -120,7 +120,7 @@ open class KUIImageViewController: UIViewController, UICollectionViewDataSource,
         })
     }
     
-    open func dismiss() {
+    @objc open func dismiss() {
         if self.snapshotImgView.superview == nil {
             senderView?.alpha = 0.0
             collectionView.alpha = 0.0
@@ -199,7 +199,7 @@ open class KUIImageViewController: UIViewController, UICollectionViewDataSource,
     }
     
     // MARK: - Actions
-    func pan(_ gesture: UIPanGestureRecognizer) {
+    @objc func pan(_ gesture: UIPanGestureRecognizer) {
         switch gesture.state{
         case .began:
             senderView?.alpha = 0.0
@@ -383,11 +383,11 @@ open class KUIPhotoView: UIScrollView, UIScrollViewDelegate {
         contentSize = CGSize(width: frame.width * zoomScale, height: frame.height * zoomScale)
     }
     
-    func singleTap(_ gesture: UITapGestureRecognizer) {
+    @objc func singleTap(_ gesture: UITapGestureRecognizer) {
         photoDelegate?.singleTap?(self)
     }
     
-    func doubleTap(_ gesture: UITapGestureRecognizer) {
+    @objc func doubleTap(_ gesture: UITapGestureRecognizer) {
         guard zoomScale == minimumZoomScale else {
             setZoomScale(minimumZoomScale, animated: true)
             return

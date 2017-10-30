@@ -126,19 +126,26 @@ public extension String {
         let start = self.index(self.startIndex, offsetBy: r.lowerBound)
         let end = self.index(self.startIndex, offsetBy: r.upperBound)
         
-        return self[start...end]
+        return String(self[start...end])
     }
     
     public func substring(from: Int) -> String {
         let start = characters.index(startIndex, offsetBy: from)
-        let end = endIndex
-        return substring(with: start ..< end)
+        return String(self[start...])
     }
     
     public func substring(to: Int) -> String {
-        let start = startIndex
         let end = characters.index(startIndex, offsetBy: to)
-        return substring(with: start ..< end)
+        return String(self[..<end])
+    }
+    
+    public func substring(from: Int, to: Int) -> String {
+        guard from < to else {
+            return ""
+        }
+        let start = index(startIndex, offsetBy: from)
+        let end = index(startIndex, offsetBy: to)
+        return String(self[start..<end])
     }
     
     public subscript (range: Range<Int>) -> String? {
@@ -149,7 +156,7 @@ public extension String {
         
         let start = index(startIndex, offsetBy: range.lowerBound)
         let end = index(startIndex, offsetBy: range.upperBound)
-        return self[start..<end]
+        return String(self[start..<end])
     }
     
     public func substring(nsRange range: NSRange) -> String {
@@ -169,14 +176,16 @@ public extension String {
         let tokens = characters.split(separator: "&").map(String.init)
         for token in tokens {
             if let index = token.characters.index(of: "=") {
-                result[token.substring(to: index)] = token.substring(from: token.index(index, offsetBy: 1))
+                let key = String(token[..<index])
+                let value = String(token[token.index(index, offsetBy: 1)...])
+                result[key] = value
             }
         }
         return result
     }
     
     public func numberOfLines(size: CGSize, font: UIFont) -> Int {
-        let storage = NSTextStorage(string: self, attributes: [NSFontAttributeName: font])
+        let storage = NSTextStorage(string: self, attributes: [NSAttributedStringKey.font: font])
         let container = NSTextContainer(size: size)
         container.lineBreakMode = .byWordWrapping
         container.maximumNumberOfLines = 0

@@ -112,7 +112,7 @@ extension UIColor {
      - parameter rgba: String value.
      */
     public convenience init(hexString: String) throws {
-        let hexString = hexString.substring(from: hexString.index(hexString.startIndex, offsetBy: hexString.hasPrefix("#") ? 1 : 0))
+        let hexString = hexString.substring(from: hexString.hasPrefix("#") ? 1 : 0)
         var hexValue:  UInt32 = 0
         
         guard Scanner(string: hexString).scanHexInt32(&hexValue) else {
