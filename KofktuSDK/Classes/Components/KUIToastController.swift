@@ -47,6 +47,11 @@ public class KUIToastController: NSObject {
         show(error.localizedDescription, duration: duration ?? self.duration)
     }
     
+    public func show(error: Error?, duration: TimeInterval? = nil) {
+        guard let error = error else { return }
+        show(message: error.localizedDescription, duration: duration ?? self.duration)
+    }
+    
     private func show(_ message: String, duration: TimeInterval) {
         guard !messageQueue.contains(message) else { return }
         
