@@ -112,7 +112,7 @@ extension UIColor {
      - parameter rgba: String value.
      */
     public convenience init(hexString: String) throws {
-        let hexString = hexString.substring(from: hexString.index(hexString.startIndex, offsetBy: hexString.hasPrefix("#") ? 1 : 0))
+        let hexString = hexString.substring(from: hexString.hasPrefix("#") ? 1 : 0)
         var hexValue:  UInt32 = 0
         
         guard Scanner(string: hexString).scanHexInt32(&hexValue) else {
@@ -502,17 +502,17 @@ public extension UIScrollView {
 extension UITableViewCell: ReusableView {}
 public extension UITableView {
     
-    public func register<T: UITableViewCell>(withReuseIdentifier: T.Type) where T: ReusableView {
+    public func register<T: UITableViewCell>(withReuseIdentifier: T.Type) {
         register(T.self, forCellReuseIdentifier: T.reusableIdentifier)
     }
     
-    public func register<T: UITableViewCell>(_: T.Type) where T: ReusableView, T: NibLoadableView {
+    public func register<T: UITableViewCell>(_: T.Type) {
         let bundle = Bundle(for: T.self)
         let nib = UINib(nibName: T.nibName, bundle: bundle)
         register(nib, forCellReuseIdentifier: T.reusableIdentifier)
     }
     
-    public func dequeueReusableCell<T: UITableViewCell>(`for` indexPath: IndexPath) -> T where T: ReusableView {
+    public func dequeueReusableCell<T: UITableViewCell>(`for` indexPath: IndexPath) -> T {
         let reuseIdentifier = T.reusableIdentifier
         guard let cell = dequeueReusableCell(withIdentifier: reuseIdentifier, for: indexPath) as? T else {
             fatalError("Could not dequeue cell with identifier: \(T.reusableIdentifier)")
@@ -537,17 +537,17 @@ public extension UITableView {
 extension UICollectionViewCell: ReusableView {}
 public extension UICollectionView {
     
-    public func register<T: UICollectionViewCell>(withReuseIdentifier: T.Type) where T: ReusableView {
+    public func register<T: UICollectionViewCell>(withReuseIdentifier: T.Type) {
         register(T.self, forCellWithReuseIdentifier: T.reusableIdentifier)
     }
     
-    public func register<T: UICollectionViewCell>(_: T.Type) where T: ReusableView, T: NibLoadableView {
+    public func register<T: UICollectionViewCell>(_: T.Type) {
         let bundle = Bundle(for: T.self)
         let nib = UINib(nibName: T.nibName, bundle: bundle)
         register(nib, forCellWithReuseIdentifier: T.reusableIdentifier)
     }
     
-    public func dequeueReusableCell<T: UICollectionViewCell>(`for` indexPath: IndexPath) -> T where T: ReusableView {
+    public func dequeueReusableCell<T: UICollectionViewCell>(`for` indexPath: IndexPath) -> T {
         let reuseIdentifier = T.reusableIdentifier
         guard let cell = dequeueReusableCell(withReuseIdentifier: reuseIdentifier, for: indexPath) as? T else {
             fatalError("Could not dequeue cell with identifier: \(T.reusableIdentifier)")
