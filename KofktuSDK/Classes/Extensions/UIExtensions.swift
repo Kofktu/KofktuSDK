@@ -609,8 +609,28 @@ public extension UIApplication {
 }
 
 extension UIDevice {
-    func set(orientation value: UIInterfaceOrientation) {
+    public var modelName: String {
+        var systemInfo = utsname()
+        uname(&systemInfo)
+        let machineMirror = Mirror(reflecting: systemInfo.machine)
+        let identifier = machineMirror.children.reduce("") { identifier, element in
+            guard let value = element.value as? Int8, value != 0 else {
+                return identifier
+            }
+            
+            return identifier + String(UnicodeScalar(UInt8(value)))
+        }
+        
+        return identifier
+    }
+    
+    public var isIPhoneX: Bool {
+        return UIScreen.main.scale == 3.0 && UIScreen.main.bounds.width == 375.0
+    }
+    
+    public func set(orientation value: UIInterfaceOrientation) {
         UIDevice.current.setValue(value.rawValue, forKey: "orientation")
     }
 }
+
 
