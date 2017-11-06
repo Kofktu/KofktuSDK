@@ -16,6 +16,8 @@
 		C36E2B491F60F5760010631F /* CircleComponent.swift in Sources */ = {isa = PBXBuildFile; fileRef = C36E2B481F60F5760010631F /* CircleComponent.swift */; };
 		C375F5A41EB371A600230114 /* Snap.swift in Sources */ = {isa = PBXBuildFile; fileRef = C375F5A31EB371A600230114 /* Snap.swift */; };
 		C38F0D6C1D2E9F9100797C21 /* ApiManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = C38F0D6B1D2E9F9100797C21 /* ApiManager.swift */; };
+		C3B99B8F1FB036530058A07B /* ContentUsable.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3B99B8E1FB036530058A07B /* ContentUsable.swift */; };
+		C3B99B911FB036A40058A07B /* UniqueOwnerable.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3B99B901FB036A40058A07B /* UniqueOwnerable.swift */; };
 		C3C17A611E1929AA00D2DDC3 /* KUIAlertController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3C17A5F1E1929AA00D2DDC3 /* KUIAlertController.swift */; };
 		C3C17A621E1929AA00D2DDC3 /* KUIToastController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3C17A601E1929AA00D2DDC3 /* KUIToastController.swift */; };
 		C3C17A641E1929ED00D2DDC3 /* KeychainManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3C17A631E1929ED00D2DDC3 /* KeychainManager.swift */; };
@@ -55,6 +57,8 @@
 		C36E2B481F60F5760010631F /* CircleComponent.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CircleComponent.swift; sourceTree = "<group>"; };
 		C375F5A31EB371A600230114 /* Snap.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Snap.swift; sourceTree = "<group>"; };
 		C38F0D6B1D2E9F9100797C21 /* ApiManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ApiManager.swift; sourceTree = "<group>"; };
+		C3B99B8E1FB036530058A07B /* ContentUsable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentUsable.swift; sourceTree = "<group>"; };
+		C3B99B901FB036A40058A07B /* UniqueOwnerable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UniqueOwnerable.swift; sourceTree = "<group>"; };
 		C3C17A5F1E1929AA00D2DDC3 /* KUIAlertController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = KUIAlertController.swift; sourceTree = "<group>"; };
 		C3C17A601E1929AA00D2DDC3 /* KUIToastController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = KUIToastController.swift; sourceTree = "<group>"; };
 		C3C17A631E1929ED00D2DDC3 /* KeychainManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = KeychainManager.swift; sourceTree = "<group>"; };
@@ -216,6 +220,8 @@
 		C3D7E97E1D2E231500E570F7 /* Protocols */ = {
 			isa = PBXGroup;
 			children = (
+				C3B99B901FB036A40058A07B /* UniqueOwnerable.swift */,
+				C3B99B8E1FB036530058A07B /* ContentUsable.swift */,
 				C3D7E97F1D2E232000E570F7 /* ReusableView.swift */,
 			);
 			path = Protocols;
@@ -459,6 +465,7 @@
 				C3D7E97C1D2E1FCB00E570F7 /* Extensions.swift in Sources */,
 				C36E2B491F60F5760010631F /* CircleComponent.swift in Sources */,
 				C375F5A41EB371A600230114 /* Snap.swift in Sources */,
+				C3B99B911FB036A40058A07B /* UniqueOwnerable.swift in Sources */,
 				C3D4FDB91D2D553600F3FF01 /* Logger.swift in Sources */,
 				C36E2B471F60E8D70010631F /* TouchExpandButton.swift in Sources */,
 				C3C17A611E1929AA00D2DDC3 /* KUIAlertController.swift in Sources */,
@@ -467,6 +474,7 @@
 				C3367A0B1D2E7FA3004B5112 /* KofktuSDK.swift in Sources */,
 				C3D7E9841D2E27D100E570F7 /* KUIViewController.swift in Sources */,
 				C31140811D80607500ECF7DA /* KUIViewControllerPager.swift in Sources */,
+				C3B99B8F1FB036530058A07B /* ContentUsable.swift in Sources */,
 				C3D7E9821D2E243900E570F7 /* KUILineView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -654,7 +662,7 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = kr.homefactory.KofktuSDKTests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_SWIFT3_OBJC_INFERENCE = On;
+				SWIFT_SWIFT3_OBJC_INFERENCE = Default;
 				SWIFT_VERSION = 4.0;
 			};
 			name = Debug;
@@ -668,7 +676,7 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = kr.homefactory.KofktuSDKTests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_SWIFT3_OBJC_INFERENCE = On;
+				SWIFT_SWIFT3_OBJC_INFERENCE = Default;
 				SWIFT_VERSION = 4.0;
 			};
 			name = Release;

@@ -119,7 +119,7 @@ extension UIColor {
             throw UIColorInputError.UnableToScanHexValue
         }
         
-        switch (hexString.characters.count) {
+        switch (hexString.count) {
         case 3:
             self.init(hex3: UInt16(hexValue))
         case 4:
@@ -622,6 +622,10 @@ extension UIDevice {
         }
         
         return identifier
+    }
+    
+    public var isIPad: Bool {
+        return UIScreen.main.traitCollection.userInterfaceIdiom == .pad
     }
     
     public var isIPhoneX: Bool {
