@@ -20,7 +20,7 @@ open class KUIViewController: UIViewController {
         isViewAppeared = true
         
         if isNeedUpdateData {
-            updateDate()
+            updateData()
         }
     }
     
@@ -30,15 +30,15 @@ open class KUIViewController: UIViewController {
         isFirstViewAppeared = false
     }
     
-    @objc open  func setNeedUpdateData() {
+    @objc open func setNeedUpdateData() {
         isNeedUpdateData = true
         
         if isViewAppeared {
-            updateDate()
+            updateData()
         }
     }
     
-    open func updateDate() {
+    open func updateData() {
         isNeedUpdateData = false
     }
     
