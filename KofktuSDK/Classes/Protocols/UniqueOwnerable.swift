@@ -8,7 +8,7 @@
 
 import Foundation
 
-protocol UniqueOwnerable {
+public protocol UniqueOwnerable {
     associatedtype Unique: Equatable
     var id: Unique { get }
 }
