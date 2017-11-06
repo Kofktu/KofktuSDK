@@ -25,7 +25,22 @@ public extension FloatLiteralType {
 }
 
 public extension Array {
-    
+
+    func filter(duplicates includeElement: (_ lhs:Element, _ rhs:Element) -> Bool) -> [Element] {
+        var results = [Element]()
+        
+        forEach { (element) in
+            let existingElements = results.filter {
+                return includeElement(element, $0)
+            }
+            if existingElements.count == 0 {
+                results.append(element)
+            }
+        }
+        
+        return results
+    }
+
     @discardableResult
     public mutating func remove<T: Equatable>(object: T) -> Bool {
         for (index, obj) in enumerated() {

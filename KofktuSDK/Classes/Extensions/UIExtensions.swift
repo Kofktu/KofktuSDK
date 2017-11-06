@@ -624,6 +624,10 @@ extension UIDevice {
         return identifier
     }
     
+    public var isIPad: Bool {
+        return UIScreen.main.traitCollection.userInterfaceIdiom == .pad
+    }
+    
     public var isIPhoneX: Bool {
         return UIScreen.main.scale == 3.0 && UIScreen.main.bounds.width == 375.0
     }
