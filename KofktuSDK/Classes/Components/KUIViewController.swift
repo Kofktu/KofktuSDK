@@ -10,10 +10,36 @@ import UIKit
 
 open class KUIViewController: UIViewController {
 
-    open var isFirstViewAppeared: Bool = true
+    public private(set) var isViewAppeared = false
+    public private(set) var isFirstViewAppeared = true
+    
+    private var isNeedUpdateData = false
 
+    open override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
+        isViewAppeared = true
+        
+        if isNeedUpdateData {
+            updateDate()
+        }
+    }
+    
     open override func viewWillDisappear(_ animated: Bool) {
         super.viewWillDisappear(animated)
+        isViewAppeared = false
         isFirstViewAppeared = false
     }
+    
+    @objc func setNeedUpdateData() {
+        isNeedUpdateData = true
+        
+        if isViewAppeared {
+            updateDate()
+        }
+    }
+    
+    func updateDate() {
+        isNeedUpdateData = false
+    }
+    
 }
