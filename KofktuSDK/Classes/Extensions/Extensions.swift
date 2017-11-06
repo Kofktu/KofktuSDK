@@ -110,7 +110,7 @@ public extension String {
     
     public func indexOf(string: String) -> Int? {
         guard let range = range(of: string) else { return nil }
-        return characters.distance(from: startIndex, to: range.lowerBound)
+        return distance(from: startIndex, to: range.lowerBound)
     }
     
     public subscript (i: Int) -> Character {
@@ -130,12 +130,12 @@ public extension String {
     }
     
     public func substring(from: Int) -> String {
-        let start = characters.index(startIndex, offsetBy: from)
+        let start = index(startIndex, offsetBy: from)
         return String(self[start...])
     }
     
     public func substring(to: Int) -> String {
-        let end = characters.index(startIndex, offsetBy: to)
+        let end = index(startIndex, offsetBy: to)
         return String(self[..<end])
     }
     
@@ -149,8 +149,6 @@ public extension String {
     }
     
     public subscript (range: Range<Int>) -> String? {
-        let count = characters.count
-        
         //Check for out of boundary condition
         if count < range.upperBound || count < range.lowerBound { return nil }
         
@@ -173,9 +171,9 @@ public extension String {
     
     public func queryTokenizing() -> [String: String] {
         var result: [String:String] = [:]
-        let tokens = characters.split(separator: "&").map(String.init)
+        let tokens = split(separator: "&").map(String.init)
         for token in tokens {
-            if let index = token.characters.index(of: "=") {
+            if let index = token.index(of: "=") {
                 let key = String(token[..<index])
                 let value = String(token[token.index(index, offsetBy: 1)...])
                 result[key] = value
