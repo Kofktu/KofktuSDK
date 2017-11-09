@@ -345,9 +345,12 @@ open class KUIPhotoView: UIScrollView, UIScrollViewDelegate {
     }
     
     open var imageUrl: (String?, UIImage?) {
+        willSet {
+            imageView.clearImage()
+        }
         didSet {
             imageView.sd_setShowActivityIndicatorView(imageUrl.1 == nil)
-            imageView.setImage(with: imageUrl.0, placeholder: imageUrl.1)
+            imageView.sd_setImage(with: imageUrl.0.flatMap { URL(string: $0) }, placeholderImage: imageUrl.1)
         }
     }
     
