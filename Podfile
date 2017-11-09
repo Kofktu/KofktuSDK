@@ -6,7 +6,7 @@ inhibit_all_warnings!
 target 'KofktuSDK' do
   # Pods for KofktuSDK
   pod 'AlamofireObjectMapper', '~> 5.0'
-  pod 'SDWebImage', '~> 4.0'
+  pod 'SDWebImage/GIF', '~> 4.0'
   pod 'Toaster', '~> 2.0'
   pod 'KeychainAccess', '~> 3.1'
   pod 'Sniffer', '~> 1.5.0'
