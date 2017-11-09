@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import FLAnimatedImage
 
 @objc public protocol KUIImageViewControllerDataSource: class {
     // Required
@@ -344,14 +345,17 @@ open class KUIPhotoView: UIScrollView, UIScrollViewDelegate {
     }
     
     open var imageUrl: (String?, UIImage?) {
+        willSet {
+            imageView.clearImage()
+        }
         didSet {
             imageView.sd_setShowActivityIndicatorView(imageUrl.1 == nil)
-            imageView.setImage(with: imageUrl.0, placeholder: imageUrl.1)
+            imageView.sd_setImage(with: imageUrl.0.flatMap { URL(string: $0) }, placeholderImage: imageUrl.1)
         }
     }
     
-    lazy open var imageView: UIImageView = {
-        let imageView = UIImageView(frame: self.bounds)
+    lazy open var imageView: FLAnimatedImageView = {
+        let imageView = FLAnimatedImageView(frame: self.bounds)
         imageView.backgroundColor = UIColor.clear
         imageView.contentMode = .scaleAspectFit
         imageView.sd_setIndicatorStyle(.white)

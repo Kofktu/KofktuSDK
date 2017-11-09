@@ -135,7 +135,7 @@ Pod::Spec.new do |s|
 
   # for Swift 4.0
   s.dependency 'AlamofireObjectMapper', '~> 5.0'
-  s.dependency 'SDWebImage', '~> 4.0'
+  s.dependency 'SDWebImage/GIF', '~> 4.0'
   s.dependency 'Toaster', '~> 2.0'
   s.dependency 'KeychainAccess', '~> 3.1'
   s.dependency 'Sniffer', '~> 1.5.0'
