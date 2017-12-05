@@ -43,6 +43,6 @@ public struct RequestLoader {
     }
     
     mutating public func resultCount(_ count: Int?) {
-        hasMore = count ?? 0 == countPerPage
+        hasMore = (count ?? 0) > 0
     }
 }
