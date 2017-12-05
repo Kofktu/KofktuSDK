@@ -629,7 +629,7 @@ extension UIDevice {
     }
     
     public var isIPhoneX: Bool {
-        return UIScreen.main.nativeScale == 3.0 && UIScreen.main.nativeBounds.width == 375.0
+        return UIScreen.main.nativeScale == 3.0 && UIScreen.main.nativeBounds.width == 1125.0
     }
     
     public func set(orientation value: UIInterfaceOrientation) {
