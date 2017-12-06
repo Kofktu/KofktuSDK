@@ -102,13 +102,17 @@ public class ApiManager {
         return create(configuration)
     }
     
-    public func request(apiRequest: ApiRequestProtocol, parameters: Parameters? = nil) -> DataRequest {
+    public func request(apiRequest: ApiRequestProtocol, parameters: Parameters? = nil, headers: HTTPHeaders? = nil) -> DataRequest {
         let urlString = URL(string: apiRequest.resourcePath, relativeTo: apiRequest.baseURL)!.absoluteString
+        var header = self.headers
+        if let headers = headers {
+            header.merge(dict: headers)
+        }
         switch apiRequest.method {
         case .get, .head:
-            return manager(apiRequest).request(urlString, method: apiRequest.method, parameters: parameters, headers: headers).validate()
+            return manager(apiRequest).request(urlString, method: apiRequest.method, parameters: parameters, headers: header).validate()
         default:
-            return manager(apiRequest).request(urlString, method: apiRequest.method, parameters: parameters, encoding: apiRequest.encoding, headers: headers).validate()
+            return manager(apiRequest).request(urlString, method: apiRequest.method, parameters: parameters, encoding: apiRequest.encoding, headers: header).validate()
         }
     }
     
