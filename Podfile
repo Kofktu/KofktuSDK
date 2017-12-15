@@ -18,3 +18,19 @@ target 'KofktuSDK' do
   end
 
 end
+
+swift32 = ['Dotzu']
+
+post_install do |installer|
+    installer.pods_project.targets.each do |target|
+        swift_version = '4.0'
+        
+        if swift32.include?(target.name)
+            swift_version = '3.2'
+        end
+        
+        target.build_configurations.each do |config|
+            config.build_settings['SWIFT_VERSION'] = swift_version
+        end
+    end
+end
