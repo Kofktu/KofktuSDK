@@ -8,6 +8,7 @@
 
 import Alamofire
 import Sniffer
+import Dotzu
 
 public protocol ApiRequestProtocol {
     var baseURL: URL { get }
@@ -97,6 +98,7 @@ public class ApiManager {
         
         if Logger.isEnabled {
             Sniffer.enable(in: configuration)
+            Dotzu.sharedManager.addLogger(session: configuration)
         }
         
         return create(configuration)

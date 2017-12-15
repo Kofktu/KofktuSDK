@@ -16,7 +16,7 @@ Pod::Spec.new do |s|
   #
 
   s.name         = "KofktuSDK"
-  s.version      = "2.0.7"
+  s.version      = "2.1.0"
   s.summary      = "KofktuSDK"
 
   # This description is used to generate tags and improve search results.
@@ -139,5 +139,6 @@ Pod::Spec.new do |s|
   s.dependency 'Toaster', '~> 2.0'
   s.dependency 'KeychainAccess', '~> 3.1'
   s.dependency 'Sniffer', '~> 1.5.0'
+  s.dependency 'Dotzu'
 
 end
