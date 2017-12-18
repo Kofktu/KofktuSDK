@@ -7,6 +7,7 @@
 //
 
 import XCTest
+import ObjectMapper
 @testable import KofktuSDK
 
 class KofktuSDKTests: XCTestCase {
@@ -64,6 +65,49 @@ class KofktuSDKTests: XCTestCase {
         XCTAssertEqual("5,000.12", floatValue.formatted(fractionDigits: 2))
         XCTAssertEqual("5,000.127", doubleValue.formatted)
         XCTAssertEqual("5,000.13", doubleValue.formatted(fractionDigits: 2))
+    }
+    
+    func test_userdefault_objectmapper() {
+        let key = "ObjectMapper"
+        let object = MapperObject(id: 10, value: "TEST")
+        XCTAssertEqual(object.id, 10)
+        XCTAssertEqual(object.value, "TEST")
+        
+        UserDefaults.standard.set(object: object, forKey: key)
+        UserDefaults.standard.synchronize()
+        
+        let fromUserDefaultObject: MapperObject? = UserDefaults.standard.object(forKey: key)
+        XCTAssertNotNil(fromUserDefaultObject)
+        XCTAssertEqual(fromUserDefaultObject?.id, 10)
+        XCTAssertEqual(fromUserDefaultObject?.value, "TEST")
+    }
+    
+}
+
+struct MapperObject: ImmutableMappable {
+    
+    private enum Keys {
+        static let id = "id"
+        static let value = "value"
+    }
+    
+    var id: Int
+    var value: String
+    
+    init(id: Int,
+         value: String) {
+        self.id = id
+        self.value = value
+    }
+    
+    init(map: Map) throws {
+        id = try map.value(Keys.id)
+        value = try map.value(Keys.value)
+    }
+    
+    func mapping(map: Map) {
+        id >>> map[Keys.id]
+        value >>> map[Keys.value]
     }
     
 }
