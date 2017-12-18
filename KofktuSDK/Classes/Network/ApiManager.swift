@@ -96,9 +96,12 @@ public class ApiManager {
         
         let configuration = URLSessionConfiguration.`default`
         
-        if Logger.isEnabled {
+        if Log.isEnabled {
             Sniffer.enable(in: configuration)
-            Dotzu.sharedManager.addLogger(session: configuration)
+            
+            if Log.style.contains(.dotzu) {
+                Dotzu.sharedManager.addLogger(session: configuration)
+            }
         }
         
         return create(configuration)
