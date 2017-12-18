@@ -54,11 +54,16 @@ class KofktuSDKTests: XCTestCase {
         XCTAssertEqual(range.length, 3)
     }
     
-    func test_logger() {
-        Logger.isEnabled = true
-        Log.style = [.debug, .info, .warning, .error]
-        Log.d("Debug LOG")
-        Log.w("Warning LOG")
-        Log.i("Infomation LOG")
+    func test_formatted() {
+        let intValue = 5000
+        let floatValue = 5000.123
+        let doubleValue = 5000.127
+        
+        XCTAssertEqual("5,000", intValue.formatted)
+        XCTAssertEqual("5,000.123", floatValue.formatted)
+        XCTAssertEqual("5,000.12", floatValue.formatted(fractionDigits: 2))
+        XCTAssertEqual("5,000.127", doubleValue.formatted)
+        XCTAssertEqual("5,000.13", doubleValue.formatted(fractionDigits: 2))
     }
+    
 }
