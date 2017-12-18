@@ -7,6 +7,7 @@
 //
 
 import Foundation
+import ObjectMapper
 
 public extension IntegerLiteralType {
     
@@ -14,12 +15,39 @@ public extension IntegerLiteralType {
         return CGFloat(self)
     }
     
+    public var formatted: String {
+        let numberFormatter = NumberFormatter()
+        numberFormatter.numberStyle = .decimal
+        return numberFormatter.string(for: self) ?? String(self)
+    }
+    
+    public func formatted(fractionDigits: Int = 2) -> String {
+        let numberFormatter = NumberFormatter()
+        numberFormatter.numberStyle = .decimal
+        numberFormatter.minimumFractionDigits = 1
+        numberFormatter.maximumFractionDigits = fractionDigits
+        return numberFormatter.string(for: self) ?? String(self)
+    }
 }
 
 public extension FloatLiteralType {
     
     public var f: CGFloat {
         return CGFloat(self)
+    }
+    
+    public var formatted: String {
+        let numberFormatter = NumberFormatter()
+        numberFormatter.numberStyle = .decimal
+        return numberFormatter.string(for: self) ?? String(self)
+    }
+    
+    public func formatted(fractionDigits: Int = 2) -> String {
+        let numberFormatter = NumberFormatter()
+        numberFormatter.numberStyle = .decimal
+        numberFormatter.minimumFractionDigits = 1
+        numberFormatter.maximumFractionDigits = fractionDigits
+        return numberFormatter.string(for: self) ?? String(self)
     }
     
 }
@@ -80,16 +108,6 @@ public extension Dictionary {
         for (key, value) in dict {
             updateValue(value, forKey: key)
         }
-    }
-    
-}
-
-public extension Int {
-    
-    public var formatted: String {
-        let numberFormatter = NumberFormatter()
-        numberFormatter.numberStyle = .decimal
-        return numberFormatter.string(for: self) ?? String(self)
     }
     
 }
@@ -300,6 +318,14 @@ public extension UserDefaults {
     
     public static func disableLayoutConstraintLog() {
         UserDefaults.standard.setValue(false, forKey: "_UIConstraintBasedLayoutLogUnsatisfiable")
+    }
+    
+    public func set<T: BaseMappable>(object: T?, forKey key: String) {
+        set(object?.toJSONString(), forKey: key)
+    }
+    
+    public func object<T: BaseMappable>(forKey key: String) -> T? {
+        return string(forKey: key).flatMap { Mapper<T>().map(JSONString: $0) }
     }
     
 }
