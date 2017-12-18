@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import ObjectMapper
 import KeychainAccess
 
 public class KeychainManager {
@@ -33,11 +34,19 @@ public class KeychainManager {
         keychain[data: key] = value
     }
     
+    public func set<T: BaseMappable>(object: T?, for key: String) {
+        set(string: object?.toJSONString(), for: key)
+    }
+    
     public func get(string key: String) -> String? {
         return keychain[string: key]
     }
     
     public func get(data key: String) -> Data? {
         return keychain[data: key]
+    }
+    
+    public func get<T: BaseMappable>(object key: String) -> T? {
+        return get(string: key).flatMap { Mapper<T>().map(JSONString: $0) }
     }
 }
