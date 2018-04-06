@@ -279,6 +279,23 @@ public extension Data {
 
 public extension Date {
     
+    public var betweenNow: (year: Int, month: Int, day: Int, hour: Int, minute: Int, second: Int)? {
+        let components = Calendar.kr_calendar.dateComponents([.year, .month, .day, .hour, .minute, .second],
+                                                            from: self,
+                                                            to: Date())
+        
+        guard let year = components.year,
+            let month = components.month,
+            let day = components.day,
+            let hour = components.hour,
+            let minute = components.minute,
+            let second = components.second else {
+            return nil
+        }
+        
+        return (year: year, month: month, day: day, hour: hour, minute: minute, second: second)
+    }
+    
     public static func date(kr_formatted string: String?, dateFormat: String = "yyyy-MM-dd HH:mm:ss") -> Date? {
         guard let string = string else {
             return nil
@@ -296,7 +313,6 @@ public extension DateFormatter {
     public static var kr_dateFormatter: DateFormatter {
         let dateFormatter = DateFormatter()
         dateFormatter.locale = Locale(identifier: "ko_KR")
-        dateFormatter.timeZone = TimeZone(secondsFromGMT: 60 * 60 * 9)
         return dateFormatter
     }
     
@@ -308,7 +324,6 @@ public extension Calendar {
         var calendar = Calendar.current
         let dateFormatter = DateFormatter.kr_dateFormatter
         calendar.locale = dateFormatter.locale
-        calendar.timeZone = dateFormatter.timeZone
         return calendar
     }
     
