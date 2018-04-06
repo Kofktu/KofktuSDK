@@ -21,6 +21,10 @@
 		C3C17A611E1929AA00D2DDC3 /* KUIAlertController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3C17A5F1E1929AA00D2DDC3 /* KUIAlertController.swift */; };
 		C3C17A621E1929AA00D2DDC3 /* KUIToastController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3C17A601E1929AA00D2DDC3 /* KUIToastController.swift */; };
 		C3C17A641E1929ED00D2DDC3 /* KeychainManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3C17A631E1929ED00D2DDC3 /* KeychainManager.swift */; };
+		C3C8E18B2077B55600038460 /* UIControl+EventHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3C8E18A2077B55600038460 /* UIControl+EventHandler.swift */; };
+		C3C8E18D2077B7B800038460 /* SwipeBackGestureEventDispatcher.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3C8E18C2077B7B800038460 /* SwipeBackGestureEventDispatcher.swift */; };
+		C3C8E18F2077B82400038460 /* UIEdgeInsets+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3C8E18E2077B82400038460 /* UIEdgeInsets+Extension.swift */; };
+		C3C8E1912077B85D00038460 /* EnumIterator.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3C8E1902077B85D00038460 /* EnumIterator.swift */; };
 		C3D4FDB91D2D553600F3FF01 /* Logger.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3D4FDB81D2D553600F3FF01 /* Logger.swift */; };
 		C3D4FDBC1D2D554E00F3FF01 /* UIExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3D4FDBB1D2D554E00F3FF01 /* UIExtensions.swift */; };
 		C3D508CC1D2D49DC005F2B55 /* KofktuSDK.h in Headers */ = {isa = PBXBuildFile; fileRef = C3D508CB1D2D49DC005F2B55 /* KofktuSDK.h */; settings = {ATTRIBUTES = (Public, ); }; };
@@ -62,6 +66,10 @@
 		C3C17A5F1E1929AA00D2DDC3 /* KUIAlertController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = KUIAlertController.swift; sourceTree = "<group>"; };
 		C3C17A601E1929AA00D2DDC3 /* KUIToastController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = KUIToastController.swift; sourceTree = "<group>"; };
 		C3C17A631E1929ED00D2DDC3 /* KeychainManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = KeychainManager.swift; sourceTree = "<group>"; };
+		C3C8E18A2077B55600038460 /* UIControl+EventHandler.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIControl+EventHandler.swift"; sourceTree = "<group>"; };
+		C3C8E18C2077B7B800038460 /* SwipeBackGestureEventDispatcher.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SwipeBackGestureEventDispatcher.swift; sourceTree = "<group>"; };
+		C3C8E18E2077B82400038460 /* UIEdgeInsets+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIEdgeInsets+Extension.swift"; sourceTree = "<group>"; };
+		C3C8E1902077B85D00038460 /* EnumIterator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EnumIterator.swift; sourceTree = "<group>"; };
 		C3D4FDB81D2D553600F3FF01 /* Logger.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Logger.swift; sourceTree = "<group>"; };
 		C3D4FDBB1D2D554E00F3FF01 /* UIExtensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UIExtensions.swift; sourceTree = "<group>"; };
 		C3D508C81D2D49DC005F2B55 /* KofktuSDK.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = KofktuSDK.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -151,6 +159,8 @@
 				C3D7E97B1D2E1FCB00E570F7 /* Extensions.swift */,
 				C3D4FDBB1D2D554E00F3FF01 /* UIExtensions.swift */,
 				C375F5A31EB371A600230114 /* Snap.swift */,
+				C3C8E18A2077B55600038460 /* UIControl+EventHandler.swift */,
+				C3C8E18E2077B82400038460 /* UIEdgeInsets+Extension.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -213,6 +223,7 @@
 			children = (
 				C3F17C7F1E36D7D8009743DD /* UI */,
 				C3F17C801E36D7F8009743DD /* LaunchOptions.swift */,
+				C3C8E18C2077B7B800038460 /* SwipeBackGestureEventDispatcher.swift */,
 			);
 			path = Components;
 			sourceTree = "<group>";
@@ -223,6 +234,7 @@
 				C3B99B901FB036A40058A07B /* UniqueOwnerable.swift */,
 				C3B99B8E1FB036530058A07B /* ContentUsable.swift */,
 				C3D7E97F1D2E232000E570F7 /* ReusableView.swift */,
+				C3C8E1902077B85D00038460 /* EnumIterator.swift */,
 			);
 			path = Protocols;
 			sourceTree = "<group>";
@@ -467,11 +479,14 @@
 				C361D59E1D82FE00003C8FFE /* KUIImageViewController.swift in Sources */,
 				C3F17C811E36D7F8009743DD /* LaunchOptions.swift in Sources */,
 				C3D7E97C1D2E1FCB00E570F7 /* Extensions.swift in Sources */,
+				C3C8E18D2077B7B800038460 /* SwipeBackGestureEventDispatcher.swift in Sources */,
 				C36E2B491F60F5760010631F /* CircleComponent.swift in Sources */,
 				C375F5A41EB371A600230114 /* Snap.swift in Sources */,
 				C3B99B911FB036A40058A07B /* UniqueOwnerable.swift in Sources */,
 				C3D4FDB91D2D553600F3FF01 /* Logger.swift in Sources */,
+				C3C8E1912077B85D00038460 /* EnumIterator.swift in Sources */,
 				C36E2B471F60E8D70010631F /* TouchExpandButton.swift in Sources */,
+				C3C8E18F2077B82400038460 /* UIEdgeInsets+Extension.swift in Sources */,
 				C3C17A611E1929AA00D2DDC3 /* KUIAlertController.swift in Sources */,
 				C3D7E9801D2E232000E570F7 /* ReusableView.swift in Sources */,
 				C3C17A621E1929AA00D2DDC3 /* KUIToastController.swift in Sources */,
@@ -480,6 +495,7 @@
 				C31140811D80607500ECF7DA /* KUIViewControllerPager.swift in Sources */,
 				C3B99B8F1FB036530058A07B /* ContentUsable.swift in Sources */,
 				C3D7E9821D2E243900E570F7 /* KUILineView.swift in Sources */,
+				C3C8E18B2077B55600038460 /* UIControl+EventHandler.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

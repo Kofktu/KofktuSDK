@@ -499,6 +499,14 @@ public extension UIScrollView {
     }
 }
 
+public extension UITableViewCell {
+    
+    public func hiddenSepratorLine() {
+        separatorInset = UIEdgeInsets(top: 0.0, left: 0.0, bottom: 0.0, right: 10000000.0)
+    }
+    
+}
+
 extension UITableViewCell: ReusableView {}
 public extension UITableView {
     
