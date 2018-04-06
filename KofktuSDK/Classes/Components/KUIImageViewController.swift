@@ -73,8 +73,15 @@ open class KUIImageViewController: UIViewController, UICollectionViewDataSource,
     fileprivate var snapshotImage: UIImage? {
         return (senderView as? UIImageView)?.image ?? (senderView as? UIButton)?.currentImage ?? senderView?.capture()
     }
-    fileprivate(set) var currentIndex: Int = 0
-    fileprivate let threshold: CGFloat = 100.0
+    private(set) var currentIndex: Int = 0
+    private let threshold: CGFloat = 100.0
+    
+    private var originStatusBarStyle: UIStatusBarStyle = .`default`
+    private var currentStatusBarStyle: UIStatusBarStyle = .`default`
+    
+    open override var preferredStatusBarStyle: UIStatusBarStyle {
+        return currentStatusBarStyle
+    }
     
     open override func loadView() {
         super.loadView()
@@ -82,6 +89,37 @@ open class KUIImageViewController: UIViewController, UICollectionViewDataSource,
         view.insertSubview(collectionView, at: 0)
         view.addConstraints(NSLayoutConstraint.constraints(withVisualFormat: "V:|-0-[view]-0-|", views: ["view": collectionView]))
         view.addConstraints(NSLayoutConstraint.constraints(withVisualFormat: "H:|-0-[view]-0-|", views: ["view": collectionView]))
+    }
+    
+    open override func viewDidLoad() {
+        super.viewDidLoad()
+        
+        currentStatusBarStyle = UIApplication.shared.statusBarStyle
+        originStatusBarStyle = currentStatusBarStyle
+    }
+    
+    open override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        currentStatusBarStyle = .lightContent
+        setNeedsStatusBarAppearanceUpdate()
+    }
+    
+    open override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
+        currentStatusBarStyle = .lightContent
+        setNeedsStatusBarAppearanceUpdate()
+    }
+    
+    open override func viewWillDisappear(_ animated: Bool) {
+        super.viewWillDisappear(animated)
+        currentStatusBarStyle = originStatusBarStyle
+        setNeedsStatusBarAppearanceUpdate()
+    }
+    
+    open override func viewDidDisappear(_ animated: Bool) {
+        super.viewDidDisappear(animated)
+        currentStatusBarStyle = originStatusBarStyle
+        setNeedsStatusBarAppearanceUpdate()
     }
     
     open func show(_ fromViewController: UIViewController, completion: (() -> Void)? = nil) {
@@ -440,7 +478,6 @@ open class KUISimpleImageViewerViewController: KUIImageViewController, KUIImageV
     }
     
     open var placeHolderImage: UIImage?
-    fileprivate var originStatusBarStyle: UIStatusBarStyle = .`default`
     
     open override func loadView() {
         super.loadView()
@@ -461,31 +498,6 @@ open class KUISimpleImageViewerViewController: KUIImageViewController, KUIImageV
             button.addConstraint(NSLayoutConstraint(item: button, attribute: .height, relatedBy: .equal, toItem: nil, attribute: .notAnAttribute, multiplier: 1.0, constant: 40.0))
             closeButton = button
         }
-    }
-    
-    open override func viewDidLoad() {
-        super.viewDidLoad()
-        originStatusBarStyle = UIApplication.shared.statusBarStyle
-    }
-    
-    open override func viewWillAppear(_ animated: Bool) {
-        super.viewWillAppear(animated)
-        UIApplication.shared.setStatusBarStyle(.lightContent, animated: animated)
-    }
-    
-    open override func viewDidAppear(_ animated: Bool) {
-        super.viewDidAppear(animated)
-        UIApplication.shared.setStatusBarStyle(.lightContent, animated: animated)
-    }
-    
-    open override func viewWillDisappear(_ animated: Bool) {
-        super.viewWillDisappear(animated)
-        UIApplication.shared.setStatusBarStyle(originStatusBarStyle, animated: animated)
-    }
-    
-    open override func viewDidDisappear(_ animated: Bool) {
-        super.viewDidDisappear(animated)
-        UIApplication.shared.setStatusBarStyle(originStatusBarStyle, animated: animated)
     }
     
     // MARK: - KUIImageViewControllerDataSource
@@ -590,31 +602,6 @@ open class KUIMultiImageViewerViewController: KUIImageViewController, KUIImageVi
             view.addConstraint(NSLayoutConstraint(item: label, attribute: .centerX, relatedBy: .equal, toItem: view, attribute: .centerX, multiplier: 1.0, constant: 0.0))
             titleLabel = label
         }
-    }
-    
-    open override func viewDidLoad() {
-        super.viewDidLoad()
-        originStatusBarStyle = UIApplication.shared.statusBarStyle
-    }
-    
-    open override func viewWillAppear(_ animated: Bool) {
-        super.viewWillAppear(animated)
-        UIApplication.shared.setStatusBarStyle(.lightContent, animated: animated)
-    }
-    
-    open override func viewDidAppear(_ animated: Bool) {
-        super.viewDidAppear(animated)
-        UIApplication.shared.setStatusBarStyle(.lightContent, animated: animated)
-    }
-    
-    open override func viewWillDisappear(_ animated: Bool) {
-        super.viewWillDisappear(animated)
-        UIApplication.shared.setStatusBarStyle(originStatusBarStyle, animated: animated)
-    }
-    
-    open override func viewDidDisappear(_ animated: Bool) {
-        super.viewDidDisappear(animated)
-        UIApplication.shared.setStatusBarStyle(originStatusBarStyle, animated: animated)
     }
     
     // MARK: - KUIImageViewControllerDataSource
