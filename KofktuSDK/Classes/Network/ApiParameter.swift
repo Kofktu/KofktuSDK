@@ -20,7 +20,7 @@ public struct DefaultApiParameter: ApiParameterization {
         return params
     }
     
-    init(params: Parameters) {
+    public init(params: Parameters) {
         self.params = params
     }
     
