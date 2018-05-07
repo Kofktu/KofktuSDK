@@ -165,16 +165,16 @@ extension UIColor {
         }
     }
     
-    open override var description: String {
+    override open var description: String {
         return self.hexString(true)
     }
     
-    open override var debugDescription: String {
+    override open var debugDescription: String {
         return self.hexString(true)
     }
 }
 
-extension UIImage {
+public extension UIImage {
     public var original: UIImage {
         return withRenderingMode(.alwaysOriginal)
     }
@@ -474,7 +474,7 @@ public extension UIImageView {
     
 }
 
-extension UIRefreshControl {
+public extension UIRefreshControl {
     
     public func moveTo(offsetY: CGFloat) {
         bounds = CGRect(origin: CGPoint(x: bounds.origin.x, y: offsetY), size: bounds.size)

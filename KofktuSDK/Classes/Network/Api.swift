@@ -30,7 +30,7 @@ public protocol TimeoutIntervalOwnable {
     var timeoutInterval: Timeout { get }
 }
 
-extension TimeoutIntervalOwnable {
+public extension TimeoutIntervalOwnable {
     var timeoutInterval: Timeout {
         return .ten
     }
@@ -40,7 +40,7 @@ public protocol RetryEnable {
     var retryCount: Int { set get }
 }
 
-extension RetryEnable {
+public extension RetryEnable {
     private var maxRetryCount: Int {
         return 1
     }
@@ -55,7 +55,7 @@ public protocol Api: ApiPath, TimeoutIntervalOwnable {
     var method: Alamofire.HTTPMethod { get }
 }
 
-extension Api {
+public extension Api {
     var encoding: Alamofire.ParameterEncoding {
         return URLEncoding.default
     }
