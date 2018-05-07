@@ -12,6 +12,11 @@
 		C31140811D80607500ECF7DA /* KUIViewControllerPager.swift in Sources */ = {isa = PBXBuildFile; fileRef = C31140801D80607500ECF7DA /* KUIViewControllerPager.swift */; };
 		C3367A0B1D2E7FA3004B5112 /* KofktuSDK.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3367A0A1D2E7FA3004B5112 /* KofktuSDK.swift */; };
 		C361D59E1D82FE00003C8FFE /* KUIImageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C361D59D1D82FE00003C8FFE /* KUIImageViewController.swift */; };
+		C366E6A4209FD669000CE31E /* Api.swift in Sources */ = {isa = PBXBuildFile; fileRef = C366E6A3209FD669000CE31E /* Api.swift */; };
+		C366E6A6209FD823000CE31E /* ApiRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = C366E6A5209FD823000CE31E /* ApiRequest.swift */; };
+		C366E6A8209FD90D000CE31E /* ApiParameter.swift in Sources */ = {isa = PBXBuildFile; fileRef = C366E6A7209FD90D000CE31E /* ApiParameter.swift */; };
+		C366E6AA209FDB2F000CE31E /* ModelType.swift in Sources */ = {isa = PBXBuildFile; fileRef = C366E6A9209FDB2F000CE31E /* ModelType.swift */; };
+		C366E6AC209FDB95000CE31E /* ApiResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = C366E6AB209FDB95000CE31E /* ApiResponse.swift */; };
 		C36E2B471F60E8D70010631F /* TouchExpandButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = C36E2B461F60E8D70010631F /* TouchExpandButton.swift */; };
 		C36E2B491F60F5760010631F /* CircleComponent.swift in Sources */ = {isa = PBXBuildFile; fileRef = C36E2B481F60F5760010631F /* CircleComponent.swift */; };
 		C375F5A41EB371A600230114 /* Snap.swift in Sources */ = {isa = PBXBuildFile; fileRef = C375F5A31EB371A600230114 /* Snap.swift */; };
@@ -57,6 +62,11 @@
 		C31140801D80607500ECF7DA /* KUIViewControllerPager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = KUIViewControllerPager.swift; sourceTree = "<group>"; };
 		C3367A0A1D2E7FA3004B5112 /* KofktuSDK.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = KofktuSDK.swift; sourceTree = "<group>"; };
 		C361D59D1D82FE00003C8FFE /* KUIImageViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = KUIImageViewController.swift; sourceTree = "<group>"; };
+		C366E6A3209FD669000CE31E /* Api.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Api.swift; sourceTree = "<group>"; };
+		C366E6A5209FD823000CE31E /* ApiRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ApiRequest.swift; sourceTree = "<group>"; };
+		C366E6A7209FD90D000CE31E /* ApiParameter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ApiParameter.swift; sourceTree = "<group>"; };
+		C366E6A9209FDB2F000CE31E /* ModelType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ModelType.swift; sourceTree = "<group>"; };
+		C366E6AB209FDB95000CE31E /* ApiResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ApiResponse.swift; sourceTree = "<group>"; };
 		C36E2B461F60E8D70010631F /* TouchExpandButton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TouchExpandButton.swift; sourceTree = "<group>"; };
 		C36E2B481F60F5760010631F /* CircleComponent.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CircleComponent.swift; sourceTree = "<group>"; };
 		C375F5A31EB371A600230114 /* Snap.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Snap.swift; sourceTree = "<group>"; };
@@ -139,6 +149,10 @@
 		C38F0D6A1D2E9F7300797C21 /* Network */ = {
 			isa = PBXGroup;
 			children = (
+				C366E6A3209FD669000CE31E /* Api.swift */,
+				C366E6A5209FD823000CE31E /* ApiRequest.swift */,
+				C366E6AB209FDB95000CE31E /* ApiResponse.swift */,
+				C366E6A7209FD90D000CE31E /* ApiParameter.swift */,
 				C38F0D6B1D2E9F9100797C21 /* ApiManager.swift */,
 				C3F17C7D1E36D7AD009743DD /* RequestLoader.swift */,
 			);
@@ -235,6 +249,7 @@
 				C3B99B8E1FB036530058A07B /* ContentUsable.swift */,
 				C3D7E97F1D2E232000E570F7 /* ReusableView.swift */,
 				C3C8E1902077B85D00038460 /* EnumIterator.swift */,
+				C366E6A9209FDB2F000CE31E /* ModelType.swift */,
 			);
 			path = Protocols;
 			sourceTree = "<group>";
@@ -472,6 +487,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				C366E6A6209FD823000CE31E /* ApiRequest.swift in Sources */,
+				C366E6AC209FDB95000CE31E /* ApiResponse.swift in Sources */,
 				C3F17C7E1E36D7AD009743DD /* RequestLoader.swift in Sources */,
 				C3C17A641E1929ED00D2DDC3 /* KeychainManager.swift in Sources */,
 				C38F0D6C1D2E9F9100797C21 /* ApiManager.swift in Sources */,
@@ -485,15 +502,18 @@
 				C3B99B911FB036A40058A07B /* UniqueOwnerable.swift in Sources */,
 				C3D4FDB91D2D553600F3FF01 /* Logger.swift in Sources */,
 				C3C8E1912077B85D00038460 /* EnumIterator.swift in Sources */,
+				C366E6A4209FD669000CE31E /* Api.swift in Sources */,
 				C36E2B471F60E8D70010631F /* TouchExpandButton.swift in Sources */,
 				C3C8E18F2077B82400038460 /* UIEdgeInsets+Extension.swift in Sources */,
 				C3C17A611E1929AA00D2DDC3 /* KUIAlertController.swift in Sources */,
 				C3D7E9801D2E232000E570F7 /* ReusableView.swift in Sources */,
+				C366E6A8209FD90D000CE31E /* ApiParameter.swift in Sources */,
 				C3C17A621E1929AA00D2DDC3 /* KUIToastController.swift in Sources */,
 				C3367A0B1D2E7FA3004B5112 /* KofktuSDK.swift in Sources */,
 				C3D7E9841D2E27D100E570F7 /* KUIViewController.swift in Sources */,
 				C31140811D80607500ECF7DA /* KUIViewControllerPager.swift in Sources */,
 				C3B99B8F1FB036530058A07B /* ContentUsable.swift in Sources */,
+				C366E6AA209FDB2F000CE31E /* ModelType.swift in Sources */,
 				C3D7E9821D2E243900E570F7 /* KUILineView.swift in Sources */,
 				C3C8E18B2077B55600038460 /* UIControl+EventHandler.swift in Sources */,
 			);
