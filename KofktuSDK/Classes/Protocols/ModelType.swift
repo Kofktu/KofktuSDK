@@ -16,6 +16,9 @@ final public class IntToStringTransform: TransformType {
     public typealias Object = String
     public typealias JSON = Int
     
+    public init() {
+    }
+    
     public func transformFromJSON(_ value: Any?) -> String? {
         guard let intValue = value as? Int else { return nil }
         return String(intValue)
@@ -29,6 +32,9 @@ final public class IntToStringTransform: TransformType {
 final public class StringNullTransform: TransformType {
     public typealias Object = String
     public typealias JSON = String
+    
+    public init() {
+    }
     
     public func transformFromJSON(_ value: Any?) -> String? {
         guard let value = value as? String, !value.trim().isEmpty else {
@@ -45,6 +51,9 @@ final public class StringNullTransform: TransformType {
 final public class StringEscpeTransform: TransformType {
     public typealias Object = String
     public typealias JSON = String
+    
+    public init() {
+    }
     
     public func transformFromJSON(_ value: Any?) -> String? {
         return (value as? String)?
@@ -104,6 +113,9 @@ final public class TimeIntervalTransform: TransformType {
     public typealias Object = TimeInterval
     public typealias JSON = TimeInterval
     
+    public init() {
+    }
+    
     public func transformFromJSON(_ value: Any?) -> TimeInterval? {
         guard let value = value as? TimeInterval else {
             return nil
@@ -122,6 +134,9 @@ final public class TimeIntervalTransform: TransformType {
 final public class TimeIntervalToDateTransform: TransformType {
     public typealias Object = Date
     public typealias JSON = TimeInterval
+    
+    public init() {
+    }
     
     public func transformFromJSON(_ value: Any?) -> Date? {
         guard let value = value as? TimeInterval else {
