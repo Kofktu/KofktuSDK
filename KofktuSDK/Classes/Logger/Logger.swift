@@ -38,9 +38,9 @@ public class KLogger {
         didSet {
             if isEnabled {
                 if style.contains(.dotzu) {
-                    Dotzu.enable()
+                    Dotzu.sharedManager.enable()
                 } else {
-                    Dotzu.disable()
+                    Dotzu.sharedManager.disable()
                 }
             }
         }
