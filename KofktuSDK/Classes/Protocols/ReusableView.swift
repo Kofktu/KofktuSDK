@@ -20,7 +20,8 @@ extension NibLoadableView where Self: UIView {
     public static func instanceFromNib(_ isUseAutoLayout: Bool = true) -> Self? {
         let view = Bundle(for: self).loadNibNamed(nibName, owner: nil, options: nil)?
             .lazy
-            .filter { $0 is Self }.first as? Self
+            .filter { $0 is Self }
+            .first as? Self
         view?.translatesAutoresizingMaskIntoConstraints = !isUseAutoLayout
         return view
     }

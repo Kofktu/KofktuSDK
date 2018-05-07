@@ -313,6 +313,7 @@ public extension DateFormatter {
     public static var kr_dateFormatter: DateFormatter {
         let dateFormatter = DateFormatter()
         dateFormatter.locale = Locale(identifier: "ko_KR")
+        dateFormatter.timeZone = TimeZone(secondsFromGMT: 60 * 60 * 9)
         return dateFormatter
     }
     

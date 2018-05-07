@@ -34,7 +34,17 @@ public class KLogger {
     
     #if DEBUG
         public var isEnabled = true
-        public var style: LoggerStyle = [.debug, .warning, .info, .error]
+    public var style: LoggerStyle = [.debug, .warning, .info, .error] {
+        didSet {
+            if isEnabled {
+                if style.contains(.dotzu) {
+                    Dotzu.enable()
+                } else {
+                    Dotzu.disable()
+                }
+            }
+        }
+    }
     #else
         public var isEnabled = false
         public var style: LoggerStyle = []
