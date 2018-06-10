@@ -26,8 +26,8 @@ public protocol ApiRequestProtocol {
 public class ApiManager {
     
     public static let sharedManager = ApiManager()
+    public private(set) var headers = HTTPHeaders()
     
-    private var headers = HTTPHeaders()
     private var managerInfo = Dictionary<TimeInterval, Alamofire.SessionManager>()
     
     public func error(code: Int = NSURLErrorUnknown, description: String) -> NSError {
