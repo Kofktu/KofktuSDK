@@ -64,6 +64,7 @@ final public class StringEscpeTransform: TransformType {
             .replacingOccurrences(of: "&#039;", with: "'")
             .replacingOccurrences(of: "&amp;", with: "&")
             .replacingOccurrences(of: "&apos;", with: "'")
+            .replacingOccurrences(of: "&nbsp;", with: " ")
     }
     
     public func transformToJSON(_ value: String?) -> String? {
