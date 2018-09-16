@@ -637,7 +637,10 @@ extension UIDevice {
     }
     
     public var isIPhoneX: Bool {
-        return UIScreen.main.nativeScale == 3.0 && UIScreen.main.nativeBounds.width == 1125.0
+        if #available(iOS 11.0, *) {
+            return UIApplication.shared.keyWindow?.safeAreaInsets != nil
+        }
+        return false
     }
     
     public func set(orientation value: UIInterfaceOrientation) {
