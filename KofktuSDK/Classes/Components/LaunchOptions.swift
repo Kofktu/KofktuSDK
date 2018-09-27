@@ -15,11 +15,11 @@ public struct LaunchOptions {
     public var shortcut: [String: NSSecureCoding]?
     
     public init(launchOptions: [AnyHashable: Any]?) {
-        url = launchOptions?[UIApplicationLaunchOptionsKey.url] as? URL
-        apns = launchOptions?[UIApplicationLaunchOptionsKey.remoteNotification] as? [AnyHashable: Any]
+        url = launchOptions?[UIApplication.LaunchOptionsKey.url] as? URL
+        apns = launchOptions?[UIApplication.LaunchOptionsKey.remoteNotification] as? [AnyHashable: Any]
         
         if #available(iOS 9.0, *) {
-            shortcut = (launchOptions?[UIApplicationLaunchOptionsKey.shortcutItem] as? UIApplicationShortcutItem)?.userInfo
+            shortcut = (launchOptions?[UIApplication.LaunchOptionsKey.shortcutItem] as? UIApplicationShortcutItem)?.userInfo
         }
     }
     

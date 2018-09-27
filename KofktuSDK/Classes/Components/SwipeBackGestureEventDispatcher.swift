@@ -54,14 +54,14 @@ extension SwipeBackGestureEventDispatcher: UIGestureRecognizerDelegate {
         }
         
         let velocity = gesture.velocity(in: parentViewController?.view)
-        return velocity.x > 0.0 && fabs(velocity.x) > fabs(velocity.y)
+        return velocity.x > 0.0 && abs(velocity.x) > abs(velocity.y)
     }
     
     public func gestureRecognizer(_ gestureRecognizer: UIGestureRecognizer, shouldReceive touch: UITouch) -> Bool {
         let point = touch.location(in: gestureRecognizer.view)
         var view = gestureRecognizer.view?.hitTest(point, with: nil)
         
-        let targetView = self.parentViewController?.view.subviews.lazy.flatMap { $0 as? UIScrollView }.first
+        let targetView = self.parentViewController?.view.subviews.lazy.compactMap { $0 as? UIScrollView }.first
         
         if let scrollView = targetView {
             let contentOffset = scrollView.contentOffset

@@ -408,7 +408,7 @@ open class KUIPhotoView: UIScrollView, UIScrollViewDelegate {
         scrollsToTop = false
         minimumZoomScale = 1.0
         maximumZoomScale = 2.5
-        decelerationRate = UIScrollViewDecelerationRateFast
+        decelerationRate = UIScrollView.DecelerationRate.fast
         backgroundColor = UIColor.clear
         
         addSubview(imageView)

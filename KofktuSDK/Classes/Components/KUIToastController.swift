@@ -18,9 +18,8 @@ public class KUIToastController: NSObject {
     private override init() {
         super.init()
         ToastView.appearance().backgroundColor = UIColor.black.withAlphaComponent(0.7)
-        ToastView.appearance().cornerRadius = 10.0
         ToastView.appearance().font = UIFont.systemFont(ofSize: 16.0)
-        ToastView.appearance().textInsets = UIEdgeInsetsMake(15.0, 20.0, 15.0, 20.0)
+        ToastView.appearance().textInsets = UIEdgeInsets(top: 15.0, left: 20.0, bottom: 15.0, right: 20.0)
         ToastView.appearance().bottomOffsetPortrait = 100.0
         ToastView.appearance().bottomOffsetLandscape = 80.0
     }

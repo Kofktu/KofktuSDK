@@ -205,13 +205,13 @@ public extension UIImage {
         let inputImage = CIImage(cgImage: cgImg!)
         let extent = inputImage.extent
         let inputExtent = CIVector(x: extent.origin.x, y: extent.origin.y, z: extent.size.width, w: extent.size.height)
-        let filter = CIFilter(name: "CIAreaAverage", withInputParameters: [kCIInputImageKey: inputImage, kCIInputExtentKey: inputExtent])!
+        let filter = CIFilter(name: "CIAreaAverage", parameters: [kCIInputImageKey: inputImage, kCIInputExtentKey: inputExtent])!
         let outputImage = filter.outputImage!
         let outputExtent = outputImage.extent
         assert(outputExtent.size.width == 1 && outputExtent.size.height == 1)
         
         // Render to bitmap.
-        context.render(outputImage, toBitmap: &bitmap, rowBytes: 4, bounds: CGRect(x: 0, y: 0, width: 1, height: 1), format: kCIFormatRGBA8, colorSpace: CGColorSpaceCreateDeviceRGB())
+        context.render(outputImage, toBitmap: &bitmap, rowBytes: 4, bounds: CGRect(x: 0, y: 0, width: 1, height: 1), format: CIFormat.RGBA8, colorSpace: CGColorSpaceCreateDeviceRGB())
         
         // Compute result.
         return UIColor(red: CGFloat(bitmap[0]) / 255.0, green: CGFloat(bitmap[1]) / 255.0, blue: CGFloat(bitmap[2]) / 255.0, alpha: CGFloat(bitmap[3]) / 255.0)
@@ -361,7 +361,7 @@ public extension UIView {
 
 public extension NSLayoutConstraint {
     public class func constraints(withVisualFormat format: String, views: [String : Any]) -> [NSLayoutConstraint] {
-        return NSLayoutConstraint.constraints(withVisualFormat: format, options: NSLayoutFormatOptions(rawValue: 0), metrics: nil, views: views)
+        return NSLayoutConstraint.constraints(withVisualFormat: format, options: NSLayoutConstraint.FormatOptions(rawValue: 0), metrics: nil, views: views)
     }
 }
 
@@ -371,13 +371,13 @@ public enum UIButtonAlignment {
 }
 
 public extension UIButton {
-    public func clearImage(state: UIControlState) {
+    public func clearImage(state: UIControl.State) {
         sd_cancelImageLoad(for: state)
         setImage(nil, for: state)
         setBackgroundImage(nil, for: state)
     }
     
-    public func setBackgroundImage(with urlString: String?, for state: UIControlState, placeholder: UIImage? = nil, completion: ((UIImage?, NSError?) -> Void)? = nil) {
+    public func setBackgroundImage(with urlString: String?, for state: UIControl.State, placeholder: UIImage? = nil, completion: ((UIImage?, NSError?) -> Void)? = nil) {
         clearImage(state: state)
         setBackgroundImage(placeholder, for: state)
         
@@ -391,7 +391,7 @@ public extension UIButton {
         }
     }
     
-    public func setImage(with urlString: String?, for state: UIControlState, placeholder: UIImage? = nil, completion: ((UIImage?, NSError?) -> Void)? = nil) {
+    public func setImage(with urlString: String?, for state: UIControl.State, placeholder: UIImage? = nil, completion: ((UIImage?, NSError?) -> Void)? = nil) {
         clearImage(state: state)
         setImage(placeholder, for: state)
         
@@ -406,7 +406,7 @@ public extension UIButton {
     }
     
     public func strechBackgroundImage() {
-        let states: [UIControlState] = [ .normal, .highlighted, .selected, .disabled ]
+        let states: [UIControl.State] = [ .normal, .highlighted, .selected, .disabled ]
         
         for state in states {
             guard let image = backgroundImage(for: state) else { continue }
@@ -429,8 +429,8 @@ public extension UIButton {
         
         let totalHeight = ih + th + padding
         
-        imageEdgeInsets = UIEdgeInsetsMake(-(totalHeight - ih), 0.0, 0.0, -tw)
-        titleEdgeInsets = UIEdgeInsetsMake(0.0, -iw, -(totalHeight - th), 0.0)
+        imageEdgeInsets = UIEdgeInsets(top: -(totalHeight - ih), left: 0.0, bottom: 0.0, right: -tw)
+        titleEdgeInsets = UIEdgeInsets(top: 0.0, left: -iw, bottom: -(totalHeight - th), right: 0.0)
     }
     
     public func imageAlignment(alignment: UIButtonAlignment) {
@@ -444,8 +444,8 @@ public extension UIButton {
             titleEdgeInsets = UIEdgeInsets.zero
             imageEdgeInsets = UIEdgeInsets.zero
         case .right:
-            titleEdgeInsets = UIEdgeInsetsMake(titleEdgeInsets.top + 0, titleEdgeInsets.left - imageBounds.width, titleEdgeInsets.bottom, titleEdgeInsets.right + imageBounds.width)
-            imageEdgeInsets = UIEdgeInsetsMake(imageEdgeInsets.top + 0, imageEdgeInsets.left + titleBounds.width, imageEdgeInsets.bottom, imageEdgeInsets.right - titleBounds.width)
+            titleEdgeInsets = UIEdgeInsets(top: titleEdgeInsets.top + 0, left: titleEdgeInsets.left - imageBounds.width, bottom: titleEdgeInsets.bottom, right: titleEdgeInsets.right + imageBounds.width)
+            imageEdgeInsets = UIEdgeInsets(top: imageEdgeInsets.top + 0, left: imageEdgeInsets.left + titleBounds.width, bottom: imageEdgeInsets.bottom, right: imageEdgeInsets.right - titleBounds.width)
         }
     }
     
@@ -638,7 +638,9 @@ extension UIDevice {
     
     public var isIPhoneX: Bool {
         if #available(iOS 11.0, *) {
-            return UIApplication.shared.keyWindow?.safeAreaInsets != nil
+            if let safeAreaInsets = UIApplication.shared.keyWindow?.safeAreaInsets, UIScreen.main.traitCollection.userInterfaceIdiom == .phone {
+                return safeAreaInsets.bottom > 0.0
+            }
         }
         return false
     }
