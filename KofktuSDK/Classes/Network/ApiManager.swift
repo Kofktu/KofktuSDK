@@ -8,7 +8,7 @@
 
 import Alamofire
 import Sniffer
-import Dotzu
+import CocoaDebug
 
 public protocol ApiRequestProtocol {
     var baseURL: URL { get }
@@ -56,10 +56,6 @@ public class ApiManager {
         
         if Log.isEnabled {
             Sniffer.enable(in: configuration)
-            
-            if Log.style.contains(.dotzu) {
-                Dotzu.sharedManager.addLogger(session: configuration)
-            }
         }
         
         return create(configuration)

@@ -141,6 +141,10 @@ public extension String {
         return NSString(format: format, arguments: getVaList(args)) as String
     }
     
+    public var ns: NSString {
+        return self  as NSString
+    }
+    
     public func indexOf(string: String) -> Int? {
         guard let range = range(of: string) else { return nil }
         return distance(from: startIndex, to: range.lowerBound)
@@ -216,7 +220,7 @@ public extension String {
     }
     
     public func numberOfLines(size: CGSize, font: UIFont) -> Int {
-        let storage = NSTextStorage(string: self, attributes: [NSAttributedStringKey.font: font])
+        let storage = NSTextStorage(string: self, attributes: [NSAttributedString.Key.font: font])
         let container = NSTextContainer(size: size)
         container.lineBreakMode = .byWordWrapping
         container.maximumNumberOfLines = 0
@@ -239,14 +243,14 @@ public extension String {
         return numberOfLines
     }
     
-    public func boundingRect(with size: CGSize, attributes: [NSAttributedStringKey: Any]) -> CGRect {
+    public func boundingRect(with size: CGSize, attributes: [NSAttributedString.Key: Any]) -> CGRect {
         let options: NSStringDrawingOptions = [.usesLineFragmentOrigin, .usesFontLeading]
         let rect = self.boundingRect(with: size, options: options, attributes: attributes, context: nil)
         return snap(rect)
     }
     
     public func size(thatFits size: CGSize, font: UIFont, maximumNumberOfLines: Int = 0) -> CGSize {
-        let attributes: [NSAttributedStringKey: Any] = [.font: font]
+        let attributes: [NSAttributedString.Key: Any] = [.font: font]
         var size = self.boundingRect(with: size, attributes: attributes).size
         if maximumNumberOfLines > 0 {
             size.height = min(size.height, CGFloat(maximumNumberOfLines) * font.lineHeight)

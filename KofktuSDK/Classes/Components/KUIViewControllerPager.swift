@@ -151,17 +151,17 @@ open class KUIViewControllerPager : NSObject, UICollectionViewDelegate, UICollec
     fileprivate func addViewControllerIfNeeded(_ cell: UICollectionViewCell, at index: Int) {
         guard let viewController = viewControllers?[index], viewController.parent == nil else { return }
         
-        parentViewController.addChildViewController(viewController)
+        parentViewController.addChild(viewController)
         cell.contentView.addSubviewAtFit(viewController.view)
-        viewController.didMove(toParentViewController: parentViewController)
+        viewController.didMove(toParent: parentViewController)
     }
     
     fileprivate func removeViewController(_ index: Int) {
         guard let viewController = viewControllers?[index] else { return }
         
-        viewController.willMove(toParentViewController: nil)
+        viewController.willMove(toParent: nil)
         viewController.view.removeFromSuperview()
-        viewController.removeFromParentViewController()
+        viewController.removeFromParent()
     }
     
     // MARK: UIScrollViewDelegate

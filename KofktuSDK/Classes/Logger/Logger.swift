@@ -7,7 +7,7 @@
 //
 
 import Foundation
-import Dotzu
+import CocoaDebug
 
 public struct LoggerStyle: OptionSet, Hashable {
     public var rawValue: UInt
@@ -38,9 +38,9 @@ public class KLogger {
         didSet {
             if isEnabled {
                 if style.contains(.dotzu) {
-                    Dotzu.sharedManager.enable()
+                    CocoaDebug.enable()
                 } else {
-                    Dotzu.sharedManager.disable()
+                    CocoaDebug.disable()
                 }
             }
         }
@@ -51,55 +51,55 @@ public class KLogger {
     #endif
     
     // MARK: - Log
-    public func d<T>(_ value: T, file: NSString = #file, function: String = #function, line: Int = #line) {
+    public func d<T>(_ value: T, file: String = #file, function: String = #function, line: Int = #line) {
         guard isEnabled else {
             return
         }
         
         if style.contains(.debug) {
-            print("[DEBUG] \(file.lastPathComponent).\(function)[\(line)] : \(value)", terminator: "\n")
+            print("[DEBUG] \(file.ns.lastPathComponent).\(function)[\(line)] : \(value)", terminator: "\n")
         }
         
         if style.contains(.dotzu) {
-            Logger.verbose(value, file: (file as String), function: function, line: line)
+            swiftLog(file, function, line, value, .white)
         }
     }
     
-    public func i<T>(_ value: T, file: NSString = #file, function: String = #function, line: Int = #line) {
+    public func i<T>(_ value: T, file: String = #file, function: String = #function, line: Int = #line) {
         guard isEnabled else {
             return
         }
         
         if style.contains(.info) {
-            print("[INFO] \(file.lastPathComponent).\(function)[\(line)] : \(value)", terminator: "\n")
+            print("[INFO] \(file.ns.lastPathComponent).\(function)[\(line)] : \(value)", terminator: "\n")
         }
         
         if style.contains(.dotzu) {
-            Logger.info(value, file: (file as String), function: function, line: line)
+            swiftLog(file, function, line, value, .white)
         }
     }
     
-    public func w<T>(_ value: T, file: NSString = #file, function: String = #function, line: Int = #line) {
+    public func w<T>(_ value: T, file: String = #file, function: String = #function, line: Int = #line) {
         guard isEnabled else {
             return
         }
         
         if style.contains(.warning) {
-            print("[WARNING] \(file.lastPathComponent).\(function)[\(line)] : \(value)", terminator: "\n")
+            print("[WARNING] \(file.ns.lastPathComponent).\(function)[\(line)] : \(value)", terminator: "\n")
         }
         
         if style.contains(.dotzu) {
-            Logger.warning(value, file: (file as String), function: function, line: line)
+            swiftLog(file, function, line, value, .yellow)
         }
     }
     
-    public func e(_ nsError: NSError?, file: NSString = #file, function: String = #function, line: Int = #line) {
+    public func e(_ nsError: NSError?, file: String = #file, function: String = #function, line: Int = #line) {
         guard let error = nsError, isEnabled else {
             return
         }
         
         if style.contains(.error) {
-            print("\(file.lastPathComponent).\(function)[\(line)] : ===========[ERROR]============", terminator: "\n")
+            print("\(file.ns.lastPathComponent).\(function)[\(line)] : ===========[ERROR]============", terminator: "\n")
             print("Code : \(error.code)", terminator: "\n")
             print("Description : \(error.localizedDescription)", terminator: "\n")
             
@@ -115,23 +115,23 @@ public class KLogger {
         }
         
         if style.contains(.dotzu) {
-            Logger.error(error, file: (file as String), function: function, line: line)
+            swiftLog(file, function, line, error, .red)
         }
     }
     
-    public func e(_ error: Error?, file: NSString = #file, function: String = #function, line: Int = #line) {
+    public func e(_ error: Error?, file: String = #file, function: String = #function, line: Int = #line) {
         guard let error = error, isEnabled else {
             return
         }
         
         if style.contains(.error) {
-            print("\(file.lastPathComponent).\(function)[\(line)] : ===========[ERROR]============", terminator: "\n")
+            print("\(file.ns.lastPathComponent).\(function)[\(line)] : ===========[ERROR]============", terminator: "\n")
             print("Description : \(error.localizedDescription)", terminator: "\n")
             print("==============================================================================", terminator: "\n")
         }
         
         if style.contains(.dotzu) {
-            Logger.error(error, file: (file as String), function: function, line: line)
+            swiftLog(file, function, line, error, .red)
         }
     }
 }
