@@ -90,7 +90,7 @@ extension SwipeBackGestureEventDispatcher: UIGestureRecognizerDelegate {
             }
         }
         
-        return false
+        return targetView == nil
     }
     
     public func gestureRecognizer(_ gestureRecognizer: UIGestureRecognizer, shouldRecognizeSimultaneouslyWith otherGestureRecognizer: UIGestureRecognizer) -> Bool {

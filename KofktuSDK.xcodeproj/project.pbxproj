@@ -29,7 +29,6 @@
 		C3C8E18B2077B55600038460 /* UIControl+EventHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3C8E18A2077B55600038460 /* UIControl+EventHandler.swift */; };
 		C3C8E18D2077B7B800038460 /* SwipeBackGestureEventDispatcher.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3C8E18C2077B7B800038460 /* SwipeBackGestureEventDispatcher.swift */; };
 		C3C8E18F2077B82400038460 /* UIEdgeInsets+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3C8E18E2077B82400038460 /* UIEdgeInsets+Extension.swift */; };
-		C3C8E1912077B85D00038460 /* EnumIterator.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3C8E1902077B85D00038460 /* EnumIterator.swift */; };
 		C3D4FDB91D2D553600F3FF01 /* Logger.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3D4FDB81D2D553600F3FF01 /* Logger.swift */; };
 		C3D4FDBC1D2D554E00F3FF01 /* UIExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3D4FDBB1D2D554E00F3FF01 /* UIExtensions.swift */; };
 		C3D508CC1D2D49DC005F2B55 /* KofktuSDK.h in Headers */ = {isa = PBXBuildFile; fileRef = C3D508CB1D2D49DC005F2B55 /* KofktuSDK.h */; settings = {ATTRIBUTES = (Public, ); }; };
@@ -79,7 +78,6 @@
 		C3C8E18A2077B55600038460 /* UIControl+EventHandler.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIControl+EventHandler.swift"; sourceTree = "<group>"; };
 		C3C8E18C2077B7B800038460 /* SwipeBackGestureEventDispatcher.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SwipeBackGestureEventDispatcher.swift; sourceTree = "<group>"; };
 		C3C8E18E2077B82400038460 /* UIEdgeInsets+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIEdgeInsets+Extension.swift"; sourceTree = "<group>"; };
-		C3C8E1902077B85D00038460 /* EnumIterator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EnumIterator.swift; sourceTree = "<group>"; };
 		C3D4FDB81D2D553600F3FF01 /* Logger.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Logger.swift; sourceTree = "<group>"; };
 		C3D4FDBB1D2D554E00F3FF01 /* UIExtensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UIExtensions.swift; sourceTree = "<group>"; };
 		C3D508C81D2D49DC005F2B55 /* KofktuSDK.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = KofktuSDK.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -248,7 +246,6 @@
 				C3B99B901FB036A40058A07B /* UniqueOwnerable.swift */,
 				C3B99B8E1FB036530058A07B /* ContentUsable.swift */,
 				C3D7E97F1D2E232000E570F7 /* ReusableView.swift */,
-				C3C8E1902077B85D00038460 /* EnumIterator.swift */,
 				C366E6A9209FDB2F000CE31E /* ModelType.swift */,
 			);
 			path = Protocols;
@@ -469,7 +466,6 @@
 				C375F5A41EB371A600230114 /* Snap.swift in Sources */,
 				C3B99B911FB036A40058A07B /* UniqueOwnerable.swift in Sources */,
 				C3D4FDB91D2D553600F3FF01 /* Logger.swift in Sources */,
-				C3C8E1912077B85D00038460 /* EnumIterator.swift in Sources */,
 				C366E6A4209FD669000CE31E /* Api.swift in Sources */,
 				C36E2B471F60E8D70010631F /* TouchExpandButton.swift in Sources */,
 				C3C8E18F2077B82400038460 /* UIEdgeInsets+Extension.swift in Sources */,
