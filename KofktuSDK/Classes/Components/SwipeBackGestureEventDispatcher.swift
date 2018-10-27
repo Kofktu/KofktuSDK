@@ -61,6 +61,10 @@ extension SwipeBackGestureEventDispatcher: UIGestureRecognizerDelegate {
         let point = touch.location(in: gestureRecognizer.view)
         var view = gestureRecognizer.view?.hitTest(point, with: nil)
         
+        if let _ = view as? UIControl {
+            return false
+        }
+        
         let targetView = self.parentViewController?.view.subviews.lazy.compactMap { $0 as? UIScrollView }.first
         
         if let scrollView = targetView {
