@@ -18,3 +18,34 @@ target 'KofktuSDK' do
   end
 
 end
+
+swift4 = ['Toaster']
+
+post_install do |installer|
+    installer.pods_project.targets.each do |target|
+        swift_version = '4.2'
+        
+        if swift4.include?(target.name)
+            swift_version = '4.0'
+        end
+        
+        target.build_configurations.each do |config|
+            config.build_settings.delete('CODE_SIGNING_ALLOWED')
+            config.build_settings.delete('CODE_SIGNING_REQUIRED')
+            config.build_settings['SWIFT_VERSION'] = swift_version
+            
+            # Do not need debug information for pods
+            config.build_settings['DEBUG_INFORMATION_FORMAT'] = 'dwarf'
+            
+            # Disable Code Coverage for Pods projects - only exclude ObjC pods
+            config.build_settings['CLANG_ENABLE_CODE_COVERAGE'] = 'NO'
+            config.build_settings['LD_RUNPATH_SEARCH_PATHS'] = ['$(FRAMEWORK_SEARCH_PATHS)']
+            
+            if config.name == 'Debug'
+                config.build_settings['OTHER_SWIFT_FLAGS'] = ['$(inherited)', '-Onone']
+                config.build_settings['SWIFT_OPTIMIZATION_LEVEL'] = '-Owholemodule'
+            end
+            
+        end
+    end
+end
