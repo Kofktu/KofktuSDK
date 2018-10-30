@@ -62,21 +62,36 @@ public class ApiManager {
     }
     
     public func request(apiRequest: ApiRequestProtocol, parameters: Parameters? = nil, headers: HTTPHeaders? = nil) -> DataRequest {
-        let urlString = URL(string: apiRequest.resourcePath, relativeTo: apiRequest.baseURL)!.absoluteString
+        guard let url = URL(string: apiRequest.resourcePath, relativeTo: apiRequest.baseURL) else {
+            fatalError("URL is Null : \(apiRequest.resourcePath), \(apiRequest.baseURL)")
+        }
+        
+        let urlString = url.absoluteString
         var header = self.headers
         if let headers = headers {
             header.merge(dict: headers)
         }
         switch apiRequest.method {
         case .get, .head:
-            return manager(apiRequest).request(urlString, method: apiRequest.method, parameters: parameters, headers: header).validate()
+            return manager(apiRequest).request(urlString,
+                                               method: apiRequest.method,
+                                               parameters: parameters,
+                                               headers: header).validate()
         default:
-            return manager(apiRequest).request(urlString, method: apiRequest.method, parameters: parameters, encoding: apiRequest.encoding, headers: header).validate()
+            return manager(apiRequest).request(urlString,
+                                               method: apiRequest.method,
+                                               parameters: parameters,
+                                               encoding: apiRequest.encoding,
+                                               headers: header).validate()
         }
     }
     
     public func upload(apiRequest: ApiRequestProtocol, data: Data) -> DataRequest {
-        let urlString = URL(string: apiRequest.resourcePath, relativeTo: apiRequest.baseURL)!.absoluteString
+        guard let url = URL(string: apiRequest.resourcePath, relativeTo: apiRequest.baseURL) else {
+            fatalError("URL is Null : \(apiRequest.resourcePath), \(apiRequest.baseURL)")
+        }
+        
+        let urlString = url.absoluteString
         return manager(apiRequest).upload(data, to: urlString, method: apiRequest.method, headers: headers).validate()
     }
 }
