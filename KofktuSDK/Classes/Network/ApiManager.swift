@@ -62,11 +62,7 @@ public class ApiManager {
     }
     
     public func request(apiRequest: ApiRequestProtocol, parameters: Parameters? = nil, headers: HTTPHeaders? = nil) -> DataRequest {
-        guard let url = URL(string: apiRequest.resourcePath, relativeTo: apiRequest.baseURL) else {
-            fatalError("URL is Null : \(apiRequest.resourcePath), \(apiRequest.baseURL)")
-        }
-        
-        let urlString = url.absoluteString
+        let urlString = apiRequest.baseURL.appendingPathComponent(apiRequest.resourcePath).absoluteString
         var header = self.headers
         if let headers = headers {
             header.merge(dict: headers)
@@ -87,11 +83,7 @@ public class ApiManager {
     }
     
     public func upload(apiRequest: ApiRequestProtocol, data: Data) -> DataRequest {
-        guard let url = URL(string: apiRequest.resourcePath, relativeTo: apiRequest.baseURL) else {
-            fatalError("URL is Null : \(apiRequest.resourcePath), \(apiRequest.baseURL)")
-        }
-        
-        let urlString = url.absoluteString
+        let urlString = apiRequest.baseURL.appendingPathComponent(apiRequest.resourcePath).absoluteString
         return manager(apiRequest).upload(data, to: urlString, method: apiRequest.method, headers: headers).validate()
     }
 }
