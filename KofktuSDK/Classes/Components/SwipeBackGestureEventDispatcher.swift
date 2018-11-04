@@ -11,6 +11,8 @@ import UIKit
 
 public class SwipeBackGestureEventDispatcher: NSObject {
     
+    static public var threshold: CGFloat = 0.0
+    
     private weak var parentViewController: UIViewController?
     private var panGesture: UIPanGestureRecognizer!
     
@@ -54,7 +56,7 @@ extension SwipeBackGestureEventDispatcher: UIGestureRecognizerDelegate {
         }
         
         let velocity = gesture.velocity(in: parentViewController?.view)
-        return velocity.x > 0.0 && abs(velocity.x) > abs(velocity.y)
+        return velocity.x > SwipeBackGestureEventDispatcher.threshold && abs(velocity.x) > abs(velocity.y)
     }
     
     public func gestureRecognizer(_ gestureRecognizer: UIGestureRecognizer, shouldReceive touch: UITouch) -> Bool {

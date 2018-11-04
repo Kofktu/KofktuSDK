@@ -73,7 +73,7 @@ open class KUIImageViewController: UIViewController, UICollectionViewDataSource,
     fileprivate var snapshotImage: UIImage? {
         return (senderView as? UIImageView)?.image ?? (senderView as? UIButton)?.currentImage ?? senderView?.capture()
     }
-    private(set) var currentIndex: Int = 0
+    public private(set) var currentIndex: Int = 0
     private let threshold: CGFloat = 100.0
     
     private var originStatusBarStyle: UIStatusBarStyle = .`default`
