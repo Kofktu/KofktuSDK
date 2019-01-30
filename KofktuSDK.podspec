@@ -139,6 +139,6 @@ Pod::Spec.new do |s|
   s.dependency 'Toaster', '~> 2.0'
   s.dependency 'KeychainAccess', '~> 3.1'
   s.dependency 'Sniffer', '~> 1.6.0'
-  s.dependency 'CocoaDebug', '0.1.3'
+  s.dependency 'CocoaDebug', '0.1.5'
 
 end
