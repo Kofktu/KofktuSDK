@@ -16,7 +16,7 @@ Pod::Spec.new do |s|
   #
 
   s.name         = "KofktuSDK"
-  s.version      = "2.2.3"
+  s.version      = "3.0.0"
   s.summary      = "KofktuSDK"
 
   # This description is used to generate tags and improve search results.
@@ -129,16 +129,18 @@ Pod::Spec.new do |s|
   #  you can include multiple dependencies to ensure it works.
 
   s.requires_arc = true
-  s.pod_target_xcconfig = { 'SWIFT_VERSION' => '4.2' }
+  s.pod_target_xcconfig = { 'SWIFT_VERSION' => '5.0' }
 
   # s.xcconfig = { "HEADER_SEARCH_PATHS" => "$(SDKROOT)/usr/include/libxml2" }
 
-  # for Swift 4.0
-  s.dependency 'AlamofireObjectMapper', '~> 5.1'
-  s.dependency 'SDWebImage/GIF', '~> 4.0'
-  s.dependency 'Toaster', '~> 2.0'
-  s.dependency 'KeychainAccess', '~> 3.1'
-  s.dependency 'Sniffer', '~> 1.6.0'
-  s.dependency 'CocoaDebug', '0.1.5'
+  # for Swift 4.2
+  pod 'AlamofireObjectMapper', '~> 5.0'
+
+  # for Swift 5.0
+  pod 'SDWebImage', '~> 5.0'
+  pod 'Toaster', '~> 2.0'
+  pod 'KeychainAccess', '~> 3.1'
+  pod 'Sniffer', '~> 2.0.0'
+  pod 'CocoaDebug', '~> 0.6.0'
 
 end

@@ -175,15 +175,15 @@ extension UIColor {
 }
 
 public extension UIImage {
-    public var original: UIImage {
+    var original: UIImage {
         return withRenderingMode(.alwaysOriginal)
     }
     
-    public var template: UIImage {
+    var template: UIImage {
         return withRenderingMode(.alwaysTemplate)
     }
     
-    public func resize(_ newSize: CGSize, scale: CGFloat = 0.0) -> UIImage {
+    func resize(_ newSize: CGSize, scale: CGFloat = 0.0) -> UIImage {
         UIGraphicsBeginImageContextWithOptions(newSize, false, scale)
         self.draw(in: CGRect(x: 0, y: 0, width: newSize.width, height: newSize.height))
         let result = UIGraphicsGetImageFromCurrentImageContext()
@@ -191,7 +191,7 @@ public extension UIImage {
         return result!
     }
     
-    public func averageColor() -> UIColor? {
+    func averageColor() -> UIColor? {
         guard #available(iOS 9, *) else {
             Log.w("available iOS 9.x")
             return nil
@@ -222,7 +222,7 @@ public extension UIImage {
 extension UIView: NibLoadableView {}
 public extension UIView {
     
-    public var origin: CGPoint {
+    var origin: CGPoint {
         get {
             return frame.origin
         }
@@ -233,7 +233,7 @@ public extension UIView {
         }
     }
     
-    public var x: CGFloat {
+    var x: CGFloat {
         get {
             return frame.minX
         }
@@ -244,7 +244,7 @@ public extension UIView {
         }
     }
     
-    public var y: CGFloat {
+    var y: CGFloat {
         get {
             return frame.minY
         }
@@ -255,15 +255,15 @@ public extension UIView {
         }
     }
     
-    public var right: CGFloat {
+    var right: CGFloat {
         return frame.maxX
     }
     
-    public var bottom: CGFloat {
+    var bottom: CGFloat {
         return frame.maxY
     }
     
-    public var size: CGSize {
+    var size: CGSize {
         get {
             return frame.size
         }
@@ -274,7 +274,7 @@ public extension UIView {
         }
     }
     
-    public var width: CGFloat {
+    var width: CGFloat {
         get {
             return frame.width
         }
@@ -285,7 +285,7 @@ public extension UIView {
         }
     }
     
-    public var height: CGFloat {
+    var height: CGFloat {
         get {
             return frame.height
         }
@@ -296,7 +296,7 @@ public extension UIView {
         }
     }
     
-    public var cornerRadius: CGFloat {
+    var cornerRadius: CGFloat {
         get {
             return layer.cornerRadius
         }
@@ -306,12 +306,12 @@ public extension UIView {
         }
     }
     
-    public func circlize() {
+    func circlize() {
         clipsToBounds = true
         layer.cornerRadius = width / 2.0
     }
     
-    public func capture(_ scale: CGFloat = UIScreen.main.scale) -> UIImage? {
+    func capture(_ scale: CGFloat = UIScreen.main.scale) -> UIImage? {
         let alpha = self.alpha
         let isHidden = self.isHidden
         
@@ -330,12 +330,12 @@ public extension UIView {
         return UIGraphicsGetImageFromCurrentImageContext()
     }
     
-    public func drawBorder(_ color: UIColor = UIColor.red, width: CGFloat = 1.0 / UIScreen.main.scale) {
+    func drawBorder(_ color: UIColor = UIColor.red, width: CGFloat = 1.0 / UIScreen.main.scale) {
         layer.borderColor = color.cgColor
         layer.borderWidth = width
     }
     
-    public func showGuideLines(_ width: CGFloat = 1.0 / UIScreen.main.scale, recursive: Bool = true) {
+    func showGuideLines(_ width: CGFloat = 1.0 / UIScreen.main.scale, recursive: Bool = true) {
         drawBorder(UIColor(
             red: CGFloat(arc4random_uniform(255) + 1) / 255.0,
             green: CGFloat(arc4random_uniform(255) + 1) / 255.0,
@@ -350,7 +350,7 @@ public extension UIView {
         }
     }
     
-    public func addSubviewAtFit(_ view: UIView, edge: UIEdgeInsets = UIEdgeInsets.zero) {
+    func addSubviewAtFit(_ view: UIView, edge: UIEdgeInsets = UIEdgeInsets.zero) {
         view.translatesAutoresizingMaskIntoConstraints = false
         addSubview(view)
         addConstraints(NSLayoutConstraint.constraints(withVisualFormat: "H:|-\(edge.left)-[view]-\(edge.right)-|", views: ["view": view]))
@@ -360,7 +360,7 @@ public extension UIView {
 }
 
 public extension NSLayoutConstraint {
-    public class func constraints(withVisualFormat format: String, views: [String : Any]) -> [NSLayoutConstraint] {
+    class func constraints(withVisualFormat format: String, views: [String : Any]) -> [NSLayoutConstraint] {
         return NSLayoutConstraint.constraints(withVisualFormat: format, options: NSLayoutConstraint.FormatOptions(rawValue: 0), metrics: nil, views: views)
     }
 }
@@ -371,13 +371,13 @@ public enum UIButtonAlignment {
 }
 
 public extension UIButton {
-    public func clearImage(state: UIControl.State) {
+    func clearImage(state: UIControl.State) {
         sd_cancelImageLoad(for: state)
         setImage(nil, for: state)
         setBackgroundImage(nil, for: state)
     }
     
-    public func setBackgroundImage(with urlString: String?, for state: UIControl.State, placeholder: UIImage? = nil, completion: ((UIImage?, NSError?) -> Void)? = nil) {
+    func setBackgroundImage(with urlString: String?, for state: UIControl.State, placeholder: UIImage? = nil, completion: ((UIImage?, NSError?) -> Void)? = nil) {
         clearImage(state: state)
         setBackgroundImage(placeholder, for: state)
         
@@ -391,7 +391,7 @@ public extension UIButton {
         }
     }
     
-    public func setImage(with urlString: String?, for state: UIControl.State, placeholder: UIImage? = nil, completion: ((UIImage?, NSError?) -> Void)? = nil) {
+    func setImage(with urlString: String?, for state: UIControl.State, placeholder: UIImage? = nil, completion: ((UIImage?, NSError?) -> Void)? = nil) {
         clearImage(state: state)
         setImage(placeholder, for: state)
         
@@ -405,7 +405,7 @@ public extension UIButton {
         }
     }
     
-    public func strechBackgroundImage() {
+    func strechBackgroundImage() {
         let states: [UIControl.State] = [ .normal, .highlighted, .selected, .disabled ]
         
         for state in states {
@@ -415,7 +415,7 @@ public extension UIButton {
         }
     }
     
-    public func centerVerticallyWithPadding(padding: CGFloat = 6.0) {
+    func centerVerticallyWithPadding(padding: CGFloat = 6.0) {
         sizeToFit()
         
         guard let imageSize = imageView?.size, let titleSize = titleLabel?.size else {
@@ -433,7 +433,7 @@ public extension UIButton {
         titleEdgeInsets = UIEdgeInsets(top: 0.0, left: -iw, bottom: -(totalHeight - th), right: 0.0)
     }
     
-    public func imageAlignment(alignment: UIButtonAlignment) {
+    func imageAlignment(alignment: UIButtonAlignment) {
         sizeToFit()
         
         guard let imageBounds = imageView?.bounds  else { return }
@@ -453,12 +453,12 @@ public extension UIButton {
 
 public extension UIImageView {
     
-    public func clearImage() {
+    func clearImage() {
         sd_cancelCurrentImageLoad()
         image = nil
     }
     
-    public func setImage(with urlString: String?, placeholder: UIImage? = nil, completion: ((UIImage?, NSError?) -> Void)? = nil) {
+    func setImage(with urlString: String?, placeholder: UIImage? = nil, completion: ((UIImage?, NSError?) -> Void)? = nil) {
         sd_cancelCurrentImageLoad()
         image = placeholder
         
@@ -476,7 +476,7 @@ public extension UIImageView {
 
 public extension UIRefreshControl {
     
-    public func moveTo(offsetY: CGFloat) {
+    func moveTo(offsetY: CGFloat) {
         bounds = CGRect(origin: CGPoint(x: bounds.origin.x, y: offsetY), size: bounds.size)
         beginRefreshing()
         endRefreshing()
@@ -487,12 +487,12 @@ public extension UIRefreshControl {
 
 public extension UIScrollView {
     
-    public func scrollToTop(animated: Bool = true) {
+    func scrollToTop(animated: Bool = true) {
         let offset = CGPoint(x: 0.0, y: -contentInset.top)
         setContentOffset(offset, animated: animated)
     }
     
-    public func scrollToBottom(animated: Bool = true) {
+    func scrollToBottom(animated: Bool = true) {
         let y = max(-contentInset.top, contentSize.height - height + contentInset.bottom)
         let offset = CGPoint(x: 0.0, y: y)
         setContentOffset(offset, animated: animated)
@@ -501,7 +501,7 @@ public extension UIScrollView {
 
 public extension UITableViewCell {
     
-    public func hiddenSepratorLine() {
+    func hiddenSepratorLine() {
         separatorInset = UIEdgeInsets(top: 0.0, left: 0.0, bottom: 0.0, right: 10000000.0)
     }
     
@@ -510,17 +510,17 @@ public extension UITableViewCell {
 extension UITableViewCell: ReusableView {}
 public extension UITableView {
     
-    public func register<T: UITableViewCell>(withReuseIdentifier: T.Type) {
+    func register<T: UITableViewCell>(withReuseIdentifier: T.Type) {
         register(T.self, forCellReuseIdentifier: T.reusableIdentifier)
     }
     
-    public func register<T: UITableViewCell>(_: T.Type) {
+    func register<T: UITableViewCell>(_: T.Type) {
         let bundle = Bundle(for: T.self)
         let nib = UINib(nibName: T.nibName, bundle: bundle)
         register(nib, forCellReuseIdentifier: T.reusableIdentifier)
     }
     
-    public func dequeueReusableCell<T: UITableViewCell>(`for` indexPath: IndexPath) -> T {
+    func dequeueReusableCell<T: UITableViewCell>(`for` indexPath: IndexPath) -> T {
         let reuseIdentifier = T.reusableIdentifier
         guard let cell = dequeueReusableCell(withIdentifier: reuseIdentifier, for: indexPath) as? T else {
             fatalError("Could not dequeue cell with identifier: \(T.reusableIdentifier)")
@@ -528,13 +528,13 @@ public extension UITableView {
         return cell
     }
     
-    public func selectedAll(`in` section: Int) {
+    func selectedAll(`in` section: Int) {
         for row in 0 ..< numberOfRows(inSection: section) {
             selectRow(at: IndexPath(row: row, section: section), animated: false, scrollPosition: .none)
         }
     }
     
-    public func deselectedAll(`in` section: Int) {
+    func deselectedAll(`in` section: Int) {
         for row in 0 ..< numberOfRows(inSection: section) {
             deselectRow(at: IndexPath(row: row, section: section), animated: false)
         }
@@ -545,17 +545,17 @@ public extension UITableView {
 extension UICollectionViewCell: ReusableView {}
 public extension UICollectionView {
     
-    public func register<T: UICollectionViewCell>(withReuseIdentifier: T.Type) {
+    func register<T: UICollectionViewCell>(withReuseIdentifier: T.Type) {
         register(T.self, forCellWithReuseIdentifier: T.reusableIdentifier)
     }
     
-    public func register<T: UICollectionViewCell>(_: T.Type) {
+    func register<T: UICollectionViewCell>(_: T.Type) {
         let bundle = Bundle(for: T.self)
         let nib = UINib(nibName: T.nibName, bundle: bundle)
         register(nib, forCellWithReuseIdentifier: T.reusableIdentifier)
     }
     
-    public func dequeueReusableCell<T: UICollectionViewCell>(`for` indexPath: IndexPath) -> T {
+    func dequeueReusableCell<T: UICollectionViewCell>(`for` indexPath: IndexPath) -> T {
         let reuseIdentifier = T.reusableIdentifier
         guard let cell = dequeueReusableCell(withReuseIdentifier: reuseIdentifier, for: indexPath) as? T else {
             fatalError("Could not dequeue cell with identifier: \(T.reusableIdentifier)")
@@ -568,18 +568,18 @@ public extension UICollectionView {
 extension UIViewController: NibLoadableView {}
 public extension UIViewController {
     
-    public var topMostViewController: UIViewController {
+    var topMostViewController: UIViewController {
         return topViewControllerWithRootViewController(self)
     }
     
-    public var modalTopViewController: UIViewController {
+    var modalTopViewController: UIViewController {
         if let viewController = presentedViewController {
             return viewController.modalTopViewController
         }
         return self
     }
     
-    public var modalTopMostViewController: UIViewController {
+    var modalTopMostViewController: UIViewController {
         if let viewController = presentedViewController {
             return viewController.modalTopViewController
         }
@@ -598,7 +598,7 @@ public extension UIViewController {
         return rootViewController
     }
     
-    public func dismissAllModalViewController() {
+    func dismissAllModalViewController() {
         if let viewController = presentedViewController {
             viewController.dismiss(animated: false, completion: { 
                 self.dismissAllModalViewController()
@@ -611,7 +611,7 @@ public extension UIViewController {
 }
 
 public extension UIApplication {
-    public var enabledRemoteNotification: Bool {
+    var enabledRemoteNotification: Bool {
         return UIApplication.shared.currentUserNotificationSettings?.types.contains([.alert]) ?? false
     }
 }
