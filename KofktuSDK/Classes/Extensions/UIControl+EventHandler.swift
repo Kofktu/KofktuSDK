@@ -32,7 +32,7 @@ public protocol UIControlEventHandlerUsable {}
 extension UIControl: UIControlEventHandlerUsable {}
 public extension UIControlEventHandlerUsable where Self: UIControl {
     
-    public func addTarget(_ controlEvent: UIControl.Event, _ handler: @escaping (Self) -> Void) {
+    func addTarget(_ controlEvent: UIControl.Event, _ handler: @escaping (Self) -> Void) {
         let obj = UIControlEventTarget(owner: self, handler: handler)
         addTarget(obj, action: #selector(obj.execute), for: controlEvent)
         objc_setAssociatedObject(self, "\(arc4random())", obj, .OBJC_ASSOCIATION_RETAIN)

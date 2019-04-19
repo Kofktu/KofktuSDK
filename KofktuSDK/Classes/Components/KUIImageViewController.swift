@@ -7,7 +7,7 @@
 //
 
 import UIKit
-import FLAnimatedImage
+import SDWebImage
 
 @objc public protocol KUIImageViewControllerDataSource: class {
     // Required
@@ -387,16 +387,18 @@ open class KUIPhotoView: UIScrollView, UIScrollViewDelegate {
             imageView.clearImage()
         }
         didSet {
-            imageView.sd_setShowActivityIndicatorView(imageUrl.1 == nil)
             imageView.sd_setImage(with: imageUrl.0.flatMap { URL(string: $0) }, placeholderImage: imageUrl.1)
         }
     }
     
-    lazy open var imageView: FLAnimatedImageView = {
-        let imageView = FLAnimatedImageView(frame: self.bounds)
+    lazy open var imageView: SDAnimatedImageView = {
+        let imageView = SDAnimatedImageView(frame: self.bounds)
         imageView.backgroundColor = UIColor.clear
         imageView.contentMode = .scaleAspectFit
-        imageView.sd_setIndicatorStyle(.white)
+        let indicator = SDWebImageActivityIndicator.white
+        indicator.indicatorView.hidesWhenStopped = true
+        imageView.sd_imageIndicator = indicator
+        imageView.sd_imageIndicator?.stopAnimatingIndicator()
         return imageView
     }()
     
