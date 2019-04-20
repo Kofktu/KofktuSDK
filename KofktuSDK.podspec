@@ -134,7 +134,7 @@ Pod::Spec.new do |s|
   # s.xcconfig = { "HEADER_SEARCH_PATHS" => "$(SDKROOT)/usr/include/libxml2" }
 
   # for Swift 4.2
-  s.dependency 'AlamofireObjectMapper', '~> 5.0'
+  s.dependency 'AlamofireObjectMapper', ' 5.1.0'
 
   # for Swift 5.0
   s.dependency 'SDWebImage', '~> 5.0'
