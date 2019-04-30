@@ -18,6 +18,7 @@ public protocol KMViewControllerPagerChildViewControllerProtocol {
     @objc optional func pagerInitialized(_ pager: KUIViewControllerPager)
     @objc optional func pagerWillChangeIndex(_ pager: KUIViewControllerPager, viewController: UIViewController, atIndex index: Int)
     @objc optional func pagerDidChangeIndex(_ pager: KUIViewControllerPager, viewController: UIViewController, atIndex index: Int)
+    @objc optional func pager(_ pager: KUIViewControllerPager, didScroll offset: CGPoint)
 }
 
 fileprivate class ReusableViewControllerCollectionViewCell: UICollectionViewCell {}
@@ -140,6 +141,10 @@ open class KUIViewControllerPager : NSObject, UICollectionViewDelegate, UICollec
         }
     }
     
+    public func updateScroll(_ offset: CGPoint, animated: Bool = true) {
+        collectionView.setContentOffset(offset, animated: animated)
+    }
+    
     fileprivate func updateViewControllersScrollToTop() {
         guard let viewControllers = viewControllers else { return }
         
@@ -165,6 +170,10 @@ open class KUIViewControllerPager : NSObject, UICollectionViewDelegate, UICollec
     }
     
     // MARK: UIScrollViewDelegate
+    public func scrollViewDidScroll(_ scrollView: UIScrollView) {
+        delegate?.pager?(self, didScroll: scrollView.contentOffset)
+    }
+    
     open func scrollViewDidEndDragging(_ scrollView: UIScrollView, willDecelerate decelerate: Bool) {
         guard !decelerate else { return }
         self.scrollViewDidEndDecelerating(scrollView)
