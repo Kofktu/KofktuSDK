@@ -8,7 +8,6 @@
 
 import Alamofire
 import Sniffer
-import CocoaDebug
 
 public protocol ApiRequestProtocol {
     var baseURL: URL { get }

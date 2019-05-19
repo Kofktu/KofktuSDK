@@ -6,13 +6,7 @@ inhibit_all_warnings!
 target 'KofktuSDK' do
   # Pods for KofktuSDK
   pod 'KofktuSDK', :path => './'
-  # pod 'AlamofireObjectMapper', '~> 5.0'
-  # pod 'SDWebImage', '~> 5.0'
-  # pod 'Toaster', '~> 2.0'
-  # pod 'KeychainAccess', '~> 3.1'
-  # pod 'Sniffer', '~> 2.0.0'
-  # pod 'CocoaDebug', '~> 0.6.0'
-
+  
   target 'KofktuSDKTests' do
     inherit! :search_paths
     # Pods for testing
