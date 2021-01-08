@@ -12,7 +12,7 @@ let package = Package(
     dependencies: [
         .package(url: "https://github.com/Alamofire/Alamofire.git", .upToNextMajor(from: "4.9.1")),
         .package(url: "https://github.com/tristanhimmelman/ObjectMapper.git", .exact("3.5.3")),
-        .package(url: "https://github.com/SDWebImage/SDWebImage.git", .upToNextMajor(from: "5.0.0")),
+        .package(url: "https://github.com/SDWebImage/SDWebImage.git", .exact("5.9.5")),
         .package(url: "https://github.com/achernoprudov/Toaster.git", .branch("spm")),
         .package(url: "https://github.com/kishikawakatsumi/KeychainAccess.git", .upToNextMajor(from: "3.2.1")),
         .package(url: "https://github.com/Kofktu/Sniffer.git", .upToNextMajor(from: "2.1.2"))
@@ -24,9 +24,9 @@ let package = Package(
                 "Alamofire",
                 "ObjectMapper",
                 "SDWebImage",
-                "Toaster",
                 "KeychainAccess",
-                "Sniffer"
+                "Sniffer",
+                "Toaster",
             ],
             path: "KofktuSDK/Classes"
         )

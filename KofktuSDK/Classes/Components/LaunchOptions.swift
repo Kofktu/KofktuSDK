@@ -7,6 +7,7 @@
 //
 
 import Foundation
+import UIKit
 
 public struct LaunchOptions {
     public var initialized = false
