@@ -1,0 +1,61 @@
+{
+  "object": {
+    "pins": [
+      {
+        "package": "Alamofire",
+        "repositoryURL": "https://github.com/Alamofire/Alamofire.git",
+        "state": {
+          "branch": null,
+          "revision": "eaf6e622dd41b07b251d8f01752eab31bc811493",
+          "version": "5.4.1"
+        }
+      },
+      {
+        "package": "KeychainAccess",
+        "repositoryURL": "https://github.com/kishikawakatsumi/KeychainAccess.git",
+        "state": {
+          "branch": null,
+          "revision": "8d33ffd6f74b3bcfc99af759d4204c6395a3f918",
+          "version": "3.2.1"
+        }
+      },
+      {
+        "package": "ObjectMapper",
+        "repositoryURL": "https://github.com/tristanhimmelman/ObjectMapper.git",
+        "state": {
+          "branch": null,
+          "revision": "5804d5446eb68b56c61497656cbc7bb6652f069b",
+          "version": "3.5.3"
+        }
+      },
+      {
+        "package": "SDWebImage",
+        "repositoryURL": "https://github.com/SDWebImage/SDWebImage.git",
+        "state": {
+          "branch": null,
+          "revision": "564d238f8814c4a82502336fd80b28a9d321ff47",
+          "version": "5.10.2"
+        }
+      },
+      {
+        "package": "Sniffer",
+        "repositoryURL": "https://github.com/Kofktu/Sniffer.git",
+        "state": {
+          "branch": null,
+          "revision": "09bb5c3c2f1ab787af6bc2f44c6b615fc497311d",
+          "version": "2.1.2"
+        }
+      },
+      {
+        "package": "Toaster",
+        "repositoryURL": "https://github.com/achernoprudov/Toaster.git",
+        "state": {
+          "branch": "spm",
+          "revision": "ffb6c746a97a5e872f84b630e494df9ef8832478",
+          "version": null
+        }
+      }
+    ]
+  },
+  "version": 1
+}

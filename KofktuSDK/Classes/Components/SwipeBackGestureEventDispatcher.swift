@@ -11,6 +11,10 @@ import UIKit
 
 public class SwipeBackGestureEventDispatcher: NSObject {
     
+    public enum Constants {
+        public static let ignoreTagetViewMinimumTag = 100000
+    }
+    
     static public var threshold: CGFloat = 0.0
     
     private weak var parentViewController: UIViewController?
@@ -63,6 +67,9 @@ extension SwipeBackGestureEventDispatcher: UIGestureRecognizerDelegate {
         let point = touch.location(in: gestureRecognizer.view)
         var view = gestureRecognizer.view?.hitTest(point, with: nil)
         
+        if let tag = view?.tag, tag >= Constants.ignoreTagetViewMinimumTag {
+            return false
+        }
         if let _ = view as? UIControl {
             return false
         }
@@ -100,14 +107,26 @@ extension SwipeBackGestureEventDispatcher: UIGestureRecognizerDelegate {
     }
     
     public func gestureRecognizer(_ gestureRecognizer: UIGestureRecognizer, shouldRecognizeSimultaneouslyWith otherGestureRecognizer: UIGestureRecognizer) -> Bool {
+        if let tag = otherGestureRecognizer.view?.tag, tag >= Constants.ignoreTagetViewMinimumTag {
+            return false
+        }
+        
         return true
     }
     
     public func gestureRecognizer(_ gestureRecognizer: UIGestureRecognizer, shouldRequireFailureOf otherGestureRecognizer: UIGestureRecognizer) -> Bool {
+        if let tag = gestureRecognizer.view?.tag, tag >= Constants.ignoreTagetViewMinimumTag {
+            return false
+        }
+        
         return otherGestureRecognizer == panGesture
     }
     
     public func gestureRecognizer(_ gestureRecognizer: UIGestureRecognizer, shouldBeRequiredToFailBy otherGestureRecognizer: UIGestureRecognizer) -> Bool {
+        if let tag = otherGestureRecognizer.view?.tag, tag >= Constants.ignoreTagetViewMinimumTag {
+            return false
+        }
+        
         return gestureRecognizer == panGesture
     }
     

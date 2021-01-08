@@ -14,16 +14,12 @@ public class KeychainManager {
     static public let shared = KeychainManager()
     
     public var isSynchronizeWithICloud: Bool {
-        get {
-            return keychain.synchronizable
-        }
-        set {
-            let _ = keychain.synchronizable(newValue)
-        }
+        get { keychain.synchronizable }
+        set { _ = keychain.synchronizable(newValue) }
     }
     
     fileprivate lazy var keychain: Keychain = {
-        return Keychain(service: Bundle.main.bundleIdentifier!)
+        Keychain(service: Bundle.main.bundleIdentifier!)
     }()
     
     public func set(string value: String?, for key: String) {
