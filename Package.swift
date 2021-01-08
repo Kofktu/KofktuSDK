@@ -10,7 +10,7 @@ let package = Package(
         .library(name: "KofktuSDK", targets: ["KofktuSDK"])
     ],
     dependencies: [
-        .package(url: "https://github.com/Alamofire/Alamofire.git", .upToNextMajor(from: "5.4.0")),
+        .package(url: "https://github.com/Alamofire/Alamofire.git", .upToNextMajor(from: "4.9.1")),
         .package(url: "https://github.com/tristanhimmelman/ObjectMapper.git", .exact("3.5.3")),
         .package(url: "https://github.com/SDWebImage/SDWebImage.git", .upToNextMajor(from: "5.0.0")),
         .package(url: "https://github.com/achernoprudov/Toaster.git", .branch("spm")),
