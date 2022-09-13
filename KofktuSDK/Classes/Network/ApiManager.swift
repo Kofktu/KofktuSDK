@@ -6,6 +6,7 @@
 //  Copyright © 2016년 Kofktu. All rights reserved.
 //
 
+import Foundation
 import Alamofire
 import Sniffer
 

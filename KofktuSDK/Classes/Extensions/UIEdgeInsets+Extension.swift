@@ -6,7 +6,7 @@
 //  Copyright © 2018년 Kofktu. All rights reserved.
 //
 
-import Foundation
+import UIKit
 
 public extension UIEdgeInsets {
     

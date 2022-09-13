@@ -30,16 +30,36 @@
 		C3C8E18D2077B7B800038460 /* SwipeBackGestureEventDispatcher.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3C8E18C2077B7B800038460 /* SwipeBackGestureEventDispatcher.swift */; };
 		C3C8E18F2077B82400038460 /* UIEdgeInsets+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3C8E18E2077B82400038460 /* UIEdgeInsets+Extension.swift */; };
 		C3D4FDB91D2D553600F3FF01 /* Logger.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3D4FDB81D2D553600F3FF01 /* Logger.swift */; };
-		C3D4FDBC1D2D554E00F3FF01 /* UIExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3D4FDBB1D2D554E00F3FF01 /* UIExtensions.swift */; };
 		C3D508CC1D2D49DC005F2B55 /* KofktuSDK.h in Headers */ = {isa = PBXBuildFile; fileRef = C3D508CB1D2D49DC005F2B55 /* KofktuSDK.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		C3D508D31D2D49DC005F2B55 /* KofktuSDK.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C3D508C81D2D49DC005F2B55 /* KofktuSDK.framework */; };
 		C3D508D81D2D49DC005F2B55 /* KofktuSDKTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3D508D71D2D49DC005F2B55 /* KofktuSDKTests.swift */; };
-		C3D7E97C1D2E1FCB00E570F7 /* Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3D7E97B1D2E1FCB00E570F7 /* Extensions.swift */; };
 		C3D7E9801D2E232000E570F7 /* ReusableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3D7E97F1D2E232000E570F7 /* ReusableView.swift */; };
 		C3D7E9821D2E243900E570F7 /* KUILineView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3D7E9811D2E243900E570F7 /* KUILineView.swift */; };
 		C3D7E9841D2E27D100E570F7 /* KUIViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3D7E9831D2E27D100E570F7 /* KUIViewController.swift */; };
 		C3F17C7E1E36D7AD009743DD /* RequestLoader.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3F17C7D1E36D7AD009743DD /* RequestLoader.swift */; };
 		C3F17C811E36D7F8009743DD /* LaunchOptions.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3F17C801E36D7F8009743DD /* LaunchOptions.swift */; };
+		CEB2E31625A7FED600C4FF2B /* Number+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEB2E31525A7FED600C4FF2B /* Number+Extension.swift */; };
+		CEB2E31A25A7FEEA00C4FF2B /* Array+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEB2E31925A7FEEA00C4FF2B /* Array+Extension.swift */; };
+		CEB2E31E25A7FF2500C4FF2B /* Dictionary+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEB2E31D25A7FF2500C4FF2B /* Dictionary+Extension.swift */; };
+		CEB2E32225A7FF5900C4FF2B /* String+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEB2E32125A7FF5900C4FF2B /* String+Extension.swift */; };
+		CEB2E32625A7FF7400C4FF2B /* Data+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEB2E32525A7FF7400C4FF2B /* Data+Extension.swift */; };
+		CEB2E32A25A7FF8500C4FF2B /* Date+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEB2E32925A7FF8500C4FF2B /* Date+Extension.swift */; };
+		CEB2E32E25A7FF9B00C4FF2B /* UserDefaults+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEB2E32D25A7FF9B00C4FF2B /* UserDefaults+Extension.swift */; };
+		CEB2E33225A7FFAA00C4FF2B /* Bundle+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEB2E33125A7FFAA00C4FF2B /* Bundle+Extension.swift */; };
+		CEB2E33825A7FFD400C4FF2B /* UIColor+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEB2E33725A7FFD400C4FF2B /* UIColor+Extension.swift */; };
+		CEB2E33C25A7FFFC00C4FF2B /* UIImage+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEB2E33B25A7FFFC00C4FF2B /* UIImage+Extension.swift */; };
+		CEB2E34025A8045300C4FF2B /* UIView+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEB2E33F25A8045300C4FF2B /* UIView+Extension.swift */; };
+		CEB2E34425A8047200C4FF2B /* UIButton+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEB2E34325A8047200C4FF2B /* UIButton+Extension.swift */; };
+		CEB2E34825A804AB00C4FF2B /* UIRefreshControl+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEB2E34725A804AB00C4FF2B /* UIRefreshControl+Extension.swift */; };
+		CEB2E34C25A804C000C4FF2B /* UIScrollView+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEB2E34B25A804C000C4FF2B /* UIScrollView+Extension.swift */; };
+		CEB2E35025A804D600C4FF2B /* UITableView+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEB2E34F25A804D600C4FF2B /* UITableView+Extension.swift */; };
+		CEB2E35425A804ED00C4FF2B /* UICollectionView+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEB2E35325A804ED00C4FF2B /* UICollectionView+Extension.swift */; };
+		CEB2E35825A8050100C4FF2B /* UIViewController+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEB2E35725A8050100C4FF2B /* UIViewController+Extension.swift */; };
+		CEB2E35C25A8051C00C4FF2B /* UIApplication+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEB2E35B25A8051C00C4FF2B /* UIApplication+Extension.swift */; };
+		CEB2E36025A8053200C4FF2B /* UIDevice+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEB2E35F25A8053200C4FF2B /* UIDevice+Extension.swift */; };
+		CEB2E36625A8058700C4FF2B /* ProcessInfo+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEB2E36525A8058700C4FF2B /* ProcessInfo+Extension.swift */; };
+		CEB2E36A25A805CC00C4FF2B /* LateInit.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEB2E36925A805CC00C4FF2B /* LateInit.swift */; };
+		CEB2E36E25A8062D00C4FF2B /* Atomic.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEB2E36D25A8062D00C4FF2B /* Atomic.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -79,19 +99,39 @@
 		C3C8E18C2077B7B800038460 /* SwipeBackGestureEventDispatcher.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SwipeBackGestureEventDispatcher.swift; sourceTree = "<group>"; };
 		C3C8E18E2077B82400038460 /* UIEdgeInsets+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIEdgeInsets+Extension.swift"; sourceTree = "<group>"; };
 		C3D4FDB81D2D553600F3FF01 /* Logger.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Logger.swift; sourceTree = "<group>"; };
-		C3D4FDBB1D2D554E00F3FF01 /* UIExtensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UIExtensions.swift; sourceTree = "<group>"; };
 		C3D508C81D2D49DC005F2B55 /* KofktuSDK.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = KofktuSDK.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		C3D508CB1D2D49DC005F2B55 /* KofktuSDK.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = KofktuSDK.h; sourceTree = "<group>"; };
 		C3D508CD1D2D49DC005F2B55 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		C3D508D21D2D49DC005F2B55 /* KofktuSDKTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = KofktuSDKTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		C3D508D71D2D49DC005F2B55 /* KofktuSDKTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KofktuSDKTests.swift; sourceTree = "<group>"; };
 		C3D508D91D2D49DC005F2B55 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		C3D7E97B1D2E1FCB00E570F7 /* Extensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Extensions.swift; sourceTree = "<group>"; };
 		C3D7E97F1D2E232000E570F7 /* ReusableView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ReusableView.swift; sourceTree = "<group>"; };
 		C3D7E9811D2E243900E570F7 /* KUILineView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = KUILineView.swift; sourceTree = "<group>"; };
 		C3D7E9831D2E27D100E570F7 /* KUIViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = KUIViewController.swift; sourceTree = "<group>"; };
 		C3F17C7D1E36D7AD009743DD /* RequestLoader.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RequestLoader.swift; sourceTree = "<group>"; };
 		C3F17C801E36D7F8009743DD /* LaunchOptions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LaunchOptions.swift; sourceTree = "<group>"; };
+		CEB2E31525A7FED600C4FF2B /* Number+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Number+Extension.swift"; sourceTree = "<group>"; };
+		CEB2E31925A7FEEA00C4FF2B /* Array+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Array+Extension.swift"; sourceTree = "<group>"; };
+		CEB2E31D25A7FF2500C4FF2B /* Dictionary+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Dictionary+Extension.swift"; sourceTree = "<group>"; };
+		CEB2E32125A7FF5900C4FF2B /* String+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "String+Extension.swift"; sourceTree = "<group>"; };
+		CEB2E32525A7FF7400C4FF2B /* Data+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Data+Extension.swift"; sourceTree = "<group>"; };
+		CEB2E32925A7FF8500C4FF2B /* Date+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Date+Extension.swift"; sourceTree = "<group>"; };
+		CEB2E32D25A7FF9B00C4FF2B /* UserDefaults+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UserDefaults+Extension.swift"; sourceTree = "<group>"; };
+		CEB2E33125A7FFAA00C4FF2B /* Bundle+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Bundle+Extension.swift"; sourceTree = "<group>"; };
+		CEB2E33725A7FFD400C4FF2B /* UIColor+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIColor+Extension.swift"; sourceTree = "<group>"; };
+		CEB2E33B25A7FFFC00C4FF2B /* UIImage+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIImage+Extension.swift"; sourceTree = "<group>"; };
+		CEB2E33F25A8045300C4FF2B /* UIView+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView+Extension.swift"; sourceTree = "<group>"; };
+		CEB2E34325A8047200C4FF2B /* UIButton+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIButton+Extension.swift"; sourceTree = "<group>"; };
+		CEB2E34725A804AB00C4FF2B /* UIRefreshControl+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIRefreshControl+Extension.swift"; sourceTree = "<group>"; };
+		CEB2E34B25A804C000C4FF2B /* UIScrollView+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIScrollView+Extension.swift"; sourceTree = "<group>"; };
+		CEB2E34F25A804D600C4FF2B /* UITableView+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UITableView+Extension.swift"; sourceTree = "<group>"; };
+		CEB2E35325A804ED00C4FF2B /* UICollectionView+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UICollectionView+Extension.swift"; sourceTree = "<group>"; };
+		CEB2E35725A8050100C4FF2B /* UIViewController+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIViewController+Extension.swift"; sourceTree = "<group>"; };
+		CEB2E35B25A8051C00C4FF2B /* UIApplication+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIApplication+Extension.swift"; sourceTree = "<group>"; };
+		CEB2E35F25A8053200C4FF2B /* UIDevice+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIDevice+Extension.swift"; sourceTree = "<group>"; };
+		CEB2E36525A8058700C4FF2B /* ProcessInfo+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "ProcessInfo+Extension.swift"; sourceTree = "<group>"; };
+		CEB2E36925A805CC00C4FF2B /* LateInit.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LateInit.swift; sourceTree = "<group>"; };
+		CEB2E36D25A8062D00C4FF2B /* Atomic.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Atomic.swift; sourceTree = "<group>"; };
 		F31229EDCD46B33FF9761055 /* Pods-KofktuSDKTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-KofktuSDKTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-KofktuSDKTests/Pods-KofktuSDKTests.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -168,11 +208,29 @@
 		C3D4FDBA1D2D554100F3FF01 /* Extensions */ = {
 			isa = PBXGroup;
 			children = (
-				C3D7E97B1D2E1FCB00E570F7 /* Extensions.swift */,
-				C3D4FDBB1D2D554E00F3FF01 /* UIExtensions.swift */,
 				C375F5A31EB371A600230114 /* Snap.swift */,
 				C3C8E18A2077B55600038460 /* UIControl+EventHandler.swift */,
 				C3C8E18E2077B82400038460 /* UIEdgeInsets+Extension.swift */,
+				CEB2E31525A7FED600C4FF2B /* Number+Extension.swift */,
+				CEB2E31925A7FEEA00C4FF2B /* Array+Extension.swift */,
+				CEB2E31D25A7FF2500C4FF2B /* Dictionary+Extension.swift */,
+				CEB2E32125A7FF5900C4FF2B /* String+Extension.swift */,
+				CEB2E32525A7FF7400C4FF2B /* Data+Extension.swift */,
+				CEB2E32925A7FF8500C4FF2B /* Date+Extension.swift */,
+				CEB2E32D25A7FF9B00C4FF2B /* UserDefaults+Extension.swift */,
+				CEB2E33125A7FFAA00C4FF2B /* Bundle+Extension.swift */,
+				CEB2E33725A7FFD400C4FF2B /* UIColor+Extension.swift */,
+				CEB2E33B25A7FFFC00C4FF2B /* UIImage+Extension.swift */,
+				CEB2E33F25A8045300C4FF2B /* UIView+Extension.swift */,
+				CEB2E34325A8047200C4FF2B /* UIButton+Extension.swift */,
+				CEB2E34725A804AB00C4FF2B /* UIRefreshControl+Extension.swift */,
+				CEB2E34B25A804C000C4FF2B /* UIScrollView+Extension.swift */,
+				CEB2E34F25A804D600C4FF2B /* UITableView+Extension.swift */,
+				CEB2E35325A804ED00C4FF2B /* UICollectionView+Extension.swift */,
+				CEB2E35725A8050100C4FF2B /* UIViewController+Extension.swift */,
+				CEB2E35B25A8051C00C4FF2B /* UIApplication+Extension.swift */,
+				CEB2E35F25A8053200C4FF2B /* UIDevice+Extension.swift */,
+				CEB2E36525A8058700C4FF2B /* ProcessInfo+Extension.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -236,6 +294,8 @@
 				C3F17C7F1E36D7D8009743DD /* UI */,
 				C3F17C801E36D7F8009743DD /* LaunchOptions.swift */,
 				C3C8E18C2077B7B800038460 /* SwipeBackGestureEventDispatcher.swift */,
+				CEB2E36925A805CC00C4FF2B /* LateInit.swift */,
+				CEB2E36D25A8062D00C4FF2B /* Atomic.swift */,
 			);
 			path = Components;
 			sourceTree = "<group>";
@@ -420,30 +480,50 @@
 			files = (
 				C366E6A6209FD823000CE31E /* ApiRequest.swift in Sources */,
 				C366E6AC209FDB95000CE31E /* ApiResponse.swift in Sources */,
+				CEB2E34C25A804C000C4FF2B /* UIScrollView+Extension.swift in Sources */,
+				CEB2E34425A8047200C4FF2B /* UIButton+Extension.swift in Sources */,
+				CEB2E36E25A8062D00C4FF2B /* Atomic.swift in Sources */,
+				CEB2E31625A7FED600C4FF2B /* Number+Extension.swift in Sources */,
+				CEB2E33825A7FFD400C4FF2B /* UIColor+Extension.swift in Sources */,
 				C3F17C7E1E36D7AD009743DD /* RequestLoader.swift in Sources */,
+				CEB2E36A25A805CC00C4FF2B /* LateInit.swift in Sources */,
 				C3C17A641E1929ED00D2DDC3 /* KeychainManager.swift in Sources */,
 				C38F0D6C1D2E9F9100797C21 /* ApiManager.swift in Sources */,
-				C3D4FDBC1D2D554E00F3FF01 /* UIExtensions.swift in Sources */,
 				C361D59E1D82FE00003C8FFE /* KUIImageViewController.swift in Sources */,
+				CEB2E32625A7FF7400C4FF2B /* Data+Extension.swift in Sources */,
+				CEB2E35825A8050100C4FF2B /* UIViewController+Extension.swift in Sources */,
+				CEB2E35C25A8051C00C4FF2B /* UIApplication+Extension.swift in Sources */,
+				CEB2E32A25A7FF8500C4FF2B /* Date+Extension.swift in Sources */,
 				C3F17C811E36D7F8009743DD /* LaunchOptions.swift in Sources */,
-				C3D7E97C1D2E1FCB00E570F7 /* Extensions.swift in Sources */,
+				CEB2E34025A8045300C4FF2B /* UIView+Extension.swift in Sources */,
+				CEB2E31E25A7FF2500C4FF2B /* Dictionary+Extension.swift in Sources */,
+				CEB2E32E25A7FF9B00C4FF2B /* UserDefaults+Extension.swift in Sources */,
 				C3C8E18D2077B7B800038460 /* SwipeBackGestureEventDispatcher.swift in Sources */,
 				C36E2B491F60F5760010631F /* CircleComponent.swift in Sources */,
 				C375F5A41EB371A600230114 /* Snap.swift in Sources */,
 				C3B99B911FB036A40058A07B /* UniqueOwnerable.swift in Sources */,
 				C3D4FDB91D2D553600F3FF01 /* Logger.swift in Sources */,
+				CEB2E33225A7FFAA00C4FF2B /* Bundle+Extension.swift in Sources */,
+				CEB2E35025A804D600C4FF2B /* UITableView+Extension.swift in Sources */,
+				CEB2E32225A7FF5900C4FF2B /* String+Extension.swift in Sources */,
 				C366E6A4209FD669000CE31E /* Api.swift in Sources */,
 				C36E2B471F60E8D70010631F /* TouchExpandButton.swift in Sources */,
+				CEB2E36025A8053200C4FF2B /* UIDevice+Extension.swift in Sources */,
 				C3C8E18F2077B82400038460 /* UIEdgeInsets+Extension.swift in Sources */,
 				C3C17A611E1929AA00D2DDC3 /* KUIAlertController.swift in Sources */,
 				C3D7E9801D2E232000E570F7 /* ReusableView.swift in Sources */,
 				C366E6A8209FD90D000CE31E /* ApiParameter.swift in Sources */,
+				CEB2E31A25A7FEEA00C4FF2B /* Array+Extension.swift in Sources */,
 				C3C17A621E1929AA00D2DDC3 /* KUIToastController.swift in Sources */,
 				C3367A0B1D2E7FA3004B5112 /* KofktuSDK.swift in Sources */,
 				C3D7E9841D2E27D100E570F7 /* KUIViewController.swift in Sources */,
+				CEB2E33C25A7FFFC00C4FF2B /* UIImage+Extension.swift in Sources */,
+				CEB2E34825A804AB00C4FF2B /* UIRefreshControl+Extension.swift in Sources */,
 				C31140811D80607500ECF7DA /* KUIViewControllerPager.swift in Sources */,
 				C3B99B8F1FB036530058A07B /* ContentUsable.swift in Sources */,
 				C366E6AA209FDB2F000CE31E /* ModelType.swift in Sources */,
+				CEB2E35425A804ED00C4FF2B /* UICollectionView+Extension.swift in Sources */,
+				CEB2E36625A8058700C4FF2B /* ProcessInfo+Extension.swift in Sources */,
 				C3D7E9821D2E243900E570F7 /* KUILineView.swift in Sources */,
 				C3C8E18B2077B55600038460 /* UIControl+EventHandler.swift in Sources */,
 			);
