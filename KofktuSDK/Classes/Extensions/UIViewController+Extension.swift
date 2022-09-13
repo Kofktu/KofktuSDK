@@ -17,14 +17,14 @@ public extension UIViewController {
     }
     
     var modalTopViewController: UIViewController {
-        if let viewController = presentedViewController {
+        if let viewController = presentedViewController, viewController.isBeingDismissed == false {
             return viewController.modalTopViewController
         }
         return self
     }
     
     var modalTopMostViewController: UIViewController {
-        if let viewController = presentedViewController {
+        if let viewController = presentedViewController, viewController.isBeingDismissed == false {
             return viewController.modalTopViewController
         }
         return topMostViewController
@@ -35,7 +35,8 @@ public extension UIViewController {
             return topViewControllerWithRootViewController(tabBarController.selectedViewController!)
         } else if let naviController = rootViewController as? UINavigationController {
             return topViewControllerWithRootViewController(naviController.viewControllers.last!)
-        } else if let viewController = rootViewController.presentedViewController {
+        } else if let viewController = rootViewController.presentedViewController,
+                  viewController.isBeingDismissed == false {
             return topViewControllerWithRootViewController(viewController)
         }
         
