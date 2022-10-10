@@ -6,9 +6,9 @@
 //  Copyright © 2016년 Kofktu. All rights reserved.
 //
 
+import Foundation
 import Alamofire
 import Sniffer
-import CocoaDebug
 
 public protocol ApiRequestProtocol {
     var baseURL: URL { get }

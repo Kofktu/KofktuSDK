@@ -6,6 +6,8 @@
 //  Copyright © 2016년 Kofktu. All rights reserved.
 //
 
+import Foundation
+
 public func dispatch_main_safe(sync closure: @escaping () -> Void) {
     if Thread.isMainThread {
         closure()

@@ -7,7 +7,6 @@
 //
 
 import Foundation
-import CocoaDebug
 
 public struct LoggerStyle: OptionSet, Hashable {
     public var rawValue: UInt
@@ -22,7 +21,6 @@ public struct LoggerStyle: OptionSet, Hashable {
     static public let info      = LoggerStyle(rawValue: 1 << 1)
     static public let warning   = LoggerStyle(rawValue: 1 << 2)
     static public let error     = LoggerStyle(rawValue: 1 << 3)
-    static public let dotzu     = LoggerStyle(rawValue: 1 << 4)
 }
 
 public let Log: KLogger = {
@@ -34,17 +32,7 @@ public class KLogger {
     
     #if DEBUG
         public var isEnabled = true
-    public var style: LoggerStyle = [.debug, .warning, .info, .error] {
-        didSet {
-            if isEnabled {
-                if style.contains(.dotzu) {
-                    CocoaDebug.enable()
-                } else {
-                    CocoaDebug.disable()
-                }
-            }
-        }
-    }
+        public var style: LoggerStyle = [.debug, .warning, .info, .error] 
     #else
         public var isEnabled = false
         public var style: LoggerStyle = []
@@ -59,10 +47,6 @@ public class KLogger {
         if style.contains(.debug) {
             print("[DEBUG] \(file.ns.lastPathComponent).\(function)[\(line)] : \(value)", terminator: "\n")
         }
-        
-        if style.contains(.dotzu) {
-            swiftLog(file, function, line, value, .white)
-        }
     }
     
     public func i<T>(_ value: T, file: String = #file, function: String = #function, line: Int = #line) {
@@ -73,10 +57,6 @@ public class KLogger {
         if style.contains(.info) {
             print("[INFO] \(file.ns.lastPathComponent).\(function)[\(line)] : \(value)", terminator: "\n")
         }
-        
-        if style.contains(.dotzu) {
-            swiftLog(file, function, line, value, .white)
-        }
     }
     
     public func w<T>(_ value: T, file: String = #file, function: String = #function, line: Int = #line) {
@@ -86,10 +66,6 @@ public class KLogger {
         
         if style.contains(.warning) {
             print("[WARNING] \(file.ns.lastPathComponent).\(function)[\(line)] : \(value)", terminator: "\n")
-        }
-        
-        if style.contains(.dotzu) {
-            swiftLog(file, function, line, value, .yellow)
         }
     }
     
@@ -113,10 +89,6 @@ public class KLogger {
             }
             print("==============================================================================", terminator: "\n")
         }
-        
-        if style.contains(.dotzu) {
-            swiftLog(file, function, line, error, .red)
-        }
     }
     
     public func e(_ error: Error?, file: String = #file, function: String = #function, line: Int = #line) {
@@ -128,10 +100,6 @@ public class KLogger {
             print("\(file.ns.lastPathComponent).\(function)[\(line)] : ===========[ERROR]============", terminator: "\n")
             print("Description : \(error.localizedDescription)", terminator: "\n")
             print("==============================================================================", terminator: "\n")
-        }
-        
-        if style.contains(.dotzu) {
-            swiftLog(file, function, line, error, .red)
         }
     }
 }
